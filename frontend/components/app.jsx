@@ -1,16 +1,21 @@
 import React from "react";
-import LoginContainer from './login/login_container'
-import signup_container from "./session/signup_container";
+import loginform_container from './session/loginform_container'
+import signupform_container from "./session/signupform_container";
 import { Route, Switch } from 'react-router-dom';
-
+import LoginContainer from './login/login_container';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import Home from "./home/home";
 
 const App = () => (
-    <div>
+    <div className='mainApp'>
         <h1>Bestfriend Treehouse</h1>
         <LoginContainer />
+        <Home />
+
         <Switch>
-            <Route path="/signup" component={signup_container} />
-            {/* <Route path="/login" component={EditReportFormContainer} /> */}
+            {/* <Route exact path="/" component={home_container} /> */}
+            <AuthRoute path="/signup" component={signupform_container} />
+            <AuthRoute path="/login" component={loginform_container} />
         </Switch>
         
     </div>
