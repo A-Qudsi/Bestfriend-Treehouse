@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import { openModal } from '../../actions/modal_actions';
 
-const Login = ({ currentUser, logout }) => {
+const Login = ({ currentUser, logout, openModal }) => {
 
     const sessionLinks = () => (
         <div className="login-signup">
-            <Link to="/login">Log in</Link>
-            <br />
-            <Link to="/signup">Sign up</Link>
+            <button onClick = { () => (openModal('login')) }>login</button>
+            <button onClick={() => (openModal('signup'))} >signup</button>
         </div>
     );
 

@@ -39,51 +39,55 @@ class Signup extends React.Component {
     }
 
     render() {
-        let loginComplete = (
-            <div>
-                < label > First Name
-                <input type = "text"
-                        value = { this.state.fname }
-                        onChange = { this.update('fname') } />
-                </label >
-                <br />
-                < label > Last Name
-                <input type = "text"
-                        value = { this.state.lname }
-                        onChange = { this.update('lname') } />
-                </label >
-                <br />
-                < label > Date of Birth 
-                <input type="text"
-                        value={this.state.date_of_birth}
-                        onChange={this.update('date_of_birth')} />
-                </label >
-            </div>
-        )
-        return (
-            <div>
-                <h1>{this.props.formType}</h1>
-                <br />
-                <form onSubmit={this.handleSubmit}>
-                    {this.props.formType === 'signup' ? loginComplete : '' }
-                    <label>Email
+        if (this.props.formType === 'signup') {
+            return (
+                <div className='signup_form'>
+                    <div className='signup_form_header'>
+                        <button className='close_button'>X</button>
+                        <p className='signup_form_header_title'>Finish signing up</p>
+                    </div>
+                    < label > First Name
+                    <input type = "text"
+                            value = { this.state.fname }
+                            onChange = { this.update('fname') } />
+                    </label >
+
+                    < label > Last Name
+                    <input type = "text"
+                            value = { this.state.lname }
+                            onChange = { this.update('lname') } />
+                    </label >
+
+                    < label > Date of Birth 
                     <input type="text"
-                            value={this.state.email}
-                            onChange={this.update('email')} />
-                    </label>
-                    <br />
-                    <label>password
-                    <input type ="password"
-                            value={this.state.password}
-                            onChange={this.update('password')} />
-                    </label>
-                    <br />
-                    { this.renderErrors() }
-                    <input type="submit"
-                        value={this.props.formType} />
-                </form>
-            </div>
-        )
+                            value={this.state.date_of_birth}
+                            onChange={this.update('date_of_birth')} />
+                    </label >
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <form onSubmit={this.handleSubmit}>
+                        {this.props.formType === 'signup' ? loginComplete : ''}
+                        <label>Email
+                    <input type="text"
+                                value={this.state.email}
+                                onChange={this.update('email')} />
+                        </label>
+
+                        <label>password
+                    <input type="password"
+                                value={this.state.password}
+                                onChange={this.update('password')} />
+                        </label>
+
+                        {this.renderErrors()}
+                        <button>{this.props.formType}</button>
+                    </form>
+                 </div >
+            )
+        }
     }
 }
 

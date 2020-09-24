@@ -20,7 +20,7 @@
     position: absolute;
     width: 100%;
     left: 0;
-    height: 620px;
+    height: 1620px;
     object-fit: contain;
 }
 
@@ -112,4 +112,21 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: white;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center;
+  min-height: 550px;
+  max-height: 100%;
+  width: 40%;
+  padding: 30px;
+}
+
+.signup_form_header{
+    display: flex;
+}
+.signup_form_header_title {
+    position: relative;
+    display: flex;
+    justify-content: center;
 }
