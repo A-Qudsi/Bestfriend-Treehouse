@@ -1,10 +1,13 @@
 import React from 'react';
-import './home.css';
+import LoginContainer from '../login/login_container.js';
 
 const Home =() => {
     return (
         <div className = 'homePage'>
-            <img className='treehouse_background' src='https://bestfriend-treehouse-dev.s3.amazonaws.com/treehouse.jpg' width="100%" />
+
+            <div className='treehouse_background'>
+                <LoginContainer />
+            </div>
         </div>
     )
 }
