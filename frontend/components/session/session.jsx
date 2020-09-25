@@ -35,8 +35,8 @@ class Signup extends React.Component {
     demoUser(e){
         e.preventDefault();
         const demoUser = {
-            email: "ad3llq101@gmail.com",
-            password: "123456aA"
+            email: "test@aa.com",
+            password: "123456"
         }
         this.props.session(demoUser);
     }
