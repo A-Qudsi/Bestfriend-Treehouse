@@ -16,6 +16,10 @@ class Signup extends React.Component {
         this.demoUser = this.demoUser.bind(this);
     }
 
+    componentWillMount(){
+        this.props.clearErrors()
+    }
+    
     componentDidUpdate() {
         if (this.props.curUser) {
             this.props.closeModal()

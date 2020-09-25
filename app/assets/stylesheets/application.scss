@@ -69,9 +69,13 @@
     margin-left: 100px;
 }   
 
+#navbar{ 
+    display: flex;
+    justify-content: center
+}
 .fa-bars:before {
     font-size: 15px;
-    padding-bottom: 10px;
+    // padding-bottom: 10px;
 }
 
 .search_bar > input {
@@ -103,6 +107,7 @@
     font-size: 30px;
     display: flex;
     align-items: center;
+    padding: 5px;
     // margin: 10px;
 }
 .header-div, .login-signup {

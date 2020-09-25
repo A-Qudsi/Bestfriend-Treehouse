@@ -14,8 +14,8 @@ const Navbar = () => {
                     <i className="fas fa-chevron-down fa-fw"></i>
                     </div></button>
                 <button className='right_panel_buttons'> <div className='right_header_button'>
-                    <i className="fas fa-bars fa-fw"></i>   
-                    <i className="fas fa-user-circle fa-fw"></i>
+                    <i className="fas fa-bars fa-fw" id="navbar"></i>   
+                    <i className="fas fa-user-circle fa-fw"></i> 
                 </div></button>
             </div>
         </div>
