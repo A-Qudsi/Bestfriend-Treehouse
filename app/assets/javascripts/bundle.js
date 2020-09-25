@@ -655,8 +655,8 @@ var Signup = /*#__PURE__*/function (_React$Component) {
     value: function demoUser(e) {
       e.preventDefault();
       var demoUser = {
-        email: "ad3llq101@gmail.com",
-        password: "123456aA"
+        email: "test@aa.com",
+        password: "123456"
       };
       this.props.session(demoUser);
     }
