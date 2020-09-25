@@ -8,7 +8,7 @@ const Navbar = () => {
                 <input type='text' placeholder="Start your search"/> <i className="fas fa-search fa-fw"></i>
             </div>
             <div className='right_panel'>
-                <p className='host_text'>Become a host    </p>
+                <p className='host_text'>Become a host</p>
                 <button className='right_panel_buttons'><div className='globe_panel_button'>
                     <i className="fas fa-globe fa-fw"></i>
                     <i className="fas fa-chevron-down fa-fw"></i>

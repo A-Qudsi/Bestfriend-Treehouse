@@ -7,7 +7,8 @@ import React from 'react';
 const mSTP = ( state ) => {
     return {
         errors: state.errors.session,
-        formType: 'login'
+        formType: 'login',
+        curUser: Boolean(state.session.id)
     };
 };
 

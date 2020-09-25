@@ -25,6 +25,9 @@ span, article, footer, time, small {
 ol, ul {
   list-style: none;
 }
+p {
+ font-family: Arial, Helvetica, sans-serif;
+}
 
 img {
   display: block;
@@ -37,10 +40,12 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-// input[type="password"],
-// input[type="email"],
-// input[type="text"],
-// input[type="submit"],
+input[type="password"],
+input[type="date"],
+input[type="text"],
+input[type="submit"] {
+    width: 100%
+}
 // textarea,
 // button {
 //   /*

@@ -10,7 +10,6 @@ import Modal from './modal/modal'
 const App = () => (
     <div className='mainApp'>
         <Modal />
-        {/* <h1>Bestfriend Treehouse</h1> */}
         <Navbar/>
 
         <Switch>

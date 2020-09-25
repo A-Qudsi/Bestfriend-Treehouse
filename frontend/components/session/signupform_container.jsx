@@ -6,7 +6,8 @@ import React from 'react';
 
 const mSTP = (state) => ({
     errors: state.errors.session,
-    formType: 'signup'
+    formType: 'signup',
+    curUser: Boolean(state.session.id)
 });
 
 const mDTP = dispatch => ({

@@ -20,7 +20,7 @@
     position: absolute;
     width: 100%;
     left: 0;
-    height: 1620px;
+    height: 620px;
     object-fit: contain;
 }
 
@@ -86,6 +86,7 @@
 .right_panel_buttons {
     margin: 0 8px;
 }
+
 .globe_panel_button {
     border: none;
 }
@@ -115,18 +116,93 @@
   background-color: white;
   box-sizing: border-box;
   border-radius: 10px;
-  text-align: center;
-  min-height: 550px;
-  max-height: 100%;
+  text-align: left;
   width: 40%;
   padding: 30px;
+}
+.s_email, .s_dob, .s_password {
+    width: 100%;
+    height: 50px;
+    border: 1px solid darkgray;
+    padding: 7px 15px 7px 5px;
+    border-radius: 8px;
+
+    input {
+        margin-top: 8px;
+    }
+}
+.s_first_name {
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid darkgray;
+    border-right: 1px solid darkgray;
+    border-left: 1px solid darkgray;
+    padding: 7px 15px 7px 5px;
+    border-radius: 8px 8px 0px 0px; 
+    
+    input {
+        margin-top: 10px;
+    }
+}
+.s_last_name {
+    width: 100%;
+    height: 50px;
+    border: 1px solid darkgray;
+    padding: 7px 15px 7px 5px;
+    border-radius: 0px 0px 8px 8px;
+
+    input {
+        margin-top: 10px;
+    }
 }
 
 .signup_form_header{
     display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid darkgray;
+    margin-bottom: 20px;
+    widows: 100%;
+    height: 40px;
+    align-items: baseline;
 }
+
 .signup_form_header_title {
-    position: relative;
+    top: 20px;
     display: flex;
+    size: 16px;
+    margin-right: 45%;
+}
+.name_tag, .dob_tag, .email_tag, .promotions_tag, .subscribe-text {
+    font-size: 12px;
+    color: darkgray;
+    padding-bottom: 20px;
+    text-align: left;
+    
+}
+.subscribe-text {
+    // display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+input[type=checkbox] {
+
+    transform: scale(1.5);
+    padding-right: 15px;
+
+}
+
+.subscribe-box {
+    display: flex;
+}
+
+.submit-button {
+    background-color: red;
+    display: flex;
+    width: 100%;
+    border-radius: 10px;
+    color: white;
+    height: 50px;
+    align-items: center;
     justify-content: center;
 }

@@ -453,7 +453,7 @@ var Navbar = function Navbar() {
     className: "right_panel"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "host_text"
-  }, "Become a host    "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, "Become a host"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "right_panel_buttons"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "globe_panel_button"
@@ -530,7 +530,8 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state) {
   return {
     errors: state.errors.session,
-    formType: 'login'
+    formType: 'login',
+    curUser: Boolean(state.session.id)
   };
 };
 
@@ -614,6 +615,13 @@ var Signup = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(Signup, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      if (this.props.curUser) {
+        this.props.closeModal();
+      }
+    }
+  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -644,29 +652,80 @@ var Signup = /*#__PURE__*/function (_React$Component) {
       if (this.props.formType === 'signup') {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "signup_form"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          onSubmit: this.handleSubmit
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "signup_form_header"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "close_button"
         }, "X"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "signup_form_header_title"
-        }, "Finish signing up")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " First Name", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, "Sign up")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "s_first_name"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
+          className: "s_f",
           value: this.state.fname,
+          placeholder: "First Name",
           onChange: this.update('fname')
-        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Last Name", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "s_last_name"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
+          className: "s_l",
           value: this.state.lname,
+          placeholder: "Last Name",
           onChange: this.update('lname')
-        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Date of Birth", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "text",
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "name_tag"
+        }, "Make sure it matches the name on your government ID."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "s_dob"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "date",
+          className: "s_d",
           value: this.state.date_of_birth,
+          placeholder: "Birthdate",
           onChange: this.update('date_of_birth')
-        })));
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "dob_tag"
+        }, "To sign up, you need to be at least 18. Your birthday won\u2019t be shared with other people who use Bestfriend Treehouse."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "s_email"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "email",
+          className: "s_e",
+          value: this.state.email,
+          placeholder: "Email",
+          onChange: this.update('email')
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "email_tag"
+        }, "We'll email you trip confirmations and receipts."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "s_password"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "password",
+          className: "s_p",
+          value: this.state.password,
+          placeholder: "Password",
+          onChange: this.update('password')
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "promotions_tag"
+        }, "We\u2019ll send you marketing promotions, special offers, inspiration, and policy updates via email."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "subscribe-box"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "checkbox",
+          id: "subscribeNews",
+          name: "subscribe",
+          value: "newsletter"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          className: "subscribe-text",
+          htmlFor: "subscribeNews"
+        }, "I don\u2019t want to receive marketing messages from Bestfriend Treehouse. I can also opt out of receiving these at any time in my account settings or via the link in the message.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "submit",
+          className: "submit-button"
+        }, "Agree and Continue")));
       } else {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
           onSubmit: this.handleSubmit
-        }, this.props.formType === 'signup' ? loginComplete : '', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Email", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Email", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
           value: this.state.email,
           onChange: this.update('email')
@@ -710,7 +769,8 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state) {
   return {
     errors: state.errors.session,
-    formType: 'signup'
+    formType: 'signup',
+    curUser: Boolean(state.session.id)
   };
 };
 
