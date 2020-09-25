@@ -66,7 +66,13 @@
     padding: 5px;
     height: 30px;
     border-radius: 999px;
+    margin-left: 100px;
 }   
+
+.fa-bars:before {
+    font-size: 15px;
+    padding-bottom: 10px;
+}
 
 .search_bar > input {
     border: none;
@@ -76,9 +82,7 @@
 .right_panel {
     display: flex;
     align-items: center;
-    margin: 0 50px;
-    width: 300px;
-    margin-right: 0px;
+    margin-right: 50px;
 }
 
 .host_text {
@@ -97,6 +101,8 @@
     border: 1px solid lightgray;
     border-radius: 999px;
     font-size: 30px;
+    display: flex;
+    align-items: center;
     // margin: 10px;
 }
 .header-div, .login-signup {
@@ -205,6 +211,9 @@
     color: darkgray;
     padding-bottom: 20px;
     text-align: left;
+    padding-top: 5px;
+    padding-right: 5px;
+    font-size: 14px;
     
 }
 .subscribe-text {
@@ -215,7 +224,7 @@
 input[type=checkbox] {
 
     transform: scale(1.5);
-    padding-right: 15px;
+    align-self: center
 
 }
 
@@ -254,9 +263,4 @@ input[type=checkbox] {
     margin-right: 10px;
     // justify-content: space-between;
     align-items: center;
-}
-.tag {
-    padding-top: 18px;
-    padding-right: 5px;
-    font-size: 14px;
 }

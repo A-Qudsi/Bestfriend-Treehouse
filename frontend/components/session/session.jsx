@@ -60,7 +60,7 @@ class Signup extends React.Component {
             return (
                 <>
                     <div className='signup_form_header'>
-                        <button className='close_button'>X</button>
+                        <button className='close_button' onClick={() => this.props.closeModal()}>X</button>
                         <p className='signup_form_header_title'>Sign up</p>
                     </div>
                     <form className='signup_form body' onSubmit={this.handleSubmit}>
@@ -117,7 +117,7 @@ class Signup extends React.Component {
             return (
                 <>
                     <div className='login_form_header'>
-                        <button className='close_button'>X</button>
+                        <button className='close_button' onClick={() => this.props.closeModal()}>X</button>
                         <p className='login_form_header_title'>Login</p>
                     </div>
                     <div className='login_form'>
