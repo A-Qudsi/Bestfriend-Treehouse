@@ -23,6 +23,7 @@ const mDTP = dispatch => {
         ),
         closeModal: () => dispatch(closeModal()),
         clearErrors: () => dispatch(clearErrors())
+        
     };
 };
 

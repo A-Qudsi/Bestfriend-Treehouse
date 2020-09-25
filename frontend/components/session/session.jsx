@@ -130,7 +130,8 @@ class Signup extends React.Component {
                                 <input type="text" className="l_e"
                                     value={this.state.email}
                                     placeholder='Email'
-                                    onChange={this.update('email')} />
+                                    onChange={this.update('email')}
+                                     />
                             </div>
                             <div className='l_password'>
                                 <input type="password" className='l_p'
@@ -138,15 +139,15 @@ class Signup extends React.Component {
                                     placeholder='Password'
                                     onChange={this.update('password')} />
                             </div>
+                            {this.renderErrors()}
                             <button type='submit' className='submit-button'>Login</button>
                             <button className='submit-button' onClick={ this.demoUser}>Demo User</button>
-                            {this.renderErrors()}
                             <p className='l_tag'>Forgot password?</p>
-                            <div className='l_link'>
-                                <span className='tag'>Don’t have an account?</span>
-                                <button onClick={openModal}>Sign up</button>
-                            </div>
                         </form>
+                        <div className='l_link'>
+                            <span className='tag'>Don’t have an account?</span>
+                            <button onClick={() =>dispatch(openModal('signup'))}>Sign up</button>
+                        </div>
                     </div >
                 </>
             )

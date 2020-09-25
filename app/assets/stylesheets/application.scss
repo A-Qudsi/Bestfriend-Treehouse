@@ -14,16 +14,18 @@
  *= require_self
  */
 
-.treehouse_background {
+.homePage {
     background-image: url('https://bestfriend-treehouse-dev.s3.amazonaws.com/treehouse.jpg');
     background-size: cover;
-    position: absolute;
-        // background-repeat: no-repeat;
+    position: relative;
+    background-repeat: no-repeat;
     background-position: center;;
-    width: 100vw;
+    width: 100%;
     left: 0;
     height: 620px;
     object-fit: contain;
+    // z-index:-1;
+    // overflow:hidden;
 }
 
 /* 
@@ -69,9 +71,17 @@
     margin-left: 100px;
 }   
 
-#navbar{ 
-    display: flex;
-    justify-content: center
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+
+    #navbar{ 
+        display: flex;
+        justify-content: center;
+
+    }
 }
 .fa-bars:before {
     font-size: 15px;
@@ -97,8 +107,17 @@
     margin: 0 8px;
 }
 
+.dropdown {
+    position: relative;
+}
+
+
 .globe_panel_button {
     border: none;
+}
+.dropdown-items {
+    display: block;
+    z-index: 100;
 }
 
 .right_header_button {
@@ -108,16 +127,22 @@
     display: flex;
     align-items: center;
     padding: 5px;
+    
     // margin: 10px;
 }
+
 .header-div, .login-signup {
     display: flex;
     justify-content: space-between;
-    background-image:none;
+    background-color: purple;
     background: transparent;
     padding: 20px;
     width: 200px;
     color: red;
+}
+
+.treehouse_background {
+    background: none;
 }
 
 .modal-background {
@@ -268,4 +293,18 @@ input[type=checkbox] {
     margin-right: 10px;
     // justify-content: space-between;
     align-items: center;
+}
+
+.footer {
+    border-top: 1px solid lightgray;
+    padding: 20px;
+    background-color: #f7f7f7;
+    text-align: center;
+    // bottom: 0;
+    // z-index: 100;
+}
+
+.footer > p {
+    padding: 5px;
+    font-size: 14px;
 }
