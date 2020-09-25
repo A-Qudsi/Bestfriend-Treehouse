@@ -18,7 +18,9 @@
     background-image: url('https://bestfriend-treehouse-dev.s3.amazonaws.com/treehouse.jpg');
     background-size: cover;
     position: absolute;
-    width: 100%;
+        // background-repeat: no-repeat;
+    background-position: center;;
+    width: 100vw;
     left: 0;
     height: 620px;
     object-fit: contain;
@@ -97,6 +99,15 @@
     font-size: 30px;
     // margin: 10px;
 }
+.header-div, .login-signup {
+    display: flex;
+    justify-content: space-between;
+    background-image:none;
+    background: transparent;
+    padding: 20px;
+    width: 200px;
+    color: red;
+}
 
 .modal-background {
   position: fixed;
@@ -118,8 +129,15 @@
   border-radius: 10px;
   text-align: left;
   width: 40%;
-  padding: 30px;
+  margin: 30px;
+  max-height: calc(100vh - 110px);
+  scrollbar-width: none;  
+  overflow: auto;
 }
+.modal-child::-webkit-scrollbar {
+  display: none;
+}
+
 .s_email, .s_dob, .s_password {
     width: 100%;
     height: 50px;
@@ -131,7 +149,7 @@
         margin-top: 8px;
     }
 }
-.s_first_name {
+.s_first_name, .l_email{
     width: 100%;
     height: 50px;
     border-top: 1px solid darkgray;
@@ -144,7 +162,7 @@
         margin-top: 10px;
     }
 }
-.s_last_name {
+.s_last_name, .l_password {
     width: 100%;
     height: 50px;
     border: 1px solid darkgray;
@@ -156,23 +174,33 @@
     }
 }
 
-.signup_form_header{
+.signup_form, .login_form {
+    padding: 30px;
+}
+
+.signup_form_header, .login_form_header {
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid darkgray;
-    margin-bottom: 20px;
-    widows: 100%;
-    height: 40px;
-    align-items: baseline;
+    width: 100%;
+    height: 60px;
+    align-items: center;
 }
 
-.signup_form_header_title {
-    top: 20px;
+.close_button{
+    padding-left: 25px;
+}
+
+.signup_form_header_title, .login_form_header_title {
     display: flex;
+    top: 20px;
     size: 16px;
     margin-right: 45%;
 }
-.name_tag, .dob_tag, .email_tag, .promotions_tag, .subscribe-text {
+
+.tag, .subscribe-text {
     font-size: 12px;
     color: darkgray;
     padding-bottom: 20px;
@@ -180,7 +208,6 @@
     
 }
 .subscribe-text {
-    // display: flex;
     align-items: center;
     margin-left: 15px;
 }
@@ -205,4 +232,31 @@ input[type=checkbox] {
     height: 50px;
     align-items: center;
     justify-content: center;
+    margin: 20px 0px;
+
+}
+
+.l_tag {
+    text-decoration: underline;
+    color: darkslategray;
+    size: 14px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.l_tag:hover {
+    text-decoration: underline;
+    color: black;
+}
+.l_link {
+    display: flex;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    // justify-content: space-between;
+    align-items: center;
+}
+.tag {
+    padding-top: 18px;
+    padding-right: 5px;
+    font-size: 14px;
 }
