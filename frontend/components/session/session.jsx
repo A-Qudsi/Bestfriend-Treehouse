@@ -146,7 +146,7 @@ class Signup extends React.Component {
                         </form>
                         <div className='l_link'>
                             <span className='tag'>Don’t have an account?</span>
-                            <button onClick={() =>dispatch(openModal('signup'))}>Sign up</button>
+                            <button onClick={ () => dispatch(openModal('signup'))}>Sign up</button>
                         </div>
                     </div >
                 </>

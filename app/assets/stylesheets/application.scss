@@ -263,7 +263,7 @@ input[type=checkbox] {
 }
 
 .submit-button {
-    background-color: red;
+    background-color: #ff7779;
     display: flex;
     width: 100%;
     border-radius: 10px;
@@ -300,11 +300,118 @@ input[type=checkbox] {
     padding: 20px;
     background-color: #f7f7f7;
     text-align: center;
-    // bottom: 0;
-    // z-index: 100;
 }
 
 .footer > p {
     padding: 5px;
     font-size: 14px;
 }
+
+.escape_images{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;
+    padding: 15px 52px 20px 52px;
+    
+    .escape_img {
+        margin: 10px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0px 8px 17px -7px rgba(0,0,0,0.51);
+        cursor: pointer;
+
+        img{
+            object-fit: fill;
+            min-width: 300px;
+            min-height: 200px;
+            width: 100%;
+        }
+    }   
+}
+
+.eimg_details {
+    margin-top: -9px;
+    padding: 20px;
+    padding-top: 20px;
+    border: 1; 
+    border-radius: 10px;
+
+    .img_title {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .img_body {
+        font-size: 12px;
+        color: darkgray;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+}
+
+.OnlineExperiences{
+    background-color: black;
+    z-index: -1;
+    padding: 70px;
+
+    .topOEDiv{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .OEheader{
+        color: white;
+        font-size: 30px;
+    }
+    .OEdescription {
+        color: white;
+        font-size: 13.5px;
+    }
+
+    button {
+        border: 1px solid white;
+        color: white;
+        border-radius: 7px;
+        padding: 5px 15px; 
+        font-size: 12px;
+    }
+}
+
+.OEphotoDetails {
+    padding-bottom: 20px;
+    border-radius: 0px 0px 10px 10px;
+    background-color: #222222;
+}
+
+.OEphotos {
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+    grid-gap: 10px;
+    padding-top: 25px;
+    column-gap: 10px;
+
+        p {
+        color: #F5F5F5;
+        padding-top: 10px;
+        margin: 0px 0px 20px 10px;
+        font-size: 14px;
+    }
+}
+
+.billNyeDiv {
+    border-radius: 15px;
+    overflow: hidden;
+    grid-row: 1 / span 2;
+}
+.SeaDiv {
+    border-radius: 15px;
+    overflow: hidden;
+    grid-column: 2 / span 2;
+}
+.TigerDiv, .ArtDiv {
+    border-radius: 15px;
+    overflow: hidden;
+
+}
+
+
