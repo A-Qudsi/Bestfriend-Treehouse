@@ -183,6 +183,7 @@
 
     input {
         margin-top: 8px;
+        width:100%;
     }
 }
 .s_first_name, .l_email{
@@ -448,4 +449,80 @@ input[type=checkbox] {
         font-size: 17px;
         font-weight: normal;
     }
+}
+
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+.divNerror {
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid #C13725;
+    border-right: 1px solid #C13725;
+    border-left: 1px solid #C13725;
+    padding: 7px 15px 7px 5px;
+    border-radius: 8px 8px 0px 0px; 
+    background-color: #FEF8F6;
+    
+    input {
+        // background-color: #FEF8F6;
+        margin-top: 10px;
+    }
+}
+
+.divLerror{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #C13725;
+    padding: 7px 15px 7px 5px;
+    border-radius: 0px 0px 8px 8px;
+    background-color: #FEF8F6;
+
+    input {
+        margin-top: 10px;
+    }
+}
+
+.diverror {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #C13725;
+    padding: 7px 15px 7px 5px;
+    background-color: #FEF8F6;
+    border-radius: 8px;
+
+    input {
+        margin-top: 8px;
+        width:100%;
+    }
+}
+
+.c-error .c-validation{ 
+  background: #c51244 !important;
+  padding: 10px !important;
+  border-radius: 0 !important;
+  position: relative; 
+  display: inline-block !important;
+  box-shadow: 1px 1px 1px #aaaaaa;
+  margin-top: 10px;
+}
+.c-error  .c-validation:before{ 
+  content: ''; 
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #c51244;
+  position: absolute; 
+  top: -10px; 
+}
+.c-label:after{
+  color: #c51244 !important;
+}
+.c-error input, .c-error select, .c-error .c-choice-option{ 
+  background: #fff0f4; 
+  color: #c51244;
 }

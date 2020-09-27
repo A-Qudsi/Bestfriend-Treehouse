@@ -733,6 +733,11 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+var initialState = {
+  nameError: "",
+  emailError: "",
+  passwordError: ""
+};
 
 var Signup = /*#__PURE__*/function (_React$Component) {
   _inherits(Signup, _React$Component);
@@ -750,7 +755,10 @@ var Signup = /*#__PURE__*/function (_React$Component) {
       lname: '',
       date_of_birth: '',
       email: '',
-      password: ''
+      password: '',
+      nameError: '',
+      emailError: '',
+      passwordError: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.demoUser = _this.demoUser.bind(_assertThisInitialized(_this));
@@ -761,6 +769,44 @@ var Signup = /*#__PURE__*/function (_React$Component) {
     key: "componentWillMount",
     value: function componentWillMount() {
       this.props.clearErrors();
+    }
+  }, {
+    key: "validate",
+    value: function validate() {
+      var nameError = "";
+      var emailError = "";
+      var passwordError = "";
+      var password = this.state.password;
+      var email = this.state.email;
+      var splitOnAt = email.split('@');
+      var splitOnDot = email.split('.');
+
+      if (!email.includes('@') || !email.includes('.') || splitOnAt.length > 2 || splitOnDot[splitOnDot.length - 1].length < 2 || email === '') {
+        emailError = 'Enter a valid email.';
+      }
+
+      if (!this.state.fname) {
+        nameError = "First name is required";
+      } else if (!this.state.lname) {
+        nameError = "Last name is required";
+      }
+
+      if (password.length === 0) {
+        passwordError = 'Password is required';
+      } else if (password.length < 6) {
+        passwordError = 'Your password must be at least 6 characters. Please try again.';
+      }
+
+      if (passwordError || emailError || nameError) {
+        this.setState({
+          passwordError: passwordError,
+          emailError: emailError,
+          nameError: nameError
+        });
+        return false;
+      }
+
+      return true;
     }
   }, {
     key: "componentDidUpdate",
@@ -803,6 +849,11 @@ var Signup = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
       this.props.session(user);
+      var isValid = this.validate();
+
+      if (isValid) {
+        this.setState(initialState);
+      }
     }
   }, {
     key: "render",
@@ -823,7 +874,7 @@ var Signup = /*#__PURE__*/function (_React$Component) {
           className: "signup_form body",
           onSubmit: this.handleSubmit
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "s_first_name"
+          className: this.state.nameError ? 'divNerror' : 's_first_name'
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
           className: "s_f",
@@ -831,14 +882,16 @@ var Signup = /*#__PURE__*/function (_React$Component) {
           placeholder: "First Name",
           onChange: this.update('fname')
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "s_last_name"
+          className: this.state.nameError ? ' divLerror' : 's_last_name'
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
           className: "s_l",
           value: this.state.lname,
           placeholder: "Last Name",
           onChange: this.update('lname')
-        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "error"
+        }, this.state.nameError), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "tag"
         }, "Make sure it matches the name on your government ID."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "s_dob"
@@ -851,24 +904,28 @@ var Signup = /*#__PURE__*/function (_React$Component) {
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "tag"
         }, "To sign up, you need to be at least 18. Your birthday won\u2019t be shared with other people who use Bestfriend Treehouse."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "s_email"
+          className: this.state.emailError ? 'diverror' : 's_email'
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "email",
           className: "s_e",
           value: this.state.email,
           placeholder: "Email",
           onChange: this.update('email')
-        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "error"
+        }, this.state.emailError), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "tag"
         }, "We'll email you trip confirmations and receipts."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "s_password"
+          className: this.state.passwordError ? 'diverror' : 's_password'
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "password",
           className: "s_p",
           value: this.state.password,
           placeholder: "Password",
           onChange: this.update('password')
-        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "error"
+        }, this.state.passwordError), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "tag"
         }, "We\u2019ll send you marketing promotions, special offers, inspiration, and policy updates via email."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "subscribe-box"
@@ -880,7 +937,7 @@ var Signup = /*#__PURE__*/function (_React$Component) {
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           className: "subscribe-text",
           htmlFor: "subscribeNews"
-        }, "I don\u2019t want to receive marketing messages from Bestfriend Treehouse. I can also opt out of receiving these at any time in my account settings or via the link in the message.")), this.renderErrors(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, "I don\u2019t want to receive marketing messages from Bestfriend Treehouse. I can also opt out of receiving these at any time in my account settings or via the link in the message.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "submit",
           className: "submit-button"
         }, "Agree and Continue")));
@@ -894,12 +951,12 @@ var Signup = /*#__PURE__*/function (_React$Component) {
           }
         }, "X"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "login_form_header_title"
-        }, "Login")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "Log in")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "login_form"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
           onSubmit: this.handleSubmit
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "l_email"
+          className: this.state.emailError ? 'diverror' : 'l_email'
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
           className: "l_e",
@@ -907,14 +964,18 @@ var Signup = /*#__PURE__*/function (_React$Component) {
           placeholder: "Email",
           onChange: this.update('email')
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "l_password"
+          className: this.state.passwordError ? 'diverror' : 'l_password'
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "password",
           className: "l_p",
           value: this.state.password,
           placeholder: "Password",
           onChange: this.update('password')
-        })), this.renderErrors(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "error"
+        }, this.state.emailError), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "error"
+        }, this.state.passwordError), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "submit",
           className: "submit-button"
         }, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
