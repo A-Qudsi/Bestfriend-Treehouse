@@ -82,18 +82,6 @@ class Signup extends React.Component {
         }
         this.props.session(demoUser);
     }
-
-    renderErrors() {
-        return (
-            <ul>
-                {this.props.errors.map((error, i) => (
-                    <li key={`error-${i}`}>
-                        {error}
-                    </li>
-                ))}
-            </ul>
-        );
-    }
     
     handleSubmit(e) {
         e.preventDefault();
@@ -161,7 +149,6 @@ class Signup extends React.Component {
                                 I don’t want to receive marketing messages from Bestfriend Treehouse. I can also opt out of receiving these at any time in my account settings or via the link in the message.
                             </label>
                         </div>
-                        {/* {this.renderErrors()} */}
                         <button type='submit' className='submit-button'>Agree and Continue</button>
                     </form>
                 </>

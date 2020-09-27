@@ -84,6 +84,7 @@
     }
 }
 .fa-bars:before {
+    color: #707070;
     font-size: 15px;
     // padding-bottom: 10px;
 }
@@ -105,11 +106,9 @@
 
 .right_panel_buttons {
     margin: 0 8px;
-}
-
-.dropdown {
     position: relative;
 }
+
 
 
 .globe_panel_button {
@@ -127,18 +126,27 @@
     display: flex;
     align-items: center;
     padding: 5px;
+    position: relative;
     
     // margin: 10px;
 }
 
-.header-div, .login-signup {
+.loginContainerButton {
+    width:100%;
+    padding:10px;
+    font-size: 14px;
+}
+.login-signup {
     display: flex;
-    justify-content: space-between;
-    background-color: purple;
-    background: transparent;
-    padding: 20px;
-    width: 200px;
-    color: red;
+    flex-direction: column;
+    overflow: hidden;
+}
+.header-div {
+    overflow: hidden;
+}
+
+.loginContainerButton:hover{
+    background-color:  #f7f7f7;
 }
 
 .treehouse_background {
@@ -525,4 +533,57 @@ input[type=checkbox] {
 .c-error input, .c-error select, .c-error .c-choice-option{ 
   background: #fff0f4; 
   color: #c51244;
+}
+
+.goNear {
+    position: relative;
+    top: 140px;
+    padding: 70px;
+    width: 270px;
+    color: white;
+    
+    .goNearTitle {
+        font-weight: bold;
+        font-size: 35px;
+    }
+
+    .goNearBody {
+        padding-top: 10px;
+        font-size: 12px;
+    }
+
+    .goNearButton {
+        margin-top: 10px;
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+        border-radius: 7px;
+        padding: 7px 15px; 
+        font-size: 12px;
+    }
+
+
+}
+.fa-user-circle  {
+    color: #707070;
+}
+.fa-search {
+    padding: 8px;
+    border-radius: 50px;
+    color: white;
+    background-color: #ED4959;
+}
+
+#navbar-dropdown {
+    position: absolute;
+    top: 55px;
+    width: 200px;
+    padding: 5px;
+    right: 5px;
+    box-shadow: 0px 8px 17px -7px rgba(0,0,0,0.51);
+    border-radius: 10px;
+}
+
+.dropdown {
+    position: relative;
 }

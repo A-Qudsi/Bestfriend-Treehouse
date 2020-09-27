@@ -1,4 +1,8 @@
 import React from 'react';
+import { openModal } from '../../actions/modal_actions';
+import LoginContainer from '../login/login_container.js';
+
+
 
 class Navbar extends React.Component {
     constructor(props) {
@@ -6,11 +10,21 @@ class Navbar extends React.Component {
         this.state = {
             clicked: false
         }
+        this.handleClick = this.handleClick.bind(this);
+        this.closeDropdown = this.closeDropdown.bind(this);
     }
 
-    dropDown(e) {
+    closeDropdown() {
+        this.setState({ clicked: false }, () => {
+            document.removeEventListener('click', this.closeDropdown);
+        });
+    }
+
+    handleClick(e) {
         e.preventDefault();
-        this.setState({ clicked: true })
+        this.setState({ clicked: true, }, () => {
+            document.addEventListener("click", this.closeDropdown);
+        })
     }
 
     render() {
@@ -24,24 +38,26 @@ class Navbar extends React.Component {
 
             <div className='right_panel'>
                 <p className='host_text'>Become a host</p>
-
                 <button className='right_panel_buttons'>
                     <div className='globe_panel_button'>
                         <i className="fas fa-globe fa-fw"></i>
                         <i className="fas fa-chevron-down fa-fw"></i>
                     </div>
                 </button>
-
-                <div className='dropdown'>
-                    <button className='right_panel_buttons' > 
+                <div className='dropdown' >
+                    <button className='right_panel_buttons'onClick={this.handleClick} > 
                         <div className='right_header_button' >
                             <i className="fas fa-bars fa-fw" id="navbar"></i>   
                             <i className="fas fa-user-circle fa-fw"></i> 
+                            {this.state.clicked ? (
+                                <ul onClick={e => e.stopPropagation()} id='navbar-dropdown'>
+                                        <LoginContainer />
+                                </ul>
+                            ) : null}
                         </div>  
                     </button>
                 </div>
             </div>
-
         </div>
     )
     }
