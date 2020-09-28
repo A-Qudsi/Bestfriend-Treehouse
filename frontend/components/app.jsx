@@ -1,23 +1,26 @@
 import React from "react";
-import loginform_container from './session/loginform_container'
-import signupform_container from "./session/signupform_container";
+import Loginform_container from './session/loginform_container'
+import Signupform_container from "./session/signupform_container";
 import { Route, Switch } from 'react-router-dom';
 import Navbar from './navbar/navbar'
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import Home from "./home/home";
-import Modal from './modal/modal'
+import Splash from "./splash/splash";
+import Modal from './modal/modal';
+import Footer from './footer/footer';
+import SpotsPage from './spots/spots';
 
 const App = () => (
     <div className='mainApp'>
+        <header className='app-header'><Navbar /></header> 
         <Modal />
-        <Navbar/>
-
         <Switch>
-            <Route exact path="/" component={Home} />
-            <AuthRoute path="/signup" component={signupform_container} />
-            <AuthRoute path="/login" component={loginform_container} />
+            <Route exact path="/" component={Splash} />
+            <Route exact path="/spots" component={SpotsPage} />
+            <AuthRoute path="/signup" component={Signupform_container} />
+            <AuthRoute path="/login" component={Loginform_container} />
         </Switch>
-        
+        <footer><Footer /></footer>
+
     </div>
 );
 

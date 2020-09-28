@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom';
 const Login = ({ currentUser, logout, openModal }) => {
 
     const sessionLinks = () => (
-        <div className="login-signup">
-            <button onClick = { () => (openModal('login')) }>login</button>
-            <button onClick={() => (openModal('signup'))} >signup</button>
+        <div className="login-signup" >
+            <li className='loginContainerButton' onClick= { () => (openModal('login'))}>Log in</li>
+            <li className='loginContainerButton' onClick= { () => (openModal('signup'))}>Sign up</li>
         </div>
     );
 
     const personalLogin = () => (
         <div className="header-div">
-            <button className="logout-button" onClick={logout}>Log Out</button>
+            <li className='loginContainerButton' onClick={logout}>Log Out</li>
         </div>
     );
 
