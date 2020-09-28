@@ -6,14 +6,14 @@ const Login = ({ currentUser, logout, openModal }) => {
 
     const sessionLinks = () => (
         <div className="login-signup" >
-            <button className='loginContainerButton' onClick= { () => (openModal('login'))}>Log in</button>
-            <button className='loginContainerButton' onClick= { () => (openModal('signup'))}>Sign up</button>
+            <li className='loginContainerButton' onClick= { () => (openModal('login'))}>Log in</li>
+            <li className='loginContainerButton' onClick= { () => (openModal('signup'))}>Sign up</li>
         </div>
     );
 
     const personalLogin = () => (
         <div className="header-div">
-            <button className='loginContainerButton' onClick={logout}>Log Out</button>
+            <li className='loginContainerButton' onClick={logout}>Log Out</li>
         </div>
     );
 

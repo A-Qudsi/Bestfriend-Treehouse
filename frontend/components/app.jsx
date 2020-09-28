@@ -7,6 +7,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Splash from "./splash/splash";
 import Modal from './modal/modal';
 import Footer from './footer/footer';
+import SpotsPage from './spots/spots';
 
 const App = () => (
     <div className='mainApp'>
@@ -14,6 +15,7 @@ const App = () => (
         <Modal />
         <Switch>
             <Route exact path="/" component={Splash} />
+            <Route exact path="/spots" component={SpotsPage} />
             <AuthRoute path="/signup" component={Signupform_container} />
             <AuthRoute path="/login" component={Loginform_container} />
         </Switch>

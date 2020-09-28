@@ -1,5 +1,4 @@
 import React from 'react';
-import LoginContainer from '../login/login_container.js';
 import Escapes from '../escapes/escapes'
 
 class Splash extends React.Component {
