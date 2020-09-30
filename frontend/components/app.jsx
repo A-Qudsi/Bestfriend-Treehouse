@@ -7,7 +7,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Splash from "./splash/splash";
 import Modal from './modal/modal';
 import Footer from './footer/footer';
-import SpotsPage from './spots/spots';
+import SpotsPage from './spots/spots_index_container';
 
 const App = () => (
     <div className='mainApp'>

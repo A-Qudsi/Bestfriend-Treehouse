@@ -27,25 +27,31 @@ const removeSpot = spotId => {
 
 export const fetchSpots = () => dispatch => {
     return SPOTUtil.fetchSpots()
-    .then(spots => dispatch(receiveSpots(spots)))
+    .then(spots => dispatch(receiveSpots(spots)),
+    errors => dispatch(receiveErrors(errors.responseJSON)))
+
 }
 
 export const fetchSpot = (spotId) => dispatch => {
     return SPOTUtil.fetchSpot(spotId)
-    .then(spot => dispatch(receiveSpot(spot)))
+    .then(spot => dispatch(receiveSpot(spot)),
+    errors => dispatch(receiveErrors(errors.responseJSON)))
 }
 
 export const createSpot = (spot) => dispatch => {
     return SPOTUtil.createSpot(spot)
-    .then(spot => dispatch(receiveSpot(spot)))
+    .then(spot => dispatch(receiveSpot(spot)),
+    errors => dispatch(receiveErrors(errors.responseJSON)))
 }
 
 export const updateSpot = (spot) => dispatch => {
     return SPOTUtil.updateSpot(spot)
-    .then(spot => dispatch(receiveSpot(spot)))
+    .then(spot => dispatch(receiveSpot(spot)),
+    errors => dispatch(receiveErrors(errors.responseJSON)))
 }
 
 export const deleteSpot = (spotId) => dispatch => {
     return SPOTUtil.deleteSpot(spotId)
-    .then (() => dispatch(removeSpot(spotId)))
+    .then(() => dispatch(removeSpot(spotId)),
+    errors => dispatch(receiveErrors(errors.responseJSON)))
 }
