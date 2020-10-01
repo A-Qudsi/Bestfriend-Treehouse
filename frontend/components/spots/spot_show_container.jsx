@@ -1,14 +1,11 @@
 import { connect } from 'react-redux';
 
-import { fetchBench } from '../../actions/spot_actions';
+import { fetchSpot } from '../../actions/spot_actions';
 import SpotShow from './spot_show.js';
 
-const mSTP = (state, { match }) => {
-    const spotId = parseInt(match.params.spotId);
-    // const bench = selectBench(state.entities, benchId);
-    return {
-        spotId,
-    };
+const mSTP = (state, ownProps) => {
+    // debugger
+    return {spot: state.entities.spots[ownProps.match.params.spotId]};
 };
 
 const mDTP = dispatch => ({

@@ -90,23 +90,22 @@
     width: 600px;
 }
 
-#map-container {
-    width: 500px;
-    height: 500px;
-}
 
-.map {
-    width: 700px;
-    height: 100%;
+#map {
+    position: fixed !important;
+    left: 55%;
+    top: 10%;
+    width: 45%;
+    height: 90%;
 }
 
 .board {
     display: flex;
 }
 .leftside {
-    overflow: auto;
+    overflow: hidden;
     position: relative;
-    width:60%
+    width:55%
 }
 
 .rightside{ 
@@ -119,4 +118,88 @@
 }
 .listings {
     width: 100%
+}
+
+.showpagediv {
+    border-top: 1px solid #f7f7f7;
+    padding: 20px 50px;
+
+}
+
+.address {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0px;
+}
+
+.fa-star {
+    color: red;
+}
+
+.fa-heart {
+    padding-left: 5px;
+}
+
+.showpagename {
+    font-size: 25px;
+}
+
+.addressleft span {
+    color: grey;
+    font-size: 14px;
+}
+
+.photo_grid {
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+    grid-gap: 8px;
+    padding: 10px 0px;
+    column-gap: 8px;
+    border-radius: 15px;
+}
+
+.photo_1 {
+    overflow: hidden;
+    grid-row: 1 / span 2;
+    max-height: 400px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.photo_2, .photo_3, .photo_4, .photo_5 {
+    max-height: 195px;
+}
+
+.photo_3 {
+    border-radius: 0px 10px 0px 0px;
+}
+
+.photo_5 {
+    border-radius: 0px 0px 10px 0px;
+}
+
+
+.spotshowbody {
+    border-bottom: 1px solid darkgrey;
+    padding: 20px 0px;
+}
+
+
+.entirehome, .enhancedclean, .checkin, .cancelation {
+    padding: 10px 0px;
+
+        #sicons {
+        margin-right: 5px;
+    }
+}
+
+.sTitle {
+    font-size: 16px;
+    span {
+        text-decoration: underline;
+    }
+}
+
+.sBody {
+    font-size: 13px;
+    color: gray;
 }

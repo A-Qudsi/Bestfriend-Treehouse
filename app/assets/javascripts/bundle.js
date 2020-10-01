@@ -303,6 +303,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modal_modal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modal/modal */ "./frontend/components/modal/modal.jsx");
 /* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./footer/footer */ "./frontend/components/footer/footer.js");
 /* harmony import */ var _spots_spots_index_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./spots/spots_index_container */ "./frontend/components/spots/spots_index_container.js");
+/* harmony import */ var _spots_spot_show_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./spots/spot_show_container */ "./frontend/components/spots/spot_show_container.jsx");
+
 
 
 
@@ -327,12 +329,9 @@ var App = function App() {
     exact: true,
     path: "/spots",
     component: _spots_spots_index_container__WEBPACK_IMPORTED_MODULE_9__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__["AuthRoute"], {
-    path: "/signup",
-    component: _session_signupform_container__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__["AuthRoute"], {
-    path: "/login",
-    component: _session_loginform_container__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    path: "/spots/:spotId",
+    component: _spots_spot_show_container__WEBPACK_IMPORTED_MODULE_10__["default"]
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_footer__WEBPACK_IMPORTED_MODULE_8__["default"], null)));
 };
 
@@ -1224,6 +1223,8 @@ var Splash = /*#__PURE__*/function (_React$Component) {
   _createClass(Splash, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "homePage"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1235,7 +1236,10 @@ var Splash = /*#__PURE__*/function (_React$Component) {
       }, "Go Near"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "goNearBody"
       }, "Settle in somewhere new. Discover stays to live, work, or just relax."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "goNearButton"
+        className: "goNearButton",
+        onClick: function onClick() {
+          return _this.props.history.push('/spots');
+        }
       }, "Explore nearby")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "escape_images"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -1291,6 +1295,216 @@ var Splash = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Splash);
+
+/***/ }),
+
+/***/ "./frontend/components/spots/spot_show.js":
+/*!************************************************!*\
+  !*** ./frontend/components/spots/spot_show.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var SpotShow = /*#__PURE__*/function (_React$Component) {
+  _inherits(SpotShow, _React$Component);
+
+  var _super = _createSuper(SpotShow);
+
+  function SpotShow() {
+    _classCallCheck(this, SpotShow);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(SpotShow, [{
+    key: "componentDidMount",
+    // constructor 
+    value: function componentDidMount() {
+      this.props.fetchSpot(this.props.match.params.spotId);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      debugger;
+      if (!this.props.spot) return null;
+      debugger;
+      var spot = this.props.spot;
+      console.log(spot);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "showpagediv"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "showpageheader"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "showpagename"
+      }, spot.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "address"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "addressleft"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "5 ", spot.address, " ", spot.city)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "addressright"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "faviconsright"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-upload"
+      }), "Share", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-heart"
+      }), "Save"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "photo_grid"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "photo_1"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: spot.photoUrls[2],
+        className: "photo_1"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "photo_2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: spot.photoUrls[3],
+        className: "photo_2"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "photo_3"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: spot.photoUrls[4],
+        className: "photo_3"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "photo_4"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: spot.photoUrls[5],
+        className: "photo_4"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "photo_5"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: spot.photoUrls[6],
+        className: "photo_5"
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spotshowbody"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Entire house hosted by ", spot.host_id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, spot.maxGuests, " Guests")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "entirehome"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "homeIcon"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-home",
+        id: "sicons"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "homeinfo"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sTitle"
+      }, "Entire home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sBody"
+      }, "You\u2019ll have the house to yourself."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "enhancedclean"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "enhancedcleanIcon"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-gem",
+        id: "sicons"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "enhancedcleaninfo"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sTitle"
+      }, "Enhanced Clean"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sBody"
+      }, "This host committed to a rigorous cleaning protocol developed with leading health and hospitality experts. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "learnmore"
+      }, "Learn more")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "checkin"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "checkinicon"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-key",
+        id: "sicons"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "checkininfo"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sTitle"
+      }, "Great check-in experience"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sBody"
+      }, "100% of recent guests gave the check-in process a 5-star rating."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "cancelation"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "cancelationicon"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-calendar-check",
+        id: "sicons"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "cancelationinfo"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sTitle"
+      }, "Cancellation policy"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sBody"
+      }, "Add your trip dates to get the cancellation details for this stay."))));
+    }
+  }]);
+
+  return SpotShow;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (SpotShow);
+
+/***/ }),
+
+/***/ "./frontend/components/spots/spot_show_container.jsx":
+/*!***********************************************************!*\
+  !*** ./frontend/components/spots/spot_show_container.jsx ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
+/* harmony import */ var _spot_show_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_show.js */ "./frontend/components/spots/spot_show.js");
+
+
+
+
+var mSTP = function mSTP(state, ownProps) {
+  // debugger
+  return {
+    spot: state.entities.spots[ownProps.match.params.spotId]
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    fetchSpot: function fetchSpot(id) {
+      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["fetchSpot"])(id));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_spot_show_js__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -1372,7 +1586,8 @@ var SpotsPage = /*#__PURE__*/function (_React$Component) {
         className: "listings"
       }, this.props.spots.map(function (spot) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          className: "spots"
+          className: "spots",
+          key: spot.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spots_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           spot: spot,
           key: spot.id
@@ -1538,7 +1753,7 @@ var SpotsIndexItem = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "index-item-image"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: this.props.spot.photoUrls[0]
+        src: this.props.spot.photoUrls[1]
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "index-item-info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -1575,7 +1790,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1599,23 +1813,19 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
-
- // import MarkerManager from '../../util/marker_manager';
-
-var getCoordsObj = function getCoordsObj(latLng) {
-  return {
-    latitude: latLng.lat(),
-    longitude: latLng.lng()
-  };
-};
-
-var mapCenter = {
-  center: {
-    lat: 40.728009,
-    lng: -73.989565
-  },
-  zoom: 13
-};
+ // import { withRouter } from 'react-router-dom';
+// import MarkerManager from '../../util/marker_manager';
+// const getCoordsObj = latLng => ({
+//   latitude: latLng.lat(),
+//   longitude: latLng.lng()
+// });
+// const mapCenter = {
+//   center: {
+//     lat: 40.728009, 
+//     lng: -73.989565
+//   }, 
+//   zoom: 13
+// };
 
 var SpotsMap = /*#__PURE__*/function (_React$Component) {
   _inherits(SpotsMap, _React$Component);
@@ -1631,56 +1841,47 @@ var SpotsMap = /*#__PURE__*/function (_React$Component) {
   _createClass(SpotsMap, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var map = this.refs.map;
-      this.map = new google.maps.Map(map, mapCenter); // this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
+      var map = react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.findDOMNode(this.refs.map);
+      this.map = new google.maps.Map(map, {
+        center: {
+          lat: 40.728009,
+          lng: -73.989565
+        },
+        zoom: 13
+      }); // this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
       // if (this.props.singleBench) {
       //   this.props.fetchBench(this.props.benchId);
       // } else {
       //   this.registerListeners();
       //   this.MarkerManager.updateMarkers(this.props.benches);
       // }
-    }
-  }, {
-    key: "registerListeners",
-    value: function registerListeners() {
-      var _this = this;
+    } // registerListeners() {
+    //   google.maps.event.addListener(this.map, 'idle', () => {
+    //     const { north, south, east, west } = this.map.getBounds().toJSON();
+    //     const bounds = {
+    //       northEast: { lat:north, lng: east },
+    //       southWest: { lat: south, lng: west } };
+    //     // this.props.updateFilter('bounds', bounds);
+    //   });
+    //   google.maps.event.addListener(this.map, 'click', (event) => {
+    //     const coords = getCoordsObj(event.latLng);
+    //   });
+    // }
 
-      google.maps.event.addListener(this.map, 'idle', function () {
-        var _this$map$getBounds$t = _this.map.getBounds().toJSON(),
-            north = _this$map$getBounds$t.north,
-            south = _this$map$getBounds$t.south,
-            east = _this$map$getBounds$t.east,
-            west = _this$map$getBounds$t.west;
-
-        var bounds = {
-          northEast: {
-            lat: north,
-            lng: east
-          },
-          southWest: {
-            lat: south,
-            lng: west
-          }
-        }; // this.props.updateFilter('bounds', bounds);
-      });
-      google.maps.event.addListener(this.map, 'click', function (event) {
-        var coords = getCoordsObj(event.latLng);
-      });
-    }
   }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "map",
+        id: "map",
         ref: "map"
-      }, "Map");
+      });
     }
   }]);
 
   return SpotsMap;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(SpotsMap));
+/* harmony default export */ __webpack_exports__["default"] = (SpotsMap);
 
 /***/ }),
 

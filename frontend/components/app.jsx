@@ -8,6 +8,8 @@ import Splash from "./splash/splash";
 import Modal from './modal/modal';
 import Footer from './footer/footer';
 import SpotsPage from './spots/spots_index_container';
+import SpotShowContainer from './spots/spot_show_container';
+
 
 const App = () => (
     <div className='mainApp'>
@@ -16,8 +18,9 @@ const App = () => (
         <Switch>
             <Route exact path="/" component={Splash} />
             <Route exact path="/spots" component={SpotsPage} />
-            <AuthRoute path="/signup" component={Signupform_container} />
-            <AuthRoute path="/login" component={Loginform_container} />
+            <Route path="/spots/:spotId" component={SpotShowContainer} />
+            {/* <AuthRoute path="/signup" component={Signupform_container} />
+            <AuthRoute path="/login" component={Loginform_container} /> */}
         </Switch>
         <footer><Footer /></footer>
 

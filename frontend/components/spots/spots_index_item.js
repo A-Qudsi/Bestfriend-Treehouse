@@ -16,12 +16,11 @@ class SpotsIndexItem extends React.Component {
 
     render() {
         const { name, description, maxGuests, price } = this.props.spot;
-        
         return (
             <div className="spot-index-item" onClick={this.handleClick}>
                 <div className='index-item-image'>
                     
-                    <img src={this.props.spot.photoUrls[0]} />
+                    <img src={this.props.spot.photoUrls[1]} />
                 </div>
                 <div className="index-item-info">
                     <p className="index-item-name">{name}</p>

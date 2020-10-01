@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
 ActiveRecord::Base.transaction do
 Spot.destroy_all
 User.destroy_all
@@ -22,5 +23,37 @@ spot2 = Spot.create(name: 'Treehouse room in Central Park Zoo', description: 'Fa
 spot3 = Spot.create(name: 'Entire Treehouse in Central Park', description: 'In The Heart of Central Park', latitude: 40.792818, longitude: -73.958885, maxGuests: 3, price: 250, address: '102nd St Crossing' , city: 'New York City', host_id: user3.id)
 
 spot4 = Spot.create(name: 'Entire Treehouse in Midtown', description: 'Large Private Treehouse Suite In The Heart of Midtown', latitude: 40.753226,  longitude: -73.982852, maxGuests: 6, price: 300, address: '830 5th Avenue' , city: 'New York City', host_id: user4.id)
+
+spot1.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/treehouse1.jpg'), filename: "treehouse1.jpg")
+spot1.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/treehouse1.jpg'), filename: "treehouse1.jpg")
+spot1.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T1I1.jpg'), filename: "T1I1.jpg")
+spot1.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T1I2.jpg'), filename: "T1I2.jpg")
+spot1.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T1I3.jpg'), filename: "T1I3.jpg")
+spot1.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T1I4.jpg'), filename: "T1I4.jpg")
+spot1.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T1I5.jpg'), filename: "T1I5.jpg")
+
+spot2.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/Treehouse2.jpg'), filename: "Treehouse2.jpg")
+spot2.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/Treehouse2.jpg'), filename: "Treehouse2.jpg")
+spot2.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T2I1.jpg'), filename: "T2I1.jpg")
+spot2.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T2I2.jpg'), filename: "T2I2.jpg")
+spot2.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T2I3.jpg'), filename: "T2I3.jpg")
+spot2.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T2I4.jpg'), filename: "T2I4.jpg")
+spot2.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T2I5.jpg'), filename: "T2I5.jpg")
+
+spot3.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/Treehouse3.jpg'), filename: "Treehouse3.jpg")
+spot3.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/Treehouse3.jpg'), filename: "Treehouse3.jpg")
+spot3.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T3I1.jpg'), filename: "T3I1.jpg")
+spot3.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T3I2.jpg'), filename: "T3I2.jpg")
+spot3.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T3I3.jpg'), filename: "T3I3.jpg")
+spot3.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T3I4.jpg'), filename: "T3I4.jpg")
+spot3.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T3I5.jpg'), filename: "T3I5.jpg")
+
+spot4.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/Treehouse4.jpg'), filename: "Treehouse4.jpg")
+spot4.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/Treehouse4.jpg'), filename: "Treehouse4.jpg")
+spot4.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T4I1.jpg'), filename: "T4I1.jpg")
+spot4.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T4I2.jpg'), filename: "T4I2.jpg")
+spot4.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T4I3.jpg'), filename: "T4I3.jpg")
+spot4.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T4I4.jpg'), filename: "T4I4.jpg")
+spot4.photos.attach(io: open('https://bestfriend-treehouse-seeds.s3.amazonaws.com/T4I5.jpg'), filename: "T4I5.jpg")
 
 end
