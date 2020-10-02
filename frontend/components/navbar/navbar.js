@@ -1,7 +1,8 @@
 import React from 'react';
 import { openModal } from '../../actions/modal_actions';
 import LoginContainer from '../login/login_container.js';
-
+import { Link } from 'react-router-dom';
+import Splash from '../splash//splash';
 
 
 class Navbar extends React.Component {
@@ -30,7 +31,7 @@ class Navbar extends React.Component {
     render() {
         return (
         <div className='nav_bar'>
-            <img className='treehouse_logo' src='https://bestfriend-treehouse-dev.s3.amazonaws.com/treehouse-in-large-tree.jpg'/>
+            <Link to="/"><img className='treehouse_logo' src='https://bestfriend-treehouse-dev.s3.amazonaws.com/treehouse-in-large-tree.jpg' /></Link>
 
             <div className='search_bar'>
                 <input type='text' placeholder="Start your search"/> <i className="fas fa-search fa-fw"></i>

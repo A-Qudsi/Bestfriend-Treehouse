@@ -2,55 +2,43 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import { withRouter } from 'react-router-dom';
 
-// import MarkerManager from '../../util/marker_manager';
+import MarkerManager from '../../util/marker_manager';
 
-// const getCoordsObj = latLng => ({
-//   latitude: latLng.lat(),
-//   longitude: latLng.lng()
-// });
+const getCoordsObj = latLng => ({
+  latitude: latLng.lat(),
+  longitude: latLng.lng()
+});
 
-// const mapCenter = {
-//   center: {
-//     lat: 40.728009, 
-//     lng: -73.989565
-//   }, 
-//   zoom: 13
-// };
+const mapCenter = {
+  center: {
+    lat: 40.728009, 
+    lng: -73.989565
+  }, 
+  zoom: 13
+};
 
 class SpotsMap extends React.Component {
 
   componentDidMount() {
+    this.MarkerManager = new MarkerManager(this.map);
     const map = ReactDOM.findDOMNode(this.refs.map)
-    this.map = new google.maps.Map(map, {
-      center: {
-        lat: 40.728009,
-        lng: -73.989565
-      },
-      zoom: 13
-    });
-    // this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-    // if (this.props.singleBench) {
-    //   this.props.fetchBench(this.props.benchId);
-    // } else {
-    //   this.registerListeners();
-    //   this.MarkerManager.updateMarkers(this.props.benches);
-    // }
+    this.map = new google.maps.Map(map, mapCenter);
   }
 
 
-  // registerListeners() {
-  //   google.maps.event.addListener(this.map, 'idle', () => {
-  //     const { north, south, east, west } = this.map.getBounds().toJSON();
-  //     const bounds = {
-  //       northEast: { lat:north, lng: east },
-  //       southWest: { lat: south, lng: west } };
-  //     // this.props.updateFilter('bounds', bounds);
-  //   });
+  registerListeners() {
+    this.map.addListener(this.map, 'idle', () => {
+      const { north, south, east, west } = this.map.getBounds().toJSON();
+      const bounds = {
+        northEast: { lat: north, lng: east },
+        southWest: { lat: south, lng: west } };
+      this.props.updateFilter('bounds', bounds);
+    });
 
-  //   google.maps.event.addListener(this.map, 'click', (event) => {
-  //     const coords = getCoordsObj(event.latLng);
-  //   });
-  // }
+    this.map.addListener(this.map, 'click', (event) => {
+      const coords = getCoordsObj(event.latLng);
+    });
+  }
 
 
   render() {

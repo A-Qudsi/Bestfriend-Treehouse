@@ -616,6 +616,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 /* harmony import */ var _login_login_container_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../login/login_container.js */ "./frontend/components/login/login_container.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _splash_splash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../splash//splash */ "./frontend/components/splash/splash.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -637,6 +639,8 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
 
 
 
@@ -689,10 +693,12 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav_bar"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+        to: "/"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "treehouse_logo",
         src: "https://bestfriend-treehouse-dev.s3.amazonaws.com/treehouse-in-large-tree.jpg"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search_bar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
@@ -1585,7 +1591,7 @@ var SpotsPage = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "listings"
       }, this.props.spots.map(function (spot) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "spots",
           key: spot.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spots_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -1724,32 +1730,25 @@ var SpotsIndexItem = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(SpotsIndexItem);
 
   function SpotsIndexItem(props) {
-    var _this;
-
     _classCallCheck(this, SpotsIndexItem);
 
-    _this = _super.call(this, props);
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
-    return _this;
+    return _super.call(this, props); // this.handleClick = this.handleClick.bind(this);
   }
 
   _createClass(SpotsIndexItem, [{
-    key: "handleClick",
-    value: function handleClick() {
-      var spotId = this.props.spot.id;
-      this.props.history.push("/spots/".concat(spotId));
-    }
-  }, {
     key: "render",
     value: function render() {
+      var spotId = this.props.spot.id;
       var _this$props$spot = this.props.spot,
           name = _this$props$spot.name,
           description = _this$props$spot.description,
           maxGuests = _this$props$spot.maxGuests,
           price = _this$props$spot.price;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "spot-index-item",
-        onClick: this.handleClick
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/spots/".concat(spotId),
+        key: spotId
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-index-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "index-item-image"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1766,14 +1765,14 @@ var SpotsIndexItem = /*#__PURE__*/function (_React$Component) {
         className: "index-item-details"
       }, maxGuests, " \xB7 guests ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "price"
-      }, "$ ", price, " / night "));
+      }, "$ ", price, " / night ")));
     }
   }]);
 
   return SpotsIndexItem;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(SpotsIndexItem));
+/* harmony default export */ __webpack_exports__["default"] = (SpotsIndexItem);
 
 /***/ }),
 
@@ -1790,6 +1789,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _util_marker_manager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/marker_manager */ "./frontend/util/marker_manager.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1814,18 +1814,23 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
  // import { withRouter } from 'react-router-dom';
-// import MarkerManager from '../../util/marker_manager';
-// const getCoordsObj = latLng => ({
-//   latitude: latLng.lat(),
-//   longitude: latLng.lng()
-// });
-// const mapCenter = {
-//   center: {
-//     lat: 40.728009, 
-//     lng: -73.989565
-//   }, 
-//   zoom: 13
-// };
+
+
+
+var getCoordsObj = function getCoordsObj(latLng) {
+  return {
+    latitude: latLng.lat(),
+    longitude: latLng.lng()
+  };
+};
+
+var mapCenter = {
+  center: {
+    lat: 40.728009,
+    lng: -73.989565
+  },
+  zoom: 13
+};
 
 var SpotsMap = /*#__PURE__*/function (_React$Component) {
   _inherits(SpotsMap, _React$Component);
@@ -1841,33 +1846,39 @@ var SpotsMap = /*#__PURE__*/function (_React$Component) {
   _createClass(SpotsMap, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_2__["default"](this.map);
       var map = react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.findDOMNode(this.refs.map);
-      this.map = new google.maps.Map(map, {
-        center: {
-          lat: 40.728009,
-          lng: -73.989565
-        },
-        zoom: 13
-      }); // this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-      // if (this.props.singleBench) {
-      //   this.props.fetchBench(this.props.benchId);
-      // } else {
-      //   this.registerListeners();
-      //   this.MarkerManager.updateMarkers(this.props.benches);
-      // }
-    } // registerListeners() {
-    //   google.maps.event.addListener(this.map, 'idle', () => {
-    //     const { north, south, east, west } = this.map.getBounds().toJSON();
-    //     const bounds = {
-    //       northEast: { lat:north, lng: east },
-    //       southWest: { lat: south, lng: west } };
-    //     // this.props.updateFilter('bounds', bounds);
-    //   });
-    //   google.maps.event.addListener(this.map, 'click', (event) => {
-    //     const coords = getCoordsObj(event.latLng);
-    //   });
-    // }
+      this.map = new google.maps.Map(map, mapCenter);
+    }
+  }, {
+    key: "registerListeners",
+    value: function registerListeners() {
+      var _this = this;
 
+      this.map.addListener(this.map, 'idle', function () {
+        var _this$map$getBounds$t = _this.map.getBounds().toJSON(),
+            north = _this$map$getBounds$t.north,
+            south = _this$map$getBounds$t.south,
+            east = _this$map$getBounds$t.east,
+            west = _this$map$getBounds$t.west;
+
+        var bounds = {
+          northEast: {
+            lat: north,
+            lng: east
+          },
+          southWest: {
+            lat: south,
+            lng: west
+          }
+        };
+
+        _this.props.updateFilter('bounds', bounds);
+      });
+      this.map.addListener(this.map, 'click', function (event) {
+        var coords = getCoordsObj(event.latLng);
+      });
+    }
   }, {
     key: "render",
     value: function render() {
@@ -2226,6 +2237,31 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/util/marker_manager.js":
+/*!*****************************************!*\
+  !*** ./frontend/util/marker_manager.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MarkerManager; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var MarkerManager = function MarkerManager(map) {
+  _classCallCheck(this, MarkerManager);
+
+  this.map = map;
+  this.markers = {};
+} // updateMarkers(spots) {
+// }
+;
+
+
 
 /***/ }),
 
