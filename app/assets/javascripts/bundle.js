@@ -239,45 +239,35 @@ var fetchSpots = function fetchSpots() {
   return function (dispatch) {
     return _util_spots_util__WEBPACK_IMPORTED_MODULE_0__["fetchSpots"]().then(function (spots) {
       return dispatch(receiveSpots(spots));
-    }, function (errors) {
-      return dispatch(receiveErrors(errors.responseJSON));
-    });
+    }); // errors => dispatch(receiveErrors(errors.responseJSON)))
   };
 };
 var fetchSpot = function fetchSpot(spotId) {
   return function (dispatch) {
     return _util_spots_util__WEBPACK_IMPORTED_MODULE_0__["fetchSpot"](spotId).then(function (spot) {
       return dispatch(receiveSpot(spot));
-    }, function (errors) {
-      return dispatch(receiveErrors(errors.responseJSON));
-    });
+    }); // errors => dispatch(receiveErrors(errors.responseJSON)))
   };
 };
 var createSpot = function createSpot(spot) {
   return function (dispatch) {
     return _util_spots_util__WEBPACK_IMPORTED_MODULE_0__["createSpot"](spot).then(function (spot) {
       return dispatch(receiveSpot(spot));
-    }, function (errors) {
-      return dispatch(receiveErrors(errors.responseJSON));
-    });
+    }); // errors => dispatch(receiveErrors(errors.responseJSON)))
   };
 };
 var updateSpot = function updateSpot(spot) {
   return function (dispatch) {
     return _util_spots_util__WEBPACK_IMPORTED_MODULE_0__["updateSpot"](spot).then(function (spot) {
       return dispatch(receiveSpot(spot));
-    }, function (errors) {
-      return dispatch(receiveErrors(errors.responseJSON));
-    });
+    }); // errors => dispatch(receiveErrors(errors.responseJSON)))
   };
 };
 var deleteSpot = function deleteSpot(spotId) {
   return function (dispatch) {
     return _util_spots_util__WEBPACK_IMPORTED_MODULE_0__["deleteSpot"](spotId).then(function () {
       return dispatch(removeSpot(spotId));
-    }, function (errors) {
-      return dispatch(receiveErrors(errors.responseJSON));
-    });
+    }); // errors => dispatch(receiveErrors(errors.responseJSON)))
   };
 };
 
