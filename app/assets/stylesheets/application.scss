@@ -463,7 +463,6 @@ input[type=checkbox] {
 }
 
 .divNerror {
-    width: 100%;
     height: 50px;
     border-top: 1px solid #C13725;
     border-right: 1px solid #C13725;
@@ -475,11 +474,11 @@ input[type=checkbox] {
     input {
         // background-color: #FEF8F6;
         margin-top: 10px;
+        width: 100%;
     }
 }
 
 .divLerror{
-    width: 100%;
     height: 50px;
     border: 1px solid #C13725;
     padding: 7px 15px 7px 5px;
@@ -488,6 +487,7 @@ input[type=checkbox] {
 
     input {
         margin-top: 10px;
+        width: 100%;
     }
 }
 
