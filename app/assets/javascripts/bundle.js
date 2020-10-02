@@ -1351,13 +1351,11 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(SpotShow, [{
-    key: "componentDidMount",
-    // constructor 
-    value: function componentDidMount() {
-      this.props.fetchSpot(this.props.match.params.spotId);
-    }
-  }, {
     key: "render",
+    // constructor 
+    // componentDidMount() {
+    //     this.props.fetchSpot(this.props.match.params.spotId);
+    // }
     value: function render() {
       debugger;
       if (!this.props.spot) return null;

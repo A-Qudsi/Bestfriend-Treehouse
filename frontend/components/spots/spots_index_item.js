@@ -16,7 +16,6 @@ class SpotsIndexItem extends React.Component {
             <Link to={`/spots/${spotId}`} key={spotId}>
                 <div className="spot-index-item">
                     <div className='index-item-image'>
-                        
                         <img src={this.props.spot.photoUrls[1]} />
                     </div>
                     <div className="index-item-info">
