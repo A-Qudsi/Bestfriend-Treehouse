@@ -1588,7 +1588,9 @@ var SpotsPage = /*#__PURE__*/function (_React$Component) {
         }));
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "rightside"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spots_map__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spots_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        spots: this.props.spots
+      })));
     }
   }]);
 
@@ -1838,6 +1840,12 @@ var SpotsMap = /*#__PURE__*/function (_React$Component) {
       this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__["default"](this.map);
       var map = react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.findDOMNode(this.refs.map);
       this.map = new google.maps.Map(map, mapCenter);
+      this.MarkerManager.updateMarkers(this.props.spots);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.MarkerManager.updateMarkers(this.props.spots);
     }
   }, {
     key: "registerListeners",
@@ -2273,7 +2281,7 @@ var MarkerManager = /*#__PURE__*/function () {
     value: function createMarker(spot) {
       var _this2 = this;
 
-      var position = new google.maps.LatLng(spot.lat, spot.lng);
+      var position = new google.maps.LatLng(spot.latitude, spot.longitude);
       var marker = new google.maps.Marker({
         position: position,
         map: this.map,

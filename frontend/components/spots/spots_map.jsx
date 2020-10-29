@@ -22,9 +22,13 @@ class SpotsMap extends React.Component {
     this.MarkerManager = new MarkerManager(this.map);
     const map = ReactDOM.findDOMNode(this.refs.map)
     this.map = new google.maps.Map(map, mapCenter);
+    this.MarkerManager.updateMarkers(this.props.spots);
   }
 
-
+  componentDidUpdate() {
+    this.MarkerManager.updateMarkers(this.props.spots);
+  }
+  
   registerListeners() {
     this.map.addListener(this.map, 'idle', () => {
       const { north, south, east, west } = this.map.getBounds().toJSON();

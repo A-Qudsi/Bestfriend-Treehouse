@@ -43,7 +43,7 @@ class SpotsPage extends React.Component {
                     </div>
                 </div>
                 <div className='rightside'>
-                    <SpotsMap />
+                    <SpotsMap spots={this.props.spots}/>
                 </div>
             </div>
         )
