@@ -1777,7 +1777,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _util_marker_manager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/marker_manager */ "./frontend/util/marker_manager.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../util/marker_manager */ "./frontend/util/marker_manager.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1801,7 +1802,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
- // import { withRouter } from 'react-router-dom';
+
 
 
 
@@ -1834,7 +1835,7 @@ var SpotsMap = /*#__PURE__*/function (_React$Component) {
   _createClass(SpotsMap, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_2__["default"](this.map);
+      this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__["default"](this.map);
       var map = react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.findDOMNode(this.refs.map);
       this.map = new google.maps.Map(map, mapCenter);
     }
@@ -1880,7 +1881,7 @@ var SpotsMap = /*#__PURE__*/function (_React$Component) {
   return SpotsMap;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (SpotsMap);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(SpotsMap));
 
 /***/ }),
 

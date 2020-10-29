@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { withRouter } from 'react-router-dom';
-
+import { withRouter } from 'react-router-dom';
 import MarkerManager from '../../util/marker_manager';
 
 const getCoordsObj = latLng => ({
@@ -49,4 +48,4 @@ class SpotsMap extends React.Component {
   }
 }
 
-export default SpotsMap;
+export default withRouter(SpotsMap);
