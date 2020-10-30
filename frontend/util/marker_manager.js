@@ -7,7 +7,6 @@ export default class MarkerManager {
 
   updateMarkers(spots) {
     const spotsObj = {};
-
     spots.forEach((spot) => {
       spotsObj[spot.id] = spot;
       if (!this.markers[spot.id]) this.createMarker(spot);
@@ -26,8 +25,7 @@ export default class MarkerManager {
       spotId: spot.id
     });
 
-    marker.addListener("click", () => this.handleMarkerClick(spot));
-
+    // marker.addListener("click", () => this.handleMarkerClick(spot));
     this.markers[marker.spotId] = marker;
   }
 

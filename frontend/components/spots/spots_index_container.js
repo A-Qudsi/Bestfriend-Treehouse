@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-
+import { updateFilter } from "../../actions/filter_actions";
 import SpotsIndex from './spots_index';
 import { fetchSpots, deleteSpot } from '../../actions/spot_actions';
 
@@ -16,7 +16,8 @@ const mDTP = dispatch => ({
     fetchSpot: spotId => dispatch(fetchSpot(spotId)),
     createSpot: spot => dispatch(createSpot(spot)),
     updateSpot: spot => dispatch(updateSpot(spot)),
-    deleteSpot: (spotId) => dispatch(deleteSpot(spotId))
+    deleteSpot: (spotId) => dispatch(deleteSpot(spotId)),
+    updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
 });
 
 export default connect(mSTP, mDTP)(SpotsIndex);

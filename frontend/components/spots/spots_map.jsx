@@ -19,32 +19,35 @@ const mapCenter = {
 class SpotsMap extends React.Component {
 
   componentDidMount() {
-    this.MarkerManager = new MarkerManager(this.map);
     const map = ReactDOM.findDOMNode(this.refs.map)
     this.map = new google.maps.Map(map, mapCenter);
+    this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.updateMarkers(this.props.spots);
+    debugger
   }
 
   componentDidUpdate() {
     this.MarkerManager.updateMarkers(this.props.spots);
   }
-  
+
   registerListeners() {
-    this.map.addListener(this.map, 'idle', () => {
+    google.maps.event.addListener(this.map, "idle", () => {
       const { north, south, east, west } = this.map.getBounds().toJSON();
       const bounds = {
         northEast: { lat: north, lng: east },
-        southWest: { lat: south, lng: west } };
-      this.props.updateFilter('bounds', bounds);
+        southWest: { lat: south, lng: west },
+      };
+      this.props.updatefilter("bounds", bounds);
     });
 
-    this.map.addListener(this.map, 'click', (event) => {
+    google.maps.event.map.addListener(this.map, 'click', (event) => {
       const coords = getCoordsObj(event.latLng);
     });
   }
 
 
   render() {
+    debugger
     return (
       <div id="map" ref="map">
       </div>

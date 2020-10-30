@@ -9,7 +9,7 @@ class Spot < ApplicationRecord
     has_many_attached :photos
 
     def self.in_bounds(bounds)
-        Spot.where("lat < ?", bounds[:northEast][:latitude])
+        self.where("lat < ?", bounds[:northEast][:latitude])
             .where("lat > ?", bounds[:southWest][:latitude])
             .where("lng > ?", bounds[:southWest][:longitude])
             .where("lng < ?", bounds[:northEast][:longitude])
