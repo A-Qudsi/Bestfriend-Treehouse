@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-
 import { fetchSpot } from '../../actions/spot_actions';
 import SpotShow from './spot_show.js';
 

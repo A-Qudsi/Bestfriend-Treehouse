@@ -179,7 +179,7 @@ class Signup extends React.Component {
                             <div className='error'>{this.state.passwordError}</div>
                             <button type='submit' className='submit-button'>Login</button>
                             <button className='submit-button' onClick={ this.demoUser}>Demo User</button>
-                            <p className='l_tag'>Forgot password?</p>
+                            {/* <p className='l_tag'>Forgot password?</p> */}
                         </form>
                         <div className='l_link'>
                             <span className='tag'>Don’t have an account?</span>

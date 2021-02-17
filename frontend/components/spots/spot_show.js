@@ -2,7 +2,6 @@ import React from 'react';
 
 class SpotShow extends React.Component {
     // constructor 
-
     // componentDidMount() {
     //     this.props.fetchSpot(this.props.match.params.spotId);
     // }

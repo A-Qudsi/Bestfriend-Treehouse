@@ -3,7 +3,6 @@ import { updateFilter } from "../../actions/filter_actions";
 import SpotsIndex from './spots_index';
 import { fetchSpots, deleteSpot } from '../../actions/spot_actions';
 
-
 const mSTP = state => {
 
     return {

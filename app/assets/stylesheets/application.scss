@@ -284,18 +284,19 @@ input[type=checkbox] {
 
 }
 
-.l_tag {
-    text-decoration: underline;
-    color: darkslategray;
-    size: 14px;
-    margin-bottom: 10px;
-    padding-top: 10px;
-}
+// .l_tag {
+//     text-decoration: underline;
+//     color: darkslategray;
+//     size: 14px;
+//     margin-bottom: 10px;
+//     padding-top: 10px;
+// }
 
-.l_tag:hover {
-    text-decoration: underline;
-    color: black;
-}
+// .l_tag:hover {
+//     text-decoration: underline;
+//     color: black;
+// }
+
 .l_link {
     display: flex;
     margin-bottom: 10px;
@@ -459,7 +460,6 @@ input[type=checkbox] {
     }
 }
 
-
 .error {
     color: red;
     font-size: 12px;
@@ -516,6 +516,7 @@ input[type=checkbox] {
   box-shadow: 1px 1px 1px #aaaaaa;
   margin-top: 10px;
 }
+
 .c-error  .c-validation:before{ 
   content: ''; 
   width: 0; 
@@ -526,9 +527,11 @@ input[type=checkbox] {
   position: absolute; 
   top: -10px; 
 }
+
 .c-label:after{
   color: #c51244 !important;
 }
+
 .c-error input, .c-error select, .c-error .c-choice-option{ 
   background: #fff0f4; 
   color: #c51244;
@@ -560,12 +563,12 @@ input[type=checkbox] {
         padding: 7px 15px; 
         font-size: 12px;
     }
-
-
 }
+
 .fa-user-circle  {
     color: #707070;
 }
+
 .fa-search {
     padding: 8px;
     border-radius: 50px;

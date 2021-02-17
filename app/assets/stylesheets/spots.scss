@@ -40,7 +40,6 @@
 // }
 
 .index-item-image {
-
     border-radius: 10px;
     margin-top: 10px;
     margin: 10px 15px 10px 0px;
@@ -49,8 +48,6 @@
 .spot-index-item {
     display: flex;
     border-bottom: 1px solid #b6b6b6;
-  
-
 }
 
 .spot-index-item img {
@@ -59,13 +56,12 @@
     width: 300px;
 }
 
-
 .index-item-name {
     margin: 10px 0px 5px;
     color: #837878;
     font-size: 14px;
-    
 }
+
 .line {
     height:1px;
     width: 30px;
@@ -92,8 +88,6 @@
 
 #map {
     position: fixed !important;
-    left: 55%;
-    top: 10%;
     width: 45%;
     height: 90%;
 }
@@ -101,6 +95,7 @@
 .board {
     display: flex;
 }
+
 .leftside {
     overflow: hidden;
     position: relative;
@@ -108,13 +103,11 @@
 }
 
 .rightside{ 
-    position: fixed;
-    top:0;
     height: 100%;
     right: 0;
-    z-index: -25;
     width:40%;
 }
+
 .listings {
     width: 100%
 }
@@ -122,7 +115,6 @@
 .showpagediv {
     border-top: 1px solid #f7f7f7;
     padding: 20px 50px;
-
 }
 
 .address {
@@ -176,16 +168,13 @@
     border-radius: 0px 0px 10px 0px;
 }
 
-
 .spotshowbody {
     border-bottom: 1px solid darkgrey;
     padding: 20px 0px;
 }
 
-
 .entirehome, .enhancedclean, .checkin, .cancelation {
     padding: 10px 0px;
-
         #sicons {
         margin-right: 5px;
     }
