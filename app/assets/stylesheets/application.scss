@@ -208,24 +208,10 @@ input[type=checkbox] {
 
 }
 
-// .l_tag {
-//     text-decoration: underline;
-//     color: darkslategray;
-//     size: 14px;
-//     margin-bottom: 10px;
-//     padding-top: 10px;
-// }
-
-// .l_tag:hover {
-//     text-decoration: underline;
-//     color: black;
-// }
-
 .l_link {
     display: flex;
     margin-bottom: 10px;
     margin-right: 10px;
-    // justify-content: space-between;
     align-items: baseline;
 }
 
@@ -410,7 +396,6 @@ input[type=checkbox] {
     background-color: #FEF8F6;
     
     input {
-        // background-color: #FEF8F6;
         margin-top: 10px;
         width: 100%;
     }
