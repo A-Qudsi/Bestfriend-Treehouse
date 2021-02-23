@@ -132,7 +132,7 @@ class Signup extends React.Component {
                                 onChange={this.update('email')} />
                         </div>
                         <div className='error'>{this.state.emailError}</div>
-                        <p className='tag'>We'll email you trip confirmations and receipts.</p>
+                        {/* <p className='tag'>We'll email you trip confirmations and receipts.</p> */}
                         <div className={this.state.passwordError ? 'diverror' : 's_password'}>
                             <input type="password" className='s_p'
                                 value={this.state.password}
@@ -140,9 +140,9 @@ class Signup extends React.Component {
                                 onChange={this.update('password')} />
                         </div>
                         <div className='error'>{this.state.passwordError}</div>
-                        <p className='tag'>
+                        {/* <p className='tag'>
                             We’ll send you marketing promotions, special offers, inspiration, and policy updates via email.
-                        </p>
+                        </p> */}
                         <div className='subscribe-box'>
                             <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter" />
                             <label className='subscribe-text' htmlFor="subscribeNews">
@@ -150,6 +150,10 @@ class Signup extends React.Component {
                             </label>
                         </div>
                         <button type='submit' className='submit-button'>Agree and Continue</button>
+                    <div className='l_link'>
+                        <span className='tag'>Already have an account?</span>
+                        <button onClick={ () => dispatch(openModal('login'))}>Login</button>
+                    </div>
                     </form>
                 </>
             )
@@ -179,7 +183,6 @@ class Signup extends React.Component {
                             <div className='error'>{this.state.passwordError}</div>
                             <button type='submit' className='submit-button'>Login</button>
                             <button className='submit-button' onClick={ this.demoUser}>Demo User</button>
-                            {/* <p className='l_tag'>Forgot password?</p> */}
                         </form>
                         <div className='l_link'>
                             <span className='tag'>Don’t have an account?</span>

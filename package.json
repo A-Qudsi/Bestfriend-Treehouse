@@ -28,6 +28,7 @@
     "webpack": "webpack --mode=development --watch",
     "postinstall": "webpack"
   },
+  
   "engines": {
     "node": "14.8.0",
     "npm": "6.14.7"

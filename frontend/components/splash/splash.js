@@ -47,7 +47,7 @@ class Splash extends React.Component {
                     <div className='disclaimer_lf'>
                         <div className='disclaimer_textlf'>
                             <p>We embrace a world where everyone belongs, and stand with #BlackLivesMatter.</p>
-                            <button className='learnMore'>Learn More</button>
+                            <p className='learnMore'>Learn More</p>
                         </div>
                     </div>
                     <div className='disclaimer_rf'>

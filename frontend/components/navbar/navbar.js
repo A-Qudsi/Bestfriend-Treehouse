@@ -39,12 +39,12 @@ class Navbar extends React.Component {
 
             <div className='right_panel'>
                 <p className='host_text'>Become a host</p>
-                <button className='right_panel_buttons'>
+                <div className='right_panel_buttons'>
                     <div className='globe_panel_button'>
                         <i className="fas fa-globe fa-fw"></i>
                         <i className="fas fa-chevron-down fa-fw"></i>
                     </div>
-                </button>
+                </div>
                 <div className='dropdown' >
                     <button className='right_panel_buttons'onClick={this.handleClick} > 
                         <div className='right_header_button' >
