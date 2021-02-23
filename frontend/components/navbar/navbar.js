@@ -33,7 +33,7 @@ class Navbar extends React.Component {
         <div className='nav_bar'>
             <div className='BFTHLogo'>
             <Link to="/"><img className='treehouse_logo' src='https://bestfriend-treehouse-seeds.s3.amazonaws.com/f39e3999c24445afb5a328b6c5a2f040.png' /></Link>
-            <p className='BFTHText'>BestFriend TreeHouse</p>
+            <p>BestFriend TreeHouse</p>
             </div>
 
             <div className='search_bar'>
