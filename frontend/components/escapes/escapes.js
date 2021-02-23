@@ -12,7 +12,7 @@ const Escapes = () => {
                         <p className='OEdescription'>hosts.</p>
                     </div>
                     <div className='OEbutton'>
-                        <button>Explore all</button>
+                        <div className='ExploreSplash'>Explore all</div>
                     </div>
                 </div>
                 <div className='OEphotos'>
