@@ -31,7 +31,10 @@ class Navbar extends React.Component {
     render() {
         return (
         <div className='nav_bar'>
-            <Link to="/"><img className='treehouse_logo' src='https://bestfriend-treehouse-dev.s3.amazonaws.com/treehouse-in-large-tree.jpg' /></Link>
+            <div className='BFTHLogo'>
+            <Link to="/"><img className='treehouse_logo' src='https://bestfriend-treehouse-seeds.s3.amazonaws.com/f39e3999c24445afb5a328b6c5a2f040.png' /></Link>
+            <p className='BFTHText'>BestFriend TreeHouse</p>
+            </div>
 
             <div className='search_bar'>
                 <input type='text' placeholder="Start your search"/> <i className="fas fa-search fa-fw"></i>

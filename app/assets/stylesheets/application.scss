@@ -31,6 +31,13 @@
     width: 100%;
     height: 50px;
 } */
+.BFTHLogo {
+    display: flex;
+    
+    p {
+        align-self: center;
+    }
+}
 
 .title {
     text-align: center;
@@ -318,6 +325,7 @@ input[type=checkbox] {
 } 
 
 .escape_images{
+    cursor: default;
     display: flex;
     justify-content: space-evenly;
     margin: 10px;
