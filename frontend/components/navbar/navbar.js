@@ -1,8 +1,8 @@
 import React from 'react';
-import { openModal } from '../../actions/modal_actions';
+// import { openModal } from '../../actions/modal_actions';
 import LoginContainer from '../login/login_container.js';
 import { Link } from 'react-router-dom';
-import Splash from '../splash//splash';
+// import Splash from '../splash//splash';
 
 
 class Navbar extends React.Component {
