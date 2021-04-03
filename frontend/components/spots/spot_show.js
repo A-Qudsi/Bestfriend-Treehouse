@@ -87,6 +87,13 @@ class SpotShow extends React.Component {
                         <p className='sBody'>Add your trip dates to get the cancellation details for this stay.</p> 
                     </div>  
                 </div>
+                <div className ='spotshowbodybottom'>
+                </div>
+                <div className='spotshowtext'>
+                    <p>Lorem ipsum dolor sit amet, ex salutandi concludaturque mea, suas viderer ea ius. In sea idque corrumpit. Eam autem causae dolorum et, malorum ocurreret no his. Paulo abhorreant ex nec, ei qui veritus imperdiet conceptam.
+
+Postea hendrerit pertinacia sit an, menandri dissentias an usu. Ius detraxit eleifend disputationi cu, assum nusquam cu per, id mollis postulant pertinacia nec. Ius ex odio eros saepe. Quando efficiendi id vix, ad wisi albucius nec, at sed modus utroque detracto. An patrioque efficiendi usu, at novum timeam cum.</p>
+                </div>
             </div>
         );
     };

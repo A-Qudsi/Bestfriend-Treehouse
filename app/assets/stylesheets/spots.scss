@@ -172,6 +172,24 @@
 .spotshowbody {
     border-bottom: 1px solid darkgrey;
     padding: 20px 0px;
+    width: 800px;
+    margin-bottom: 10px;
+}
+
+.spotshowbodybottom {
+    border-bottom: 1px solid darkgrey;
+    padding: 10px 0px;
+    width: 800px;
+}
+
+.spotshowtext {
+    p {
+    font-size: 16px;
+    color: gray;
+    }
+    width:800px;
+    padding: 20px 0px;
+    border-bottom: 1px solid darkgrey;
 }
 
 .entirehome, .enhancedclean, .checkin, .cancelation {

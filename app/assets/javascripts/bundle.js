@@ -1489,7 +1489,11 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         className: "sTitle"
       }, "Cancellation policy"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "sBody"
-      }, "Add your trip dates to get the cancellation details for this stay."))));
+      }, "Add your trip dates to get the cancellation details for this stay."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spotshowbodybottom"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spotshowtext"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Lorem ipsum dolor sit amet, ex salutandi concludaturque mea, suas viderer ea ius. In sea idque corrumpit. Eam autem causae dolorum et, malorum ocurreret no his. Paulo abhorreant ex nec, ei qui veritus imperdiet conceptam. Postea hendrerit pertinacia sit an, menandri dissentias an usu. Ius detraxit eleifend disputationi cu, assum nusquam cu per, id mollis postulant pertinacia nec. Ius ex odio eros saepe. Quando efficiendi id vix, ad wisi albucius nec, at sed modus utroque detracto. An patrioque efficiendi usu, at novum timeam cum.")));
     }
   }]);
 
