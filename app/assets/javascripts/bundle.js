@@ -1404,9 +1404,9 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         className: "faviconsright"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-upload"
-      }), "Share", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }), " Share", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-heart"
-      }), "Save"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), " Save"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo_grid"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo_1"
@@ -1434,6 +1434,10 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         src: spot.photoUrls[6],
         className: "photo_5"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spotsShowBodyContainer"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spotsShowLeftSide"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spotshowbody"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Entire house hosted by ", spot.host_id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, spot.maxGuests, " Guests")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "entirehome"
@@ -1493,7 +1497,9 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         className: "spotshowbodybottom"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spotshowtext"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Lorem ipsum dolor sit amet, ex salutandi concludaturque mea, suas viderer ea ius. In sea idque corrumpit. Eam autem causae dolorum et, malorum ocurreret no his. Paulo abhorreant ex nec, ei qui veritus imperdiet conceptam. Postea hendrerit pertinacia sit an, menandri dissentias an usu. Ius detraxit eleifend disputationi cu, assum nusquam cu per, id mollis postulant pertinacia nec. Ius ex odio eros saepe. Quando efficiendi id vix, ad wisi albucius nec, at sed modus utroque detracto. An patrioque efficiendi usu, at novum timeam cum.")));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Lorem ipsum dolor sit amet, ex salutandi concludaturque mea, suas viderer ea ius. In sea idque corrumpit. Eam autem causae dolorum et, malorum ocurreret no his. Paulo abhorreant ex nec, ei qui veritus imperdiet conceptam. Postea hendrerit pertinacia sit an, menandri dissentias an usu. Ius detraxit eleifend disputationi cu, assum nusquam cu per, id mollis postulant pertinacia nec. Ius ex odio eros saepe. Quando efficiendi id vix, ad wisi albucius nec, at sed modus utroque detracto. An patrioque efficiendi usu, at novum timeam cum."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spotsShowRightSide"
+      })));
     }
   }]);
 

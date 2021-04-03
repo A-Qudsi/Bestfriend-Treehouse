@@ -172,14 +172,14 @@
 .spotshowbody {
     border-bottom: 1px solid darkgrey;
     padding: 20px 0px;
-    width: 800px;
+    // width: 800px;
     margin-bottom: 10px;
 }
 
 .spotshowbodybottom {
     border-bottom: 1px solid darkgrey;
     padding: 10px 0px;
-    width: 800px;
+    // width: 800px;
 }
 
 .spotshowtext {
@@ -209,4 +209,9 @@
 .sBody {
     font-size: 13px;
     color: gray;
+}
+
+.spotsShowBodyContainer {
+    display: flex;
+    width: 800px;
 }
