@@ -97,7 +97,19 @@ class SpotShow extends React.Component {
                         </div>
                     </div>
                     <div className='spotsShowRightSide'>
-                            
+                        <div className='bookingcontainer'>
+                            <div className='bookingHeader'>
+                                <div className='bookingPrice'>
+                                    {spot.price}/night
+                                </div>
+                                <div className='bookingRating'>
+
+                                </div>
+                            </div>
+                            <div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
