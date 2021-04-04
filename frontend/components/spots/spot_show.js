@@ -109,6 +109,23 @@ class SpotShow extends React.Component {
                             <div>
                                 <form className='signup_form body'>
                                     <div>
+                                        <div className='sReservation'>
+                                            <div className= 'sCheckin' >
+                                                <input type = "text"  className="l_e"
+                                                    value = ""
+                                                    placeholder='check-in'/>
+                                            </div>
+                                            <div className= 'sCheckout' >
+                                                <input type = "text"  className="l_e"
+                                                    value = ""
+                                                    placeholder='checkout'/>
+                                            </div>
+                                        </div>
+                                        <div className='sGuests'>
+                                            <input type="text" className='l_p'
+                                                value= ""
+                                                placeholder='GUESTS'/>
+                                        </div>
                                         <button className='submit-button'>Reserve</button>
                                     </div>
                                 </form>

@@ -227,14 +227,60 @@
     position: absolute;
     border-radius: 15px;
     box-shadow: 0px 8px 17px -7px rgba(0,0,0,0.51);
-    width: 350px;
-    height: 300px;   
+    min-width: 350px;
+    min-height: 300px;   
     border: 1px solid darkgray;
 
 }
 
 .bookingHeader {
-    padding: 30px;
+    padding: 30px 30px 0px 30px;
     display: flex;
     justify-content: space-between;
+}
+
+.sCheckin{
+    height: 40px;
+    border-top: 1px solid darkgray;
+    border-left: 1px solid darkgray;
+    padding: 7px 15px 7px 5px;
+    border-radius: 8px 0px 0px 0px; 
+
+    input {
+        margin-top: 10px;
+        width: 100%;
+        height: 100%;
+    }
+}
+.sCheckout{
+    height: 40px;
+    border-top: 1px solid darkgray;
+    border-right: 1px solid darkgray;
+    border-left: 1px solid darkgray;
+    padding: 7px 15px 7px 5px;
+    border-radius: 0px 8px 0px 0px; 
+
+    input {
+        margin-top: 10px;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.sGuests {
+    height: 40px;
+    border: 1px solid darkgray;
+    padding: 7px 15px 7px 5px;
+    border-radius: 0px 0px 8px 8px;
+
+    input {
+        margin-top: 10px;
+        width: 100%;
+        height: 100%;
+    }
+
+}
+
+.sReservation {
+    display: flex;
 }
