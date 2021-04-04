@@ -227,8 +227,14 @@
     position: absolute;
     border-radius: 15px;
     box-shadow: 0px 8px 17px -7px rgba(0,0,0,0.51);
-    width: 300px;
-    height: 350px;   
+    width: 350px;
+    height: 300px;   
     border: 1px solid darkgray;
 
+}
+
+.bookingHeader {
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
 }

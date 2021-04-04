@@ -99,15 +99,19 @@ class SpotShow extends React.Component {
                     <div className='spotsShowRightSide'>
                         <div className='bookingcontainer'>
                             <div className='bookingHeader'>
-                                <div className='bookingPrice'>
-                                    {spot.price}/night
+                                <div className='l_e'>
+                                    $ {spot.price} / night
                                 </div>
                                 <div className='bookingRating'>
-
+                                    5.0
                                 </div>
                             </div>
                             <div>
-
+                                <form className='signup_form body'>
+                                    <div>
+                                        <button className='submit-button'>Reserve</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
