@@ -5,6 +5,8 @@ class SpotShow extends React.Component {
         super(props);
         this.state = {
             counter: 1,
+            childrenCounter: 0,
+            infantCounter: 0,
             clicked: false
         }
         this.handleClick = this.handleClick.bind(this);
@@ -145,7 +147,25 @@ class SpotShow extends React.Component {
                                                     <div>{this.state.counter} guest</div>
                                                     <i class="fas fa-chevron-down"></i>
                                                     {this.state.clicked ? (
-                                                        <ul onClick={e => e.stopPropagation()} id='navbar-dropdown'>    
+                                                        <ul onClick={e => e.stopPropagation()} id='reservation-dropdown'>   
+                                                         <div className='Adults'>
+                                                            <span>Adults</span>
+                                                            <div><i class="far fa-minus-square"></i>{this.state.counter}<i class="far fa-plus-square"></i></div>
+                                                         </div>
+                                                         <div className='Adults'>
+                                                            <div>
+                                                                <span>Children</span><br />
+                                                                <span>Ages 2–12</span>
+                                                            </div>
+                                                            <div><i class="far fa-minus-square"></i>{this.state.childrenCounter}<i class="far fa-plus-square"></i></div>
+                                                         </div>
+                                                         <div className='Adults'>
+                                                            <div>
+                                                                <span>Infants</span><br />
+                                                                <span>Under 2</span>
+                                                            </div>
+                                                            <div><i class="far fa-minus-square"></i>{this.state.infantCounter}<i class="far fa-plus-square"></i></div>
+                                                         </div>
                                                         </ul>
                                                     ) : null}
                                                 </div>  
