@@ -268,8 +268,9 @@
 }
 
 .sGuests {
-    height: 47px;
+    height: 40px;
     border: 1px solid darkgray;
+    padding: 7px 15px 7px 5px;
     border-radius: 0px 0px 8px 8px;
 
     input {
@@ -291,7 +292,11 @@
 }
 
 .sGuestButtonDiv {
+    align-items: center;
+    padding: 0px, 15px;
     border: none;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: space-between;
 }

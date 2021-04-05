@@ -4,6 +4,7 @@ class SpotShow extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            counter: 1,
             clicked: false
         }
         this.handleClick = this.handleClick.bind(this);
@@ -141,6 +142,8 @@ class SpotShow extends React.Component {
                                         <div className='sGuests' >
                                             <button className='sGuestsButton' onClick={this.handleClick} > 
                                                 <div className='sGuestButtonDiv' >
+                                                    <div>{this.state.counter} guest</div>
+                                                    <i class="fas fa-chevron-down"></i>
                                                     {this.state.clicked ? (
                                                         <ul onClick={e => e.stopPropagation()} id='navbar-dropdown'>    
                                                         </ul>
@@ -148,7 +151,7 @@ class SpotShow extends React.Component {
                                                 </div>  
                                             </button>
                                         </div>
-                                        <button className='submit-button'>Reserve</button>
+                                        <button className='submit-button'>Check availability</button>
                                     </div>
                                 </form>
                             </div>

@@ -1375,6 +1375,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
+      counter: 1,
       clicked: false
     };
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
@@ -1559,14 +1560,16 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         onClick: this.handleClick
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sGuestButtonDiv"
-      }, this.state.clicked ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.counter, " guest"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-chevron-down"
+      }), this.state.clicked ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         onClick: function onClick(e) {
           return e.stopPropagation();
         },
         id: "navbar-dropdown"
       }) : null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "submit-button"
-      }, "Reserve"))))))));
+      }, "Check availability"))))))));
     }
   }]);
 
