@@ -11,30 +11,24 @@ class SpotShow extends React.Component {
         }
         this.handleClick = this.handleClick.bind(this);
         this.closeDropdown = this.closeDropdown.bind(this);
-        this.addInfantCounter = this.addInfantCounter(this);
-        this.removeInfantCounter= this.removeInfantCounter(this);
+        this.addInfantCounter = this.addInfantCounter.bind(this);
+        this.removeInfantCounter= this.removeInfantCounter.bind(this);
     }
 
     closeDropdown() {
-        this.setState({ clicked: false }, () => {
-            document.removeEventListener('click', this.closeDropdown);
-        });
+        this.setState({clicked: false})
     }
 
     handleClick(e) {
         e.preventDefault();
-        this.setState({ clicked: true, }, () => {
-            document.addEventListener("click", this.closeDropdown);
-        })
+        this.setState({ clicked: true })
     }
 
     addInfantCounter() {
-        // e.preventDefa    ult();
-        this.setState({ infantCounter: this.state.infantCounter + 1, })
+        this.setState({ infantCounter: this.state.infantCounter + 1 })
     }   
     removeInfantCounter() {
-        // e.preventDefault();
-        this.setState({ infantCounter:this.state.infantCounter - 1, })
+        this.setState({ infantCounter: this.state.infantCounter - 1 })
     }
 
 
@@ -163,7 +157,7 @@ class SpotShow extends React.Component {
                                                         <ul onClick={e => e.stopPropagation()} id='reservation-dropdown'>   
                                                          <div className='Adults'>
                                                             <span>Adults</span>
-                                                            <div className='dropdownAdds'><i className="far fa-minus-square"></i>{this.state.counter}<i class="far fa-plus-square"></i></div>
+                                                            <div className='dropdownAdds'><i className="far fa-minus-square"></i>{this.state.counter}<i className="far fa-plus-square"></i></div>
                                                          </div>
                                                          <div className='Adults'>
                                                             <div  className='dropdownText'>
@@ -177,10 +171,11 @@ class SpotShow extends React.Component {
                                                                 <span>Infants</span>
                                                                 <span>Under 2</span>
                                                             </div>
-                                                            <div className='dropdownAdds'><div onClick={this.removeInfantCounter}><i className="far fa-minus-square"></i></div >{this.state.infantCounter}<div onClick={this.addInfantCounter}><i className="far fa-plus-square"></i></div></div>
+                                                            <div className='dropdownAdds'><i className="far fa-minus-square" onClick={this.removeInfantCounter} ></i>{this.state.infantCounter}<i className="far fa-plus-square" onClick={this.addInfantCounter}></i></div>
                                                          </div>
                                                          <span className = 'disclousreGuests'>{spot.maxGuests} guests maximum. Infants don’t count toward </span>
                                                          <span className = 'disclousreGuests'>the number of guests.</span>
+                                                         <div onClick={this.closeDropdown}> close</div>
                                                         </ul>
                                                     ) : null}
                                                 </div>  
