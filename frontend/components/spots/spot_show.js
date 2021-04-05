@@ -1,10 +1,27 @@
 import React from 'react';
 
 class SpotShow extends React.Component {
-    // constructor 
-    // componentDidMount() {
-    //     this.props.fetchSpot(this.props.match.params.spotId);
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            clicked: false
+        }
+        this.handleClick = this.handleClick.bind(this);
+        this.closeDropdown = this.closeDropdown.bind(this);
+    }
+
+    closeDropdown() {
+        this.setState({ clicked: false }, () => {
+            document.removeEventListener('click', this.closeDropdown);
+        });
+    }
+
+    handleClick(e) {
+        e.preventDefault();
+        this.setState({ clicked: true, }, () => {
+            document.addEventListener("click", this.closeDropdown);
+        })
+    }
 
     render() {
         debugger
@@ -121,10 +138,15 @@ class SpotShow extends React.Component {
                                                     placeholder='checkout'/>
                                             </div>
                                         </div>
-                                        <div className='sGuests'>
-                                            <input type="text" className='l_p'
-                                                value= ""
-                                                placeholder='GUESTS'/>
+                                        <div className='sGuests' >
+                                            <button className='sGuestsButton' onClick={this.handleClick} > 
+                                                <div className='right_header_button' >
+                                                    {this.state.clicked ? (
+                                                        <ul onClick={e => e.stopPropagation()} id='navbar-dropdown'>    
+                                                        </ul>
+                                                    ) : null}
+                                                </div>  
+                                            </button>
                                         </div>
                                         <button className='submit-button'>Reserve</button>
                                     </div>

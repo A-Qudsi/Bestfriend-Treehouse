@@ -1368,18 +1368,45 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(SpotShow);
 
-  function SpotShow() {
+  function SpotShow(props) {
+    var _this;
+
     _classCallCheck(this, SpotShow);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      clicked: false
+    };
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    _this.closeDropdown = _this.closeDropdown.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(SpotShow, [{
+    key: "closeDropdown",
+    value: function closeDropdown() {
+      var _this2 = this;
+
+      this.setState({
+        clicked: false
+      }, function () {
+        document.removeEventListener('click', _this2.closeDropdown);
+      });
+    }
+  }, {
+    key: "handleClick",
+    value: function handleClick(e) {
+      var _this3 = this;
+
+      e.preventDefault();
+      this.setState({
+        clicked: true
+      }, function () {
+        document.addEventListener("click", _this3.closeDropdown);
+      });
+    }
+  }, {
     key: "render",
-    // constructor 
-    // componentDidMount() {
-    //     this.props.fetchSpot(this.props.match.params.spotId);
-    // }
     value: function render() {
       debugger;
       if (!this.props.spot) return null;
@@ -1527,12 +1554,17 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         placeholder: "checkout"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sGuests"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        className: "l_p",
-        value: "",
-        placeholder: "GUESTS"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "sGuestsButton",
+        onClick: this.handleClick
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right_header_button"
+      }, this.state.clicked ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        onClick: function onClick(e) {
+          return e.stopPropagation();
+        },
+        id: "navbar-dropdown"
+      }) : null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "submit-button"
       }, "Reserve"))))))));
     }
