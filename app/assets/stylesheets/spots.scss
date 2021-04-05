@@ -304,6 +304,11 @@
 .Adults {
     display: flex;
     justify-content: space-between;
+    span {
+        padding-left: 15px;
+        display: flex;
+        align-items: center;
+    }
 }
 
 #reservation-dropdown {
@@ -316,4 +321,23 @@
     box-shadow: 0px 8px 17px -7px rgba(0,0,0,0.51);
     border-radius: 5px;
     background: white;
+}
+
+.dropdownAdds {
+    width: 100px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dropdownText {
+    align-self: center;
+}
+
+.fa-minus-square {
+    font-size: 20px;
+}
+
+.fa-plus-square {
+    font-size: 20px;
 }

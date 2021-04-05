@@ -11,20 +11,28 @@ class SpotShow extends React.Component {
         }
         this.handleClick = this.handleClick.bind(this);
         this.closeDropdown = this.closeDropdown.bind(this);
+        this.addInfantCounter = this.addInfantCounter(this);
+        this.removeInfantCounter= this.removeInfantCounter(this);
     }
 
     closeDropdown() {
-        this.setState({ clicked: false }, () => {
-            document.removeEventListener('click', this.closeDropdown);
-        });
+        this.setState({ clicked: false });
     }
 
     handleClick(e) {
         e.preventDefault();
-        this.setState({ clicked: true, }, () => {
-            document.addEventListener("click", this.closeDropdown);
-        })
+        this.setState({ clicked: true, })
     }
+
+    addInfantCounter() {
+        // e.preventDefault();
+        this.setState({ infantCounter: 1, })
+    }   
+    removeInfantCounter() {
+        // e.preventDefault();
+        this.setState({ infantCounter: -1, })
+    }
+
 
     render() {
         debugger
@@ -145,26 +153,27 @@ class SpotShow extends React.Component {
                                             <button className='sGuestsButton' onClick={this.handleClick} > 
                                                 <div className='sGuestButtonDiv' >
                                                     <div>{this.state.counter} guest</div>
-                                                    <i class="fas fa-chevron-down"></i>
+                                                    {!this.state.clicked ? (
+                                                    <i className="fas fa-chevron-down"></i> ) : <i className="fas fa-chevron-up"></i> }
                                                     {this.state.clicked ? (
                                                         <ul onClick={e => e.stopPropagation()} id='reservation-dropdown'>   
                                                          <div className='Adults'>
                                                             <span>Adults</span>
-                                                            <div><i class="far fa-minus-square"></i>{this.state.counter}<i class="far fa-plus-square"></i></div>
+                                                            <div className='dropdownAdds'><i className="far fa-minus-square"></i>{this.state.counter}<i class="far fa-plus-square"></i></div>
                                                          </div>
                                                          <div className='Adults'>
-                                                            <div>
-                                                                <span>Children</span><br />
+                                                            <div  className='dropdownText'>
+                                                                <span>Children</span>
                                                                 <span>Ages 2–12</span>
                                                             </div>
-                                                            <div><i class="far fa-minus-square"></i>{this.state.childrenCounter}<i class="far fa-plus-square"></i></div>
+                                                            <div className='dropdownAdds'><i className="far fa-minus-square"></i>{this.state.childrenCounter}<i className="far fa-plus-square"></i></div>
                                                          </div>
                                                          <div className='Adults'>
-                                                            <div>
-                                                                <span>Infants</span><br />
+                                                            <div className='dropdownText'> 
+                                                                <span>Infants</span>
                                                                 <span>Under 2</span>
                                                             </div>
-                                                            <div><i class="far fa-minus-square"></i>{this.state.infantCounter}<i class="far fa-plus-square"></i></div>
+                                                            <div className='dropdownAdds'><button onClick={this.removeInfantCounter}><i className="far fa-minus-square"></i></button>{this.state.infantCounter}<button onClick={this.addInfantCounter}><i className="far fa-plus-square"></i></button></div>
                                                          </div>
                                                         </ul>
                                                     ) : null}
