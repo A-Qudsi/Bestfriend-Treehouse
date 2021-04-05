@@ -140,7 +140,7 @@ class SpotShow extends React.Component {
                                         </div>
                                         <div className='sGuests' >
                                             <button className='sGuestsButton' onClick={this.handleClick} > 
-                                                <div className='right_header_button' >
+                                                <div className='sGuestButtonDiv' >
                                                     {this.state.clicked ? (
                                                         <ul onClick={e => e.stopPropagation()} id='navbar-dropdown'>    
                                                         </ul>

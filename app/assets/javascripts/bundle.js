@@ -1558,7 +1558,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         className: "sGuestsButton",
         onClick: this.handleClick
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "right_header_button"
+        className: "sGuestButtonDiv"
       }, this.state.clicked ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         onClick: function onClick(e) {
           return e.stopPropagation();
