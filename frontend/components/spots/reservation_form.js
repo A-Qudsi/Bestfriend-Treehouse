@@ -9,7 +9,7 @@ class ReservationForm extends React.Component {
             childrenCounter: 0,
             infantCounter: 0,
         }
-        
+
         this.handleClick = this.handleClick.bind(this);
         this.closeDropdown = this.closeDropdown.bind(this);
         this.addInfantCounter = this.addInfantCounter.bind(this);
@@ -81,7 +81,7 @@ class ReservationForm extends React.Component {
                             <div className='sGuests' >
                                 <button className='sGuestsButton' onClick={this.handleClick} > 
                                     <div className='sGuestButtonDiv' >
-                                        <div>{totalCounter} guest {this.state.infantCounter === 0 ? null :  ", " + this.state.infantCounter + " infants"}</div>
+                                        <div>{totalCounter} guest{this.state.infantCounter === 0 ? null : this.state.infantCounter === 1 ? ", " + this.state.infantCounter + " infant" : ", " + this.state.infantCounter + " infants"  }</div>
                                         {!this.state.clicked ? (
                                         <i className="fas fa-chevron-down"></i> ) : <i className="fas fa-chevron-up"></i> }
                                         {this.state.clicked ? (
