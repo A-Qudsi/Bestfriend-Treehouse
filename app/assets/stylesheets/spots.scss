@@ -312,6 +312,7 @@
 }
 
 #reservation-dropdown {
+    cursor: default;
     position: absolute;
     right: 30px;
     top: 185px;
@@ -335,14 +336,22 @@
 }
 
 .fa-minus-square {
+    cursor: pointer;
     font-size: 20px;
 }
 
 .fa-plus-square {
+    cursor: pointer;
     font-size: 20px;
 }
 
 .disclousreGuests {
+    
     padding-left: 15px;
 
+}
+
+.gray {
+    cursor: not-allowed;
+    color: gray;
 }

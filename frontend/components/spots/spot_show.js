@@ -1,4 +1,6 @@
 import React from 'react';
+import Pictures from './spot_show_pictures';
+import ReservationForm from './reservation_form';
 
 class SpotShow extends React.Component {
     constructor(props) {
@@ -9,27 +11,9 @@ class SpotShow extends React.Component {
             infantCounter: 0,
             clicked: false
         }
-        this.handleClick = this.handleClick.bind(this);
-        this.closeDropdown = this.closeDropdown.bind(this);
-        this.addInfantCounter = this.addInfantCounter.bind(this);
-        this.removeInfantCounter= this.removeInfantCounter.bind(this);
+
     }
 
-    closeDropdown() {
-        this.setState({clicked: false})
-    }
-
-    handleClick(e) {
-        e.preventDefault();
-        this.setState({ clicked: true })
-    }
-
-    addInfantCounter() {
-        this.setState({ infantCounter: this.state.infantCounter + 1 })
-    }   
-    removeInfantCounter() {
-        this.setState({ infantCounter: this.state.infantCounter - 1 })
-    }
 
 
     render() {
@@ -37,7 +21,7 @@ class SpotShow extends React.Component {
         if (!this.props.spot)  return null;
         debugger
         const { spot } = this.props;
-        console.log(spot);
+        const totalCounter = this.state.counter + this.state.childrenCounter;
         return (
             <div className='showpagediv'>
                 <div className='showpageheader'>                 
@@ -55,23 +39,8 @@ class SpotShow extends React.Component {
                     </div>
                 </div>
 
-                <div className='photo_grid'>
-                    <div className="photo_1" >
-                        <img src={spot.photoUrls[2]} className='photo_1' />
-                    </div>
-                    <div className='photo_2'>
-                        <img src={spot.photoUrls[3]} className='photo_2' />
-                    </div>
-                    <div className='photo_3'>
-                        <img src={spot.photoUrls[4]} className='photo_3' />
-                    </div>
-                    <div className='photo_4'>
-                        <img src={spot.photoUrls[5]} className='photo_4' />
-                    </div>
-                    <div className='photo_5'>
-                        <img src={spot.photoUrls[6]} className='photo_5' />
-                    </div>
-                </div>
+                < Pictures spot={spot} />
+
                 <div className='spotsShowBodyContainer'>
                     <div className='spotsShowLeftSide'>
                         <div className ='spotshowbody'>
@@ -123,70 +92,7 @@ class SpotShow extends React.Component {
                         </div>
                     </div>
                     <div className='spotsShowRightSide'>
-                        <div className='bookingcontainer'>
-                            <div className='bookingHeader'>
-                                <div className='l_e'>
-                                    $ {spot.price} / night
-                                </div>
-                                <div className='bookingRating'>
-                                    5.0
-                                </div>
-                            </div>
-                            <div>
-                                <form className='signup_form body'>
-                                    <div>
-                                        <div className='sReservation'>
-                                            <div className= 'sCheckin' >
-                                                <input type = "text"  className="l_e"
-                                                    value = ""
-                                                    placeholder='check-in'/>
-                                            </div>
-                                            <div className= 'sCheckout' >
-                                                <input type = "text"  className="l_e"
-                                                    value = ""
-                                                    placeholder='checkout'/>
-                                            </div>
-                                        </div>
-                                        <div className='sGuests' >
-                                            <button className='sGuestsButton' onClick={this.handleClick} > 
-                                                <div className='sGuestButtonDiv' >
-                                                    <div>{this.state.counter} guest</div>
-                                                    {!this.state.clicked ? (
-                                                    <i className="fas fa-chevron-down"></i> ) : <i className="fas fa-chevron-up"></i> }
-                                                    {this.state.clicked ? (
-                                                        <ul onClick={e => e.stopPropagation()} id='reservation-dropdown'>   
-                                                         <div className='Adults'>
-                                                            <span>Adults</span>
-                                                            <div className='dropdownAdds'><i className="far fa-minus-square"></i>{this.state.counter}<i className="far fa-plus-square"></i></div>
-                                                         </div>
-                                                         <div className='Adults'>
-                                                            <div  className='dropdownText'>
-                                                                <span>Children</span>
-                                                                <span>Ages 2–12</span>
-                                                            </div>
-                                                            <div className='dropdownAdds'><i className="far fa-minus-square"></i>{this.state.childrenCounter}<i className="far fa-plus-square"></i></div>
-                                                         </div>
-                                                         <div className='Adults'>
-                                                            <div className='dropdownText'> 
-                                                                <span>Infants</span>
-                                                                <span>Under 2</span>
-                                                            </div>
-                                                            <div className='dropdownAdds'><i className="far fa-minus-square" onClick={this.removeInfantCounter} ></i>{this.state.infantCounter}<i className="far fa-plus-square" onClick={this.addInfantCounter}></i></div>
-                                                         </div>
-                                                         <span className = 'disclousreGuests'>{spot.maxGuests} guests maximum. Infants don’t count toward </span>
-                                                         <span className = 'disclousreGuests'>the number of guests.</span>
-                                                         <div onClick={this.closeDropdown}> close</div>
-                                                        </ul>
-                                                    ) : null}
-                                                </div>  
-                                            </button>
-                                        </div>
-
-                                        <button className='submit-button'>Check availability</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                        <ReservationForm spot={spot}/>
                     </div>
                 </div>
             </div>
