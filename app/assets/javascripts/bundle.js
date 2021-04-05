@@ -1377,7 +1377,8 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       counter: 1,
       childrenCounter: 0,
-      infantCounter: 0
+      infantCounter: 0,
+      clicked: false
     };
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
     _this.closeDropdown = _this.closeDropdown.bind(_assertThisInitialized(_this));
@@ -1401,9 +1402,14 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
     key: "handleClick",
     value: function handleClick(e) {
       e.preventDefault();
-      this.setState({
-        clicked: true
-      });
+
+      if (!this.state.clicked) {
+        this.setState({
+          clicked: true
+        });
+      } else {
+        this.closeDropdown();
+      }
     }
   }, {
     key: "addInfantCounter",
@@ -1762,7 +1768,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  // debugger
   return {
     spot: state.entities.spots[ownProps.match.params.spotId]
   };
