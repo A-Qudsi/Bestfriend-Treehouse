@@ -16,21 +16,25 @@ class SpotShow extends React.Component {
     }
 
     closeDropdown() {
-        this.setState({ clicked: false });
+        this.setState({ clicked: false }, () => {
+            document.removeEventListener('click', this.closeDropdown);
+        });
     }
 
     handleClick(e) {
         e.preventDefault();
-        this.setState({ clicked: true, })
+        this.setState({ clicked: true, }, () => {
+            document.addEventListener("click", this.closeDropdown);
+        })
     }
 
     addInfantCounter() {
-        // e.preventDefault();
-        this.setState({ infantCounter: 1, })
+        // e.preventDefa    ult();
+        this.setState({ infantCounter: this.state.infantCounter + 1, })
     }   
     removeInfantCounter() {
         // e.preventDefault();
-        this.setState({ infantCounter: -1, })
+        this.setState({ infantCounter:this.state.infantCounter - 1, })
     }
 
 
@@ -173,13 +177,16 @@ class SpotShow extends React.Component {
                                                                 <span>Infants</span>
                                                                 <span>Under 2</span>
                                                             </div>
-                                                            <div className='dropdownAdds'><button onClick={this.removeInfantCounter}><i className="far fa-minus-square"></i></button>{this.state.infantCounter}<button onClick={this.addInfantCounter}><i className="far fa-plus-square"></i></button></div>
+                                                            <div className='dropdownAdds'><div onClick={this.removeInfantCounter}><i className="far fa-minus-square"></i></div >{this.state.infantCounter}<div onClick={this.addInfantCounter}><i className="far fa-plus-square"></i></div></div>
                                                          </div>
+                                                         <span className = 'disclousreGuests'>{spot.maxGuests} guests maximum. Infants don’t count toward </span>
+                                                         <span className = 'disclousreGuests'>the number of guests.</span>
                                                         </ul>
                                                     ) : null}
                                                 </div>  
                                             </button>
                                         </div>
+
                                         <button className='submit-button'>Check availability</button>
                                     </div>
                                 </form>

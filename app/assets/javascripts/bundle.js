@@ -1390,24 +1390,32 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
   _createClass(SpotShow, [{
     key: "closeDropdown",
     value: function closeDropdown() {
+      var _this2 = this;
+
       this.setState({
         clicked: false
+      }, function () {
+        document.removeEventListener('click', _this2.closeDropdown);
       });
     }
   }, {
     key: "handleClick",
     value: function handleClick(e) {
+      var _this3 = this;
+
       e.preventDefault();
       this.setState({
         clicked: true
+      }, function () {
+        document.addEventListener("click", _this3.closeDropdown);
       });
     }
   }, {
     key: "addInfantCounter",
     value: function addInfantCounter() {
-      // e.preventDefault();
+      // e.preventDefa    ult();
       this.setState({
-        infantCounter: 1
+        infantCounter: this.state.infantCounter + 1
       });
     }
   }, {
@@ -1415,7 +1423,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
     value: function removeInfantCounter() {
       // e.preventDefault();
       this.setState({
-        infantCounter: -1
+        infantCounter: this.state.infantCounter - 1
       });
     }
   }, {
@@ -1605,15 +1613,19 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         className: "dropdownText"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Infants"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Under 2")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dropdownAdds"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.removeInfantCounter
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-minus-square"
-      })), this.state.infantCounter, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), this.state.infantCounter, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.addInfantCounter
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-plus-square"
-      }))))) : null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "disclousreGuests"
+      }, spot.maxGuests, " guests maximum. Infants don\u2019t count toward "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "disclousreGuests"
+      }, "the number of guests.")) : null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "submit-button"
       }, "Check availability"))))))));
     }
