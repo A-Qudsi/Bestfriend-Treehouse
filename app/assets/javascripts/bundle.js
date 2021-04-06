@@ -1415,14 +1415,9 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
     key: "handleClick",
     value: function handleClick(e) {
       e.preventDefault();
-
-      if (!this.state.clicked) {
-        this.setState({
-          clicked: true
-        });
-      } else {
-        this.closeDropdown();
-      }
+      this.setState({
+        clicked: true
+      });
     }
   }, {
     key: "addInfantCounter",
@@ -1469,8 +1464,7 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this,
-          _React$createElement;
+      var _this2 = this;
 
       var spot = this.props.spot;
       var totalCounter = this.state.counter + this.state.childrenCounter;
@@ -1486,7 +1480,7 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
         className: "signup_form body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sReservation"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_dates__WEBPACK_IMPORTED_MODULE_1__["DateRangePicker"], (_React$createElement = {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_dates__WEBPACK_IMPORTED_MODULE_1__["DateRangePicker"], _defineProperty({
         block: true,
         startDate: this.state.startDate,
         startDateId: "datepicker_start_search_form",
@@ -1511,7 +1505,7 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
         hideKeyboardShortcutsPanel: true,
         startDatePlaceholderText: "Check-in",
         endDatePlaceholderText: "Checkout"
-      }, _defineProperty(_React$createElement, "block", true), _defineProperty(_React$createElement, "noBorder", false), _React$createElement))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "block", true))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sGuests"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "sGuestsButton",

@@ -274,6 +274,7 @@
 }
 
 .sGuestButtonDiv {
+    padding-left: 5px;
     align-items: center;
     padding: 0px, 15px;
     border: none;
@@ -298,7 +299,7 @@
     position: absolute;
     right: 30px;
     top: 185px;
-    width: 365px;
+    width: 354px;
     padding: 5px;
     border: 1px solid lightgray;
     box-shadow: 0px 8px 17px -7px rgba(0,0,0,0.51);
@@ -811,129 +812,152 @@
 }
 //
 .DayPickerNavigation_button__default {
-  border: 1px solid #e4e7e7;
-  background-color: #fff;
-  color: #757575
+    border: 1px solid #e4e7e7;
+    background-color: #fff;
+    color: #757575
 }
 
 .DayPickerNavigation_button__horizontalDefault {
-  position: absolute;
-  top: 18px;
-  line-height: .78;
-  border-radius: 3px;
-  padding: 6px 9px
+    position: absolute;
+    top: 18px;
+    line-height: .78;
+    border-radius: 3px;
+    padding: 6px 9px
 }
 .DayPickerNavigation_bottomButton__horizontalDefault {
-  position: static;
-  margin: -10px 22px 30px
+    position: static;
+    margin: -10px 22px 30px
 }
 
 .DayPickerNavigation_leftButton__horizontalDefault {
-  left: 22px
+    left: 22px
 }
 .DayPickerNavigation_rightButton__horizontalDefault {
-  right: 22px
+    right: 22px
 }
 
 .DayPickerNavigation_svg__horizontal {
-  height: 19px;
-  width: 19px;
-  fill: #82888a;
-  display: block
+    height: 19px;
+    width: 19px;
+    fill: #82888a;
+    display: block
 }
  
 .DayPicker__withBorder {
-  box-shadow: 0 2px 6px rgba(0,0,0,.05),0 0 0 1px rgba(0,0,0,.07);
-  border-radius: 3px
+    box-shadow: 0 2px 6px rgba(0,0,0,.05),0 0 0 1px rgba(0,0,0,.07);
+    border-radius: 3px
 }
 
 .DayPicker_weekHeaders {
-  position: relative
+    position: relative
 }
 .DayPicker_weekHeaders__horizontal {
-  margin-left: 9px
+    margin-left: 9px
 }
 .DayPicker_weekHeader {
-  color: #757575;
-  position: absolute;
-  top: 62px;
-  z-index: 2;
-  text-align: left
+    color: #757575;
+    position: absolute;
+    top: 62px;
+    z-index: 2;
+    text-align: left
 }
 
 .DayPicker_weekHeader__vertical {
-  left: 50%
+    left: 50%
 }
 
 .DayPicker_weekHeader_li {
-  display: inline-block;
-  text-align: center
+    display: inline-block;
+    text-align: center
 }
+
 .DayPicker_transitionContainer {
-  position: relative;
-  overflow: hidden;
-  border-radius: 3px
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px
 }
 
 .DateInput {
-  margin: 0;
-  padding: 0;
-  background: #fff;
-  position: relative;
-  display: inline-block;
-  width: 30%;
-  vertical-align: middle
+    border-top-left-radius: 8px;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    position: relative;
+    display: inline-block;
+    width: 45%;
+    vertical-align: middle
 }
 
 
 .DateInput_input {
-  font-weight: 200;
-  font-size: 15px;
-  color: #484848;
-  width: 95%;
-  padding: 11px 11px 9px;
+    cursor: pointer;
+    margin-top: 5px;
+    font-weight: 200;
+    font-size: 15px;
+    color: #484848;
+    height: 45%;
+    width: 85%;
+    padding: 11px 11px 9px;
 }
 
 .DateInput_screenReaderMessage {
-  border: 0;
-  clip: rect(0,0,0,0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px
+    border: 0;
+    clip: rect(0,0,0,0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px
 }
 
 .DateInput_fang {
-  position: absolute;
-  width: 20px;
-  height: 10px;
-  left: 22px;
-  z-index: 2
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    left: 22px;
+    z-index: 2
 }
 
 .DateInput_fangShape {
-  fill: #fff
+    fill: #fff
 }
 
 .DateInput_fangStroke {
-  stroke: darkgray;
-  fill: transparent
+    stroke: darkgray;
+    fill: transparent
 }
 
 .DateRangePickerInput__block {
-  display: flex;
-  border: 1px solid darkgray
+    border-radius: 8px 8px 0px 0px;
+    height: 55px;
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid darkgray;
+    border-bottom: 0px;
 }
 
 .DateRangePicker {
-  position: relative;
-  display: inline-block
+    position: relative;
+    display: inline-block
 }
 
 .DateRangePicker_picker {
-  z-index: 1;
-  background-color: #fff;
-  position: absolute
+    z-index: 1;
+    background-color: #fff;
+    position: absolute
+}
+
+.DateRangePickerInput_arrow {
+  display: inline-block;
+  vertical-align: middle;
+  color: #484848;
+  align-items: center;
+  display: flex;
+}
+.DateRangePickerInput_arrow_svg {
+  vertical-align: middle;
+  fill: #484848;
+  height: 24px;
+  width: 24px;
 }

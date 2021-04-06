@@ -32,11 +32,7 @@ class ReservationForm extends React.Component {
 
     handleClick(e) {
         e.preventDefault();
-        if (!this.state.clicked) {
-            this.setState({ clicked: true })
-        } else { 
-            this.closeDropdown()
-        }
+        this.setState({ clicked: true })
     }
 
     addInfantCounter() {
@@ -92,7 +88,6 @@ class ReservationForm extends React.Component {
                                     startDatePlaceholderText="Check-in"
                                     endDatePlaceholderText="Checkout"
                                     block={true}
-                                    noBorder={false}
                                 />
                             </div>
                             <div className='sGuests' >
