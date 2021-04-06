@@ -1341,10 +1341,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dates */ "./node_modules/react-dates/index.js");
 /* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dates__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_dates_src_constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dates/src/constants */ "./node_modules/react-dates/src/constants.js");
-/* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dates/initialize */ "./node_modules/react-dates/initialize.js");
-/* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_dates_initialize__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dates/initialize */ "./node_modules/react-dates/initialize.js");
+/* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dates_initialize__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1466,7 +1469,8 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this2 = this,
+          _React$createElement;
 
       var spot = this.props.spot;
       var totalCounter = this.state.counter + this.state.childrenCounter;
@@ -1482,15 +1486,13 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
         className: "signup_form body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sReservation"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_dates__WEBPACK_IMPORTED_MODULE_1__["DateRangePicker"], {
-        startDate: this.state.startDate // momentPropTypes.momentObj or null,
-        ,
-        startDateId: "your_unique_start_date_id" // PropTypes.string.isRequired,
-        ,
-        endDate: this.state.endDate // momentPropTypes.momentObj or null,
-        ,
-        endDateId: "your_unique_end_date_id" // PropTypes.string.isRequired,
-        ,
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_dates__WEBPACK_IMPORTED_MODULE_1__["DateRangePicker"], (_React$createElement = {
+        block: true,
+        startDate: this.state.startDate,
+        startDateId: "datepicker_start_search_form",
+        endDate: this.state.endDate,
+        endDateId: "datepicker_end_search_form",
+        noBorder: false,
         onDatesChange: function onDatesChange(_ref) {
           var startDate = _ref.startDate,
               endDate = _ref.endDate;
@@ -1498,17 +1500,18 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
             startDate: startDate,
             endDate: endDate
           });
-        } // PropTypes.func.isRequired,
-        ,
-        focusedInput: this.state.focusedInput // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-        ,
+        },
+        focusedInput: this.state.focusedInput,
         onFocusChange: function onFocusChange(focusedInput) {
           return _this2.setState({
             focusedInput: focusedInput
           });
-        } // PropTypes.func.isRequired,
-
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        },
+        numberOfMonths: 1,
+        hideKeyboardShortcutsPanel: true,
+        startDatePlaceholderText: "Check-in",
+        endDatePlaceholderText: "Checkout"
+      }, _defineProperty(_React$createElement, "block", true), _defineProperty(_React$createElement, "noBorder", false), _React$createElement))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sGuests"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "sGuestsButton",
@@ -49782,83 +49785,6 @@ function toMomentObject(dateString, customFormat) {
   var date = (0, _moment["default"])(dateString, dateFormats, true);
   return date.isValid() ? date.hour(12) : null;
 }
-
-/***/ }),
-
-/***/ "./node_modules/react-dates/src/constants.js":
-/*!***************************************************!*\
-  !*** ./node_modules/react-dates/src/constants.js ***!
-  \***************************************************/
-/*! exports provided: DISPLAY_FORMAT, ISO_FORMAT, ISO_MONTH_FORMAT, START_DATE, END_DATE, HORIZONTAL_ORIENTATION, VERTICAL_ORIENTATION, VERTICAL_SCROLLABLE, NAV_POSITION_BOTTOM, NAV_POSITION_TOP, ICON_BEFORE_POSITION, ICON_AFTER_POSITION, INFO_POSITION_TOP, INFO_POSITION_BOTTOM, INFO_POSITION_BEFORE, INFO_POSITION_AFTER, ANCHOR_LEFT, ANCHOR_RIGHT, OPEN_DOWN, OPEN_UP, DAY_SIZE, BLOCKED_MODIFIER, WEEKDAYS, FANG_WIDTH_PX, FANG_HEIGHT_PX, DEFAULT_VERTICAL_SPACING, MODIFIER_KEY_NAMES */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DISPLAY_FORMAT", function() { return DISPLAY_FORMAT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ISO_FORMAT", function() { return ISO_FORMAT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ISO_MONTH_FORMAT", function() { return ISO_MONTH_FORMAT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "START_DATE", function() { return START_DATE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "END_DATE", function() { return END_DATE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HORIZONTAL_ORIENTATION", function() { return HORIZONTAL_ORIENTATION; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VERTICAL_ORIENTATION", function() { return VERTICAL_ORIENTATION; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VERTICAL_SCROLLABLE", function() { return VERTICAL_SCROLLABLE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NAV_POSITION_BOTTOM", function() { return NAV_POSITION_BOTTOM; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NAV_POSITION_TOP", function() { return NAV_POSITION_TOP; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ICON_BEFORE_POSITION", function() { return ICON_BEFORE_POSITION; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ICON_AFTER_POSITION", function() { return ICON_AFTER_POSITION; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INFO_POSITION_TOP", function() { return INFO_POSITION_TOP; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INFO_POSITION_BOTTOM", function() { return INFO_POSITION_BOTTOM; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INFO_POSITION_BEFORE", function() { return INFO_POSITION_BEFORE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INFO_POSITION_AFTER", function() { return INFO_POSITION_AFTER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ANCHOR_LEFT", function() { return ANCHOR_LEFT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ANCHOR_RIGHT", function() { return ANCHOR_RIGHT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OPEN_DOWN", function() { return OPEN_DOWN; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OPEN_UP", function() { return OPEN_UP; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DAY_SIZE", function() { return DAY_SIZE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BLOCKED_MODIFIER", function() { return BLOCKED_MODIFIER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WEEKDAYS", function() { return WEEKDAYS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FANG_WIDTH_PX", function() { return FANG_WIDTH_PX; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FANG_HEIGHT_PX", function() { return FANG_HEIGHT_PX; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DEFAULT_VERTICAL_SPACING", function() { return DEFAULT_VERTICAL_SPACING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MODIFIER_KEY_NAMES", function() { return MODIFIER_KEY_NAMES; });
-const DISPLAY_FORMAT = 'L';
-const ISO_FORMAT = 'YYYY-MM-DD';
-const ISO_MONTH_FORMAT = 'YYYY-MM'; // TODO delete this line of dead code on next breaking change
-
-const START_DATE = 'startDate';
-const END_DATE = 'endDate';
-
-const HORIZONTAL_ORIENTATION = 'horizontal';
-const VERTICAL_ORIENTATION = 'vertical';
-const VERTICAL_SCROLLABLE = 'verticalScrollable';
-
-const NAV_POSITION_BOTTOM = 'navPositionBottom';
-const NAV_POSITION_TOP = 'navPositionTop';
-
-const ICON_BEFORE_POSITION = 'before';
-const ICON_AFTER_POSITION = 'after';
-
-const INFO_POSITION_TOP = 'top';
-const INFO_POSITION_BOTTOM = 'bottom';
-const INFO_POSITION_BEFORE = 'before';
-const INFO_POSITION_AFTER = 'after';
-
-const ANCHOR_LEFT = 'left';
-const ANCHOR_RIGHT = 'right';
-
-const OPEN_DOWN = 'down';
-const OPEN_UP = 'up';
-
-const DAY_SIZE = 39;
-const BLOCKED_MODIFIER = 'blocked';
-const WEEKDAYS = [0, 1, 2, 3, 4, 5, 6];
-
-const FANG_WIDTH_PX = 20;
-const FANG_HEIGHT_PX = 10;
-const DEFAULT_VERTICAL_SPACING = 22;
-
-const MODIFIER_KEY_NAMES = new Set(['Shift', 'Control', 'Alt', 'Meta']);
-
 
 /***/ }),
 

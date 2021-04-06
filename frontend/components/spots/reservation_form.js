@@ -1,7 +1,7 @@
 import React from 'react';
-import { DateRangePicker, DayPickerRangeController } from 'react-dates';
-import { START_DATE, END_DATE } from 'react-dates/src/constants';
+import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';
+import moment from 'moment';
 
 class ReservationForm extends React.Component {
 
@@ -76,18 +76,24 @@ class ReservationForm extends React.Component {
                 <div>
                     <form className='signup_form body'>
                         <div>
-                            <div className='sReservation'>
-                                {/* <div className= 'sCheckin' >  */}
-                                    <DateRangePicker
-                                    startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-                                    startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
-                                    endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-                                    endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
-                                    onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
-                                    focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-                                    onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
-                                    />
-                                {/* </div> */}
+                            <div  className='sReservation' >
+                                <DateRangePicker
+                                    block={true}
+                                    startDate={this.state.startDate}
+                                    startDateId="datepicker_start_search_form"
+                                    endDate={this.state.endDate}
+                                    endDateId="datepicker_end_search_form"
+                                    noBorder={false}
+                                    onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+                                    focusedInput={this.state.focusedInput}
+                                    onFocusChange={focusedInput => this.setState({ focusedInput })}
+                                    numberOfMonths={1}
+                                    hideKeyboardShortcutsPanel={true}
+                                    startDatePlaceholderText="Check-in"
+                                    endDatePlaceholderText="Checkout"
+                                    block={true}
+                                    noBorder={false}
+                                />
                             </div>
                             <div className='sGuests' >
                                 <button className='sGuestsButton'  onClick={this.handleClick} > 
