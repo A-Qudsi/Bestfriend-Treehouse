@@ -3,7 +3,6 @@ import Pictures from './spot_show_pictures';
 import ReservationForm from './reservation_form';
 import SpotBody from './spot_body';
 
-
 class SpotShow extends React.Component {
     constructor(props) {
         super(props);
