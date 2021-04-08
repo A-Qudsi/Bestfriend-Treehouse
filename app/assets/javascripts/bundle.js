@@ -767,6 +767,265 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
+/***/ "./frontend/components/reservations/reservation_form.js":
+/*!**************************************************************!*\
+  !*** ./frontend/components/reservations/reservation_form.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dates */ "./node_modules/react-dates/index.js");
+/* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dates__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dates/initialize */ "./node_modules/react-dates/initialize.js");
+/* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dates_initialize__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+
+var ReservationForm = /*#__PURE__*/function (_React$Component) {
+  _inherits(ReservationForm, _React$Component);
+
+  var _super = _createSuper(ReservationForm);
+
+  function ReservationForm(props) {
+    var _this;
+
+    _classCallCheck(this, ReservationForm);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      counter: 1,
+      childrenCounter: 0,
+      infantCounter: 0,
+      clicked: false,
+      startDate: null,
+      endDaate: null
+    };
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    _this.closeDropdown = _this.closeDropdown.bind(_assertThisInitialized(_this));
+    _this.addInfantCounter = _this.addInfantCounter.bind(_assertThisInitialized(_this));
+    _this.removeInfantCounter = _this.removeInfantCounter.bind(_assertThisInitialized(_this));
+    _this.addChildrenCounter = _this.addChildrenCounter.bind(_assertThisInitialized(_this));
+    _this.removeChildrenCounter = _this.removeChildrenCounter.bind(_assertThisInitialized(_this));
+    _this.addCounter = _this.addCounter.bind(_assertThisInitialized(_this));
+    _this.removeCounter = _this.removeCounter.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(ReservationForm, [{
+    key: "closeDropdown",
+    value: function closeDropdown() {
+      this.setState({
+        clicked: false
+      });
+    }
+  }, {
+    key: "handleClick",
+    value: function handleClick(e) {
+      e.preventDefault();
+      this.setState({
+        clicked: true
+      });
+    }
+  }, {
+    key: "addInfantCounter",
+    value: function addInfantCounter() {
+      this.setState({
+        infantCounter: this.state.infantCounter + 1
+      });
+    }
+  }, {
+    key: "addChildrenCounter",
+    value: function addChildrenCounter() {
+      this.setState({
+        childrenCounter: this.state.childrenCounter + 1
+      });
+    }
+  }, {
+    key: "addCounter",
+    value: function addCounter() {
+      this.setState({
+        counter: this.state.counter + 1
+      });
+    }
+  }, {
+    key: "removeInfantCounter",
+    value: function removeInfantCounter() {
+      this.setState({
+        infantCounter: this.state.infantCounter - 1
+      });
+    }
+  }, {
+    key: "removeChildrenCounter",
+    value: function removeChildrenCounter() {
+      this.setState({
+        childrenCounter: this.state.childrenCounter - 1
+      });
+    }
+  }, {
+    key: "removeCounter",
+    value: function removeCounter() {
+      this.setState({
+        counter: this.state.counter - 1
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var spot = this.props.spot;
+      var totalCounter = this.state.counter + this.state.childrenCounter;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "bookingcontainer"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "bookingHeader"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "l_e"
+      }, "$ ", spot.price, " / night"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "bookingRating"
+      }, "5.0")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "signup_form body"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sReservation"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_dates__WEBPACK_IMPORTED_MODULE_1__["DateRangePicker"], _defineProperty({
+        block: true,
+        startDate: this.state.startDate,
+        startDateId: "datepicker_start_search_form",
+        endDate: this.state.endDate,
+        endDateId: "datepicker_end_search_form",
+        noBorder: false,
+        onDatesChange: function onDatesChange(_ref) {
+          var startDate = _ref.startDate,
+              endDate = _ref.endDate;
+          return _this2.setState({
+            startDate: startDate,
+            endDate: endDate
+          });
+        },
+        focusedInput: this.state.focusedInput,
+        onFocusChange: function onFocusChange(focusedInput) {
+          return _this2.setState({
+            focusedInput: focusedInput
+          });
+        },
+        numberOfMonths: 1,
+        hideKeyboardShortcutsPanel: true,
+        startDatePlaceholderText: "Check-in",
+        endDatePlaceholderText: "Checkout"
+      }, "block", true))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sGuests"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "sGuestsButton",
+        onClick: this.handleClick
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sGuestButtonDiv"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, totalCounter, " guest", this.state.infantCounter === 0 ? null : this.state.infantCounter === 1 ? ", " + this.state.infantCounter + " infant" : ", " + this.state.infantCounter + " infants"), !this.state.clicked ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-chevron-down"
+      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-chevron-up"
+      }), this.state.clicked ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        onClick: function onClick(e) {
+          return e.stopPropagation();
+        },
+        id: "reservation-dropdown"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Adults"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Adults"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "dropdownAdds"
+      }, totalCounter <= 1 || this.state.counter === 1 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-minus-square gray"
+      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-minus-square",
+        onClick: this.removeCounter
+      }), this.state.counter, totalCounter >= spot.maxGuests ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-plus-square gray"
+      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-plus-square",
+        onClick: this.addCounter
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Adults"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "dropdownText"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Children"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Ages 2\u201312")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "dropdownAdds"
+      }, totalCounter <= 1 || this.state.childrenCounter === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-minus-square gray"
+      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-minus-square",
+        onClick: this.removeChildrenCounter
+      }), this.state.childrenCounter, totalCounter >= spot.maxGuests ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-plus-square gray"
+      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-plus-square",
+        onClick: this.addChildrenCounter
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Adults"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "dropdownText"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Infants"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Under 2")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "dropdownAdds"
+      }, this.state.infantCounter <= 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-minus-square gray"
+      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-minus-square",
+        onClick: this.removeInfantCounter
+      }), this.state.infantCounter, this.state.infantCounter >= 5 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-plus-square gray"
+      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-plus-square",
+        onClick: this.addInfantCounter
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "disclousreGuests"
+      }, spot.maxGuests, " guests maximum. Infants don\u2019t count toward "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "disclousreGuests"
+      }, "the number of guests."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onClick: this.closeDropdown
+      }, " close")) : null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "submit-button"
+      }, "Check availability")))));
+    }
+  }]);
+
+  return ReservationForm;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (ReservationForm);
+
+/***/ }),
+
 /***/ "./frontend/components/root.jsx":
 /*!**************************************!*\
   !*** ./frontend/components/root.jsx ***!
@@ -1328,265 +1587,6 @@ var Splash = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
-/***/ "./frontend/components/spots/reservation_form.js":
-/*!*******************************************************!*\
-  !*** ./frontend/components/spots/reservation_form.js ***!
-  \*******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dates */ "./node_modules/react-dates/index.js");
-/* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dates__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dates/initialize */ "./node_modules/react-dates/initialize.js");
-/* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dates_initialize__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-
-
-var ReservationForm = /*#__PURE__*/function (_React$Component) {
-  _inherits(ReservationForm, _React$Component);
-
-  var _super = _createSuper(ReservationForm);
-
-  function ReservationForm(props) {
-    var _this;
-
-    _classCallCheck(this, ReservationForm);
-
-    _this = _super.call(this, props);
-    _this.state = {
-      counter: 1,
-      childrenCounter: 0,
-      infantCounter: 0,
-      clicked: false,
-      startDate: null,
-      endDaate: null
-    };
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
-    _this.closeDropdown = _this.closeDropdown.bind(_assertThisInitialized(_this));
-    _this.addInfantCounter = _this.addInfantCounter.bind(_assertThisInitialized(_this));
-    _this.removeInfantCounter = _this.removeInfantCounter.bind(_assertThisInitialized(_this));
-    _this.addChildrenCounter = _this.addChildrenCounter.bind(_assertThisInitialized(_this));
-    _this.removeChildrenCounter = _this.removeChildrenCounter.bind(_assertThisInitialized(_this));
-    _this.addCounter = _this.addCounter.bind(_assertThisInitialized(_this));
-    _this.removeCounter = _this.removeCounter.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(ReservationForm, [{
-    key: "closeDropdown",
-    value: function closeDropdown() {
-      this.setState({
-        clicked: false
-      });
-    }
-  }, {
-    key: "handleClick",
-    value: function handleClick(e) {
-      e.preventDefault();
-      this.setState({
-        clicked: true
-      });
-    }
-  }, {
-    key: "addInfantCounter",
-    value: function addInfantCounter() {
-      this.setState({
-        infantCounter: this.state.infantCounter + 1
-      });
-    }
-  }, {
-    key: "addChildrenCounter",
-    value: function addChildrenCounter() {
-      this.setState({
-        childrenCounter: this.state.childrenCounter + 1
-      });
-    }
-  }, {
-    key: "addCounter",
-    value: function addCounter() {
-      this.setState({
-        counter: this.state.counter + 1
-      });
-    }
-  }, {
-    key: "removeInfantCounter",
-    value: function removeInfantCounter() {
-      this.setState({
-        infantCounter: this.state.infantCounter - 1
-      });
-    }
-  }, {
-    key: "removeChildrenCounter",
-    value: function removeChildrenCounter() {
-      this.setState({
-        childrenCounter: this.state.childrenCounter - 1
-      });
-    }
-  }, {
-    key: "removeCounter",
-    value: function removeCounter() {
-      this.setState({
-        counter: this.state.counter - 1
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      var spot = this.props.spot;
-      var totalCounter = this.state.counter + this.state.childrenCounter;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "bookingcontainer"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "bookingHeader"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "l_e"
-      }, "$ ", spot.price, " / night"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "bookingRating"
-      }, "5.0")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "signup_form body"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sReservation"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_dates__WEBPACK_IMPORTED_MODULE_1__["DateRangePicker"], _defineProperty({
-        block: true,
-        startDate: this.state.startDate,
-        startDateId: "datepicker_start_search_form",
-        endDate: this.state.endDate,
-        endDateId: "datepicker_end_search_form",
-        noBorder: false,
-        onDatesChange: function onDatesChange(_ref) {
-          var startDate = _ref.startDate,
-              endDate = _ref.endDate;
-          return _this2.setState({
-            startDate: startDate,
-            endDate: endDate
-          });
-        },
-        focusedInput: this.state.focusedInput,
-        onFocusChange: function onFocusChange(focusedInput) {
-          return _this2.setState({
-            focusedInput: focusedInput
-          });
-        },
-        numberOfMonths: 1,
-        hideKeyboardShortcutsPanel: true,
-        startDatePlaceholderText: "Check-in",
-        endDatePlaceholderText: "Checkout"
-      }, "block", true))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sGuests"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "sGuestsButton",
-        onClick: this.handleClick
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sGuestButtonDiv"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, totalCounter, " guest", this.state.infantCounter === 0 ? null : this.state.infantCounter === 1 ? ", " + this.state.infantCounter + " infant" : ", " + this.state.infantCounter + " infants"), !this.state.clicked ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-chevron-down"
-      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-chevron-up"
-      }), this.state.clicked ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        onClick: function onClick(e) {
-          return e.stopPropagation();
-        },
-        id: "reservation-dropdown"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "Adults"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Adults"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "dropdownAdds"
-      }, totalCounter <= 1 || this.state.counter === 1 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-minus-square gray"
-      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-minus-square",
-        onClick: this.removeCounter
-      }), this.state.counter, totalCounter >= spot.maxGuests ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-plus-square gray"
-      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-plus-square",
-        onClick: this.addCounter
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "Adults"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "dropdownText"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Children"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Ages 2\u201312")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "dropdownAdds"
-      }, totalCounter <= 1 || this.state.childrenCounter === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-minus-square gray"
-      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-minus-square",
-        onClick: this.removeChildrenCounter
-      }), this.state.childrenCounter, totalCounter >= spot.maxGuests ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-plus-square gray"
-      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-plus-square",
-        onClick: this.addChildrenCounter
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "Adults"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "dropdownText"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Infants"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Under 2")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "dropdownAdds"
-      }, this.state.infantCounter <= 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-minus-square gray"
-      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-minus-square",
-        onClick: this.removeInfantCounter
-      }), this.state.infantCounter, this.state.infantCounter >= 5 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-plus-square gray"
-      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-plus-square",
-        onClick: this.addInfantCounter
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "disclousreGuests"
-      }, spot.maxGuests, " guests maximum. Infants don\u2019t count toward "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "disclousreGuests"
-      }, "the number of guests."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        onClick: this.closeDropdown
-      }, " close")) : null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "submit-button"
-      }, "Check availability")))));
-    }
-  }]);
-
-  return ReservationForm;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-;
-/* harmony default export */ __webpack_exports__["default"] = (ReservationForm);
-
-/***/ }),
-
 /***/ "./frontend/components/spots/spot_body.js":
 /*!************************************************!*\
   !*** ./frontend/components/spots/spot_body.js ***!
@@ -1683,7 +1683,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _spot_show_pictures__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./spot_show_pictures */ "./frontend/components/spots/spot_show_pictures.js");
-/* harmony import */ var _reservation_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reservation_form */ "./frontend/components/spots/reservation_form.js");
+/* harmony import */ var _reservations_reservation_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../reservations/reservation_form */ "./frontend/components/reservations/reservation_form.js");
 /* harmony import */ var _spot_body__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./spot_body */ "./frontend/components/spots/spot_body.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1758,7 +1758,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         spot: spot
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spotsShowRightSide"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reservation_form__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reservations_reservation_form__WEBPACK_IMPORTED_MODULE_2__["default"], {
         spot: spot
       }))));
     }
