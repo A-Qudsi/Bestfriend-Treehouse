@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class SpotsIndexItem extends React.Component {
+class ReservationIndexItem extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
-        const spotId = this.props.spot.id;
+        const reservationId = this.props.reservation.id;
         const { name, description, maxGuests, price } = this.props.spot;
         return (
             <Link to={`/spots/${spotId}`} key={spotId}>
@@ -28,4 +28,4 @@ class SpotsIndexItem extends React.Component {
     }
 }
 
-export default SpotsIndexItem
+export default ReservationIndexItem
