@@ -71,7 +71,7 @@ class ReservationForm extends React.Component {
                 <div>
                     <form className='signup_form body'>
                         <div>
-                            <div  className='sReservation' >
+                            <div className='sReservation' >
                                 <DateRangePicker
                                     block={true}
                                     startDate={this.state.startDate}

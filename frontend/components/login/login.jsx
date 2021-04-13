@@ -13,6 +13,7 @@ const Login = ({ currentUser, logout, openModal }) => {
 
     const personalLogin = () => (
         <div className="header-div">
+            <li className='loginContainerButton' onClick={logout}><Link to={`users/${currentUser.id}/reservations`}>Check Reservations</Link></li>
             <li className='loginContainerButton' onClick={logout}>Log Out</li>
         </div>
     );

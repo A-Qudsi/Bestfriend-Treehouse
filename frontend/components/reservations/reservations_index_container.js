@@ -1,4 +1,4 @@
-import reservationIndex from './reservation_index';
+import reservationIndex from './reservations_index';
 import { connect } from 'react-redux';
 import { fetchReservations, destroyReservation } from '../../actions/reservation_actions';
 import { withRouter } from 'react-router-dom';

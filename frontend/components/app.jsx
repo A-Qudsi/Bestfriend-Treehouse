@@ -7,7 +7,7 @@ import Modal from './modal/modal';
 import Footer from './footer/footer';
 import SpotsPage from './spots/spots_index_container';
 import SpotShowContainer from './spots/spot_show_container';
-// import ReservationIndexContainer from './reservationss/reservation_index_container';
+import ReservationIndexContainer from './reservations/reservations_index_container';
 
 
 const App = () => (
@@ -18,7 +18,7 @@ const App = () => (
             <Route exact path="/" component={Splash} />
             <Route exact path="/spots" component={SpotsPage} />
             <Route path="/spots/:spotId" component={SpotShowContainer} />
-            {/* <AuthRoute exact path="/users/:userId/reservations" component={ReservationIndexContainer} /> */}
+            <AuthRoute exact path="/users/:userId/reservations" component={ReservationIndexContainer} />
         </Switch>
         <footer><Footer /></footer>
 

@@ -4,10 +4,13 @@ import SpotShow from './spot_show.js';
 import { createReservation } from '../../actions/reservation_actions';
 
 
-const mSTP = (state, ownProps) => ({
+const mSTP = (state, ownProps) => {
+        debugger    
+        return {
+
         currentUser: state.entities.users[state.session.id],
-        spot: state.entities.spots[ownProps.match.params.spotId]
-});
+        spot: state.entities.spots[ownProps.match.params.spotId]}
+};
 
 const mDTP = dispatch => ({
     fetchSpot: id => dispatch(fetchSpot(id)),
