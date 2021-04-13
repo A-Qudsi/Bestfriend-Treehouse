@@ -405,7 +405,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./footer/footer */ "./frontend/components/footer/footer.js");
 /* harmony import */ var _spots_spots_index_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./spots/spots_index_container */ "./frontend/components/spots/spots_index_container.js");
 /* harmony import */ var _spots_spot_show_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./spots/spot_show_container */ "./frontend/components/spots/spot_show_container.jsx");
-!(function webpackMissingModule() { var e = new Error("Cannot find module './bookings/reservation_index_container'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 
@@ -414,8 +413,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
+ // import ReservationIndexContainer from './reservationss/reservation_index_container';
 
 var App = function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -433,10 +431,6 @@ var App = function App() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/spots/:spotId",
     component: _spots_spot_show_container__WEBPACK_IMPORTED_MODULE_8__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["AuthRoute"], {
-    exact: true,
-    path: "/users/:userId/reservations",
-    component: !(function webpackMissingModule() { var e = new Error("Cannot find module './bookings/reservation_index_container'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_footer__WEBPACK_IMPORTED_MODULE_6__["default"], null)));
 };
 
@@ -1006,9 +1000,9 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_dates__WEBPACK_IMPORTED_MODULE_1__["DateRangePicker"], _defineProperty({
         block: true,
         startDate: this.state.startDate,
-        startDateId: "datepicker_start_search_form",
+        startDateId: "mm/dd/yyyy",
         endDate: this.state.endDate,
-        endDateId: "datepicker_end_search_form",
+        endDateId: "mm/dd/yyyy",
         noBorder: false,
         onDatesChange: function onDatesChange(_ref) {
           var startDate = _ref.startDate,

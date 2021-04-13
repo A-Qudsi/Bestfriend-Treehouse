@@ -55,7 +55,6 @@ class ReservationForm extends React.Component {
         this.setState({ counter: this.state.counter - 1 })
     }
 
-
     render() {
         const { spot } = this.props;
         const totalCounter = this.state.counter + this.state.childrenCounter;
@@ -76,9 +75,9 @@ class ReservationForm extends React.Component {
                                 <DateRangePicker
                                     block={true}
                                     startDate={this.state.startDate}
-                                    startDateId="datepicker_start_search_form"
+                                    startDateId="mm/dd/yyyy"
                                     endDate={this.state.endDate}
-                                    endDateId="datepicker_end_search_form"
+                                    endDateId="mm/dd/yyyy"
                                     noBorder={false}
                                     onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
                                     focusedInput={this.state.focusedInput}
