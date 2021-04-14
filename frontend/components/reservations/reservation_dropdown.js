@@ -24,9 +24,11 @@ class Dropdown extends React.Component {
     closeDropdown(e) {
         e.preventDefault();
             if (this.state.clicked === true) {
-                if (e.relatedTarget === null || (e.relatedTarget.className != "sGuestsButton" && e.relatedTarget.className != "far")) {
-                    this.setState({ clicked: !this.state.clicked });
+                if (e.relatedTarget === null || ( e.relatedTarget.className != "far")) {
+                    this.setState({ clicked: false });
                 }
+            let total = (this.state.childrenCounter + this.state.counter);
+            this.props.totalGuests(total);
         }
     }
 

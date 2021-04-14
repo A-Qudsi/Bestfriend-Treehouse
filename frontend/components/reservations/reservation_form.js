@@ -12,9 +12,17 @@ class ReservationForm extends React.Component {
             clicked: false,
             startDate: null,
             endDaate: null,
+            totalGuests: null
         };
 
         this.bookReservation = this.bookReservation.bind(this);
+        this.totalNumberGuests = this.totalNumberGuests.bind(this);
+    }
+    
+    totalNumberGuests(number){
+        this.setState({
+            totalGuests: number
+        })
     }
 
     bookReservation(e) {
@@ -24,7 +32,7 @@ class ReservationForm extends React.Component {
             this.props.createReservation({
                 start_date: this.state.startDate.format('YYYY-MM-DD'),
                 end_date: this.state.endDate.format('YYYY-MM-DD'),
-                number_guests: (this.state.counter + this.state.childrenCounter),
+                number_guests: this.state.totalGuests,
                 spot_id: this.props.spot.id,
                 guest_id: this.props.currentUser.id
                 
@@ -68,7 +76,7 @@ class ReservationForm extends React.Component {
                                     block={true}
                                 />
                             </div>
-                            <Dropdown spot={spot} />
+                            <Dropdown spot={spot} totalGuests={this.totalNumberGuests} />
                             <button className='submit-button' onClick={(e) => this.bookReservation(e)
                             }>Reserve</button>
                         </div>

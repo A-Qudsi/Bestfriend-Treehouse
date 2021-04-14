@@ -925,11 +925,14 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
 
       if (this.state.clicked === true) {
-        if (e.relatedTarget === null || e.relatedTarget.className != "sGuestsButton" && e.relatedTarget.className != "far") {
+        if (e.relatedTarget === null || e.relatedTarget.className != "far") {
           this.setState({
-            clicked: !this.state.clicked
+            clicked: false
           });
         }
+
+        var total = this.state.childrenCounter + this.state.counter;
+        this.props.totalGuests(total);
       }
     }
   }, {
@@ -1136,13 +1139,22 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       clicked: false,
       startDate: null,
-      endDaate: null
+      endDaate: null,
+      totalGuests: null
     };
     _this.bookReservation = _this.bookReservation.bind(_assertThisInitialized(_this));
+    _this.totalNumberGuests = _this.totalNumberGuests.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(ReservationForm, [{
+    key: "totalNumberGuests",
+    value: function totalNumberGuests(number) {
+      this.setState({
+        totalGuests: number
+      });
+    }
+  }, {
     key: "bookReservation",
     value: function bookReservation(e) {
       var _this2 = this;
@@ -1154,7 +1166,7 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
         this.props.createReservation({
           start_date: this.state.startDate.format('YYYY-MM-DD'),
           end_date: this.state.endDate.format('YYYY-MM-DD'),
-          number_guests: this.state.counter + this.state.childrenCounter,
+          number_guests: this.state.totalGuests,
           spot_id: this.props.spot.id,
           guest_id: this.props.currentUser.id
         }).then(function () {
@@ -1209,7 +1221,8 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
         startDatePlaceholderText: "Check-in",
         endDatePlaceholderText: "Checkout"
       }, "block", true))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reservation_dropdown__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        spot: spot
+        spot: spot,
+        totalGuests: this.totalNumberGuests
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "submit-button",
         onClick: function onClick(e) {
