@@ -1,8 +1,8 @@
 import React from 'react';
 
 // import FilterForm from './filter_form';
-import SpotsPage from './spots_index';
-import SpotsMap from './spots_map';
+import SpotsPage from '../spots/spots_index';
+import SpotsMap from '../spots/spots_map';
  
 const Search = ({ spots }) => (
   <div className="user-panel">

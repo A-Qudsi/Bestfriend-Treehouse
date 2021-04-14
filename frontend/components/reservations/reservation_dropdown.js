@@ -21,20 +21,25 @@ class Dropdown extends React.Component {
         this.closeDropdown = this.closeDropdown.bind(this);
     }
     
-    
-    closeDropdown() {
-        this.setState({clicked: false})
+    closeDropdown(e) {
+        e.preventDefault();
+            if (this.state.clicked === true) {
+                if (e.relatedTarget === null || (e.relatedTarget.className != "sGuestsButton" && e.relatedTarget.className != "far")) {
+                    this.setState({ clicked: !this.state.clicked });
+                }
+        }
     }
 
     handleClick(e) {
         e.preventDefault();
-        this.setState({ clicked: true })
+        this.setState({ clicked: true, })
     }
 
     addInfantCounter(e) {
         e.preventDefault();
         this.setState({ infantCounter: this.state.infantCounter + 1 })
     }   
+
     addChildrenCounter(e) {
         e.preventDefault();
         this.setState({ childrenCounter: this.state.childrenCounter + 1 })
@@ -64,7 +69,7 @@ class Dropdown extends React.Component {
         
         return (
             <div className='sGuests' >
-                <button className='sGuestsButton'  onClick={this.handleClick} > 
+                <button className='sGuestsButton' onBlur={this.closeDropdown}  onClick={this.handleClick} > 
                     <div className='sGuestButtonDiv' >
                         <div>{totalCounter} guest{this.state.infantCounter === 0 ? null : this.state.infantCounter === 1 ? ", " + this.state.infantCounter + " infant" : ", " + this.state.infantCounter + " infants"  }</div>
                         {!this.state.clicked ? (

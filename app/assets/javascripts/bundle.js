@@ -921,10 +921,16 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
 
   _createClass(Dropdown, [{
     key: "closeDropdown",
-    value: function closeDropdown() {
-      this.setState({
-        clicked: false
-      });
+    value: function closeDropdown(e) {
+      e.preventDefault();
+
+      if (this.state.clicked === true) {
+        if (e.relatedTarget === null || e.relatedTarget.className != "sGuestsButton" && e.relatedTarget.className != "far") {
+          this.setState({
+            clicked: !this.state.clicked
+          });
+        }
+      }
     }
   }, {
     key: "handleClick",
@@ -991,6 +997,7 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
         className: "sGuests"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "sGuestsButton",
+        onBlur: this.closeDropdown,
         onClick: this.handleClick
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sGuestButtonDiv"
@@ -1084,8 +1091,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dates_initialize__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _reservations_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./reservations_index */ "./frontend/components/reservations/reservations_index.jsx");
-/* harmony import */ var _reservation_dropdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./reservation_dropdown */ "./frontend/components/reservations/reservation_dropdown.js");
+/* harmony import */ var _reservation_dropdown__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./reservation_dropdown */ "./frontend/components/reservations/reservation_dropdown.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -1116,7 +1122,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
 var ReservationForm = /*#__PURE__*/function (_React$Component) {
   _inherits(ReservationForm, _React$Component);
 
@@ -1131,8 +1136,7 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       clicked: false,
       startDate: null,
-      endDaate: null,
-      show: false
+      endDaate: null
     };
     _this.bookReservation = _this.bookReservation.bind(_assertThisInitialized(_this));
     return _this;
@@ -1141,11 +1145,21 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
   _createClass(ReservationForm, [{
     key: "bookReservation",
     value: function bookReservation(e) {
+      var _this2 = this;
+
       e.preventDefault();
       debugger;
 
       if (this.props.currentUser) {
-        this.props.history.push("users/".concat(this.props.currentUser.id, "/reservations}"));
+        this.props.createBooking({
+          start_date: this.state.startDate.format('YYYY-MM-DD'),
+          end_date: this.state.endDate.format('YYYY-MM-DD'),
+          number_guests: totalCounter,
+          spot_id: this.props.spotId,
+          guest_id: this.props.currentUser.id
+        }).then(function () {
+          return _this2.props.history.push("users/".concat(_this2.props.currentUser.id, "/reservations"));
+        });
       } else {
         this.props.openModal('login');
       }
@@ -1153,9 +1167,8 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
-      var that = this;
       var spot = this.props.spot;
       var totalCounter = this.state.counter + this.state.childrenCounter;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1180,14 +1193,14 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
         onDatesChange: function onDatesChange(_ref) {
           var startDate = _ref.startDate,
               endDate = _ref.endDate;
-          return _this2.setState({
+          return _this3.setState({
             startDate: startDate,
             endDate: endDate
           });
         },
         focusedInput: this.state.focusedInput,
         onFocusChange: function onFocusChange(focusedInput) {
-          return _this2.setState({
+          return _this3.setState({
             focusedInput: focusedInput
           });
         },
@@ -1195,20 +1208,14 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
         hideKeyboardShortcutsPanel: true,
         startDatePlaceholderText: "Check-in",
         endDatePlaceholderText: "Checkout"
-      }, "block", true))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reservation_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, "block", true))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reservation_dropdown__WEBPACK_IMPORTED_MODULE_4__["default"], {
         spot: spot
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "submit-button",
         onClick: function onClick(e) {
-          return _this2.bookReservation(e);
+          return _this3.bookReservation(e);
         }
-      }, "Reserve"), this.state.show ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ReservationsIndexContainer, {
-        startDate: this.state.startDate,
-        endDate: this.state.endDate,
-        spotId: this.props.spot,
-        guestId: this.props.currentUser.id,
-        numberOfGuests: totalCounter
-      }) : null))));
+      }, "Reserve")))));
     }
   }]);
 
@@ -1318,9 +1325,6 @@ var msp = function msp(state, ownProps) {
 
 var mdp = function mdp(dispatch) {
   return {
-    createReservation: function createReservation(reservation) {
-      return dispatch(Object(_actions_reservation_actions__WEBPACK_IMPORTED_MODULE_2__["createReservation"])(reservation));
-    },
     fetchReservations: function fetchReservations(userId) {
       return dispatch(Object(_actions_reservation_actions__WEBPACK_IMPORTED_MODULE_2__["fetchReservations"])(userId));
     },
@@ -2026,15 +2030,9 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(SpotShow);
 
   function SpotShow(props) {
-    var _this;
-
     _classCallCheck(this, SpotShow);
 
-    _this = _super.call(this, props);
-    _this.state = {
-      spot: null
-    };
-    return _this;
+    return _super.call(this, props);
   }
 
   _createClass(SpotShow, [{

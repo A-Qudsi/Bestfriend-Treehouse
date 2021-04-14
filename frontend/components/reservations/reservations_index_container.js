@@ -13,7 +13,6 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => {
     return {
-        createReservation: reservation => dispatch(createReservation(reservation)),
         fetchReservations: (userId) => dispatch(fetchReservations(userId)),
         destroyReservation: (reservationId) => dispatch(destroyReservation(reservationId))
     }

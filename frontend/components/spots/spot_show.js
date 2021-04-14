@@ -6,9 +6,6 @@ import SpotBody from './spot_body';
 class SpotShow extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            spot: null
-        };
     }
 
     componentDidMount(){

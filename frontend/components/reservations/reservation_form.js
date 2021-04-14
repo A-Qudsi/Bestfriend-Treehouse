@@ -2,7 +2,6 @@ import React from 'react';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';
 import moment from 'moment';
-import ReservationsIndex from './reservations_index';
 import Dropdown from './reservation_dropdown';
 
 class ReservationForm extends React.Component {
@@ -13,7 +12,6 @@ class ReservationForm extends React.Component {
             clicked: false,
             startDate: null,
             endDaate: null,
-            show: false,
         };
 
         this.bookReservation = this.bookReservation.bind(this);
@@ -23,15 +21,20 @@ class ReservationForm extends React.Component {
         e.preventDefault();
         debugger;
         if (this.props.currentUser) {
-            this.props.history.push(`users/${this.props.currentUser.id}/reservations}`);
+            this.props.createBooking({
+                start_date: this.state.startDate.format('YYYY-MM-DD'),
+                end_date: this.state.endDate.format('YYYY-MM-DD'),
+                number_guests: totalCounter,
+                spot_id: this.props.spotId,
+                guest_id: this.props.currentUser.id
+                
+            }).then(() => this.props.history.push(`users/${this.props.currentUser.id}/reservations`));
         } else {
             this.props.openModal('login');
         }
     }
 
-
     render() {
-        const that = this;
         const { spot } = this.props;
         const totalCounter = this.state.counter + this.state.childrenCounter;
         return (
@@ -68,13 +71,6 @@ class ReservationForm extends React.Component {
                             <Dropdown spot={spot} />
                             <button className='submit-button' onClick={(e) => this.bookReservation(e)
                             }>Reserve</button>
-                            {this.state.show ? <ReservationsIndexContainer
-                                startDate={this.state.startDate}
-                                endDate={this.state.endDate}
-                                spotId={this.props.spot}
-                                guestId={this.props.currentUser.id}
-                                numberOfGuests={totalCounter}
-                            /> : null}
                         </div>
                     </form>
                 </div>
