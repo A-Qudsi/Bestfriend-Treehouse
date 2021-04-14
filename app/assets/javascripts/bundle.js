@@ -941,7 +941,12 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
     value: function bookReservation(e) {
       e.preventDefault();
       debugger;
-      this.props.history.push("users/".concat(this.props.currentUser.id, "/reservations}"));
+
+      if (this.props.currentUser) {
+        this.props.history.push("users/".concat(this.props.currentUser.id, "/reservations}"));
+      } else {
+        this.props.openModal('login');
+      }
     }
   }, {
     key: "closeDropdown",
@@ -960,14 +965,16 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "addInfantCounter",
-    value: function addInfantCounter() {
+    value: function addInfantCounter(e) {
+      e.preventDefault();
       this.setState({
         infantCounter: this.state.infantCounter + 1
       });
     }
   }, {
     key: "addChildrenCounter",
-    value: function addChildrenCounter() {
+    value: function addChildrenCounter(e) {
+      e.preventDefault();
       this.setState({
         childrenCounter: this.state.childrenCounter + 1
       });
@@ -975,27 +982,31 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "addCounter",
     value: function addCounter() {
+      e.preventDefault();
       this.setState({
         counter: this.state.counter + 1
       });
     }
   }, {
     key: "removeInfantCounter",
-    value: function removeInfantCounter() {
+    value: function removeInfantCounter(e) {
+      e.preventDefault();
       this.setState({
         infantCounter: this.state.infantCounter - 1
       });
     }
   }, {
     key: "removeChildrenCounter",
-    value: function removeChildrenCounter() {
+    value: function removeChildrenCounter(e) {
+      e.preventDefault();
       this.setState({
         childrenCounter: this.state.childrenCounter - 1
       });
     }
   }, {
     key: "removeCounter",
-    value: function removeCounter() {
+    value: function removeCounter(e) {
+      e.preventDefault();
       this.setState({
         counter: this.state.counter - 1
       });
@@ -1995,7 +2006,8 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reservations_reservation_form__WEBPACK_IMPORTED_MODULE_2__["default"], {
         spot: spot,
         currentUser: this.props.currentUser,
-        history: this.props.history
+        history: this.props.history,
+        openModal: this.props.openModal
       }))));
     }
   }]);
@@ -2021,6 +2033,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
 /* harmony import */ var _spot_show_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_show.js */ "./frontend/components/spots/spot_show.js");
 /* harmony import */ var _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/reservation_actions */ "./frontend/actions/reservation_actions.js");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+
 
 
 
@@ -2036,6 +2050,9 @@ var mSTP = function mSTP(state, ownProps) {
 
 var mDTP = function mDTP(dispatch) {
   return {
+    openModal: function openModal(modal) {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["openModal"])(modal));
+    },
     fetchSpots: function fetchSpots() {
       return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["fetchSpots"])());
     },

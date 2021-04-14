@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { fetchSpot, fetchSpots } from '../../actions/spot_actions';
 import SpotShow from './spot_show.js';
 import { createReservation } from '../../actions/reservation_actions';
+import { openModal } from '../../actions/modal_actions';
 
 
 const mSTP = (state, ownProps) => {  
@@ -13,6 +14,7 @@ const mSTP = (state, ownProps) => {
 };
 
 const mDTP = dispatch => ({
+    openModal: modal => dispatch(openModal(modal)),
     fetchSpots: () => dispatch(fetchSpots()),
     fetchSpot: id => dispatch(fetchSpot(id)),
     createReservation: reservation => dispatch(createReservation(reservation))

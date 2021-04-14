@@ -31,7 +31,11 @@ class ReservationForm extends React.Component {
     bookReservation(e) {
         e.preventDefault();
         debugger;
-        this.props.history.push(`users/${this.props.currentUser.id}/reservations}`);
+        if (this.props.currentUser) {
+            this.props.history.push(`users/${this.props.currentUser.id}/reservations}`);
+        } else {
+            this.props.openModal('login');
+        }
     }
     closeDropdown() {
         this.setState({clicked: false})
@@ -42,23 +46,29 @@ class ReservationForm extends React.Component {
         this.setState({ clicked: true })
     }
 
-    addInfantCounter() {
+    addInfantCounter(e) {
+        e.preventDefault();
         this.setState({ infantCounter: this.state.infantCounter + 1 })
     }   
-    addChildrenCounter() {
+    addChildrenCounter(e) {
+        e.preventDefault();
         this.setState({ childrenCounter: this.state.childrenCounter + 1 })
     }   
     addCounter() {
+        e.preventDefault();
         this.setState({ counter: this.state.counter + 1 })
     }   
 
-    removeInfantCounter() {
+    removeInfantCounter(e) {
+        e.preventDefault();
         this.setState({ infantCounter: this.state.infantCounter - 1 })
     }
-    removeChildrenCounter() {
+    removeChildrenCounter(e) {
+        e.preventDefault();
         this.setState({ childrenCounter: this.state.childrenCounter - 1 })
     }
-    removeCounter() {
+    removeCounter(e) {  
+        e.preventDefault();
         this.setState({ counter: this.state.counter - 1 })
     }
 
