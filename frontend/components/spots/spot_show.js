@@ -39,7 +39,12 @@ class SpotShow extends React.Component {
                 <div className='spotsShowBodyContainer'>
                         <SpotBody spot={spot} />
                     <div className='spotsShowRightSide'>
-                        <ReservationForm spot={spot} currentUser={this.props.currentUser} history={this.props.history} openModal={this.props.openModal}/>
+                        <ReservationForm 
+                            spot={spot} 
+                            currentUser={this.props.currentUser} 
+                            history={this.props.history} 
+                            openModal={this.props.openModal}
+                        />
                     </div>
                 </div>
             </div>
