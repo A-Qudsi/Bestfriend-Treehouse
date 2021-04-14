@@ -1151,11 +1151,11 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
       debugger;
 
       if (this.props.currentUser) {
-        this.props.createBooking({
+        this.props.createReservation({
           start_date: this.state.startDate.format('YYYY-MM-DD'),
           end_date: this.state.endDate.format('YYYY-MM-DD'),
-          number_guests: totalCounter,
-          spot_id: this.props.spotId,
+          number_guests: this.state.counter + this.state.childrenCounter,
+          spot_id: this.props.spot.id,
           guest_id: this.props.currentUser.id
         }).then(function () {
           return _this2.props.history.push("users/".concat(_this2.props.currentUser.id, "/reservations"));
@@ -2078,7 +2078,8 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         spot: spot,
         currentUser: this.props.currentUser,
         history: this.props.history,
-        openModal: this.props.openModal
+        openModal: this.props.openModal,
+        createReservation: this.props.createReservation
       }))));
     }
   }]);

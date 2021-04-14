@@ -21,11 +21,11 @@ class ReservationForm extends React.Component {
         e.preventDefault();
         debugger;
         if (this.props.currentUser) {
-            this.props.createBooking({
+            this.props.createReservation({
                 start_date: this.state.startDate.format('YYYY-MM-DD'),
                 end_date: this.state.endDate.format('YYYY-MM-DD'),
-                number_guests: totalCounter,
-                spot_id: this.props.spotId,
+                number_guests: (this.state.counter + this.state.childrenCounter),
+                spot_id: this.props.spot.id,
                 guest_id: this.props.currentUser.id
                 
             }).then(() => this.props.history.push(`users/${this.props.currentUser.id}/reservations`));

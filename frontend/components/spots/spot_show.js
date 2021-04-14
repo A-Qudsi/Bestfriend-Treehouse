@@ -41,6 +41,7 @@ class SpotShow extends React.Component {
                             currentUser={this.props.currentUser} 
                             history={this.props.history} 
                             openModal={this.props.openModal}
+                            createReservation={this.props.createReservation}
                         />
                     </div>
                 </div>
