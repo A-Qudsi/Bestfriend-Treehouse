@@ -6,13 +6,19 @@ import SpotBody from './spot_body';
 class SpotShow extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            spot: null
+        };
+    }
+
+    componentDidMount(){
+        this.props.fetchSpots();
     }
 
     render() {
-        debugger
         if (!this.props.spot)  return null;
-        debugger
         const { spot } = this.props;
+        debugger
         return (
             <div className='showpagediv'>
                 <div className='showpageheader'>                 
@@ -33,7 +39,7 @@ class SpotShow extends React.Component {
                 <div className='spotsShowBodyContainer'>
                         <SpotBody spot={spot} />
                     <div className='spotsShowRightSide'>
-                        <ReservationForm spot={spot}/>
+                        <ReservationForm spot={spot} currentUser={this.props.currentUser} history={this.props.history}/>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';
 import moment from 'moment';
+import ReservationsIndex from './reservations_index';
 
 class ReservationForm extends React.Component {
 
@@ -14,8 +15,8 @@ class ReservationForm extends React.Component {
             clicked: false,
             startDate: null,
             endDaate: null,
-        }
-
+            show: false,
+        };
         this.handleClick = this.handleClick.bind(this);
         this.closeDropdown = this.closeDropdown.bind(this);
         this.addInfantCounter = this.addInfantCounter.bind(this);
@@ -24,8 +25,14 @@ class ReservationForm extends React.Component {
         this.removeChildrenCounter = this.removeChildrenCounter.bind(this);
         this.addCounter = this.addCounter.bind(this);
         this.removeCounter = this.removeCounter.bind(this);
+        this.bookReservation = this.bookReservation.bind(this);
     }
 
+    bookReservation(e) {
+        e.preventDefault();
+        debugger;
+        this.props.history.push(`users/${this.props.currentUser.id}/reservations}`);
+    }
     closeDropdown() {
         this.setState({clicked: false})
     }
@@ -56,6 +63,7 @@ class ReservationForm extends React.Component {
     }
 
     render() {
+        const that = this;
         const { spot } = this.props;
         const totalCounter = this.state.counter + this.state.childrenCounter;
         return (
@@ -141,7 +149,15 @@ class ReservationForm extends React.Component {
                                     </div>  
                                 </button>
                             </div>
-                            <button className='submit-button'>Check availability</button>
+                            <button className='submit-button' onClick={(e) => this.bookReservation(e)
+                            }>Reserve</button>
+                            {this.state.show ? <ReservationsIndexContainer
+                                startDate={this.state.startDate}
+                                endDate={this.state.endDate}
+                                spotId={this.props.spot}
+                                guestId={this.props.currentUser.id}
+                                numberOfGuests={totalCounter}
+                            /> : null}
                         </div>
                     </form>
                 </div>
