@@ -433,7 +433,7 @@ var App = function App() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/spots/:spotId",
     component: _spots_spot_show_container__WEBPACK_IMPORTED_MODULE_8__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["AuthRoute"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/users/:userId/reservations",
     component: _reservations_reservations_index_container__WEBPACK_IMPORTED_MODULE_9__["default"]
@@ -1289,16 +1289,11 @@ var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(ReservationsIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this = this;
-
-      this.props.createReservation(this.props.reservation).then(function () {
-        _this.props.fetchReservations();
-      });
+      this.props.fetchReservations();
     }
   }, {
     key: "render",
     value: function render() {
-      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Available");
     }
   }]);
@@ -1328,7 +1323,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var msp = function msp(state, ownProps) {
+var msp = function msp(state) {
+  debugger;
   return {
     reservations: Object.values(state.entities.reservations),
     spots: state.entities.spots,
@@ -2647,12 +2643,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
 /* harmony import */ var _spots_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spots_reducer */ "./frontend/reducers/spots_reducer.js");
+/* harmony import */ var _reservation_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reservation_reducer */ "./frontend/reducers/reservation_reducer.js");
+
 
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  spots: _spots_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  spots: _spots_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  reservations: _reservation_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -2740,6 +2739,46 @@ function modalReducer() {
       return state;
   }
 }
+
+/***/ }),
+
+/***/ "./frontend/reducers/reservation_reducer.js":
+/*!**************************************************!*\
+  !*** ./frontend/reducers/reservation_reducer.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/reservation_actions */ "./frontend/actions/reservation_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var reservationssReducer = function reservationssReducer() {
+  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(oldState);
+
+  switch (action.type) {
+    case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_RESERVATIONS"]:
+      return Object.assign({}, action.reservations);
+
+    case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_RESERVATION"]:
+      return Object.assign({}, oldState, _defineProperty({}, action.reservation.id, action.reservation));
+
+    case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_RESERVATION"]:
+      var newState = Object.assign({}, oldState);
+      delete newState[action.reservationId];
+      return newState;
+
+    default:
+      return oldState;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (reservationssReducer);
 
 /***/ }),
 

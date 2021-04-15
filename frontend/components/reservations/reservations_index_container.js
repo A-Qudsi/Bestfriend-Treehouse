@@ -1,9 +1,10 @@
 import reservationIndex from './reservations_index';
 import { connect } from 'react-redux';
-import { fetchReservations, destroyReservation, createReservation } from '../../actions/reservation_actions';
+import { fetchReservations, destroyReservation } from '../../actions/reservation_actions';
 import { withRouter } from 'react-router-dom';
 
-const msp = (state, ownProps) => {
+const msp = (state) => {
+    debugger
     return {
         reservations: Object.values(state.entities.reservations),
         spots: state.entities.spots,
