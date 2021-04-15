@@ -6,7 +6,7 @@ class ReservationsIndex extends React.Component {
   }
 
   componentDidMount(){
-        this.props.fetchReservations()
+      this.props.fetchReservations()
   }
 
   render() {

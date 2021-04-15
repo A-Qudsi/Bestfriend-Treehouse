@@ -3,6 +3,7 @@ import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';
 import moment from 'moment';
 import Dropdown from './reservation_dropdown';
+import {withRouter} from 'react-router-dom';
 
 class ReservationForm extends React.Component {
 
@@ -88,4 +89,4 @@ class ReservationForm extends React.Component {
     }
 };
 
-export default ReservationForm;
+export default withRouter(ReservationForm);

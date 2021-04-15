@@ -39,7 +39,7 @@ class SpotShow extends React.Component {
                         <ReservationForm 
                             spot={spot} 
                             currentUser={this.props.currentUser} 
-                            history={this.props.history} 
+                            // history={this.props.history} 
                             openModal={this.props.openModal}
                             createReservation={this.props.createReservation}
                         />
