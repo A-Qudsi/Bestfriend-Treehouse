@@ -584,7 +584,7 @@ var Login = function Login(_ref) {
       className: "loginContainerButton",
       onClick: logout
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-      to: "users/".concat(currentUser.id, "/reservations")
+      to: "/users/".concat(currentUser.id, "/reservations")
     }, "Check Reservations")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       className: "loginContainerButton",
       onClick: logout
