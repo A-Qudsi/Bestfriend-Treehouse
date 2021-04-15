@@ -1140,7 +1140,7 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
       clicked: false,
       startDate: null,
       endDaate: null,
-      totalGuests: null
+      totalGuests: 1
     };
     _this.bookReservation = _this.bookReservation.bind(_assertThisInitialized(_this));
     _this.totalNumberGuests = _this.totalNumberGuests.bind(_assertThisInitialized(_this));

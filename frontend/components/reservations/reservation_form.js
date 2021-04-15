@@ -12,7 +12,7 @@ class ReservationForm extends React.Component {
             clicked: false,
             startDate: null,
             endDaate: null,
-            totalGuests: null
+            totalGuests: 1
         };
 
         this.bookReservation = this.bookReservation.bind(this);
@@ -24,6 +24,7 @@ class ReservationForm extends React.Component {
             totalGuests: number
         })
     }
+
 
     bookReservation(e) {
         e.preventDefault();
