@@ -5,6 +5,7 @@ import { openModal } from '../../actions/modal_actions';
 import modal from '../modal/modal';
 
 const mSTP = ({ session, entities: { users } }) => {
+    debugger
     return {
         currentUser: users[session.id]
     };

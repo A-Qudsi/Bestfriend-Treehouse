@@ -581,8 +581,7 @@ var Login = function Login(_ref) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "header-div"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-      className: "loginContainerButton",
-      onClick: logout
+      className: "loginContainerButton"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/users/".concat(currentUser.id, "/reservations")
     }, "Check Reservations")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -621,6 +620,7 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(_ref) {
   var session = _ref.session,
       users = _ref.entities.users;
+  debugger;
   return {
     currentUser: users[session.id]
   };
@@ -1285,7 +1285,7 @@ var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(ReservationsIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchReservations();
+      this.props.fetchReservations(this.props.currentUser.id);
     }
   }, {
     key: "render",

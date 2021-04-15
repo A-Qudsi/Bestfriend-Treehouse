@@ -7,6 +7,10 @@ class User < ApplicationRecord
     has_many :spots,
         foreign_key: :host_id,
         class_name: :Spot
+
+    has_many :reservations,
+        foreign_key: :guest_id,
+        class_name: :Reservation
     
     attr_reader :password
     after_initialize :ensure_session_token
