@@ -1,9 +1,7 @@
 import React from 'react';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';
-import moment from 'moment';
 import Dropdown from './reservation_dropdown';
-import {withRouter} from 'react-router-dom';
 
 class ReservationForm extends React.Component {
 
@@ -38,7 +36,7 @@ class ReservationForm extends React.Component {
                 spot_id: this.props.spot.id,
                 guest_id: this.props.currentUser.id
                 
-            }).then(() => this.props.history.push(`users/${this.props.currentUser.id}/reservations`));
+            }).then(() => this.props.history.push(`/users/${this.props.currentUser.id}/reservations`));
         } else {
             this.props.openModal('login');
         }
@@ -89,4 +87,4 @@ class ReservationForm extends React.Component {
     }
 };
 
-export default withRouter(ReservationForm);
+export default ReservationForm;

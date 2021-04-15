@@ -1091,10 +1091,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dates__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dates/initialize */ "./node_modules/react-dates/initialize.js");
 /* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dates_initialize__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _reservation_dropdown__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./reservation_dropdown */ "./frontend/components/reservations/reservation_dropdown.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _reservation_dropdown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reservation_dropdown */ "./frontend/components/reservations/reservation_dropdown.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -1118,8 +1115,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
 
 
 
@@ -1171,7 +1166,7 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
           spot_id: this.props.spot.id,
           guest_id: this.props.currentUser.id
         }).then(function () {
-          return _this2.props.history.push("users/".concat(_this2.props.currentUser.id, "/reservations"));
+          return _this2.props.history.push("/users/".concat(_this2.props.currentUser.id, "/reservations"));
         });
       } else {
         this.props.openModal('login');
@@ -1221,7 +1216,7 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
         hideKeyboardShortcutsPanel: true,
         startDatePlaceholderText: "Check-in",
         endDatePlaceholderText: "Checkout"
-      }, "block", true))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reservation_dropdown__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }, "block", true))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reservation_dropdown__WEBPACK_IMPORTED_MODULE_3__["default"], {
         spot: spot,
         totalGuests: this.totalNumberGuests
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1237,7 +1232,7 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 ;
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["withRouter"])(ReservationForm));
+/* harmony default export */ __webpack_exports__["default"] = (ReservationForm);
 
 /***/ }),
 
@@ -2084,8 +2079,8 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         className: "spotsShowRightSide"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reservations_reservation_form__WEBPACK_IMPORTED_MODULE_2__["default"], {
         spot: spot,
-        currentUser: this.props.currentUser // history={this.props.history} 
-        ,
+        currentUser: this.props.currentUser,
+        history: this.props.history,
         openModal: this.props.openModal,
         createReservation: this.props.createReservation
       }))));
