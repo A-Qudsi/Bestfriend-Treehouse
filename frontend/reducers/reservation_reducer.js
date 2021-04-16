@@ -5,20 +5,20 @@ import {
 } from '../actions/reservation_actions';
 
 
+const reservationssReducer = (state = {}, action) => {
+    Object.freeze(state);
+    let newState = Object.assign({}, state);
 
-const reservationssReducer = (oldState = {}, action) => {
-    Object.freeze(oldState);
     switch (action.type) {
         case RECEIVE_RESERVATIONS:
-            return Object.assign({}, action.reservations);
+            return action.reservations;
         case RECEIVE_RESERVATION:
-            return Object.assign({}, oldState, {[action.reservation.id]: action.reservation})
+            return newState[action.reservation.id] = action.reservation
         case REMOVE_RESERVATION:
-            const newState = Object.assign({}, oldState);
             delete newState[action.reservationId]
             return newState;
         default:
-            return oldState;
+            return state;
     }
 }
 

@@ -2821,29 +2821,27 @@ function modalReducer() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/reservation_actions */ "./frontend/actions/reservation_actions.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 var reservationssReducer = function reservationssReducer() {
-  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  Object.freeze(oldState);
+  Object.freeze(state);
+  var newState = Object.assign({}, state);
 
   switch (action.type) {
     case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_RESERVATIONS"]:
-      return Object.assign({}, action.reservations);
+      return action.reservations;
 
     case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_RESERVATION"]:
-      return Object.assign({}, oldState, _defineProperty({}, action.reservation.id, action.reservation));
+      return newState[action.reservation.id] = action.reservation;
 
     case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_RESERVATION"]:
-      var newState = Object.assign({}, oldState);
       delete newState[action.reservationId];
       return newState;
 
     default:
-      return oldState;
+      return state;
   }
 };
 
