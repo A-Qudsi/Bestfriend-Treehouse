@@ -8,7 +8,8 @@ export const REMOVE_RESERVATION = 'REMOVE_RESERVATION';
 const receiveReservations = reservations => {
     return ({
         type: RECEIVE_RESERVATIONS,
-        spots: reservations.arenas
+        spots: reservations.arenas,
+        reservations
     })
 };
 

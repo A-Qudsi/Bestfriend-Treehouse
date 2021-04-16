@@ -6,7 +6,7 @@ const msp = (state) => {
     debugger
     return {
         reservations: Object.values(state.entities.reservations),
-        spots: state.entities.spots,
+        spots: state.entities.reservations,
         currentUser: state.entities.users[state.session.id]
     }
 }

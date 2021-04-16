@@ -1,4 +1,5 @@
 import React from 'react';
+import ReservationIndexItem from './reservations_index_item.js';
 
 class ReservationsIndex extends React.Component {
   constructor(props) {
@@ -10,9 +11,17 @@ class ReservationsIndex extends React.Component {
   }
 
   render() {
-
+    debugger
     return(
-        <h3>Available</h3>
+      
+        <ul className='reservations-container'>
+          { this.props.reservations.map( (reservation) => 
+          <li key={reservation.id} className="reservation-item">
+            <ReservationIndexItem 
+                reservation = {reservation} />
+            </li>)
+          }
+        </ul>
     )
   }
   
