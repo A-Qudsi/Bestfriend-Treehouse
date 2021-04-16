@@ -172,8 +172,8 @@ var REMOVE_RESERVATION = 'REMOVE_RESERVATION';
 var receiveReservations = function receiveReservations(reservations) {
   return {
     type: RECEIVE_RESERVATIONS,
-    spots: reservations.arenas,
-    reservations: reservations
+    spots: reservations.spots,
+    reservations: reservations.reservations
   };
 };
 
