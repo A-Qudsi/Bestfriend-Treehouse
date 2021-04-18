@@ -1,5 +1,4 @@
 export const fetchSpots = () => {
-
     return $.ajax ({
         method: 'GET',
         url: '/api/spots'
@@ -22,7 +21,7 @@ export const createSpot = (spot) => {
 }
 
 export const updateSpot = (spot) => {
-    return S.ajax ({
+    return $.ajax ({
         method: 'PATCH',
         url: `/api/spots/${spot.id}`,
         data: { spot }

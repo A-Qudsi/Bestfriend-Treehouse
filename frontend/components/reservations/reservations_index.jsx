@@ -7,6 +7,7 @@ class ReservationsIndex extends React.Component {
   }
 
   componentDidMount(){
+      debugger
       this.props.fetchReservations(this.props.currentUser.id)
   }
 
@@ -18,7 +19,8 @@ class ReservationsIndex extends React.Component {
           { this.props.reservations.map( (reservation) => 
           <li key={reservation.id} className="reservation-item">
             <ReservationIndexItem 
-                reservation = {reservation} />
+                reservation = {reservation} 
+                spot = {this.props.spots}/>
             </li>)
           }
         </ul>

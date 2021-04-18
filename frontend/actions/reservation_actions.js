@@ -6,6 +6,7 @@ export const REMOVE_RESERVATION = 'REMOVE_RESERVATION';
 
 
 const receiveReservations = reservations => {
+    debugger
     return ({
         type: RECEIVE_RESERVATIONS,
         spots: reservations.spots,

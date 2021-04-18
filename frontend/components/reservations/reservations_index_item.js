@@ -6,10 +6,23 @@ class ReservationIndexItem extends React.Component {
         super(props);
     }
 
-    render() {
 
+    render() {
+        debugger
+        const spot = this.props.spot[this.props.reservation.spot_id];
         return (
-        <h3>testing</h3>
+       <div className="spot-index-item">
+            <div className='index-item-image'>
+                <img src={spot.photoUrls[1]} />
+            </div>
+            <div className="index-item-info">
+                <p className="index-item-name">{name}</p>
+                <p className="index-item-description">{description}</p>
+                <div className='line'></div>
+                <span className="index-item-details">{maxGuests} · guests </span>
+            </div>
+            <div className='price'>$ {price} / night </div>
+        </div>
         )
     }
 }

@@ -170,6 +170,7 @@ var RECEIVE_RESERVATION = 'RECEIVE_RESERVATION';
 var REMOVE_RESERVATION = 'REMOVE_RESERVATION';
 
 var receiveReservations = function receiveReservations(reservations) {
+  debugger;
   return {
     type: RECEIVE_RESERVATIONS,
     spots: reservations.spots,
@@ -1288,11 +1289,14 @@ var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(ReservationsIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      debugger;
       this.props.fetchReservations(this.props.currentUser.id);
     }
   }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "reservations-container"
@@ -1301,7 +1305,8 @@ var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
           key: reservation.id,
           className: "reservation-item"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reservations_index_item_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          reservation: reservation
+          reservation: reservation,
+          spot: _this.props.spots
         }));
       }));
     }
@@ -1334,7 +1339,7 @@ var msp = function msp(state) {
   debugger;
   return {
     reservations: Object.values(state.entities.reservations),
-    spots: state.entities.reservations,
+    spots: state.entities.spots,
     currentUser: state.entities.users[state.session.id]
   };
 };
@@ -1405,7 +1410,27 @@ var ReservationIndexItem = /*#__PURE__*/function (_React$Component) {
   _createClass(ReservationIndexItem, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "testing");
+      debugger;
+      var spot = this.props.spot[this.props.reservation.spot_id];
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-index-item"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "index-item-image"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: spot.photoUrls[1]
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "index-item-info"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "index-item-name"
+      }, name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "index-item-description"
+      }, description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "line"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "index-item-details"
+      }, maxGuests, " \xB7 guests ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "price"
+      }, "$ ", price, " / night "));
     }
   }]);
 
@@ -2980,7 +3005,7 @@ var spotsReducer = function spotsReducer() {
       return newState;
 
     case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_SPOT"]:
-      delete newSpot[action.spotId];
+      delete newState[action.spotId];
       return newState;
 
     default:
@@ -3330,7 +3355,7 @@ var createSpot = function createSpot(spot) {
   });
 };
 var updateSpot = function updateSpot(spot) {
-  return S.ajax({
+  return $.ajax({
     method: 'PATCH',
     url: "/api/spots/".concat(spot.id),
     data: {
