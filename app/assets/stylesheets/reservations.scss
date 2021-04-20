@@ -4,11 +4,21 @@
     justify-content: flex-start;
     padding: 24px;
     height: 540px;
-    overflow-y: scroll;
-    padding-right: 0px;
-    margin-top: 0px;
-    padding-top: 22px;
-    padding-left: 14px;
-    padding-right: 14px;
     overflow: scroll;
+}
+
+.reservation-index-item {
+    width: 325px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+        box-shadow: 0px 8px 17px -7px rgba(0,0,0,0.51);
+
+}
+
+.reservation-index-item-image {
+
+    img {
+        height:200px;
+        border-radius: 10px 10px 0px 0px
+    }
 }

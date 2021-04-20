@@ -1419,24 +1419,14 @@ var ReservationIndexItem = /*#__PURE__*/function (_React$Component) {
       var spot = this.props.spot[this.props.reservation.spot_id];
       debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "spot-index-item"
+        className: "reservation-index-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "index-item-image"
+        className: "reservation-index-item-image"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: spot.photoUrls[1]
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "index-item-info"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "index-item-name"
-      }, spot.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "index-item-description"
-      }, spot.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "line"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "index-item-details"
-      }, spot.maxGuests, " \xB7 guests ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "price"
-      }, "$ ", spot.price, " / night "));
+        className: "reservation-index-item-info"
+      }));
     }
   }]);
 
