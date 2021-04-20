@@ -1416,6 +1416,10 @@ var ReservationIndexItem = /*#__PURE__*/function (_React$Component) {
   _createClass(ReservationIndexItem, [{
     key: "render",
     value: function render() {
+      var _this$props$reservati = this.props.reservation,
+          start_date = _this$props$reservati.start_date,
+          end_date = _this$props$reservati.end_date,
+          number_guests = _this$props$reservati.number_guests;
       var spot = this.props.spot[this.props.reservation.spot_id];
       debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1426,7 +1430,15 @@ var ReservationIndexItem = /*#__PURE__*/function (_React$Component) {
         src: spot.photoUrls[1]
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reservation-index-item-info"
-      }));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "Reservation-title"
+      }, spot.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Reservation Confirmed"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "reservation-dates"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Start Date:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, start_date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "reservation-dates"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "End Date:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, end_date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "reservation-dates"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Number of Guests:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, number_guests))));
     }
   }]);
 
