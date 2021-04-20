@@ -6,7 +6,7 @@ class ReservationsIndex extends React.Component {
       super(props);
   }
 
-  componentDidMount(){
+    componentDidMount(){
       debugger
       this.props.fetchReservations(this.props.currentUser.id);
     }
