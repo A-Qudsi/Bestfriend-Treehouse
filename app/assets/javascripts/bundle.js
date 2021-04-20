@@ -1289,6 +1289,7 @@ var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(ReservationsIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      this.props.fetchSpots();
       debugger;
       this.props.fetchReservations(this.props.currentUser.id);
     }
@@ -1300,13 +1301,16 @@ var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
       debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "reservations-container"
-      }, this.props.reservations.map(function (reservation) {
+      }, this.props.reservations.reverse().map(function (reservation) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: reservation.id,
           className: "reservation-item"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reservations_index_item_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
           reservation: reservation,
-          spot: _this.props.spots
+          spot: _this.props.spots,
+          destroyReservation: _this.props.destroyReservation,
+          currentUser: _this.props.currentUser,
+          fetchReservations: _this.props.fetchReservations
         }));
       }));
     }
@@ -1407,16 +1411,25 @@ var ReservationIndexItem = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(ReservationIndexItem);
 
   function ReservationIndexItem(props) {
+    var _this;
+
     _classCallCheck(this, ReservationIndexItem);
 
-    return _super.call(this, props); // this.handleSubmit = this.handleSubmit.bind(this);
-  } // handleSubmit() {
-  //     this.props.destroyReservation(this.props.reservation.id)
-  //         .then(()=> fetchReservations(this.props.currentUser.id));
-  // }
-
+    _this = _super.call(this, props);
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
 
   _createClass(ReservationIndexItem, [{
+    key: "handleSubmit",
+    value: function handleSubmit() {
+      var _this2 = this;
+
+      this.props.destroyReservation(this.props.reservation.id).then(function () {
+        return _this2.props.fetchReservations(_this2.props.currentUser.id);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props$reservati = this.props.reservation,

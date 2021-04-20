@@ -5,13 +5,14 @@ class ReservationIndexItem extends React.Component {
     constructor(props) {
         super(props);
 
-        // this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     
-    // handleSubmit() {
-    //     this.props.destroyReservation(this.props.reservation.id)
-    //         .then(()=> fetchReservations(this.props.currentUser.id));
-    // }
+    
+    handleSubmit() {
+        this.props.destroyReservation(this.props.reservation.id)
+            .then(() => this.props.fetchReservations(this.props.currentUser.id));
+    }
 
     render() {
         const {start_date, end_date, number_guests} = this.props.reservation
