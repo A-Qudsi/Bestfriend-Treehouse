@@ -28,17 +28,17 @@ function Modal({ modal, closeModal }) {
     );
 }
 
-const mapStateToProps = state => {
+const mSTP = state => {
     return {
         modal: state.ui.modal
     };
 };
 
-const mapDispatchToProps = dispatch => {
+const mDTP = dispatch => {
     return {
         closeModal: () => dispatch(closeModal())
         
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default connect(mSTP, mDTP)(Modal);

@@ -5,11 +5,11 @@
     padding: 24px;
     height: 540px;
     overflow: scroll;
-
     font-size: 15px;
-    font-weight: 600;
+
 
         p {
+            font-family: "Montserrat", sans-serif;
             text-align: center  ;
         }
 
@@ -39,6 +39,10 @@
         padding: 0px 25px;
         display:flex;
         justify-content: space-between;
+        font-family: "Montserrat", sans-serif;
     }
 }
 
+.cancel-reservation-div {
+    padding: 10px;
+}

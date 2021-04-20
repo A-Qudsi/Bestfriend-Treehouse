@@ -21,7 +21,9 @@ class ReservationsIndex extends React.Component {
           <li key={reservation.id} className="reservation-item">
             <ReservationIndexItem 
                 reservation = {reservation} 
-                spot = {this.props.spots}/>
+                spot = {this.props.spots}
+                destroyReservation = {this.props.destroyReservation}
+                fetchSpots={this.props.fetchSpots}/>
             </li>)
           }
         </ul>

@@ -4,9 +4,17 @@ import { Link } from 'react-router-dom';
 class ReservationIndexItem extends React.Component {
     constructor(props) {
         super(props);
+
+        // this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    
+    componentDidMount() {
+        this.props.fetchSpots();
     }
 
-    
+    // handleSubmit() {
+    //     this.props.destroyReservation(this.props.reservation.id);
+    // }
 
     render() {
         const {start_date, end_date, number_guests} = this.props.reservation
@@ -32,6 +40,9 @@ class ReservationIndexItem extends React.Component {
                         <div>Number of Guests:</div>
                         <div>{number_guests}</div>
                     </div>
+                </div>
+                <div className='cancel-reservation-div'>
+                    <button className='submit-button'>Cancel Reservation</button>
                 </div>
             </div>
         )
