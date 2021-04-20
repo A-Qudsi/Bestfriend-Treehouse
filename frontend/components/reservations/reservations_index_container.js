@@ -1,6 +1,7 @@
 import reservationIndex from './reservations_index';
 import { connect } from 'react-redux';
 import { fetchReservations, destroyReservation } from '../../actions/reservation_actions';
+import { fetchSpots } from '../../actions/spot_actions';
 
 
 const msp = (state) => {
@@ -14,6 +15,7 @@ const msp = (state) => {
 
 const mdp = dispatch => {
     return {
+        fetchSpots: () => dispatch(fetchSpots()),
         fetchReservations: (userId) => dispatch(fetchReservations(userId)),
         destroyReservation: (reservationId) => dispatch(destroyReservation(reservationId))
     }

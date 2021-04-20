@@ -1291,6 +1291,7 @@ var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       debugger;
       this.props.fetchReservations(this.props.currentUser.id);
+      this.props.fetchSpots();
     }
   }, {
     key: "render",
@@ -1331,6 +1332,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reservations_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reservations_index */ "./frontend/components/reservations/reservations_index.jsx");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/reservation_actions */ "./frontend/actions/reservation_actions.js");
+/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
+
 
 
 
@@ -1346,6 +1349,9 @@ var msp = function msp(state) {
 
 var mdp = function mdp(dispatch) {
   return {
+    fetchSpots: function fetchSpots() {
+      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_3__["fetchSpots"])());
+    },
     fetchReservations: function fetchReservations(userId) {
       return dispatch(Object(_actions_reservation_actions__WEBPACK_IMPORTED_MODULE_2__["fetchReservations"])(userId));
     },
@@ -1410,8 +1416,8 @@ var ReservationIndexItem = /*#__PURE__*/function (_React$Component) {
   _createClass(ReservationIndexItem, [{
     key: "render",
     value: function render() {
-      debugger;
       var spot = this.props.spot[this.props.reservation.spot_id];
+      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-index-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
