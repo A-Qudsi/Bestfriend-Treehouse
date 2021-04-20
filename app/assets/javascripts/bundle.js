@@ -1289,8 +1289,8 @@ var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(ReservationsIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchSpots();
       debugger;
+      this.props.fetchSpots();
       this.props.fetchReservations(this.props.currentUser.id);
     }
   }, {
@@ -1432,6 +1432,8 @@ var ReservationIndexItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      debugger;
+      if (Object.values(this.props.spot).length === 0) return null;
       var _this$props$reservati = this.props.reservation,
           start_date = _this$props$reservati.start_date,
           end_date = _this$props$reservati.end_date,

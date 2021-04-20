@@ -15,6 +15,8 @@ class ReservationIndexItem extends React.Component {
     }
 
     render() {
+        debugger
+        if (Object.values(this.props.spot).length === 0) return null;
         const {start_date, end_date, number_guests} = this.props.reservation
         const spot = this.props.spot[this.props.reservation.spot_id];
         debugger
