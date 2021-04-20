@@ -8,12 +8,9 @@ class ReservationIndexItem extends React.Component {
         // this.handleSubmit = this.handleSubmit.bind(this);
     }
     
-    componentDidMount() {
-        this.props.fetchSpots();
-    }
-
     // handleSubmit() {
-    //     this.props.destroyReservation(this.props.reservation.id);
+    //     this.props.destroyReservation(this.props.reservation.id)
+    //         .then(()=> fetchReservations(this.props.currentUser.id));
     // }
 
     render() {
@@ -42,7 +39,7 @@ class ReservationIndexItem extends React.Component {
                     </div>
                 </div>
                 <div className='cancel-reservation-div'>
-                    <button className='submit-button'>Cancel Reservation</button>
+                    <button className='submit-button' onClick={this.handleSubmit}>Cancel Reservation</button>
                 </div>
             </div>
         )

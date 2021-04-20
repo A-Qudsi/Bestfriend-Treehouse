@@ -1291,7 +1291,6 @@ var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       debugger;
       this.props.fetchReservations(this.props.currentUser.id);
-      this.props.fetchSpots();
     }
   }, {
     key: "render",
@@ -1307,9 +1306,7 @@ var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
           className: "reservation-item"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reservations_index_item_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
           reservation: reservation,
-          spot: _this.props.spots,
-          destroyReservation: _this.props.destroyReservation,
-          fetchSpots: _this.props.fetchSpots
+          spot: _this.props.spots
         }));
       }));
     }
@@ -1413,17 +1410,13 @@ var ReservationIndexItem = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ReservationIndexItem);
 
     return _super.call(this, props); // this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  } // handleSubmit() {
+  //     this.props.destroyReservation(this.props.reservation.id)
+  //         .then(()=> fetchReservations(this.props.currentUser.id));
+  // }
+
 
   _createClass(ReservationIndexItem, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchSpots();
-    } // handleSubmit() {
-    //     this.props.destroyReservation(this.props.reservation.id);
-    // }
-
-  }, {
     key: "render",
     value: function render() {
       var _this$props$reservati = this.props.reservation,
@@ -1451,7 +1444,8 @@ var ReservationIndexItem = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Number of Guests:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, number_guests))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "cancel-reservation-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "submit-button"
+        className: "submit-button",
+        onClick: this.handleSubmit
       }, "Cancel Reservation")));
     }
   }]);
@@ -2879,7 +2873,7 @@ var reservationssReducer = function reservationssReducer() {
   switch (action.type) {
     case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_RESERVATIONS"]:
       debugger;
-      return action.reservations;
+      return Object.assign({}, action.reservations);
 
     case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_RESERVATION"]:
       return newState[action.reservation.id] = action.reservation;
