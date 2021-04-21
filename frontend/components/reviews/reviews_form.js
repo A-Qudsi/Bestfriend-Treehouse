@@ -43,10 +43,11 @@ class ReviewForm extends React.Component {
                         className='reviewsBodyTextarea'
                         type = "textarea" 
                         value = { this.state.body }
+                        placeholder = "Tell us about your stay"
                         onChange = { this.update('body') } />
                 </div>
                  <div className='reviewsRatingDiv'>
-                    <label htmlFor="rating">Rating (between 1 and 5):</label>
+                    <label htmlFor="rating">Rating (between 1 and 5): </label>
                     <input 
                         className='reviewsRating'
                         id='rating'

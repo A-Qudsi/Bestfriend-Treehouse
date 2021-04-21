@@ -234,7 +234,7 @@ var destroyReservation = function destroyReservation(reservationId) {
 /*!********************************************!*\
   !*** ./frontend/actions/review_actions.js ***!
   \********************************************/
-/*! exports provided: RECEIVE_REVIEWS, RECEIVE_REVIEW, REMOVE_REVIEW, receiveReviews, receiveReview, removeReview, fetchReviews, fetchReview, createReview, updateReview, deleteReview */
+/*! exports provided: RECEIVE_REVIEWS, RECEIVE_REVIEW, REMOVE_REVIEW, CLEAR_REVIEW_ERRORS, receiveReviews, receiveReview, removeReview, clearErrors, fetchReviews, fetchReview, createReview, updateReview, deleteReview */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -242,9 +242,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEWS", function() { return RECEIVE_REVIEWS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEW", function() { return RECEIVE_REVIEW; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_REVIEW", function() { return REMOVE_REVIEW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLEAR_REVIEW_ERRORS", function() { return CLEAR_REVIEW_ERRORS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReviews", function() { return receiveReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReview", function() { return receiveReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeReview", function() { return removeReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearErrors", function() { return clearErrors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReviews", function() { return fetchReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReview", function() { return fetchReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
@@ -255,6 +257,7 @@ __webpack_require__.r(__webpack_exports__);
 var RECEIVE_REVIEWS = "RECEIVE_REVIEWS";
 var RECEIVE_REVIEW = "RECEIVE_REVIEW";
 var REMOVE_REVIEW = "REMOVE_REVIEW";
+var CLEAR_REVIEW_ERRORS = "CLEAR_REVIEW_ERRORS";
 var receiveReviews = function receiveReviews(reviews) {
   return {
     type: RECEIVE_REVIEWS,
@@ -271,6 +274,11 @@ var removeReview = function removeReview(reviewId) {
   return {
     type: REMOVE_REVIEW,
     reviewId: reviewId
+  };
+};
+var clearErrors = function clearErrors() {
+  return {
+    type: CLEAR_REVIEW_ERRORS
   };
 };
 var fetchReviews = function fetchReviews(spotId) {
@@ -1650,12 +1658,13 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
         className: "reviewsBodyTextarea",
         type: "textarea",
         value: this.state.body,
+        placeholder: "Tell us about your stay",
         onChange: this.update('body')
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reviewsRatingDiv"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "rating"
-      }, "Rating (between 1 and 5):"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Rating (between 1 and 5): "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "reviewsRating",
         id: "rating",
         name: "rating",

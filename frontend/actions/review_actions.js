@@ -3,6 +3,7 @@ import * as ReviewApiUtil from "../util/review_util";
 export const RECEIVE_REVIEWS = "RECEIVE_REVIEWS";
 export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
 export const REMOVE_REVIEW = "REMOVE_REVIEW";
+export const CLEAR_REVIEW_ERRORS = "CLEAR_REVIEW_ERRORS";
 
 export const receiveReviews = (reviews) => {
     return ({
@@ -22,6 +23,12 @@ export const removeReview = ( reviewId ) => {
     return ({
         type: REMOVE_REVIEW,
         reviewId
+    })
+};
+
+export const clearErrors = () => {
+    return ({
+        type: CLEAR_REVIEW_ERRORS,
     })
 };
 
