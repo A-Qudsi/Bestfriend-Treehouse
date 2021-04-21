@@ -2,3 +2,21 @@
     width: 100%;
     height: 300px;
 }
+
+.fa-star {
+    cursor: pointer;
+    transition: color 200ms;
+    font-size: 25px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.yellow {
+    color: #ffc107
+}
+
+.gray {
+    color: #e4e5e9
+}

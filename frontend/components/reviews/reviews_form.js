@@ -1,5 +1,5 @@
 import React from 'react';
-
+import StarRating from './reviews_star_rating';
 
 class ReviewForm extends React.Component {
 
@@ -27,6 +27,7 @@ class ReviewForm extends React.Component {
             rating: '',
         })
     }
+
     submitReview(e) {
         e.preventDefault();
         if (this.props.currentUser) {
@@ -44,6 +45,8 @@ class ReviewForm extends React.Component {
     render() {
         const { spot } = this.props;
         return (
+            <div>
+
             <form className='reviewForm'>
                 <div className='reviewsFormDiv'>
                     <input 
@@ -57,7 +60,6 @@ class ReviewForm extends React.Component {
                     <label htmlFor="rating">Rating (between 1 and 5): </label>
                     <input 
                         className='reviewsRating'
-                        id='rating'
                         name='rating'
                         min='1'
                         max='5'
@@ -67,6 +69,8 @@ class ReviewForm extends React.Component {
                 </div>
                 <button className='submit-button' onClick={(e) => this.submitReview(e)}>Submit Review</button>
             </form>
+             <StarRating />
+            </div>
         )
     }
 };
