@@ -12,6 +12,7 @@ class ReviewForm extends React.Component {
 
         this.submitReview = this.submitReview.bind(this);
         this.update = this.update.bind(this);
+        this.clearReviews = this.clearReviews.bind(this);
     }
 
     update(field) {
@@ -20,6 +21,12 @@ class ReviewForm extends React.Component {
         });
     }
 
+    clearReviews() {
+        this.setState({
+            body: '',
+            rating: '',
+        })
+    }
     submitReview(e) {
         e.preventDefault();
         if (this.props.currentUser) {
@@ -28,7 +35,7 @@ class ReviewForm extends React.Component {
                 rating: this.state.rating,
                 user_id: this.props.currentUser.id,
                 spot_id: this.props.spot.id
-            })
+            }).then(()=> this.clearReviews)
         } else {
             this.props.openModal('login');
         }

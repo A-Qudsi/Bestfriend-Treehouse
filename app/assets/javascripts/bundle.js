@@ -234,7 +234,7 @@ var destroyReservation = function destroyReservation(reservationId) {
 /*!********************************************!*\
   !*** ./frontend/actions/review_actions.js ***!
   \********************************************/
-/*! exports provided: RECEIVE_REVIEWS, RECEIVE_REVIEW, REMOVE_REVIEW, CLEAR_REVIEW_ERRORS, receiveReviews, receiveReview, removeReview, clearErrors, fetchReviews, fetchReview, createReview, updateReview, deleteReview */
+/*! exports provided: RECEIVE_REVIEWS, RECEIVE_REVIEW, REMOVE_REVIEW, receiveReviews, receiveReview, removeReview, fetchReviews, fetchReview, createReview, updateReview, deleteReview */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -242,11 +242,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEWS", function() { return RECEIVE_REVIEWS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEW", function() { return RECEIVE_REVIEW; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_REVIEW", function() { return REMOVE_REVIEW; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLEAR_REVIEW_ERRORS", function() { return CLEAR_REVIEW_ERRORS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReviews", function() { return receiveReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReview", function() { return receiveReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeReview", function() { return removeReview; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearErrors", function() { return clearErrors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReviews", function() { return fetchReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReview", function() { return fetchReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
@@ -257,7 +255,6 @@ __webpack_require__.r(__webpack_exports__);
 var RECEIVE_REVIEWS = "RECEIVE_REVIEWS";
 var RECEIVE_REVIEW = "RECEIVE_REVIEW";
 var REMOVE_REVIEW = "REMOVE_REVIEW";
-var CLEAR_REVIEW_ERRORS = "CLEAR_REVIEW_ERRORS";
 var receiveReviews = function receiveReviews(reviews) {
   return {
     type: RECEIVE_REVIEWS,
@@ -274,11 +271,6 @@ var removeReview = function removeReview(reviewId) {
   return {
     type: REMOVE_REVIEW,
     reviewId: reviewId
-  };
-};
-var clearErrors = function clearErrors() {
-  return {
-    type: CLEAR_REVIEW_ERRORS
   };
 };
 var fetchReviews = function fetchReviews(spotId) {
@@ -1616,6 +1608,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     };
     _this.submitReview = _this.submitReview.bind(_assertThisInitialized(_this));
     _this.update = _this.update.bind(_assertThisInitialized(_this));
+    _this.clearReviews = _this.clearReviews.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1629,8 +1622,18 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       };
     }
   }, {
+    key: "clearReviews",
+    value: function clearReviews() {
+      this.setState({
+        body: '',
+        rating: ''
+      });
+    }
+  }, {
     key: "submitReview",
     value: function submitReview(e) {
+      var _this3 = this;
+
       e.preventDefault();
 
       if (this.props.currentUser) {
@@ -1639,6 +1642,8 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
           rating: this.state.rating,
           user_id: this.props.currentUser.id,
           spot_id: this.props.spot.id
+        }).then(function () {
+          return _this3.clearReviews;
         });
       } else {
         this.props.openModal('login');
@@ -1647,7 +1652,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       var spot = this.props.spot;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -1676,7 +1681,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "submit-button",
         onClick: function onClick(e) {
-          return _this3.submitReview(e);
+          return _this4.submitReview(e);
         }
       }, "Submit Review"));
     }
