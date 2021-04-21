@@ -2,6 +2,7 @@ import React from 'react';
 import Pictures from './spot_show_pictures';
 import ReservationForm from '../reservations/reservation_form';
 import SpotBody from './spot_body';
+import ReviewForm from '../reviews/reviews_form'
 
 class SpotShow extends React.Component {
     constructor(props) {
@@ -44,6 +45,14 @@ class SpotShow extends React.Component {
                             createReservation={this.props.createReservation}
                         />
                     </div>
+                </div>
+                <div className = 'reviewContainer'>
+                    <ReviewForm 
+                        spot={spot} 
+                        currentUser={this.props.currentUser} 
+                        openModal={this.props.openModal}
+                        createReview={this.props.createReview}
+                    />
                 </div>
             </div>
         );

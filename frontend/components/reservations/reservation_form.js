@@ -56,7 +56,7 @@ class ReservationForm extends React.Component {
                     </div>
                 </div>
                 <div>
-                    <form className='signup_form body'>
+                    <div className='signup_form body'>
                         <div>
                             <div className='sReservation' >
                                 <DateRangePicker
@@ -80,7 +80,7 @@ class ReservationForm extends React.Component {
                             <button className='submit-button' onClick={(e) => this.bookReservation(e)
                             }>Reserve</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         )
