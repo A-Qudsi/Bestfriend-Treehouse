@@ -4,7 +4,7 @@ import { fetchReservations, destroyReservation } from '../../actions/reservation
 import { fetchSpots } from '../../actions/spot_actions';
 
 
-const msp = (state) => {
+const mSTP = (state) => {
     debugger
     return {
         reservations: Object.values(state.entities.reservations),
@@ -13,7 +13,7 @@ const msp = (state) => {
     }
 }
 
-const mdp = dispatch => {
+const mDTP = dispatch => {
     return {
         fetchSpots: () => dispatch(fetchSpots()),
         fetchReservations: (userId) => dispatch(fetchReservations(userId)),
@@ -21,4 +21,4 @@ const mdp = dispatch => {
     }
 }
 
-export default connect(msp, mdp)(reservationIndex);
+export default connect(mSTP, mDTP)(reservationIndex);
