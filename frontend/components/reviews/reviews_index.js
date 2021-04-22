@@ -1,5 +1,5 @@
 import React from 'react';
-import ReservationIndexItem from './reservations_index_item.js';
+import ReviewIndexItem from './reviews_index_item';
 
 class ReservationsIndex extends React.Component {
   constructor(props) {
@@ -7,12 +7,21 @@ class ReservationsIndex extends React.Component {
   }
 
     componentDidMount(){
-      this.props.fetchReviews(this.props.currentUser.id);
+        debugger
+      this.props.fetchReviews(this.props.spot.id);
     }
 
   render() {
+
     return(
-        <h3>Testing</h3>
+        <ul className='review-container'>
+          { this.props.reviews.map( (review) => 
+          <li key={review.id} className="review-item">
+            <ReviewIndexItem 
+                review = {review} />
+            </li>)
+          }
+        </ul>
     )
   }
   

@@ -10,10 +10,8 @@ Rails.application.routes.draw do
     resources :reservations, only: [:show, :create, :update, :destroy]
     
     resource :session, only: [ :create, :destroy]
-    resources :spots, only: [:index, :show, :create, :update, :destroy] do 
-      resources :reviews, only: [:index]
-    end
+    resources :spots, only: [:index, :show, :create, :update, :destroy] 
 
-    resources :reviews, only: [:create, :update, :destroy]
+    resources :reviews, only: [:index, :create, :update, :destroy]
   end
 end

@@ -18,7 +18,7 @@ const App = () => (
             <Route exact path="/" component={Splash} />
             <Route exact path="/spots" component={SpotsPage} />
             <Route path="/spots/:spotId" component={SpotShowContainer} />
-            <Route path="/users/:userId/reservations" component={ReservationIndexContainer} />
+            <AuthRoute path="/users/:userId/reservations" component={ReservationIndexContainer} />
         </Switch>
         <footer><Footer /></footer>
 

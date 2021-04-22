@@ -2,11 +2,10 @@ import reviewsIndex from './reviews_index';
 import { connect } from 'react-redux';
 import { fetchReviews, destroyReview } from '../../actions/review_actions'
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
+    debugger
     return{
-        reviews: Object.values(state.entities.reviews),
-        spots: state.entities.spots,
-        currentUser: state.entities.users[state.session.id]
+        reviews: Object.values(state.entities.spots[ownProps.match.params.spotId].reviews),
     }
 }
 
