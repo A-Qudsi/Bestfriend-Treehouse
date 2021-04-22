@@ -13,6 +13,7 @@ class ReviewForm extends React.Component {
         this.submitReview = this.submitReview.bind(this);
         this.update = this.update.bind(this);
         this.clearReviews = this.clearReviews.bind(this);
+        this.getRating = this.getRating.bind(this);
     }
 
     update(field) {
@@ -27,6 +28,14 @@ class ReviewForm extends React.Component {
             rating: '',
         })
     }
+
+    getRating(number){
+        this.setState({
+            rating: number
+        })
+    }
+
+
 
     submitReview(e) {
         e.preventDefault();
@@ -57,19 +66,11 @@ class ReviewForm extends React.Component {
                         onChange = { this.update('body') } />
                 </div>
                  <div className='reviewsRatingDiv'>
-                    <label htmlFor="rating">Rating (between 1 and 5): </label>
-                    <input 
-                        className='reviewsRating'
-                        name='rating'
-                        min='1'
-                        max='5'
-                        type = "number" 
-                        value = { this.state.rating }
-                        onChange = { this.update('rating') } />
+                    <StarRating getRating = {this.getRating} />
                 </div>
                 <button className='submit-button' onClick={(e) => this.submitReview(e)}>Submit Review</button>
             </form>
-             <StarRating />
+
             </div>
         )
     }

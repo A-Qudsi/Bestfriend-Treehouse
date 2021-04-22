@@ -1611,6 +1611,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     _this.submitReview = _this.submitReview.bind(_assertThisInitialized(_this));
     _this.update = _this.update.bind(_assertThisInitialized(_this));
     _this.clearReviews = _this.clearReviews.bind(_assertThisInitialized(_this));
+    _this.getRating = _this.getRating.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1629,6 +1630,13 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       this.setState({
         body: '',
         rating: ''
+      });
+    }
+  }, {
+    key: "getRating",
+    value: function getRating(number) {
+      this.setState({
+        rating: number
       });
     }
   }, {
@@ -1669,22 +1677,14 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
         onChange: this.update('body')
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reviewsRatingDiv"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "rating"
-      }, "Rating (between 1 and 5): "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "reviewsRating",
-        name: "rating",
-        min: "1",
-        max: "5",
-        type: "number",
-        value: this.state.rating,
-        onChange: this.update('rating')
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_star_rating__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        getRating: this.getRating
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "submit-button",
         onClick: function onClick(e) {
           return _this4.submitReview(e);
         }
-      }, "Submit Review")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_star_rating__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+      }, "Submit Review")));
     }
   }]);
 
@@ -1729,7 +1729,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var StarRating = function StarRating() {
+var StarRating = function StarRating(props) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState2 = _slicedToArray(_useState, 2),
       rating = _useState2[0],
@@ -1740,6 +1740,11 @@ var StarRating = function StarRating() {
       hover = _useState4[0],
       setHover = _useState4[1];
 
+  function updateStarRating(value) {
+    setRating(value);
+    props.getRating(value);
+  }
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, _toConsumableArray(Array(5)).map(function (star, i) {
     var ratingValue = i + 1;
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1747,7 +1752,7 @@ var StarRating = function StarRating() {
       name: "rating",
       value: ratingValue,
       onClick: function onClick() {
-        return setRating(ratingValue);
+        return updateStarRating(ratingValue);
       }
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
       className: ratingValue <= (hover || rating) ? "fas yellow fa-star" : "fas gray fa-star",
