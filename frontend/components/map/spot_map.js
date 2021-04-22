@@ -18,17 +18,21 @@ class SpotMap extends React.Component {
 
         const map = ReactDOM.findDOMNode(this.refs.map)
         this.map = new google.maps.Map(map, mapCenter);
-        this.createMarker(this.props.spot);
+        this.setMarker(this.props.spot);
 
     }
 
-    createMarker(spot) {
+    setMarker(spot) {
         const position = new google.maps.LatLng(spot.latitude, spot.longitude);
+        const image = {
+            url: 'https://bestfriend-treehouse-seeds.s3.amazonaws.com/treehouselogoMapIcon.png',
+        }
 
         new google.maps.Marker({
         position,
         map: this.map,
         spotId: spot.id,
+        icon: image
         });
     }
 

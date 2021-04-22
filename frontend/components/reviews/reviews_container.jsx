@@ -1,4 +1,4 @@
-import reviewsIndex from './reviews_index';
+import ReviewsIndex from './reviews_index';
 import { connect } from 'react-redux';
 import { fetchReviews, destroyReview } from '../../actions/review_actions'
 
@@ -6,7 +6,7 @@ const mSTP = (state, ownProps) => {
     debugger
     return{
         spot: ownProps.spot,
-        // reviews: Object.values(ownProps.spot.reviews),
+        reviews: ownProps.spot.review_ids.map(review_id => state.entities.reviews[review_id]).filter(review => review),
     }
 }
 
@@ -18,4 +18,4 @@ const mDTP = dispatch => {
     
 }
 
-export default connect(mSTP, mDTP)(reviewsIndex);
+export default connect(mSTP, mDTP)(ReviewsIndex);

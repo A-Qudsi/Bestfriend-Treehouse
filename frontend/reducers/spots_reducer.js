@@ -4,6 +4,8 @@ import {
     REMOVE_SPOT
 } from '../actions/spot_actions';
 
+import { RECEIVE_REVIEW } from '../actions/review_actions'
+
 const spotsReducer = (state = {}, action) => {
     Object.freeze(state)
     let newState = Object.assign({}, state);
@@ -16,6 +18,10 @@ const spotsReducer = (state = {}, action) => {
             return newState
         case REMOVE_SPOT: 
             delete newState[action.spotId]
+            return newState
+        case RECEIVE_REVIEW:
+            debugger
+            newState[action.review.spot_id].review_ids.push(action.review.id)
             return newState
         default:
             return state;

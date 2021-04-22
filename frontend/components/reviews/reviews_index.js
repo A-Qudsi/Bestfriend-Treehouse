@@ -1,18 +1,20 @@
 import React from 'react';
 import ReviewIndexItem from './reviews_index_item';
 
-class ReservationsIndex extends React.Component {
+class ReviewsIndex extends React.Component {
+
   constructor(props) {
       super(props);
   }
 
     componentDidMount(){
         debugger
-      this.props.fetchReviews(this.props.spot.id);
+        this.props.fetchReviews(this.props.spot.id);
     }
 
   render() {
     debugger
+
     return(
         <ul className='review-container'>
           { this.props.reviews.map( (review) => 
@@ -27,4 +29,4 @@ class ReservationsIndex extends React.Component {
   
 }
 
-export default ReservationsIndex;
+export default ReviewsIndex;

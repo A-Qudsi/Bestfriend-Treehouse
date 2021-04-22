@@ -262,7 +262,8 @@ var receiveReviews = function receiveReviews(reviews) {
     reviews: reviews
   };
 };
-var receiveReview = function receiveReview(review) {
+var receiveReview = function receiveReview(_ref) {
+  var review = _ref.review;
   return {
     type: RECEIVE_REVIEW,
     review: review
@@ -518,7 +519,7 @@ var App = function App() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/spots/:spotId",
     component: _spots_spot_show_container__WEBPACK_IMPORTED_MODULE_8__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["AuthRoute"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/users/:userId/reservations",
     component: _reservations_reservations_index_container__WEBPACK_IMPORTED_MODULE_9__["default"]
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_footer__WEBPACK_IMPORTED_MODULE_6__["default"], null)));
@@ -919,16 +920,20 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
       };
       var map = react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.findDOMNode(this.refs.map);
       this.map = new google.maps.Map(map, mapCenter);
-      this.createMarker(this.props.spot);
+      this.setMarker(this.props.spot);
     }
   }, {
-    key: "createMarker",
-    value: function createMarker(spot) {
+    key: "setMarker",
+    value: function setMarker(spot) {
       var position = new google.maps.LatLng(spot.latitude, spot.longitude);
+      var image = {
+        url: 'https://bestfriend-treehouse-seeds.s3.amazonaws.com/treehouselogoMapIcon.png'
+      };
       new google.maps.Marker({
         position: position,
         map: this.map,
-        spotId: spot.id
+        spotId: spot.id,
+        icon: image
       });
     }
   }, {
@@ -1794,8 +1799,12 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   debugger;
   return {
-    spot: ownProps.spot // reviews: Object.values(ownProps.spot.reviews),
-
+    spot: ownProps.spot,
+    reviews: ownProps.spot.review_ids.map(function (review_id) {
+      return state.entities.reviews[review_id];
+    }).filter(function (review) {
+      return review;
+    })
   };
 };
 
@@ -1993,18 +2002,18 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
-  _inherits(ReservationsIndex, _React$Component);
+var ReviewsIndex = /*#__PURE__*/function (_React$Component) {
+  _inherits(ReviewsIndex, _React$Component);
 
-  var _super = _createSuper(ReservationsIndex);
+  var _super = _createSuper(ReviewsIndex);
 
-  function ReservationsIndex(props) {
-    _classCallCheck(this, ReservationsIndex);
+  function ReviewsIndex(props) {
+    _classCallCheck(this, ReviewsIndex);
 
     return _super.call(this, props);
   }
 
-  _createClass(ReservationsIndex, [{
+  _createClass(ReviewsIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       debugger;
@@ -2027,10 +2036,10 @@ var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
     }
   }]);
 
-  return ReservationsIndex;
+  return ReviewsIndex;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (ReservationsIndex);
+/* harmony default export */ __webpack_exports__["default"] = (ReviewsIndex);
 
 /***/ }),
 
@@ -2083,7 +2092,7 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
   _createClass(ReviewIndexItem, [{
     key: "render",
     value: function render() {
-      var body = this.props.reviews.body;
+      var body = this.props.review.body;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-index-item"
       }, body);
@@ -2919,7 +2928,9 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         history: this.props.history,
         openModal: this.props.openModal,
         createReservation: this.props.createReservation
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_reviews_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        spot: spot
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reviewContainer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_reviews_form__WEBPACK_IMPORTED_MODULE_4__["default"], {
         spot: spot,
@@ -3521,7 +3532,8 @@ var reviewsReducer = function reviewsReducer() {
       return action.reviews;
 
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_REVIEW"]:
-      return newState[action.review.id] = action.review;
+      newState[action.review.id] = action.review;
+      return newState;
 
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_REVIEW"]:
       delete newState[action.reviewId];
@@ -3650,6 +3662,8 @@ var sessionReducer = function sessionReducer() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/spot_actions */ "./frontend/actions/spot_actions.js");
+/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/review_actions */ "./frontend/actions/review_actions.js");
+
 
 
 var spotsReducer = function spotsReducer() {
@@ -3668,6 +3682,11 @@ var spotsReducer = function spotsReducer() {
 
     case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_SPOT"]:
       delete newState[action.spotId];
+      return newState;
+
+    case _actions_review_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_REVIEW"]:
+      debugger;
+      newState[action.review.spot_id].review_ids.push(action.review.id);
       return newState;
 
     default:

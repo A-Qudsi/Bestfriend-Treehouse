@@ -12,10 +12,10 @@ export const receiveReviews = ( reviews ) => {
     })
 };
 
-export const receiveReview = ( review ) => {
+export const receiveReview = ({ review }) => {
     return ({
         type: RECEIVE_REVIEW,
-        review
+        review 
     })
 };
 
