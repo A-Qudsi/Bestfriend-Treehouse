@@ -256,6 +256,7 @@ var RECEIVE_REVIEWS = "RECEIVE_REVIEWS";
 var RECEIVE_REVIEW = "RECEIVE_REVIEW";
 var REMOVE_REVIEW = "REMOVE_REVIEW";
 var receiveReviews = function receiveReviews(reviews) {
+  debugger;
   return {
     type: RECEIVE_REVIEWS,
     reviews: reviews
@@ -1571,7 +1572,8 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   debugger;
   return {
-    reviews: Object.values(state.entities.spots[ownProps.match.params.spotId].reviews)
+    spot: ownProps.spot // reviews: Object.values(ownProps.spot.reviews),
+
   };
 };
 
@@ -1789,6 +1791,7 @@ var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "review-container"
       }, this.props.reviews.map(function (review) {
@@ -2692,7 +2695,9 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         history: this.props.history,
         openModal: this.props.openModal,
         createReservation: this.props.createReservation
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_reviews_container__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_reviews_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        spot: spot
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reviewContainer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_reviews_form__WEBPACK_IMPORTED_MODULE_4__["default"], {
         spot: spot,
@@ -3795,9 +3800,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateReview", function() { return updateReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroyReview", function() { return destroyReview; });
 var fetchReviews = function fetchReviews(spotId) {
+  debugger;
   return $.ajax({
     method: 'GET',
-    url: "/api/".concat(spotId),
+    url: "/api/reviews/",
     data: {
       spotId: spotId
     }

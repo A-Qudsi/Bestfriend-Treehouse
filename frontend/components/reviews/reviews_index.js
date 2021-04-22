@@ -12,7 +12,7 @@ class ReservationsIndex extends React.Component {
     }
 
   render() {
-
+    debugger
     return(
         <ul className='review-container'>
           { this.props.reviews.map( (review) => 

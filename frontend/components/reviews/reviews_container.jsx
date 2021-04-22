@@ -5,7 +5,8 @@ import { fetchReviews, destroyReview } from '../../actions/review_actions'
 const mSTP = (state, ownProps) => {
     debugger
     return{
-        reviews: Object.values(state.entities.spots[ownProps.match.params.spotId].reviews),
+        spot: ownProps.spot,
+        // reviews: Object.values(ownProps.spot.reviews),
     }
 }
 

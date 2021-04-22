@@ -7,7 +7,7 @@ class Spot < ApplicationRecord
         class_name: :User 
 
     has_many :reviews,
-        foreign_key: :user_id,
+        foreign_key: :spot_id,
         class_name: :Review
 
     has_many :reservations,
