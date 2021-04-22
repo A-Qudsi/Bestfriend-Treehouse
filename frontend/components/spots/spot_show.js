@@ -18,7 +18,7 @@ class SpotShow extends React.Component {
     render() {
         if (!this.props.spot)  return null;
         const { spot } = this.props;
-        debugger
+        
         return (
             <div className='showpagediv'>
                 <div className='showpageheader'>                 

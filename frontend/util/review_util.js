@@ -1,5 +1,5 @@
 export const fetchReviews = spotId => {
-    debugger
+    
     return $.ajax ({
         method: 'GET',
         url: `/api/reviews/`,

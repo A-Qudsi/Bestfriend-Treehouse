@@ -170,7 +170,6 @@ var RECEIVE_RESERVATION = 'RECEIVE_RESERVATION';
 var REMOVE_RESERVATION = 'REMOVE_RESERVATION';
 
 var receiveReservations = function receiveReservations(reservations) {
-  debugger;
   return {
     type: RECEIVE_RESERVATIONS,
     spots: reservations.spots,
@@ -256,7 +255,6 @@ var RECEIVE_REVIEWS = "RECEIVE_REVIEWS";
 var RECEIVE_REVIEW = "RECEIVE_REVIEW";
 var REMOVE_REVIEW = "REMOVE_REVIEW";
 var receiveReviews = function receiveReviews(reviews) {
-  debugger;
   return {
     type: RECEIVE_REVIEWS,
     reviews: reviews
@@ -435,7 +433,6 @@ var removeSpot = function removeSpot(spotId) {
 
 var fetchSpots = function fetchSpots() {
   return function (dispatch) {
-    debugger;
     return _util_spots_util__WEBPACK_IMPORTED_MODULE_0__["fetchSpots"]().then(function (spots) {
       return dispatch(receiveSpots(spots));
     }); // errors => dispatch(receiveErrors(errors.responseJSON)))
@@ -706,7 +703,6 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(_ref) {
   var session = _ref.session,
       users = _ref.entities.users;
-  debugger;
   return {
     currentUser: users[session.id]
   };
@@ -802,7 +798,6 @@ var SpotsMap = /*#__PURE__*/function (_React$Component) {
       this.map = new google.maps.Map(map, mapCenter);
       this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__["default"](this.map);
       this.MarkerManager.updateMarkers(this.props.spots);
-      debugger;
     }
   }, {
     key: "componentDidUpdate",
@@ -841,7 +836,6 @@ var SpotsMap = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "map",
         ref: "map"
@@ -910,7 +904,6 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
   _createClass(SpotMap, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
       var mapCenter = {
         center: {
           lat: this.props.spot.latitude,
@@ -1468,7 +1461,7 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       e.preventDefault();
-      debugger;
+      ;
 
       if (this.props.currentUser) {
         this.props.createReservation({
@@ -1599,7 +1592,6 @@ var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(ReservationsIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
       this.props.fetchSpots();
       this.props.fetchReservations(this.props.currentUser.id);
     }
@@ -1608,7 +1600,6 @@ var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "reservations-container"
       }, this.props.reservations.reverse().map(function (reservation) {
@@ -1652,7 +1643,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state) {
-  debugger;
   return {
     reservations: Object.values(state.entities.reservations),
     spots: state.entities.spots,
@@ -1740,14 +1730,12 @@ var ReservationIndexItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
       if (Object.values(this.props.spot).length === 0) return null;
       var _this$props$reservati = this.props.reservation,
           start_date = _this$props$reservati.start_date,
           end_date = _this$props$reservati.end_date,
           number_guests = _this$props$reservati.number_guests;
       var spot = this.props.spot[this.props.reservation.spot_id];
-      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reservation-index-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1797,7 +1785,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  debugger;
   return {
     spot: ownProps.spot,
     reviews: ownProps.spot.review_ids.map(function (review_id) {
@@ -2016,13 +2003,11 @@ var ReviewsIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(ReviewsIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
       this.props.fetchReviews(this.props.spot.id);
     }
   }, {
     key: "render",
     value: function render() {
-      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "review-container"
       }, this.props.reviews.map(function (review) {
@@ -2893,7 +2878,6 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       if (!this.props.spot) return null;
       var spot = this.props.spot;
-      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showpagediv"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3685,7 +3669,6 @@ var spotsReducer = function spotsReducer() {
       return newState;
 
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_REVIEW"]:
-      debugger;
       newState[action.review.spot_id].review_ids.push(action.review.id);
       return newState;
 
@@ -3914,7 +3897,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateReview", function() { return updateReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroyReview", function() { return destroyReview; });
 var fetchReviews = function fetchReviews(spotId) {
-  debugger;
   return $.ajax({
     method: 'GET',
     url: "/api/reviews/",

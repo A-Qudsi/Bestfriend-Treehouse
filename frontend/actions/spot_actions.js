@@ -26,7 +26,7 @@ const removeSpot = spotId => {
 }
 
 export const fetchSpots = () => dispatch => {
-    debugger
+    
     return SPOTUtil.fetchSpots()
     .then(spots => dispatch(receiveSpots(spots)))
     // errors => dispatch(receiveErrors(errors.responseJSON)))

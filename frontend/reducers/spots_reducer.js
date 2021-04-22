@@ -20,7 +20,7 @@ const spotsReducer = (state = {}, action) => {
             delete newState[action.spotId]
             return newState
         case RECEIVE_REVIEW:
-            debugger
+            
             newState[action.review.spot_id].review_ids.push(action.review.id)
             return newState
         default:

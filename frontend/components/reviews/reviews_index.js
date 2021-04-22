@@ -8,12 +8,12 @@ class ReviewsIndex extends React.Component {
   }
 
     componentDidMount(){
-        debugger
+        
         this.props.fetchReviews(this.props.spot.id);
     }
 
   render() {
-    debugger
+    
 
     return(
         <ul className='review-container'>

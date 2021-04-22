@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchReviews, destroyReview } from '../../actions/review_actions'
 
 const mSTP = (state, ownProps) => {
-    debugger
+    
     return{
         spot: ownProps.spot,
         reviews: ownProps.spot.review_ids.map(review_id => state.entities.reviews[review_id]).filter(review => review),

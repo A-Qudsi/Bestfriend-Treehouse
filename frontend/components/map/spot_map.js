@@ -7,7 +7,7 @@ class SpotMap extends React.Component {
     
 
     componentDidMount() {
-        debugger
+        
         const mapCenter = {
         center: { 
             lat: this.props.spot.latitude, 

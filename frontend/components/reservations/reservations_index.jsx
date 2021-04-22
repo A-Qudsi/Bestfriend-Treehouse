@@ -7,13 +7,13 @@ class ReservationsIndex extends React.Component {
   }
 
     componentDidMount(){
-      debugger
+      
       this.props.fetchSpots();
       this.props.fetchReservations(this.props.currentUser.id);
     }
 
   render() {
-    debugger
+    
     return(
         <ul className='reservations-container'>
           { this.props.reservations.reverse().map( (reservation) => 

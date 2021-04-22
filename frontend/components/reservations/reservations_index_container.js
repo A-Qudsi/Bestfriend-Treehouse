@@ -5,7 +5,7 @@ import { fetchSpots } from '../../actions/spot_actions';
 
 
 const mSTP = (state) => {
-    debugger
+    
     return {
         reservations: Object.values(state.entities.reservations),
         spots: state.entities.spots,

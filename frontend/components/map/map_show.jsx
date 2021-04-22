@@ -23,7 +23,7 @@ class SpotsMap extends React.Component {
     this.map = new google.maps.Map(map, mapCenter);
     this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.updateMarkers(this.props.spots);
-    debugger
+    
   }
 
   componentDidUpdate() {
@@ -47,7 +47,7 @@ class SpotsMap extends React.Component {
 
 
   render() {
-    debugger
+    
     return (
       <div id="map" ref="map">
       </div>
