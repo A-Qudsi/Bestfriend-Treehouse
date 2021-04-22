@@ -1,6 +1,6 @@
 import React from 'react';
 import SpotsIndexItem from './spots_index_item'
-import SpotsMap from './spots_map'
+import SpotsMap from '../map/map_show'
 
 class SpotsPage extends React.Component {
     constructor(props){

@@ -4,6 +4,7 @@ import ReservationForm from '../reservations/reservation_form';
 import SpotBody from './spot_body';
 import ReviewForm from '../reviews/reviews_form';
 import ReviewContainer from '../reviews/reviews_container'
+import SpotMap from '../map/spot_map'
 
 class SpotShow extends React.Component {
     constructor(props) {
@@ -48,9 +49,9 @@ class SpotShow extends React.Component {
                     </div>
                 </div>
                 <div>
-                    <ReviewContainer
+                    {/* <ReviewContainer
                         spot = {spot} 
-                    />
+                    /> */}
                 </div>
                 <div className = 'reviewContainer'>
                     <ReviewForm 
@@ -60,6 +61,11 @@ class SpotShow extends React.Component {
                         createReview={this.props.createReview}
                     />
                 </div>
+
+                    <SpotMap 
+                        spot ={spot}
+                    />
+
             </div>
         );
     };
