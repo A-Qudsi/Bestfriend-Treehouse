@@ -169,12 +169,11 @@ var RECEIVE_RESERVATIONS = 'RECEIVE_RESERVATIONS';
 var RECEIVE_RESERVATION = 'RECEIVE_RESERVATION';
 var REMOVE_RESERVATION = 'REMOVE_RESERVATION';
 
-var receiveReservations = function receiveReservations(_ref) {
-  var reservations = _ref.reservations;
+var receiveReservations = function receiveReservations(reservations) {
   return {
     type: RECEIVE_RESERVATIONS,
     spots: reservations.spots,
-    reservations: reservations
+    reservations: reservations.reservations
   };
 };
 
@@ -3476,12 +3475,15 @@ var reservationssReducer = function reservationssReducer() {
 
   switch (action.type) {
     case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_RESERVATIONS"]:
-      return action.reservations;
+      debugger;
+      return Object.assign({}, action.reservations);
 
     case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_RESERVATION"]:
+      debugger;
       return newState[action.reservation.id] = action.reservation;
 
     case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_RESERVATION"]:
+      debugger;
       delete newState[action.reservationId];
       return newState;
 
