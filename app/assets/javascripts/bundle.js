@@ -169,11 +169,12 @@ var RECEIVE_RESERVATIONS = 'RECEIVE_RESERVATIONS';
 var RECEIVE_RESERVATION = 'RECEIVE_RESERVATION';
 var REMOVE_RESERVATION = 'REMOVE_RESERVATION';
 
-var receiveReservations = function receiveReservations(reservations) {
+var receiveReservations = function receiveReservations(_ref) {
+  var reservations = _ref.reservations;
   return {
     type: RECEIVE_RESERVATIONS,
     spots: reservations.spots,
-    reservations: reservations.reservations
+    reservations: reservations
   };
 };
 

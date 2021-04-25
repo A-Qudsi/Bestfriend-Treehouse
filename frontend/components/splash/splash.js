@@ -40,6 +40,7 @@ class Splash extends React.Component {
                         </li>
                     </ul>
                 </div>
+                
                 <div>
                     <Escapes />
                 </div>

@@ -4,12 +4,12 @@ export const RECEIVE_RESERVATIONS = 'RECEIVE_RESERVATIONS';
 export const RECEIVE_RESERVATION = 'RECEIVE_RESERVATION';
 export const REMOVE_RESERVATION = 'REMOVE_RESERVATION';
 
-const receiveReservations = reservations => {
+const receiveReservations = ({ reservations }) => {
     
     return ({
         type: RECEIVE_RESERVATIONS,
         spots: reservations.spots,
-        reservations: reservations.reservations
+        reservations
     })
 };
 
