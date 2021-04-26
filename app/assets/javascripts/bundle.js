@@ -1300,6 +1300,9 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var spot = this.props.spot;
       var totalCounter = this.state.counter + this.state.childrenCounter;
+      var guest = totalCounter > 1 ? "guests" : "guest";
+      var infantNumber = this.state.infantCounter;
+      var infants = infantNumber === 0 ? "" : infantNumber > 1 ? ", ".concat(infantNumber, " infants") : ", ".concat(infantNumber, " infant");
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sGuests"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1308,7 +1311,7 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
         onClick: this.handleClick
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sGuestButtonDiv"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, totalCounter, " guest", this.state.infantCounter === 0 ? null : this.state.infantCounter === 1 ? ", " + this.state.infantCounter + " infant" : ", " + this.state.infantCounter + " infants"), !this.state.clicked ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, totalCounter, " ", guest, infants), !this.state.clicked ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-chevron-down"
       }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-chevron-up"
