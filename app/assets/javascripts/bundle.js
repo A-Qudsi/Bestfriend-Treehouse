@@ -1368,8 +1368,9 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
       }, spot.maxGuests, " guests maximum. Infants don\u2019t count toward "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "disclousreGuests"
       }, "the number of guests."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "closebutton",
         onClick: this.closeDropdown
-      }, " close")) : null)));
+      }, " Close")) : null)));
     }
   }]);
 

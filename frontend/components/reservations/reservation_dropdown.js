@@ -116,7 +116,7 @@ class Dropdown extends React.Component {
                                 </div>
                                 <span className = 'disclousreGuests'>{spot.maxGuests} guests maximum. Infants don’t count toward </span>
                                 <span className = 'disclousreGuests'>the number of guests.</span>
-                                <div onClick={this.closeDropdown}> close</div>
+                                <div className ='closebutton' onClick={this.closeDropdown}> Close</div>
                             </ul>
                         ) : null}
                     </div>  
