@@ -18,11 +18,15 @@ export default class MarkerManager {
   }
 
   createMarker(spot) {
+    const image = {
+        url: 'https://bestfriend-treehouse-seeds.s3.amazonaws.com/treehouselogoMapIcon.png',
+    }
     const position = new google.maps.LatLng(spot.latitude, spot.longitude);
     const marker = new google.maps.Marker({
       position,
       map: this.map,
-      spotId: spot.id
+      spotId: spot.id,
+      icon: image
     });
 
     // marker.addListener("click", () => this.handleMarkerClick(spot));

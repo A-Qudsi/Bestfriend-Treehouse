@@ -3812,11 +3812,15 @@ var MarkerManager = /*#__PURE__*/function () {
   }, {
     key: "createMarker",
     value: function createMarker(spot) {
+      var image = {
+        url: 'https://bestfriend-treehouse-seeds.s3.amazonaws.com/treehouselogoMapIcon.png'
+      };
       var position = new google.maps.LatLng(spot.latitude, spot.longitude);
       var marker = new google.maps.Marker({
         position: position,
         map: this.map,
-        spotId: spot.id
+        spotId: spot.id,
+        icon: image
       }); // marker.addListener("click", () => this.handleMarkerClick(spot));
 
       this.markers[marker.spotId] = marker;
