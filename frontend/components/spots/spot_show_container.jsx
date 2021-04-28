@@ -7,7 +7,7 @@ import { createReview } from '../../actions/review_actions'
 
 
 const mSTP = (state, ownProps) => {  
-    debugger
+    
         return {
         currentUser: state.entities.users[state.session.id],
         spot: state.entities.spots[ownProps.match.params.spotId],
