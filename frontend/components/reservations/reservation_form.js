@@ -52,7 +52,7 @@ class ReservationForm extends React.Component {
                         $ {spot.price} / night
                     </div>
                     <div className='bookingRating'>
-                        5.0
+                        {spot.average_rating}
                     </div>
                 </div>
                 <div>

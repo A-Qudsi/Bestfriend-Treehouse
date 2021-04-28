@@ -16,6 +16,10 @@ class Spot < ApplicationRecord
 
     has_many_attached :photos
 
+    def average_rating
+        average = reviews.average(:rating) || 0
+    end
+
     def self.in_bounds(bounds)
         self.where("lat < ?", bounds[:northEast][:latitude])
             .where("lat > ?", bounds[:southWest][:latitude])
