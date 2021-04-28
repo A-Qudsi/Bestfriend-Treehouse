@@ -3,7 +3,7 @@
     flex-flow: row wrap;
     justify-content: flex-start;
     padding: 24px;
-    height: 540px;
+    height: 480px;
     overflow: scroll;
     font-size: 15px;
 
@@ -54,4 +54,28 @@
     text-decoration: underline;
     cursor: pointer;
 
+}
+
+
+
+.yesReservations {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    padding-top: 30px;
+    font-size: 25px;
+    width: 100%;
+}
+
+.noReservations-container {
+    padding: 24px;
+    height: 540px;
+    overflow: scroll;
+    font-size: 15px;
+
+        .noReservations {
+            text-align: center;
+            padding-top: 30px;
+            font-size: 25px;
+            width: 100%
+        }
 }

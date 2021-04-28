@@ -13,20 +13,31 @@ class ReservationsIndex extends React.Component {
     }
 
   render() {
-    
+    debugger
+    if (this.props.reservations.length === 0 ) return (
+      <div className='noReservations-container'> 
+        <p className ="noReservations">You have no reservations!</p>
+      </div>
+      ) 
     return(
-        <ul className='reservations-container'>
-          { this.props.reservations.reverse().map( (reservation) => 
-          <li key={reservation.id} className="reservation-item">
-            <ReservationIndexItem 
-                reservation = {reservation} 
-                spot = {this.props.spots}
-                destroyReservation={this.props.destroyReservation}
-                currentUser={this.props.currentUser}
-                fetchReservations={this.props.fetchReservations}/>
-            </li>)
-          }
-        </ul>
+        <div>
+          <div className='reservationsHeader' >
+            <p className='yesReservations'>Here are a list of your reservations!</p>
+              
+          </div>
+          <ul className='reservations-container'>
+            { this.props.reservations.reverse().map( (reservation) => 
+            <li key={reservation.id} className="reservation-item">
+              <ReservationIndexItem 
+                  reservation = {reservation} 
+                  spot = {this.props.spots}
+                  destroyReservation={this.props.destroyReservation}
+                  currentUser={this.props.currentUser}
+                  fetchReservations={this.props.fetchReservations}/>
+              </li>)
+            }
+          </ul>
+      </div>
     )
   }
   

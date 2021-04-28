@@ -1604,7 +1604,17 @@ var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      debugger;
+      if (this.props.reservations.length === 0) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "noReservations-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "noReservations"
+      }, "You have no reservations!"));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "reservationsHeader"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "yesReservations"
+      }, "Here are a list of your reservations!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "reservations-container"
       }, this.props.reservations.reverse().map(function (reservation) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -1617,7 +1627,7 @@ var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
           currentUser: _this.props.currentUser,
           fetchReservations: _this.props.fetchReservations
         }));
-      }));
+      })));
     }
   }]);
 
@@ -1734,15 +1744,13 @@ var ReservationIndexItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
       if (Object.values(this.props.spot).length === 0) return null;
       var _this$props$reservati = this.props.reservation,
           start_date = _this$props$reservati.start_date,
           end_date = _this$props$reservati.end_date,
           number_guests = _this$props$reservati.number_guests;
       var spot = this.props.spot[this.props.reservation.spot_id];
-      debugger;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reservation-index-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reservation-index-item-image"
@@ -1763,7 +1771,7 @@ var ReservationIndexItem = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "submit-button",
         onClick: this.handleSubmit
-      }, "Cancel Reservation"))));
+      }, "Cancel Reservation")));
     }
   }]);
 
