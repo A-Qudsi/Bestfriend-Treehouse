@@ -1734,13 +1734,15 @@ var ReservationIndexItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      debugger;
       if (Object.values(this.props.spot).length === 0) return null;
       var _this$props$reservati = this.props.reservation,
           start_date = _this$props$reservati.start_date,
           end_date = _this$props$reservati.end_date,
           number_guests = _this$props$reservati.number_guests;
       var spot = this.props.spot[this.props.reservation.spot_id];
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      debugger;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reservation-index-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reservation-index-item-image"
@@ -1761,7 +1763,7 @@ var ReservationIndexItem = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "submit-button",
         onClick: this.handleSubmit
-      }, "Cancel Reservation")));
+      }, "Cancel Reservation"))));
     }
   }]);
 
@@ -2081,10 +2083,12 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
   _createClass(ReviewIndexItem, [{
     key: "render",
     value: function render() {
-      var body = this.props.review.body;
+      var _this$props$review = this.props.review,
+          body = _this$props$review.body,
+          rating = _this$props$review.rating;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-index-item"
-      }, body);
+      }, body, rating);
     }
   }]);
 

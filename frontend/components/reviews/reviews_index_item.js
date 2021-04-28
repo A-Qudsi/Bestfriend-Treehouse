@@ -7,10 +7,10 @@ class ReviewIndexItem extends React.Component {
     }
 
     render() {
-        const {body} = this.props.review
+        const {body, rating} = this.props.review
         return (
             <div className="review-index-item">
-                {body}
+                {body}{rating}
             </div>
         )
     }
