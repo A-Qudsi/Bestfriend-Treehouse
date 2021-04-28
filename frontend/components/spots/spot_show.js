@@ -20,6 +20,7 @@ class SpotShow extends React.Component {
         if (!this.props.spot)  return null;
         const { spot } = this.props;
         
+        
         return (
             <div className='showpagediv'>
                 <div className='showpageheader'>                 
@@ -27,7 +28,7 @@ class SpotShow extends React.Component {
                 </div>
                 <div className='address'>
                     <div className='addressleft'> 
-                        <i className="fas fa-star"></i><span>{spot.average_rating} {spot.address} {spot.city}</span>
+                        <i className="fas fa-star spot-star"></i><span>{spot.average_rating} {spot.address} {spot.city}</span>
                     </div>
                     <div className='addressright'>
                         <div className='faviconsright'>
