@@ -13,7 +13,6 @@ class ReservationsIndex extends React.Component {
     }
 
   render() {
-    debugger
     if (this.props.reservations.length === 0 ) return (
       <div className='noReservations-container'> 
         <p className ="noReservations">You have no reservations!</p>

@@ -1604,7 +1604,6 @@ var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      debugger;
       if (this.props.reservations.length === 0) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "noReservations-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -3491,15 +3490,12 @@ var reservationssReducer = function reservationssReducer() {
 
   switch (action.type) {
     case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_RESERVATIONS"]:
-      debugger;
       return Object.assign({}, action.reservations);
 
     case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_RESERVATION"]:
-      debugger;
       return newState[action.reservation.id] = action.reservation;
 
     case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_RESERVATION"]:
-      debugger;
       delete newState[action.reservationId];
       return newState;
 
