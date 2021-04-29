@@ -21,10 +21,10 @@ class Spot < ApplicationRecord
     end
 
     def self.in_bounds(bounds)
-        self.where("lat < ?", bounds[:northEast][:latitude])
-            .where("lat > ?", bounds[:southWest][:latitude])
-            .where("lng > ?", bounds[:southWest][:longitude])
-            .where("lng < ?", bounds[:northEast][:longitude])
+        Spot.where("latitude < ?", bounds[:northEast][:lat])
+            .where("latitude > ?", bounds[:southWest][:lat])
+            .where("longitude < ?", bounds[:northEast][:lng])
+            .where("longitude > ?", bounds[:southWest][:lng])
     end
 
 end

@@ -723,10 +723,10 @@ var mDTP = function mDTP(dispatch) {
 
 /***/ }),
 
-/***/ "./frontend/components/map/map_show.jsx":
-/*!**********************************************!*\
-  !*** ./frontend/components/map/map_show.jsx ***!
-  \**********************************************/
+/***/ "./frontend/components/map/map.jsx":
+/*!*****************************************!*\
+  !*** ./frontend/components/map/map.jsx ***!
+  \*****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -794,21 +794,12 @@ var SpotsMap = /*#__PURE__*/function (_React$Component) {
   _createClass(SpotsMap, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this = this;
+
       var map = react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.findDOMNode(this.refs.map);
       this.map = new google.maps.Map(map, mapCenter);
       this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__["default"](this.map);
       this.MarkerManager.updateMarkers(this.props.spots);
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {
-      this.MarkerManager.updateMarkers(this.props.spots);
-    }
-  }, {
-    key: "registerListeners",
-    value: function registerListeners() {
-      var _this = this;
-
       google.maps.event.addListener(this.map, "idle", function () {
         var _this$map$getBounds$t = _this.map.getBounds().toJSON(),
             north = _this$map$getBounds$t.north,
@@ -829,9 +820,11 @@ var SpotsMap = /*#__PURE__*/function (_React$Component) {
 
         _this.props.updatefilter("bounds", bounds);
       });
-      google.maps.event.map.addListener(this.map, 'click', function (event) {
-        var coords = getCoordsObj(event.latLng);
-      });
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.MarkerManager.updateMarkers(this.props.spots);
     }
   }, {
     key: "render",
@@ -3065,7 +3058,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _spots_index_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./spots_index_item */ "./frontend/components/spots/spots_index_item.js");
-/* harmony import */ var _map_map_show__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../map/map_show */ "./frontend/components/map/map_show.jsx");
+/* harmony import */ var _map_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../map/map */ "./frontend/components/map/map.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3139,7 +3132,7 @@ var SpotsPage = /*#__PURE__*/function (_React$Component) {
         }));
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "rightside"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_map_map_show__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_map_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
         spots: this.props.spots,
         updateFilter: this.props.updateFilter
       })));
@@ -3195,35 +3188,9 @@ var mDTP = function mDTP(dispatch) {
     }(function (spotId) {
       return dispatch(fetchSpot(spotId));
     }),
-    createSpot: function (_createSpot) {
-      function createSpot(_x2) {
-        return _createSpot.apply(this, arguments);
-      }
-
-      createSpot.toString = function () {
-        return _createSpot.toString();
-      };
-
-      return createSpot;
-    }(function (spot) {
-      return dispatch(createSpot(spot));
-    }),
-    updateSpot: function (_updateSpot) {
-      function updateSpot(_x3) {
-        return _updateSpot.apply(this, arguments);
-      }
-
-      updateSpot.toString = function () {
-        return _updateSpot.toString();
-      };
-
-      return updateSpot;
-    }(function (spot) {
-      return dispatch(updateSpot(spot));
-    }),
-    deleteSpot: function deleteSpot(spotId) {
-      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_3__["deleteSpot"])(spotId));
-    },
+    // createSpot: spot => dispatch(createSpot(spot)),
+    // updateSpot: spot => dispatch(updateSpot(spot)),
+    // deleteSpot: (spotId) => dispatch(deleteSpot(spotId)),
     updateFilter: function updateFilter(filter, value) {
       return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateFilter"])(filter, value));
     }
@@ -4088,10 +4055,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createSpot", function() { return createSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSpot", function() { return updateSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteSpot", function() { return deleteSpot; });
-var fetchSpots = function fetchSpots() {
+var fetchSpots = function fetchSpots(filters) {
   return $.ajax({
     method: 'GET',
-    url: '/api/spots'
+    url: '/api/spots',
+    data: {
+      filters: filters
+    }
   });
 };
 var fetchSpot = function fetchSpot(spotId) {
