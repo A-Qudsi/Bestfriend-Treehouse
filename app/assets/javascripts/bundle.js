@@ -1300,7 +1300,8 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       debugger;
       var spot = this.props.spot;
-      var dateDiff = (this.props.endDate - this.props.startDate) / 1000 / 86400;
+      var dateDiff = (this.props.endDate - this.props.startDate) / 1000 / 86400; //86400 = 24*60*60
+
       var totalPrice = dateDiff * spot.price;
       var totalCounter = this.state.counter + this.state.childrenCounter;
       var guest = totalCounter > 1 ? "guests" : "guest";

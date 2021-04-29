@@ -70,7 +70,7 @@ class Dropdown extends React.Component {
     render() {
         debugger
         const { spot } = this.props;
-        const dateDiff = ((this.props.endDate - this.props.startDate)/1000)/86400
+        const dateDiff = ((this.props.endDate - this.props.startDate)/1000)/86400 //86400 = 24*60*60
         const totalPrice = dateDiff * spot.price;
         const totalCounter = this.state.counter + this.state.childrenCounter;
         const guest = ( totalCounter > 1 ) ?  "guests" : "guest" ;
