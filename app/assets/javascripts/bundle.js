@@ -1298,7 +1298,6 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
       var spot = this.props.spot;
       var dateDiff = (this.props.endDate - this.props.startDate) / 1000 / 86400; //86400 = 24*60*60
 
@@ -1490,7 +1489,6 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      debugger;
       var spot = this.props.spot;
       var totalCounter = this.state.counter + this.state.childrenCounter;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

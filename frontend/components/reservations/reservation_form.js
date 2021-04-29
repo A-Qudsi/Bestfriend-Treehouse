@@ -42,7 +42,6 @@ class ReservationForm extends React.Component {
     }
 
     render() {
-        debugger
         const { spot } = this.props;
         const totalCounter = this.state.counter + this.state.childrenCounter;
         return (
