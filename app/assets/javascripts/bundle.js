@@ -774,8 +774,8 @@ var getCoordsObj = function getCoordsObj(latLng) {
 
 var mapCenter = {
   center: {
-    lat: 40.728009,
-    lng: -73.989565
+    lat: 40.7609395,
+    lng: -73.9874663
   },
   zoom: 13
 };
