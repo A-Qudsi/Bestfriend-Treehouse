@@ -36,7 +36,7 @@ class Dropdown extends React.Component {
 
     handleClick(e) {
         e.preventDefault();
-        this.setState({ clicked: true, })
+        this.setState({ clicked: !this.state.clicked })
     }
 
     addInfantCounter(e) {

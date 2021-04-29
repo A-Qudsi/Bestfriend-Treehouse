@@ -1244,7 +1244,7 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
     value: function handleClick(e) {
       e.preventDefault();
       this.setState({
-        clicked: true
+        clicked: !this.state.clicked
       });
     }
   }, {
