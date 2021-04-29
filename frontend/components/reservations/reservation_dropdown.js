@@ -19,8 +19,10 @@ class Dropdown extends React.Component {
         this.removeCounter = this.removeCounter.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.closeDropdown = this.closeDropdown.bind(this);
+
     }
-    
+
+
     closeDropdown(e) {
         e.preventDefault();
             if (this.state.clicked === true) {
@@ -66,7 +68,10 @@ class Dropdown extends React.Component {
     }
 
     render() {
+        debugger
         const { spot } = this.props;
+        const dateDiff = ((this.props.endDate - this.props.startDate)/1000)/86400
+        const totalPrice = dateDiff * spot.price;
         const totalCounter = this.state.counter + this.state.childrenCounter;
         const guest = ( totalCounter > 1 ) ?  "guests" : "guest" ;
         const infantNumber = this.state.infantCounter;
@@ -119,6 +124,7 @@ class Dropdown extends React.Component {
                                 </div>
                                 <span className = 'disclousreGuests'>{spot.maxGuests} guests maximum. Infants don’t count toward </span>
                                 <span className = 'disclousreGuests'>the number of guests.</span>
+                                <div className = 'disclousreGuests'>totalPrice: $ {totalPrice}</div>
                                 <div className ='closebutton' onClick={this.closeDropdown}> Close</div>
                             </ul>
                         ) : null}

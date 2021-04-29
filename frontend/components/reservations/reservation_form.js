@@ -10,7 +10,7 @@ class ReservationForm extends React.Component {
         this.state = {
             clicked: false,
             startDate: null,
-            endDaate: null,
+            endDate: null,
             totalGuests: 1
         };
 
@@ -23,7 +23,6 @@ class ReservationForm extends React.Component {
             totalGuests: number
         })
     }
-
 
     bookReservation(e) {
         e.preventDefault();
@@ -43,6 +42,7 @@ class ReservationForm extends React.Component {
     }
 
     render() {
+        debugger
         const { spot } = this.props;
         const totalCounter = this.state.counter + this.state.childrenCounter;
         return (
@@ -76,7 +76,7 @@ class ReservationForm extends React.Component {
                                     block={true}
                                 />
                             </div>
-                            <Dropdown spot={spot} totalGuests={this.totalNumberGuests} />
+                            <Dropdown spot={spot} totalGuests={this.totalNumberGuests} startDate ={this.state.startDate} endDate={this.state.endDate} />
                             <button className='submit-button' onClick={(e) => this.bookReservation(e)
                             }>Reserve</button>
                         </div>

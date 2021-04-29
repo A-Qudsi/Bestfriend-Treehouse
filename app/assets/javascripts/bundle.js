@@ -1298,7 +1298,10 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      debugger;
       var spot = this.props.spot;
+      var dateDiff = (this.props.endDate - this.props.startDate) / 1000 / 86400;
+      var totalPrice = dateDiff * spot.price;
       var totalCounter = this.state.counter + this.state.childrenCounter;
       var guest = totalCounter > 1 ? "guests" : "guest";
       var infantNumber = this.state.infantCounter;
@@ -1371,6 +1374,8 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
       }, spot.maxGuests, " guests maximum. Infants don\u2019t count toward "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "disclousreGuests"
       }, "the number of guests."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "disclousreGuests"
+      }, "totalPrice: $ ", totalPrice), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "closebutton",
         onClick: this.closeDropdown
       }, " Close")) : null)));
@@ -1444,7 +1449,7 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       clicked: false,
       startDate: null,
-      endDaate: null,
+      endDate: null,
       totalGuests: 1
     };
     _this.bookReservation = _this.bookReservation.bind(_assertThisInitialized(_this));
@@ -1486,6 +1491,7 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
+      debugger;
       var spot = this.props.spot;
       var totalCounter = this.state.counter + this.state.childrenCounter;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1527,7 +1533,9 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
         endDatePlaceholderText: "Checkout"
       }, "block", true))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reservation_dropdown__WEBPACK_IMPORTED_MODULE_3__["default"], {
         spot: spot,
-        totalGuests: this.totalNumberGuests
+        totalGuests: this.totalNumberGuests,
+        startDate: this.state.startDate,
+        endDate: this.state.endDate
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "submit-button",
         onClick: function onClick(e) {
