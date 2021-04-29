@@ -122,9 +122,8 @@ class Dropdown extends React.Component {
                                         <i className="far fa-plus-square" onClick={this.addInfantCounter}></i> }
                                     </div>
                                 </div>
-                                <span className = 'disclousreGuests'>{spot.maxGuests} guests maximum. Infants don’t count toward </span>
-                                <span className = 'disclousreGuests'>the number of guests.</span>
-                                <div className = 'disclousreGuests'>totalPrice: $ {totalPrice}</div>
+                                <div className = 'disclousreGuests'>{spot.maxGuests} guests maximum. Infants don’t count toward the number of guests.</div>
+                                <div className = 'disclousreGuests'>Total price for {dateDiff} nights is: $ {totalPrice}</div>
                                 <div className ='closebutton' onClick={this.closeDropdown}> Close</div>
                             </ul>
                         ) : null}

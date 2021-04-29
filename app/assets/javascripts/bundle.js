@@ -1370,13 +1370,11 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
       }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-plus-square",
         onClick: this.addInfantCounter
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "disclousreGuests"
-      }, spot.maxGuests, " guests maximum. Infants don\u2019t count toward "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, spot.maxGuests, " guests maximum. Infants don\u2019t count toward the number of guests."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "disclousreGuests"
-      }, "the number of guests."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "disclousreGuests"
-      }, "totalPrice: $ ", totalPrice), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Total price for ", dateDiff, " nights is: $ ", totalPrice), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "closebutton",
         onClick: this.closeDropdown
       }, " Close")) : null)));
