@@ -75,7 +75,13 @@ class ReservationForm extends React.Component {
                                     block={true}
                                 />
                             </div>
-                            <Dropdown spot={spot} totalGuests={this.totalNumberGuests} startDate ={this.state.startDate} endDate={this.state.endDate} />
+                            <Dropdown 
+                                spot={spot} 
+                                totalGuests={this.totalNumberGuests} 
+                                startDate ={this.state.startDate} 
+                                endDate={this.state.endDate} 
+                                // totalCostPrice={this.props.totalCostPrice}
+                            />
                             <button className='submit-button' onClick={(e) => this.bookReservation(e)
                             }>Reserve</button>
                         </div>

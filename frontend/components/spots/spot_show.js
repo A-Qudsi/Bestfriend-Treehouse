@@ -9,11 +9,22 @@ import SpotMap from '../map/spot_map'
 class SpotShow extends React.Component {
     constructor(props) {
         super(props);
+        // this.state({
+        //     costPrice: null
+        // })
+
+        // this.totalCostPrice = this.totalCostPrice.bind(this);
     }
 
     componentDidMount(){
         this.props.fetchSpots();
     }
+
+    // totalCostPrice(number){
+    //     this.setState({
+    //         costPrice: number
+    //     })
+    // }
 
     render() {
         
@@ -47,6 +58,7 @@ class SpotShow extends React.Component {
                             history={this.props.history} 
                             openModal={this.props.openModal}
                             createReservation={this.props.createReservation}
+                            // totalCostPrice= {this.totalCostPrice}
                         />
                     </div>
                 </div>
@@ -63,11 +75,9 @@ class SpotShow extends React.Component {
                         createReview={this.props.createReview}
                     />
                 </div>
-
                     <SpotMap 
                         spot ={spot}
                     />
-
             </div>
         );
     };

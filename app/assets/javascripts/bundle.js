@@ -1301,7 +1301,8 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
       var spot = this.props.spot;
       var dateDiff = (this.props.endDate - this.props.startDate) / 1000 / 86400; //86400 = 24*60*60
 
-      var totalPrice = dateDiff * spot.price;
+      var totalPrice = dateDiff * spot.price; // this.props.totalCostPrice(totalPrice);
+
       var totalCounter = this.state.counter + this.state.childrenCounter;
       var guest = totalCounter > 1 ? "guests" : "guest";
       var infantNumber = this.state.infantCounter;
@@ -1532,7 +1533,8 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
         spot: spot,
         totalGuests: this.totalNumberGuests,
         startDate: this.state.startDate,
-        endDate: this.state.endDate
+        endDate: this.state.endDate // totalCostPrice={this.props.totalCostPrice}
+
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "submit-button",
         onClick: function onClick(e) {
@@ -2885,14 +2887,22 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
   function SpotShow(props) {
     _classCallCheck(this, SpotShow);
 
-    return _super.call(this, props);
+    return _super.call(this, props); // this.state({
+    //     costPrice: null
+    // })
+    // this.totalCostPrice = this.totalCostPrice.bind(this);
   }
 
   _createClass(SpotShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchSpots();
-    }
+    } // totalCostPrice(number){
+    //     this.setState({
+    //         costPrice: number
+    //     })
+    // }
+
   }, {
     key: "render",
     value: function render() {
@@ -2931,7 +2941,8 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         currentUser: this.props.currentUser,
         history: this.props.history,
         openModal: this.props.openModal,
-        createReservation: this.props.createReservation
+        createReservation: this.props.createReservation // totalCostPrice= {this.totalCostPrice}
+
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_reviews_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
         spot: spot
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

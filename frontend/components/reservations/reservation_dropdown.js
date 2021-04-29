@@ -22,7 +22,6 @@ class Dropdown extends React.Component {
 
     }
 
-
     closeDropdown(e) {
         e.preventDefault();
             if (this.state.clicked === true) {
@@ -71,6 +70,7 @@ class Dropdown extends React.Component {
         const { spot } = this.props;
         const dateDiff = ((this.props.endDate - this.props.startDate)/1000)/86400 //86400 = 24*60*60
         const totalPrice = dateDiff * spot.price;
+        // this.props.totalCostPrice(totalPrice);
         const totalCounter = this.state.counter + this.state.childrenCounter;
         const guest = ( totalCounter > 1 ) ?  "guests" : "guest" ;
         const infantNumber = this.state.infantCounter;
