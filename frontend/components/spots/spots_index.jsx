@@ -1,6 +1,6 @@
 import React from 'react';
 import SpotsIndexItem from './spots_index_item'
-import SpotsMap from '../map/map'
+import Map from '../map/map'
 
 class SpotsPage extends React.Component {
     constructor(props){
@@ -12,6 +12,7 @@ class SpotsPage extends React.Component {
     }
 
     render() {
+        debugger
         return (
             <div className='Spots-div'>
                 <div className='leftside'>
@@ -42,7 +43,7 @@ class SpotsPage extends React.Component {
                     </div>
                 </div>
                 <div className='rightside'>
-                    <SpotsMap 
+                    <Map 
                         spots={this.props.spots} 
                         updateFilter={this.props.updateFilter}/>
                 </div>

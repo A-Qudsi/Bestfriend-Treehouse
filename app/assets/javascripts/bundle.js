@@ -765,37 +765,30 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var getCoordsObj = function getCoordsObj(latLng) {
-  return {
-    latitude: latLng.lat(),
-    longitude: latLng.lng()
-  };
-};
+var Map = /*#__PURE__*/function (_React$Component) {
+  _inherits(Map, _React$Component);
 
-var mapCenter = {
-  center: {
-    lat: 40.7609395,
-    lng: -73.9874663
-  },
-  zoom: 13
-};
+  var _super = _createSuper(Map);
 
-var SpotsMap = /*#__PURE__*/function (_React$Component) {
-  _inherits(SpotsMap, _React$Component);
-
-  var _super = _createSuper(SpotsMap);
-
-  function SpotsMap() {
-    _classCallCheck(this, SpotsMap);
+  function Map() {
+    _classCallCheck(this, Map);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(SpotsMap, [{
+  _createClass(Map, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this = this;
 
+      debugger;
+      var mapCenter = {
+        center: {
+          lat: 40.7609395,
+          lng: -73.9874663
+        },
+        zoom: 13
+      };
       var map = react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.findDOMNode(this.refs.map);
       this.map = new google.maps.Map(map, mapCenter);
       this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__["default"](this.map);
@@ -818,7 +811,7 @@ var SpotsMap = /*#__PURE__*/function (_React$Component) {
           }
         };
 
-        _this.props.updatefilter("bounds", bounds);
+        _this.props.updateFilter("bounds", bounds);
       });
     }
   }, {
@@ -836,10 +829,10 @@ var SpotsMap = /*#__PURE__*/function (_React$Component) {
     }
   }]);
 
-  return SpotsMap;
+  return Map;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(SpotsMap));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Map));
 
 /***/ }),
 
@@ -2982,6 +2975,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
+  debugger;
   return {
     currentUser: state.entities.users[state.session.id],
     spot: state.entities.spots[ownProps.match.params.spotId],
@@ -3104,6 +3098,7 @@ var SpotsPage = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Spots-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3388,10 +3383,10 @@ var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"]
 
 /***/ }),
 
-/***/ "./frontend/reducers/filters_reducer.js":
-/*!**********************************************!*\
-  !*** ./frontend/reducers/filters_reducer.js ***!
-  \**********************************************/
+/***/ "./frontend/reducers/filter_reducer.js":
+/*!*********************************************!*\
+  !*** ./frontend/reducers/filter_reducer.js ***!
+  \*********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3410,12 +3405,13 @@ var filtersReducer = function filtersReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
 
-  if (action.type === _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["UPDATE_FILTER"]) {
-    var newFilter = _defineProperty({}, action.filter, action.value);
+  switch (action.type) {
+    case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["UPDATE_FILTER"]:
+      debugger;
+      return Object.assign({}, state, _defineProperty({}, action.filter, action.value));
 
-    return Object.assign({}, state, newFilter);
-  } else {
-    return state;
+    default:
+      return state;
   }
 };
 
@@ -3690,13 +3686,13 @@ var spotsReducer = function spotsReducer() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _modal_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modal_reducer */ "./frontend/reducers/modal_reducer.js");
-/* harmony import */ var _filters_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./filters_reducer */ "./frontend/reducers/filters_reducer.js");
+/* harmony import */ var _filter_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./filter_reducer */ "./frontend/reducers/filter_reducer.js");
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   modal: _modal_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  filters: _filters_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  filters: _filter_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 }));
 
 /***/ }),
@@ -4056,6 +4052,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSpot", function() { return updateSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteSpot", function() { return deleteSpot; });
 var fetchSpots = function fetchSpots(filters) {
+  debugger;
   return $.ajax({
     method: 'GET',
     url: '/api/spots',
