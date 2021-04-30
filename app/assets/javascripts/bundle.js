@@ -770,17 +770,19 @@ var Map = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(Map);
 
-  function Map() {
+  function Map(props) {
+    var _this;
+
     _classCallCheck(this, Map);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.addEventListener = _this.addEventListener.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Map, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this = this;
-
       debugger;
       var mapCenter = {
         center: {
@@ -793,12 +795,24 @@ var Map = /*#__PURE__*/function (_React$Component) {
       this.map = new google.maps.Map(map, mapCenter);
       this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__["default"](this.map);
       this.MarkerManager.updateMarkers(this.props.spots);
+      this.addEventListener();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.MarkerManager.updateMarkers(this.props.spots);
+    }
+  }, {
+    key: "addEventListener",
+    value: function addEventListener() {
+      var _this2 = this;
+
       google.maps.event.addListener(this.map, "idle", function () {
-        var _this$map$getBounds$t = _this.map.getBounds().toJSON(),
-            north = _this$map$getBounds$t.north,
-            south = _this$map$getBounds$t.south,
-            east = _this$map$getBounds$t.east,
-            west = _this$map$getBounds$t.west;
+        var _this2$map$getBounds$ = _this2.map.getBounds().toJSON(),
+            north = _this2$map$getBounds$.north,
+            south = _this2$map$getBounds$.south,
+            east = _this2$map$getBounds$.east,
+            west = _this2$map$getBounds$.west;
 
         var bounds = {
           northEast: {
@@ -810,14 +824,10 @@ var Map = /*#__PURE__*/function (_React$Component) {
             lng: west
           }
         };
+        debugger;
 
-        _this.props.updateFilter("bounds", bounds);
+        _this2.props.updateFilter("bounds", bounds);
       });
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {
-      this.MarkerManager.updateMarkers(this.props.spots);
     }
   }, {
     key: "render",

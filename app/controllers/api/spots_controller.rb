@@ -1,7 +1,6 @@
 class Api::SpotsController < ApplicationController
 
     def index 
-        debugger
         @spots = Spot.all
         render :index
     end

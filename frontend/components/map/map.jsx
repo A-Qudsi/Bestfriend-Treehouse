@@ -4,6 +4,11 @@ import { withRouter } from 'react-router-dom';
 import MarkerManager from '../../util/marker_manager';
 
 class Map extends React.Component {
+  constructor(props){
+    super(props);
+
+    this.addEventListener = this.addEventListener.bind(this)
+  }
 
   componentDidMount() {
     debugger
@@ -19,17 +24,7 @@ class Map extends React.Component {
     this.map = new google.maps.Map(map, mapCenter);
     this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.updateMarkers(this.props.spots);
-    
-    google.maps.event.addListener(this.map, "idle", () => {
-
-      const { north, south, east, west } = this.map.getBounds().toJSON();
-      const bounds = {
-        northEast: { lat: north, lng: east },
-        southWest: { lat: south, lng: west }
-      };
-
-      this.props.updateFilter("bounds", bounds);
-    });
+    this.addEventListener();
     
   }
 
@@ -37,6 +32,18 @@ class Map extends React.Component {
     this.MarkerManager.updateMarkers(this.props.spots);
   }
 
+  addEventListener() {
+     google.maps.event.addListener(this.map, "idle", () => {
+
+      const { north, south, east, west } = this.map.getBounds().toJSON();
+      const bounds = {
+        northEast: { lat: north, lng: east },
+        southWest: { lat: south, lng: west }
+      };
+      debugger
+      this.props.updateFilter("bounds", bounds);
+    });
+  }
 
   render() {
     
