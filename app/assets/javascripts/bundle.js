@@ -617,7 +617,11 @@ __webpack_require__.r(__webpack_exports__);
 var Footer = function Footer() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "footer"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\xA9 2020 Bestfriend TreeHouse \xB7 Adel Qudsi \xB7 Github \xB7 Linkedin \xB7 Portfolio"));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\xA9 2020 Bestfriend TreeHouse \xB7 Adel Qudsi \xB7 Portfolio \xB7 "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://www.linkedin.com/in/adel-qudsi/"
+  }, "Linkedin \xB7 ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://github.com/A-Qudsi/Bestfriend-Treehouse"
+  }, "Github")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Footer);
