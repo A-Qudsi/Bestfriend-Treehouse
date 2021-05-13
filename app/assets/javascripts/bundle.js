@@ -787,7 +787,7 @@ var Map = /*#__PURE__*/function (_React$Component) {
   _createClass(Map, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
+       
       var mapCenter = {
         center: {
           lat: 40.7609395,
@@ -828,7 +828,7 @@ var Map = /*#__PURE__*/function (_React$Component) {
             lng: west
           }
         };
-        debugger;
+         
 
         _this2.props.updateFilter("bounds", bounds);
       });
@@ -2989,7 +2989,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  debugger;
+   
   return {
     currentUser: state.entities.users[state.session.id],
     spot: state.entities.spots[ownProps.match.params.spotId],
@@ -3112,7 +3112,7 @@ var SpotsPage = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
+       
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Spots-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3421,7 +3421,7 @@ var filtersReducer = function filtersReducer() {
 
   switch (action.type) {
     case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["UPDATE_FILTER"]:
-      debugger;
+       
       return Object.assign({}, state, _defineProperty({}, action.filter, action.value));
 
     default:
@@ -4066,7 +4066,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSpot", function() { return updateSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteSpot", function() { return deleteSpot; });
 var fetchSpots = function fetchSpots(filters) {
-  debugger;
+   
   return $.ajax({
     method: 'GET',
     url: '/api/spots',

@@ -1,5 +1,5 @@
 export const fetchSpots = (filters) => {
-  debugger;
+   
   return $.ajax({
     method: "GET",
     url: "/api/spots",

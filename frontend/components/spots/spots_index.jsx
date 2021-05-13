@@ -12,7 +12,7 @@ class SpotsPage extends React.Component {
   }
 
   render() {
-    debugger;
+     
     return (
       <div className="Spots-div">
         <div className="leftside">

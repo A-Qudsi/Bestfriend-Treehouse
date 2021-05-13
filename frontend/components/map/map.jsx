@@ -11,7 +11,7 @@ class Map extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
+     
     const mapCenter = {
       center: {
         lat: 40.7609395,
@@ -38,7 +38,7 @@ class Map extends React.Component {
         northEast: { lat: north, lng: east },
         southWest: { lat: south, lng: west },
       };
-      debugger;
+       
       this.props.updateFilter("bounds", bounds);
     });
   }
