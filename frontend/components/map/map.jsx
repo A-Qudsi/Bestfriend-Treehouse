@@ -1,23 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { withRouter } from 'react-router-dom';
-import MarkerManager from '../../util/marker_manager';
+import React from "react";
+import ReactDOM from "react-dom";
+import { withRouter } from "react-router-dom";
+import MarkerManager from "../../util/marker_manager";
 
 class Map extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
-    this.addEventListener = this.addEventListener.bind(this)
+    this.addEventListener = this.addEventListener.bind(this);
   }
 
   componentDidMount() {
-    debugger
+    debugger;
     const mapCenter = {
       center: {
-        lat: 40.7609395, 
-        lng: -73.9874663
-      }, 
-      zoom: 13
+        lat: 40.7609395,
+        lng: -73.9874663,
+      },
+      zoom: 13,
     };
 
     const map = ReactDOM.findDOMNode(this.refs.map);
@@ -25,7 +25,6 @@ class Map extends React.Component {
     this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.updateMarkers(this.props.spots);
     this.addEventListener();
-    
   }
 
   componentDidUpdate() {
@@ -33,24 +32,19 @@ class Map extends React.Component {
   }
 
   addEventListener() {
-     google.maps.event.addListener(this.map, "idle", () => {
-
+    google.maps.event.addListener(this.map, "idle", () => {
       const { north, south, east, west } = this.map.getBounds().toJSON();
       const bounds = {
         northEast: { lat: north, lng: east },
-        southWest: { lat: south, lng: west }
+        southWest: { lat: south, lng: west },
       };
-      debugger
+      debugger;
       this.props.updateFilter("bounds", bounds);
     });
   }
 
   render() {
-    
-    return (
-      <div id="map" ref="map">
-      </div>
-    );
+    return <div id="map" ref="map"></div>;
   }
 }
 

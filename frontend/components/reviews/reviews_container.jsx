@@ -1,21 +1,21 @@
-import ReviewsIndex from './reviews_index';
-import { connect } from 'react-redux';
-import { fetchReviews, destroyReview } from '../../actions/review_actions'
+import ReviewsIndex from "./reviews_index";
+import { connect } from "react-redux";
+import { fetchReviews, destroyReview } from "../../actions/review_actions";
 
 const mSTP = (state, ownProps) => {
-    
-    return{
-        spot: ownProps.spot,
-        reviews: ownProps.spot.review_ids.map(review_id => state.entities.reviews[review_id]).filter(review => review),
-    }
-}
+  return {
+    spot: ownProps.spot,
+    reviews: ownProps.spot.review_ids
+      .map((review_id) => state.entities.reviews[review_id])
+      .filter((review) => review),
+  };
+};
 
-const mDTP = dispatch => {
-    return {
-        fetchReviews: (userId) => dispatch(fetchReviews(userId)),
-        destroyReview: (reviewId) => dispatch(destroyReview(reviewId))
-    }
-    
-}
+const mDTP = (dispatch) => {
+  return {
+    fetchReviews: (userId) => dispatch(fetchReviews(userId)),
+    destroyReview: (reviewId) => dispatch(destroyReview(reviewId)),
+  };
+};
 
 export default connect(mSTP, mDTP)(ReviewsIndex);
