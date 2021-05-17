@@ -130,8 +130,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLOSE_MODAL", function() { return CLOSE_MODAL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openModal", function() { return openModal; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeModal", function() { return closeModal; });
-var OPEN_MODAL = 'OPEN_MODAL';
-var CLOSE_MODAL = 'CLOSE_MODAL';
+var OPEN_MODAL = "OPEN_MODAL";
+var CLOSE_MODAL = "CLOSE_MODAL";
 var openModal = function openModal(modal) {
   return {
     type: OPEN_MODAL,
@@ -165,9 +165,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroyReservation", function() { return destroyReservation; });
 /* harmony import */ var _util_reservation_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/reservation_util */ "./frontend/util/reservation_util.js");
 
-var RECEIVE_RESERVATIONS = 'RECEIVE_RESERVATIONS';
-var RECEIVE_RESERVATION = 'RECEIVE_RESERVATION';
-var REMOVE_RESERVATION = 'REMOVE_RESERVATION';
+var RECEIVE_RESERVATIONS = "RECEIVE_RESERVATIONS";
+var RECEIVE_RESERVATION = "RECEIVE_RESERVATION";
+var REMOVE_RESERVATION = "REMOVE_RESERVATION";
 
 var receiveReservations = function receiveReservations(reservations) {
   return {
@@ -333,10 +333,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
 /* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/session_api_util */ "./frontend/util/session_api_util.js");
 
-var RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
-var LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
-var RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
-var CLEAR_SESSION_ERRORS = 'CLEAR_SESSION_ERRORS';
+var RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
+var LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
+var RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
+var CLEAR_SESSION_ERRORS = "CLEAR_SESSION_ERRORS";
 var receiveCurrentUser = function receiveCurrentUser(currentUser) {
   return {
     type: RECEIVE_CURRENT_USER,
@@ -406,9 +406,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteSpot", function() { return deleteSpot; });
 /* harmony import */ var _util_spots_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/spots_util */ "./frontend/util/spots_util.js");
 
-var RECEIVE_SPOTS = 'RECEIVE_SPOTS';
-var RECEIVE_SPOT = 'RECEIVE_SPOT';
-var REMOVE_SPOT = 'REMOVE_SPOT';
+var RECEIVE_SPOTS = "RECEIVE_SPOTS";
+var RECEIVE_SPOT = "RECEIVE_SPOT";
+var REMOVE_SPOT = "REMOVE_SPOT";
 
 var receiveSpots = function receiveSpots(spots) {
   return {
@@ -654,12 +654,12 @@ var Login = function Login(_ref) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       className: "loginContainerButton",
       onClick: function onClick() {
-        return openModal('login');
+        return openModal("login");
       }
     }, "Log in"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       className: "loginContainerButton",
       onClick: function onClick() {
-        return openModal('signup');
+        return openModal("signup");
       }
     }, "Sign up"));
   };
@@ -787,7 +787,6 @@ var Map = /*#__PURE__*/function (_React$Component) {
   _createClass(Map, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-       
       var mapCenter = {
         center: {
           lat: 40.7609395,
@@ -828,7 +827,6 @@ var Map = /*#__PURE__*/function (_React$Component) {
             lng: west
           }
         };
-         
 
         _this2.props.updateFilter("bounds", bounds);
       });
@@ -920,7 +918,7 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
     value: function setMarker(spot) {
       var position = new google.maps.LatLng(spot.latitude, spot.longitude);
       var image = {
-        url: 'https://bestfriend-treehouse-seeds.s3.amazonaws.com/treehouselogoMapIcon.png'
+        url: "https://bestfriend-treehouse-seeds.s3.amazonaws.com/treehouselogoMapIcon.png"
       };
       new google.maps.Marker({
         position: position,
@@ -978,11 +976,11 @@ function Modal(_ref) {
   var component;
 
   switch (modal) {
-    case 'login':
+    case "login":
       component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_loginform_container__WEBPACK_IMPORTED_MODULE_3__["default"], null);
       break;
 
-    case 'signup':
+    case "signup":
       component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_signupform_container__WEBPACK_IMPORTED_MODULE_4__["default"], null);
       break;
 
@@ -1086,7 +1084,7 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
       this.setState({
         clicked: false
       }, function () {
-        document.removeEventListener('click', _this2.closeDropdown);
+        document.removeEventListener("click", _this2.closeDropdown);
       });
     }
   }, {
@@ -1250,7 +1248,6 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "addInfantCounter",
     value: function addInfantCounter(e) {
-      e.preventDefault();
       this.setState({
         infantCounter: this.state.infantCounter + 1
       });
@@ -1258,7 +1255,6 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "addChildrenCounter",
     value: function addChildrenCounter(e) {
-      e.preventDefault();
       this.setState({
         childrenCounter: this.state.childrenCounter + 1
       });
@@ -1266,7 +1262,6 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "addCounter",
     value: function addCounter(e) {
-      e.preventDefault();
       this.setState({
         counter: this.state.counter + 1
       });
@@ -1274,7 +1269,6 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "removeInfantCounter",
     value: function removeInfantCounter(e) {
-      e.preventDefault();
       this.setState({
         infantCounter: this.state.infantCounter - 1
       });
@@ -1282,7 +1276,6 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "removeChildrenCounter",
     value: function removeChildrenCounter(e) {
-      e.preventDefault();
       this.setState({
         childrenCounter: this.state.childrenCounter - 1
       });
@@ -1290,7 +1283,6 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "removeCounter",
     value: function removeCounter(e) {
-      e.preventDefault();
       this.setState({
         counter: this.state.counter - 1
       });
@@ -1377,14 +1369,13 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
       }, "Total price for ", dateDiff, " nights is: $ ", totalPrice), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "closebutton",
         onClick: this.closeDropdown
-      }, " Close")) : null)));
+      }, " ", "Close")) : null)));
     }
   }]);
 
   return Dropdown;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-;
 /* harmony default export */ __webpack_exports__["default"] = (Dropdown);
 
 /***/ }),
@@ -1469,12 +1460,11 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       e.preventDefault();
-      ;
 
       if (this.props.currentUser) {
         this.props.createReservation({
-          start_date: this.state.startDate.format('YYYY-MM-DD'),
-          end_date: this.state.endDate.format('YYYY-MM-DD'),
+          start_date: this.state.startDate.format("YYYY-MM-DD"),
+          end_date: this.state.endDate.format("YYYY-MM-DD"),
           number_guests: this.state.totalGuests,
           spot_id: this.props.spot.id,
           guest_id: this.props.currentUser.id
@@ -1482,7 +1472,7 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
           return _this2.props.history.push("/users/".concat(_this2.props.currentUser.id, "/reservations"));
         });
       } else {
-        this.props.openModal('login');
+        this.props.openModal("login");
       }
     }
   }, {
@@ -1547,7 +1537,6 @@ var ReservationForm = /*#__PURE__*/function (_React$Component) {
   return ReservationForm;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-;
 /* harmony default export */ __webpack_exports__["default"] = (ReservationForm);
 
 /***/ }),
@@ -1881,8 +1870,8 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      body: '',
-      rating: ''
+      body: "",
+      rating: ""
     };
     _this.submitReview = _this.submitReview.bind(_assertThisInitialized(_this));
     _this.update = _this.update.bind(_assertThisInitialized(_this));
@@ -1904,8 +1893,8 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     key: "clearReviews",
     value: function clearReviews() {
       this.setState({
-        body: '',
-        rating: ''
+        body: "",
+        rating: ""
       });
     }
   }, {
@@ -1932,7 +1921,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
           return _this3.clearReviews;
         });
       } else {
-        this.props.openModal('login');
+        this.props.openModal("login");
       }
     }
   }, {
@@ -1950,7 +1939,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
         type: "textarea",
         value: this.state.body,
         placeholder: "Tell us about your stay",
-        onChange: this.update('body')
+        onChange: this.update("body")
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reviewsRatingDiv"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_star_rating__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -1967,7 +1956,6 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
   return ReviewForm;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-;
 /* harmony default export */ __webpack_exports__["default"] = (ReviewForm);
 
 /***/ }),
@@ -2241,7 +2229,7 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state) {
   return {
     errors: state.errors.session,
-    formType: 'login',
+    formType: "login",
     curUser: Boolean(state.session.id)
   };
 };
@@ -2253,7 +2241,7 @@ var mDTP = function mDTP(dispatch) {
     },
     otherForm: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("button", {
       onClick: function onClick() {
-        return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__["openModal"])('signup'));
+        return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__["openModal"])("signup"));
       }
     }, "Signup"),
     closeModal: function closeModal() {
@@ -2325,14 +2313,14 @@ var Signup = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      fname: '',
-      lname: '',
-      date_of_birth: '',
-      email: '',
-      password: '',
-      nameError: '',
-      emailError: '',
-      passwordError: ''
+      fname: "",
+      lname: "",
+      date_of_birth: "",
+      email: "",
+      password: "",
+      nameError: "",
+      emailError: "",
+      passwordError: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.demoUser = _this.demoUser.bind(_assertThisInitialized(_this));
@@ -2352,11 +2340,11 @@ var Signup = /*#__PURE__*/function (_React$Component) {
       var passwordError = "";
       var password = this.state.password;
       var email = this.state.email;
-      var splitOnAt = email.split('@');
-      var splitOnDot = email.split('.');
+      var splitOnAt = email.split("@");
+      var splitOnDot = email.split(".");
 
-      if (!email.includes('@') || !email.includes('.') || splitOnAt.length > 2 || splitOnDot[splitOnDot.length - 1].length < 2 || email === '') {
-        emailError = 'Enter a valid email.';
+      if (!email.includes("@") || !email.includes(".") || splitOnAt.length > 2 || splitOnDot[splitOnDot.length - 1].length < 2 || email === "") {
+        emailError = "Enter a valid email.";
       }
 
       if (!this.state.fname) {
@@ -2366,9 +2354,9 @@ var Signup = /*#__PURE__*/function (_React$Component) {
       }
 
       if (password.length === 0) {
-        passwordError = 'Password is required';
+        passwordError = "Password is required";
       } else if (password.length < 6) {
-        passwordError = 'Your password must be at least 6 characters. Please try again.';
+        passwordError = "Your password must be at least 6 characters. Please try again.";
       }
 
       if (passwordError || emailError || nameError) {
@@ -2425,7 +2413,7 @@ var Signup = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      if (this.props.formType === 'signup') {
+      if (this.props.formType === "signup") {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "signup_form_header"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -2439,21 +2427,21 @@ var Signup = /*#__PURE__*/function (_React$Component) {
           className: "signup_form body",
           onSubmit: this.handleSubmit
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: this.state.nameError ? 'divNerror' : 's_first_name'
+          className: this.state.nameError ? "divNerror" : "s_first_name"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
           className: "s_f",
           value: this.state.fname,
           placeholder: "First Name",
-          onChange: this.update('fname')
+          onChange: this.update("fname")
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: this.state.nameError ? ' divLerror' : 's_last_name'
+          className: this.state.nameError ? " divLerror" : "s_last_name"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
           className: "s_l",
           value: this.state.lname,
           placeholder: "Last Name",
-          onChange: this.update('lname')
+          onChange: this.update("lname")
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "error"
         }, this.state.nameError), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -2465,27 +2453,27 @@ var Signup = /*#__PURE__*/function (_React$Component) {
           className: "s_d",
           value: this.state.date_of_birth,
           placeholder: "Birthdate",
-          onChange: this.update('date_of_birth')
+          onChange: this.update("date_of_birth")
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "tag"
         }, "To sign up, you need to be at least 18. Your birthday won\u2019t be shared with other people who use Bestfriend Treehouse."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: this.state.emailError ? 'diverror' : 's_email'
+          className: this.state.emailError ? "diverror" : "s_email"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "email",
           className: "s_e",
           value: this.state.email,
           placeholder: "Email",
-          onChange: this.update('email')
+          onChange: this.update("email")
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "error"
         }, this.state.emailError), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: this.state.passwordError ? 'diverror' : 's_password'
+          className: this.state.passwordError ? "diverror" : "s_password"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "password",
           className: "s_p",
           value: this.state.password,
           placeholder: "Password",
-          onChange: this.update('password')
+          onChange: this.update("password")
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "error"
         }, this.state.passwordError), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2507,7 +2495,7 @@ var Signup = /*#__PURE__*/function (_React$Component) {
           className: "tag"
         }, "Already have an account?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: function onClick() {
-            return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__["openModal"])('login'));
+            return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__["openModal"])("login"));
           }
         }, "Login"))));
       } else {
@@ -2525,21 +2513,21 @@ var Signup = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
           onSubmit: this.handleSubmit
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: this.state.emailError ? 'diverror' : 'l_email'
+          className: this.state.emailError ? "diverror" : "l_email"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
           className: "l_e",
           value: this.state.email,
           placeholder: "Email",
-          onChange: this.update('email')
+          onChange: this.update("email")
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: this.state.passwordError ? 'diverror' : 'l_password'
+          className: this.state.passwordError ? "diverror" : "l_password"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "password",
           className: "l_p",
           value: this.state.password,
           placeholder: "Password",
-          onChange: this.update('password')
+          onChange: this.update("password")
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "error"
         }, this.state.emailError), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2556,7 +2544,7 @@ var Signup = /*#__PURE__*/function (_React$Component) {
           className: "tag"
         }, "Don\u2019t have an account?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: function onClick() {
-            return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__["openModal"])('signup'));
+            return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__["openModal"])("signup"));
           }
         }, "Sign up"))));
       }
@@ -2594,7 +2582,7 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state) {
   return {
     errors: state.errors.session,
-    formType: 'signup',
+    formType: "signup",
     curUser: Boolean(state.session.id)
   };
 };
@@ -2606,7 +2594,7 @@ var mDTP = function mDTP(dispatch) {
     },
     otherForm: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("button", {
       onClick: function onClick() {
-        return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openModal"])('login'));
+        return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openModal"])("login"));
       }
     }, "Log in"),
     closeModal: function closeModal() {
@@ -2688,7 +2676,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
       }, "Settle in somewhere new. Discover stays to live, work, or just relax."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "goNearButton",
         onClick: function onClick() {
-          return _this.props.history.push('/spots');
+          return _this.props.history.push("/spots");
         }
       }, "Explore nearby")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "escape_images"
@@ -2793,7 +2781,7 @@ var SpotBody = function SpotBody(_ref) {
     className: "sTitle"
   }, "Enhanced Clean"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "sBody"
-  }, "This host committed to a rigorous cleaning protocol developed with leading health and hospitality experts. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, "This host committed to a rigorous cleaning protocol developed with leading health and hospitality experts.", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "learnmore"
   }, "Learn more")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "checkin"
@@ -2961,7 +2949,6 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
   return SpotShow;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-;
 /* harmony default export */ __webpack_exports__["default"] = (SpotShow);
 
 /***/ }),
@@ -2989,7 +2976,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-   
   return {
     currentUser: state.entities.users[state.session.id],
     spot: state.entities.spots[ownProps.match.params.spotId],
@@ -3112,7 +3098,6 @@ var SpotsPage = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-       
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Spots-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3421,7 +3406,6 @@ var filtersReducer = function filtersReducer() {
 
   switch (action.type) {
     case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["UPDATE_FILTER"]:
-       
       return Object.assign({}, state, _defineProperty({}, action.filter, action.value));
 
     default:
@@ -3814,7 +3798,7 @@ var MarkerManager = /*#__PURE__*/function () {
     key: "createMarker",
     value: function createMarker(spot) {
       var image = {
-        url: 'https://bestfriend-treehouse-seeds.s3.amazonaws.com/treehouselogoMapIcon.png'
+        url: "https://bestfriend-treehouse-seeds.s3.amazonaws.com/treehouselogoMapIcon.png"
       };
       var position = new google.maps.LatLng(spot.latitude, spot.longitude);
       var marker = new google.maps.Marker({
@@ -3857,20 +3841,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroyReservation", function() { return destroyReservation; });
 var fetchReservations = function fetchReservations(userId) {
   return $.ajax({
-    method: 'GET',
+    method: "GET",
     url: "api/users/".concat(userId, "/reservations")
   });
 };
 var fetchReservation = function fetchReservation(reservationId) {
   return $.ajax({
-    method: 'GET',
+    method: "GET",
     url: "api/reservations/".concat(reservationId)
   });
 };
 var createReservation = function createReservation(reservation) {
   return $.ajax({
-    method: 'POST',
-    url: 'api/reservations',
+    method: "POST",
+    url: "api/reservations",
     data: {
       reservation: reservation
     }
@@ -3878,7 +3862,7 @@ var createReservation = function createReservation(reservation) {
 };
 var updateReservation = function updateReservation(reservation) {
   return $.ajax({
-    method: 'PATCH',
+    method: "PATCH",
     url: "api/reservations/".concat(reservation.id),
     data: {
       reservation: reservation
@@ -3887,7 +3871,7 @@ var updateReservation = function updateReservation(reservation) {
 };
 var destroyReservation = function destroyReservation(reservationId) {
   return $.ajax({
-    method: 'DELETE',
+    method: "DELETE",
     url: "api/reservations/".concat(reservationId)
   });
 };
@@ -3910,7 +3894,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroyReview", function() { return destroyReview; });
 var fetchReviews = function fetchReviews(spotId) {
   return $.ajax({
-    method: 'GET',
+    method: "GET",
     url: "/api/reviews/",
     data: {
       spotId: spotId
@@ -3919,14 +3903,14 @@ var fetchReviews = function fetchReviews(spotId) {
 };
 var fetchReview = function fetchReview(reviewId) {
   return $.ajax({
-    method: 'GET',
+    method: "GET",
     url: "api/reviews/".concat(reviewId)
   });
 };
 var createReview = function createReview(review) {
   return $.ajax({
-    method: 'POST',
-    url: 'api/reviews',
+    method: "POST",
+    url: "api/reviews",
     data: {
       review: review
     }
@@ -3934,7 +3918,7 @@ var createReview = function createReview(review) {
 };
 var updateReview = function updateReview(review) {
   return $.ajax({
-    method: 'PATCH',
+    method: "PATCH",
     url: "api/reviews/".concat(review.id),
     data: {
       review: review
@@ -3943,7 +3927,7 @@ var updateReview = function updateReview(review) {
 };
 var destroyReview = function destroyReview(reviewId) {
   return $.ajax({
-    method: 'DELETE',
+    method: "DELETE",
     url: "api/reviews/".concat(reviewId)
   });
 };
@@ -4026,8 +4010,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
 var login = function login(user) {
   return $.ajax({
-    method: 'POST',
-    url: '/api/session',
+    method: "POST",
+    url: "/api/session",
     data: {
       user: user
     }
@@ -4035,8 +4019,8 @@ var login = function login(user) {
 };
 var signup = function signup(user) {
   return $.ajax({
-    method: 'POST',
-    url: '/api/users',
+    method: "POST",
+    url: "/api/users",
     data: {
       user: user
     }
@@ -4044,8 +4028,8 @@ var signup = function signup(user) {
 };
 var logout = function logout() {
   return $.ajax({
-    method: 'DELETE',
-    url: '/api/session'
+    method: "DELETE",
+    url: "/api/session"
   });
 };
 
@@ -4066,10 +4050,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSpot", function() { return updateSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteSpot", function() { return deleteSpot; });
 var fetchSpots = function fetchSpots(filters) {
-   
   return $.ajax({
-    method: 'GET',
-    url: '/api/spots',
+    method: "GET",
+    url: "/api/spots",
     data: {
       filters: filters
     }
@@ -4077,13 +4060,13 @@ var fetchSpots = function fetchSpots(filters) {
 };
 var fetchSpot = function fetchSpot(spotId) {
   return $.ajax({
-    method: 'GET',
+    method: "GET",
     url: "/api/spots/".concat(spotId)
   });
 };
 var createSpot = function createSpot(spot) {
   return $.ajax({
-    method: 'POST',
+    method: "POST",
     url: "/api/spots/".concat(spot.id),
     data: {
       spot: spot
@@ -4092,7 +4075,7 @@ var createSpot = function createSpot(spot) {
 };
 var updateSpot = function updateSpot(spot) {
   return $.ajax({
-    method: 'PATCH',
+    method: "PATCH",
     url: "/api/spots/".concat(spot.id),
     data: {
       spot: spot
@@ -4101,7 +4084,7 @@ var updateSpot = function updateSpot(spot) {
 };
 var deleteSpot = function deleteSpot(spotId) {
   return $.ajax({
-    method: 'DELETE',
+    method: "DELETE",
     url: "/api/spots/".concat(spotId)
   });
 };
