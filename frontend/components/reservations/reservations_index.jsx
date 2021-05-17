@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from "react";
 import ReservationIndexItem from "./reservations_index_item.js";
 
 class ReservationsIndex extends React.Component {
@@ -7,19 +7,19 @@ class ReservationsIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchSpots();
     this.props.fetchReservations(this.props.currentUser.id);
+    this.props.fetchSpots();
   }
 
   render() {
-    if (this.props.reservations.length === 0)
+    if (this.props.reservations.length === 0) 
       return (
         <div className="noReservations-container">
           <p className="noReservations">You have no reservations!</p>
         </div>
-      );
+      ) 
     return (
-      <div>
+      <Fragment>
         <div className="reservationsHeader">
           <p className="yesReservations">
             Here are a list of your reservations!
@@ -38,7 +38,7 @@ class ReservationsIndex extends React.Component {
             </li>
           ))}
         </ul>
-      </div>
+      </Fragment>
     );
   }
 }

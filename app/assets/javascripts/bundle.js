@@ -540,7 +540,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Escapes = function Escapes() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "OnlineExperiences"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "topOEDiv"
@@ -1592,8 +1592,8 @@ var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(ReservationsIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchSpots();
       this.props.fetchReservations(this.props.currentUser.id);
+      this.props.fetchSpots();
     }
   }, {
     key: "render",
@@ -1605,7 +1605,7 @@ var ReservationsIndex = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "noReservations"
       }, "You have no reservations!"));
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reservationsHeader"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "yesReservations"

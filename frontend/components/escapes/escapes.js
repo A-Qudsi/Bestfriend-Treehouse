@@ -1,8 +1,8 @@
-import React from "react";
+import React, {Fragment} from "react";
 
 const Escapes = () => {
   return (
-    <div>
+    <Fragment>
       <div className="OnlineExperiences">
         <div className="topOEDiv">
           <div className="OEtext">
@@ -61,7 +61,7 @@ const Escapes = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 
