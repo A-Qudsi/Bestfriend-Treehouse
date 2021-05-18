@@ -90,7 +90,8 @@
 #map {
     position: fixed !important;
     width: 45%;
-    height: 90%;
+    height: 100%;
+    z-index: -1
 }
 
 #spot-map {
@@ -107,13 +108,6 @@
     position: relative;
     width:55%
 }
-
-.rightside{ 
-    height: 100%;
-    right: 0;
-    width:40%;
-}
-
 
 .listings {
     width: 100%
