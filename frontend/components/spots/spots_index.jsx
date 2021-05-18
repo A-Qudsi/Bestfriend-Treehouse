@@ -12,7 +12,6 @@ class SpotsPage extends React.Component {
   }
 
   render() {
-     
     return (
       <div className="Spots-div">
         <div className="leftside">
@@ -40,12 +39,7 @@ class SpotsPage extends React.Component {
             </div>
           </div>
         </div>
-        <div className="rightside">
-          <Map
-            spots={this.props.spots}
-            updateFilter={this.props.updateFilter}
-          />
-        </div>
+        <Map spots={this.props.spots} updateFilter={this.props.updateFilter} />
       </div>
     );
   }

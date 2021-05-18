@@ -3124,12 +3124,10 @@ var SpotsPage = /*#__PURE__*/function (_React$Component) {
           spot: spot,
           key: spot.id
         }));
-      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "rightside"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_map_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_map_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
         spots: this.props.spots,
         updateFilter: this.props.updateFilter
-      })));
+      }));
     }
   }]);
 
