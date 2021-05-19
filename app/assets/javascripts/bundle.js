@@ -1879,6 +1879,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     _this.update = _this.update.bind(_assertThisInitialized(_this));
     _this.clearReviews = _this.clearReviews.bind(_assertThisInitialized(_this));
     _this.getRating = _this.getRating.bind(_assertThisInitialized(_this));
+    _this.clearReviews = _this.clearReviews.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1896,7 +1897,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     value: function clearReviews() {
       this.setState({
         body: "",
-        rating: ""
+        rating: null
       });
     }
   }, {
@@ -1925,6 +1926,8 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       } else {
         this.props.openModal("login");
       }
+
+      this.clearReviews();
     }
   }, {
     key: "render",

@@ -13,6 +13,7 @@ class ReviewForm extends React.Component {
     this.update = this.update.bind(this);
     this.clearReviews = this.clearReviews.bind(this);
     this.getRating = this.getRating.bind(this);
+    this.clearReviews = this.clearReviews.bind(this);
   }
 
   update(field) {
@@ -25,7 +26,7 @@ class ReviewForm extends React.Component {
   clearReviews() {
     this.setState({
       body: "",
-      rating: "",
+      rating: null,
     });
   }
 
@@ -49,6 +50,7 @@ class ReviewForm extends React.Component {
     } else {
       this.props.openModal("login");
     }
+    this.clearReviews();
   }
 
   render() {
