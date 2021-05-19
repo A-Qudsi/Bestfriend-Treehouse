@@ -9,8 +9,11 @@ class ReviewIndexItem extends React.Component {
     const { body, rating } = this.props.review;
     return (
       <div className="review-index-item">
-        {body}
-        {rating}
+        <div>{body}</div>
+        <div>
+          {rating}
+          <i class="fas yellow fa-star"></i>
+        </div>
       </div>
     );
   }

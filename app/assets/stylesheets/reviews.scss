@@ -39,5 +39,10 @@ input[type="radio"] {
 }
 
 .review-index-item{
-
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+     .yellow {
+         font-size: 15px;
+     }
 }

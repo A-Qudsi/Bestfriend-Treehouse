@@ -2090,7 +2090,9 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
           rating = _this$props$review.rating;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-index-item"
-      }, body, rating);
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, rating, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas yellow fa-star"
+      })));
     }
   }]);
 
