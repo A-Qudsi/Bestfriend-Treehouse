@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { fetchSpot, fetchSpots } from "../../actions/spot_actions";
-import SpotShow from "./spot_show.js";
+import SpotShow from "./spot_show";
 import { createReservation } from "../../actions/reservation_actions";
 import { openModal } from "../../actions/modal_actions";
 import { createReview } from "../../actions/review_actions";

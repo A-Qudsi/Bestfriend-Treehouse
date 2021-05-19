@@ -2820,10 +2820,10 @@ var SpotBody = function SpotBody(_ref) {
 
 /***/ }),
 
-/***/ "./frontend/components/spots/spot_show.js":
-/*!************************************************!*\
-  !*** ./frontend/components/spots/spot_show.js ***!
-  \************************************************/
+/***/ "./frontend/components/spots/spot_show.jsx":
+/*!*************************************************!*\
+  !*** ./frontend/components/spots/spot_show.jsx ***!
+  \*************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2931,11 +2931,13 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         openModal: this.props.openModal,
         createReservation: this.props.createReservation // totalCostPrice= {this.totalCostPrice}
 
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_reviews_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        spot: spot
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "reviewsHeader"
+      }, "REVIEWS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reviewContainer"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_reviews_form__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_reviews_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        spot: spot
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_reviews_form__WEBPACK_IMPORTED_MODULE_4__["default"], {
         spot: spot,
         currentUser: this.props.currentUser,
         openModal: this.props.openModal,
@@ -2964,7 +2966,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
-/* harmony import */ var _spot_show_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_show.js */ "./frontend/components/spots/spot_show.js");
+/* harmony import */ var _spot_show__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_show */ "./frontend/components/spots/spot_show.jsx");
 /* harmony import */ var _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/reservation_actions */ "./frontend/actions/reservation_actions.js");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 /* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
@@ -3003,7 +3005,7 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_spot_show_js__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_spot_show__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 

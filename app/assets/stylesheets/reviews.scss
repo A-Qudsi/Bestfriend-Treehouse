@@ -20,3 +20,24 @@ input[type="radio"] {
 .gray {
     color: #e4e5e9
 }
+
+.reviewsHeader {
+  text-align: center;
+}
+
+.reviewContainer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding: 24px;
+    font-size: 15px;
+}
+
+.review-container {
+    width: 50%;
+    height: 150px;
+}
+
+.review-index-item{
+
+}

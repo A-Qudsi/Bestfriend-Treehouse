@@ -63,10 +63,11 @@ class SpotShow extends React.Component {
             />
           </div>
         </div>
-        <div>
+        <h3 className='reviewsHeader'>REVIEWS</h3>
+        <div className="reviewContainer">
           <ReviewContainer spot={spot} />
         </div>
-        <div className="reviewContainer">
+        <div>
           <ReviewForm
             spot={spot}
             currentUser={this.props.currentUser}
