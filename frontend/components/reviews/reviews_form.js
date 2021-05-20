@@ -7,7 +7,6 @@ class ReviewForm extends React.Component {
     this.state = {
       body: "",
       rating: "",
-      reset: false,
     };
 
     this.submitReview = this.submitReview.bind(this);
@@ -39,11 +38,6 @@ class ReviewForm extends React.Component {
   submitReview(e) {
     e.preventDefault();
     if (this.props.currentUser) {
-        
-      this.setState({
-        reset: true,
-      });
-
       this.props.createReview({
         body: this.state.body,
         rating: this.state.rating,
@@ -71,7 +65,7 @@ class ReviewForm extends React.Component {
             />
           </div>
           <div className="reviewsRatingDiv">
-            <StarRating getRating={this.getRating} reset={this.state.reset} />
+            <StarRating getRating={this.getRating}/>
           </div>
           <button
             className="submit-button"

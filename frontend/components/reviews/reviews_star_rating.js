@@ -3,17 +3,10 @@ import React, { useState } from "react";
 const StarRating = (props) => {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
-  const [reset, setReset] = useState(props.reset)
 
   function updateStarRating(value) {
-      console.log(reset)
-    setReset(false)
     setRating(value);
     props.getRating(value);
-  }
-
-  if (reset) {
-    setRating(null)
   }
 
   return (

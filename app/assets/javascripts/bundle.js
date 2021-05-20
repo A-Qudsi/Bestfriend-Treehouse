@@ -1873,8 +1873,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       body: "",
-      rating: "",
-      reset: false
+      rating: ""
     };
     _this.submitReview = _this.submitReview.bind(_assertThisInitialized(_this));
     _this.update = _this.update.bind(_assertThisInitialized(_this));
@@ -1913,9 +1912,6 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
 
       if (this.props.currentUser) {
-        this.setState({
-          reset: true
-        });
         this.props.createReview({
           body: this.state.body,
           rating: this.state.rating,
@@ -1947,8 +1943,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reviewsRatingDiv"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_star_rating__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        getRating: this.getRating,
-        reset: this.state.reset
+        getRating: this.getRating
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "submit-button",
         onClick: function onClick(e) {
@@ -2152,20 +2147,9 @@ var StarRating = function StarRating(props) {
       hover = _useState4[0],
       setHover = _useState4[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(props.reset),
-      _useState6 = _slicedToArray(_useState5, 2),
-      reset = _useState6[0],
-      setReset = _useState6[1];
-
   function updateStarRating(value) {
-    console.log(reset);
-    setReset(false);
     setRating(value);
     props.getRating(value);
-  }
-
-  if (reset) {
-    setRating(null);
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, _toConsumableArray(Array(5)).map(function (star, i) {
