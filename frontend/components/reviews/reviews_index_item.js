@@ -12,7 +12,7 @@ class ReviewIndexItem extends React.Component {
         <div>{body}</div>
         <div>
           {rating}
-          <i class="fas yellow fa-star"></i>
+          <i className="fas yellow fa-star"></i>
         </div>
       </div>
     );

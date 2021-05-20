@@ -7,6 +7,7 @@ class ReviewForm extends React.Component {
     this.state = {
       body: "",
       rating: "",
+      reset: false,
     };
 
     this.submitReview = this.submitReview.bind(this);
@@ -38,13 +39,17 @@ class ReviewForm extends React.Component {
   submitReview(e) {
     e.preventDefault();
     if (this.props.currentUser) {
-      this.props
-        .createReview({
-          body: this.state.body,
-          rating: this.state.rating,
-          user_id: this.props.currentUser.id,
-          spot_id: this.props.spot.id,
-        })
+        
+      this.setState({
+        reset: true,
+      });
+
+      this.props.createReview({
+        body: this.state.body,
+        rating: this.state.rating,
+        user_id: this.props.currentUser.id,
+        spot_id: this.props.spot.id,
+      });
     } else {
       this.props.openModal("login");
     }
@@ -66,7 +71,7 @@ class ReviewForm extends React.Component {
             />
           </div>
           <div className="reviewsRatingDiv">
-            <StarRating getRating={this.getRating}/>
+            <StarRating getRating={this.getRating} reset={this.state.reset} />
           </div>
           <button
             className="submit-button"

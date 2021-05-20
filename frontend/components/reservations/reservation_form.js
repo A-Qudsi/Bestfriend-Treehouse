@@ -52,7 +52,7 @@ class ReservationForm extends React.Component {
         <div className="bookingHeader">
           <div className="l_e">$ {spot.price} / night</div>
           <div className="bookingRating">
-            {spot.average_rating} <i class="fas yellow fa-star"></i>
+            {spot.average_rating} <i className="fas yellow fa-star"></i>
           </div>
         </div>
         <div>
