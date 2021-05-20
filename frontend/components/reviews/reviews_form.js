@@ -26,7 +26,6 @@ class ReviewForm extends React.Component {
   clearReviews() {
     this.setState({
       body: "",
-      rating: null,
     });
   }
 
@@ -46,7 +45,6 @@ class ReviewForm extends React.Component {
           user_id: this.props.currentUser.id,
           spot_id: this.props.spot.id,
         })
-        .then(() => this.clearReviews);
     } else {
       this.props.openModal("login");
     }
@@ -68,7 +66,7 @@ class ReviewForm extends React.Component {
             />
           </div>
           <div className="reviewsRatingDiv">
-            <StarRating getRating={this.getRating} />
+            <StarRating getRating={this.getRating}/>
           </div>
           <button
             className="submit-button"
