@@ -79,13 +79,14 @@
 }
 
 .price {
-    align-self: flex-end;
-    padding-bottom: 20px;
-    width: 200px;
+    display: flex;
+    padding-top: 100px;
+    justify-content: flex-end;
 }
 
 .index-item-info {
     width: 600px;
+    padding-right: 15px;
 }
 
 #map {
@@ -975,4 +976,8 @@
   i {
     font-size: 16px;
   }
+}
+
+.index-item-icon {
+  align-self: flex-end;
 }
