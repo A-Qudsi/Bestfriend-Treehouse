@@ -3256,7 +3256,8 @@ var SpotsIndexItem = /*#__PURE__*/function (_React$Component) {
           name = _this$props$spot.name,
           description = _this$props$spot.description,
           maxGuests = _this$props$spot.maxGuests,
-          price = _this$props$spot.price;
+          price = _this$props$spot.price,
+          average_rating = _this$props$spot.average_rating;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/spots/".concat(spotId),
         key: spotId
@@ -3268,9 +3269,13 @@ var SpotsIndexItem = /*#__PURE__*/function (_React$Component) {
         src: this.props.spot.photoUrls[1]
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "index-item-info"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "index-item-header"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "index-item-name"
-      }, name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, name), average_rating, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas yellow fa-star"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "index-item-description"
       }, description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "line"

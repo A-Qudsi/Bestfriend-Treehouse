@@ -967,3 +967,12 @@
 .spot-star {
   font-size: 20px
 }
+
+.index-item-header {
+  display: flex;
+  justify-content: space-between;
+  
+  i {
+    font-size: 16px;
+  }
+}
