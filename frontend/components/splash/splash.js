@@ -4,10 +4,10 @@ import BackgroundBody from "./background_body";
 import Cards from "./cards";
 import Disclaimer from "./disclaimer";
 
-const Splash = () => {
+const Splash = (props) => {
   return (
     <Fragment>
-      <BackgroundBody />
+      <BackgroundBody history={props.history}/>
       <Cards />
       <Escapes />
       <Disclaimer />
