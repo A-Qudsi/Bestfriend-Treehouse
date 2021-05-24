@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
 import Navbar from "./navbar/navbar";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
@@ -10,7 +10,7 @@ import SpotShowContainer from "./spots/spot_show_container";
 import ReservationIndexContainer from "./reservations/reservations_index_container";
 
 const App = () => (
-  <div className="mainApp">
+  <Fragment>
     <header className="app-header">
       <Navbar />
     </header>
@@ -24,10 +24,8 @@ const App = () => (
         component={ReservationIndexContainer}
       />
     </Switch>
-    <footer>
-      <Footer />
-    </footer>
-  </div>
+    <Footer />
+  </Fragment>
 );
 
 export default App;
