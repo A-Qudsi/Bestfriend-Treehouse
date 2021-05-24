@@ -2627,7 +2627,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
-var BackgroundBody = function BackgroundBody(props) {
+var BackgroundBody = function BackgroundBody(_ref) {
+  var history = _ref.history;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "homePage"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2641,7 +2642,7 @@ var BackgroundBody = function BackgroundBody(props) {
   }, "Settle in somewhere new. Discover stays to live, work, or just relax."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "goNearButton",
     onClick: function onClick() {
-      return props.history.push("/spots");
+      return history.push("/spots");
     }
   }, "Explore nearby"))));
 };

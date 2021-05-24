@@ -1,6 +1,6 @@
 import React from "react";
 
-const BackgroundBody = (props) => {
+const BackgroundBody = ({history}) => {
   return (
     <div className="homePage">
       <div className="treehouse_background">
@@ -12,7 +12,7 @@ const BackgroundBody = (props) => {
           </p>
           <button
             className="goNearButton"
-            onClick={() => props.history.push("/spots")}
+            onClick={() => history.push("/spots")}
           >
             Explore nearby
           </button>
