@@ -7,13 +7,13 @@ class ReviewForm extends React.Component {
     this.state = {
       body: "",
       rating: "",
+      submitted: false
     };
 
     this.submitReview = this.submitReview.bind(this);
     this.update = this.update.bind(this);
-    this.clearReviews = this.clearReviews.bind(this);
+    this.clearBody = this.clearBody.bind(this);
     this.getRating = this.getRating.bind(this);
-    this.clearReviews = this.clearReviews.bind(this);
   }
 
   update(field) {
@@ -23,7 +23,7 @@ class ReviewForm extends React.Component {
       });
   }
 
-  clearReviews() {
+  clearBody() {
     this.setState({
       body: "",
     });
@@ -47,34 +47,29 @@ class ReviewForm extends React.Component {
     } else {
       this.props.openModal("login");
     }
-    this.clearReviews();
+    this.clearBody();
   }
 
   render() {
     const { spot } = this.props;
     return (
-      <div>
-        <form className="reviewForm">
-          <div className="reviewsFormDiv">
-            <input
-              className="reviewsBodyTextarea"
-              type="textarea"
-              value={this.state.body}
-              placeholder="Tell us about your stay"
-              onChange={this.update("body")}
-            />
-          </div>
-          <div className="reviewsRatingDiv">
-            <StarRating getRating={this.getRating}/>
-          </div>
-          <button
-            className="submit-button"
-            onClick={(e) => this.submitReview(e)}
-          >
-            Submit Review
-          </button>
-        </form>
-      </div>
+      <form className="reviewForm">
+        <div className="reviewsFormDiv">
+          <input
+            className="reviewsBodyTextarea"
+            type="textarea"
+            value={this.state.body}
+            placeholder="Tell us about your stay"
+            onChange={this.update("body")}
+          />
+        </div>
+        <div className="reviewsRatingDiv">
+          <StarRating getRating={this.getRating} clearRating={this.state.submitted}/>
+        </div>
+        <button className="submit-button" onClick={(e) => this.submitReview(e)}>
+          Submit Review
+        </button>
+      </form>
     );
   }
 }
