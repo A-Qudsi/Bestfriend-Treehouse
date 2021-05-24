@@ -783,27 +783,6 @@ var Map = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(Map, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var mapCenter = {
-        center: {
-          lat: 40.7609395,
-          lng: -73.9874663
-        },
-        zoom: 13
-      };
-      var map = react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.findDOMNode(this.refs.map);
-      this.map = new google.maps.Map(map, mapCenter);
-      this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__["default"](this.map);
-      this.MarkerManager.updateMarkers(this.props.spots);
-      this.addEventListener();
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {
-      this.MarkerManager.updateMarkers(this.props.spots);
-    }
-  }, {
     key: "addEventListener",
     value: function addEventListener() {
       var _this2 = this;
@@ -826,8 +805,29 @@ var Map = /*#__PURE__*/function (_React$Component) {
           }
         };
 
-        _this2.props.updateFilter("bounds", bounds);
+        _this2.props.updateFilter('bounds', bounds);
       });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var mapCenter = {
+        center: {
+          lat: 40.7609395,
+          lng: -73.9874663
+        },
+        zoom: 13
+      };
+      var map = react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.findDOMNode(this.refs.map);
+      this.map = new google.maps.Map(map, mapCenter);
+      this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__["default"](this.map);
+      this.MarkerManager.updateMarkers(this.props.spots);
+      this.addEventListener();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.MarkerManager.updateMarkers(this.props.spots);
     }
   }, {
     key: "render",
@@ -4114,13 +4114,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createSpot", function() { return createSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSpot", function() { return updateSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteSpot", function() { return deleteSpot; });
-var fetchSpots = function fetchSpots(filters) {
+var fetchSpots = function fetchSpots(filter) {
   return $.ajax({
     method: "GET",
     url: "/api/spots",
-    data: {
-      filters: filters
-    }
+    data: filter
   });
 };
 var fetchSpot = function fetchSpot(spotId) {

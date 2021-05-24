@@ -10,8 +10,19 @@ class Map extends React.Component {
     this.addEventListener = this.addEventListener.bind(this);
   }
 
+  addEventListener() {
+    google.maps.event.addListener(this.map, "idle", () => {
+      const { north, south, east, west } = this.map.getBounds().toJSON();
+      const bounds = {
+        northEast: { lat: north, lng: east },
+        southWest: { lat: south, lng: west },
+      };
+       
+      this.props.updateFilter('bounds', bounds);
+    });
+  }
+
   componentDidMount() {
-     
     const mapCenter = {
       center: {
         lat: 40.7609395,
@@ -31,17 +42,6 @@ class Map extends React.Component {
     this.MarkerManager.updateMarkers(this.props.spots);
   }
 
-  addEventListener() {
-    google.maps.event.addListener(this.map, "idle", () => {
-      const { north, south, east, west } = this.map.getBounds().toJSON();
-      const bounds = {
-        northEast: { lat: north, lng: east },
-        southWest: { lat: south, lng: west },
-      };
-       
-      this.props.updateFilter("bounds", bounds);
-    });
-  }
 
   render() {
     return <div id="map" ref="map"></div>;
