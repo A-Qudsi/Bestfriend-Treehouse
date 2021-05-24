@@ -5,6 +5,7 @@ import SpotBody from "./spot_body";
 import ReviewForm from "../reviews/reviews_form";
 import ReviewContainer from "../reviews/reviews_container";
 import SpotMap from "../map/spot_map";
+import SpotHeader from './spot_header'
 
 class SpotShow extends React.Component {
   constructor(props) {
@@ -33,23 +34,7 @@ class SpotShow extends React.Component {
 
     return (
       <div className="showpagediv">
-        <div className="showpageheader">
-          <h1 className="showpagename">{spot.name}</h1>
-        </div>
-        <div className="address">
-          <div className="addressleft">
-            <i className="fas fa-star spot-star"></i>
-            <span>
-              {spot.average_rating} {spot.address} {spot.city}
-            </span>
-          </div>
-          <div className="addressright">
-            <div className="faviconsright">
-              <i className="fas fa-upload"></i> Share
-              <i className="far fa-heart"></i> Save
-            </div>
-          </div>
-        </div>
+        <SpotHeader spot={spot} />
         <Pictures spot={spot} />
         <div className="spotsShowBodyContainer">
           <SpotBody spot={spot} />
