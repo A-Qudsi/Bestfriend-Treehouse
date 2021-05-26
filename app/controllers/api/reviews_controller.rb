@@ -1,5 +1,5 @@
 class Api::ReviewsController < ApplicationController 
-    before_action :ensure_logged_in
+    before_action :ensure_logged_in, only: [:create, :destroy, :update]
 
     def index 
         @reviews = Review.all
