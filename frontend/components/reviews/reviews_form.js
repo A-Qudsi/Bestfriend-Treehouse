@@ -1,77 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import StarRating from "./reviews_star_rating";
 
-class ReviewForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      body: "",
-      rating: "",
-      submitted: false
-    };
+const ReviewForm = (props) => {
+  const [body, setBody] = useState("");
+  const [rating, setRating] = useState("");
 
-    this.submitReview = this.submitReview.bind(this);
-    this.update = this.update.bind(this);
-    this.clearBody = this.clearBody.bind(this);
-    this.getRating = this.getRating.bind(this);
-  }
+  const bodyChangeHandler = (event) => {
+    setBody(event.currentTarget.value);
+  };
 
-  update(field) {
-    return (e) =>
-      this.setState({
-        [field]: e.currentTarget.value,
-      });
-  }
+  const getRating = (number) => {
+    setRating(number);
+  };
 
-  clearBody() {
-    this.setState({
-      body: "",
-    });
-  }
-
-  getRating(number) {
-    this.setState({
-      rating: number,
-    });
-  }
-
-  submitReview(e) {
+  const submitReview = (e) => {
     e.preventDefault();
-    if (this.props.currentUser) {
-      this.props.createReview({
-        body: this.state.body,
-        rating: this.state.rating,
-        user_id: this.props.currentUser.id,
-        spot_id: this.props.spot.id,
+    if (props.currentUser) {
+      props.createReview({
+        body: body,
+        rating: rating,
+        user_id: props.currentUser.id,
+        spot_id: props.spot.id,
       });
     } else {
-      this.props.openModal("login");
+      props.openModal("login");
     }
-    this.clearBody();
-  }
+    setBody("");
+    setRating(null);
+  };
 
-  render() {
-    const { spot } = this.props;
-    return (
-      <form className="reviewForm">
-        <div className="reviewsFormDiv">
-          <input
-            className="reviewsBodyTextarea"
-            type="textarea"
-            value={this.state.body}
-            placeholder="Tell us about your stay"
-            onChange={this.update("body")}
-          />
-        </div>
-        <div className="reviewsRatingDiv">
-          <StarRating getRating={this.getRating} clearRating={this.state.submitted}/>
-        </div>
-        <button className="submit-button" onClick={(e) => this.submitReview(e)}>
-          Submit Review
-        </button>
-      </form>
-    );
-  }
-}
+  const { spot } = props;
+
+  return (
+    <form className="reviewForm">
+      <div className="reviewsFormDiv">
+        <input
+          className="reviewsBodyTextarea"
+          type="textarea"
+          value={body}
+          placeholder="Tell us about your stay"
+          onChange={bodyChangeHandler}
+        />
+      </div>
+      <div className="reviewsRatingDiv">
+        <StarRating getRating={getRating} />
+      </div>
+      <button className="submit-button" onClick={(e) => submitReview(e)}>
+        Submit Review
+      </button>
+    </form>
+  );
+};
 
 export default ReviewForm;

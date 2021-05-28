@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 
 const StarRating = (props) => {
   const [rating, setRating] = useState(null);
@@ -9,12 +9,19 @@ const StarRating = (props) => {
     props.getRating(value);
   }
 
+  if (props.submitted) {
+      console.log(rating)
+      return (
+    setHover(null)
+    )
+  }
+
   return (
-    <div>
+    <Fragment>
       {[...Array(5)].map((star, i) => {
         const ratingValue = i + 1;
         return (
-          <label  key={i}>
+          <label key={i}>
             <input
               type="radio"
               name="rating"
@@ -33,7 +40,7 @@ const StarRating = (props) => {
           </label>
         );
       })}
-    </div>
+    </Fragment>
   );
 };
 

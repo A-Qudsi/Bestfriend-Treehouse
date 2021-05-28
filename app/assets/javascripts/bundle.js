@@ -1831,129 +1831,80 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _reviews_star_rating__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reviews_star_rating */ "./frontend/components/reviews/reviews_star_rating.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
 
-var ReviewForm = /*#__PURE__*/function (_React$Component) {
-  _inherits(ReviewForm, _React$Component);
+var ReviewForm = function ReviewForm(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+      _useState2 = _slicedToArray(_useState, 2),
+      body = _useState2[0],
+      setBody = _useState2[1];
 
-  var _super = _createSuper(ReviewForm);
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+      _useState4 = _slicedToArray(_useState3, 2),
+      rating = _useState4[0],
+      setRating = _useState4[1];
 
-  function ReviewForm(props) {
-    var _this;
+  var bodyChangeHandler = function bodyChangeHandler(event) {
+    setBody(event.currentTarget.value);
+  };
 
-    _classCallCheck(this, ReviewForm);
+  var getRating = function getRating(number) {
+    setRating(number);
+  };
 
-    _this = _super.call(this, props);
-    _this.state = {
-      body: "",
-      rating: "",
-      submitted: false
-    };
-    _this.submitReview = _this.submitReview.bind(_assertThisInitialized(_this));
-    _this.update = _this.update.bind(_assertThisInitialized(_this));
-    _this.clearBody = _this.clearBody.bind(_assertThisInitialized(_this));
-    _this.getRating = _this.getRating.bind(_assertThisInitialized(_this));
-    return _this;
-  }
+  var submitReview = function submitReview(e) {
+    e.preventDefault();
 
-  _createClass(ReviewForm, [{
-    key: "update",
-    value: function update(field) {
-      var _this2 = this;
-
-      return function (e) {
-        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
-      };
-    }
-  }, {
-    key: "clearBody",
-    value: function clearBody() {
-      this.setState({
-        body: ""
+    if (props.currentUser) {
+      props.createReview({
+        body: body,
+        rating: rating,
+        user_id: props.currentUser.id,
+        spot_id: props.spot.id
       });
+    } else {
+      props.openModal("login");
     }
-  }, {
-    key: "getRating",
-    value: function getRating(number) {
-      this.setState({
-        rating: number
-      });
+
+    setBody("");
+    setRating(null);
+  };
+
+  var spot = props.spot;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    className: "reviewForm"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "reviewsFormDiv"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "reviewsBodyTextarea",
+    type: "textarea",
+    value: body,
+    placeholder: "Tell us about your stay",
+    onChange: bodyChangeHandler
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "reviewsRatingDiv"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_star_rating__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    getRating: getRating
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "submit-button",
+    onClick: function onClick(e) {
+      return submitReview(e);
     }
-  }, {
-    key: "submitReview",
-    value: function submitReview(e) {
-      e.preventDefault();
-
-      if (this.props.currentUser) {
-        this.props.createReview({
-          body: this.state.body,
-          rating: this.state.rating,
-          user_id: this.props.currentUser.id,
-          spot_id: this.props.spot.id
-        });
-      } else {
-        this.props.openModal("login");
-      }
-
-      this.clearBody();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this3 = this;
-
-      var spot = this.props.spot;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "reviewForm"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "reviewsFormDiv"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "reviewsBodyTextarea",
-        type: "textarea",
-        value: this.state.body,
-        placeholder: "Tell us about your stay",
-        onChange: this.update("body")
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "reviewsRatingDiv"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_star_rating__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        getRating: this.getRating,
-        clearRating: this.state.submitted
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "submit-button",
-        onClick: function onClick(e) {
-          return _this3.submitReview(e);
-        }
-      }, "Submit Review"));
-    }
-  }]);
-
-  return ReviewForm;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+  }, "Submit Review"));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (ReviewForm);
 
@@ -2151,7 +2102,12 @@ var StarRating = function StarRating(props) {
     props.getRating(value);
   }
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, _toConsumableArray(Array(5)).map(function (star, i) {
+  if (props.submitted) {
+    console.log(rating);
+    return setHover(null);
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, _toConsumableArray(Array(5)).map(function (star, i) {
     var ratingValue = i + 1;
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
       key: i
