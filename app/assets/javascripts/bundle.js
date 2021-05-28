@@ -3308,7 +3308,8 @@ var SpotsIndexItem = /*#__PURE__*/function (_React$Component) {
           description = _this$props$spot.description,
           maxGuests = _this$props$spot.maxGuests,
           price = _this$props$spot.price,
-          average_rating = _this$props$spot.average_rating;
+          average_rating = _this$props$spot.average_rating,
+          photoUrls = _this$props$spot.photoUrls;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/spots/".concat(spotId),
         key: spotId
@@ -3317,7 +3318,7 @@ var SpotsIndexItem = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "index-item-image"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: this.props.spot.photoUrls[1]
+        src: photoUrls[1]
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "index-item-info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

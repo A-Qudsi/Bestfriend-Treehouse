@@ -8,17 +8,25 @@ class SpotsIndexItem extends React.Component {
 
   render() {
     const spotId = this.props.spot.id;
-    const { name, description, maxGuests, price, average_rating } = this.props.spot;
+    const {
+      name,
+      description,
+      maxGuests,
+      price,
+      average_rating,
+      photoUrls,
+    } = this.props.spot;
+
     return (
       <Link to={`/spots/${spotId}`} key={spotId}>
         <div className="spot-index-item">
           <div className="index-item-image">
-            <img src={this.props.spot.photoUrls[1]} />
+            <img src={photoUrls[1]} />
           </div>
           <div className="index-item-info">
             <div className="index-item-header">
               <p className="index-item-name">{name}</p>
-              <div className='index-item-icon'>
+              <div className="index-item-icon">
                 {average_rating} <i className="fas yellow fa-star"></i>
               </div>
             </div>
