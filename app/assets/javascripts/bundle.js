@@ -3179,8 +3179,7 @@ var SpotsPage = /*#__PURE__*/function (_React$Component) {
           className: "spots",
           key: spot.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spots_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          spot: spot,
-          key: spot.id
+          spot: spot
         }));
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_map_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
         spots: this.props.spots,

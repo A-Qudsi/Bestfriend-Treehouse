@@ -32,7 +32,7 @@ class SpotsPage extends React.Component {
             <div className="listings">
               {this.props.spots.map((spot) => (
                 <div className="spots" key={spot.id}>
-                  <SpotsIndexItem spot={spot} key={spot.id} />
+                  <SpotsIndexItem spot={spot} />
                 </div>
               ))}
             </div>
