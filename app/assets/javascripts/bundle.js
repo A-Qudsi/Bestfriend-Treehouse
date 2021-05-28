@@ -1880,7 +1880,8 @@ var ReviewForm = function ReviewForm(props) {
     }
 
     setBody("");
-    setRating(null);
+    setRating("");
+    console.log(rating);
   };
 
   var spot = props.spot;
@@ -2100,11 +2101,6 @@ var StarRating = function StarRating(props) {
   function updateStarRating(value) {
     setRating(value);
     props.getRating(value);
-  }
-
-  if (props.submitted) {
-    console.log(rating);
-    return setHover(null);
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, _toConsumableArray(Array(5)).map(function (star, i) {

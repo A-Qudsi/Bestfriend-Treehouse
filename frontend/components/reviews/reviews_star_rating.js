@@ -9,13 +9,6 @@ const StarRating = (props) => {
     props.getRating(value);
   }
 
-  if (props.submitted) {
-      console.log(rating)
-      return (
-    setHover(null)
-    )
-  }
-
   return (
     <Fragment>
       {[...Array(5)].map((star, i) => {

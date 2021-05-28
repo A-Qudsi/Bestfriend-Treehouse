@@ -16,18 +16,19 @@ const ReviewForm = (props) => {
   const submitReview = (e) => {
     e.preventDefault();
     if (props.currentUser) {
-      props.createReview({
-        body: body,
-        rating: rating,
-        user_id: props.currentUser.id,
-        spot_id: props.spot.id,
-      });
+        props.createReview({
+            body: body,
+            rating: rating,
+            user_id: props.currentUser.id,
+            spot_id: props.spot.id,
+        });
     } else {
-      props.openModal("login");
+        props.openModal("login");
     }
     setBody("");
-    setRating(null);
-  };
+    setRating("");
+    console.log(rating)
+};
 
   const { spot } = props;
 
