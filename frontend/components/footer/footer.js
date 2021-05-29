@@ -5,13 +5,22 @@ const Footer = () => {
     <div className="footer">
       <span>© 2020 Bestfriend TreeHouse · Adel Qudsi · </span>
       <span>
-        <a href="http://adelqudsi.com/">Portfolio · </a>
+        <a href="http://adelqudsi.com/" target="_blank">
+          Portfolio ·{" "}
+        </a>
       </span>
       <span>
-        <a href="https://www.linkedin.com/in/adel-qudsi/">Linkedin · </a>
+        <a href="https://www.linkedin.com/in/adel-qudsi/" target="_blank">
+          Linkedin ·{" "}
+        </a>
       </span>
       <span>
-        <a href="https://github.com/A-Qudsi/Bestfriend-Treehouse">Github</a>
+        <a
+          href="https://github.com/A-Qudsi/Bestfriend-Treehouse"
+          target="_blank"
+        >
+          Github
+        </a>
       </span>
     </div>
   );
