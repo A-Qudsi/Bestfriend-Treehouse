@@ -13,25 +13,33 @@ export const fetchSpot = (spotId) => {
   });
 };
 
-export const createSpot = (spot) => {
+export const spotsSearch = (keyword) => {
   return $.ajax({
-    method: "POST",
-    url: `/api/spots/${spot.id}`,
-    data: { spot },
+    method: "GET",
+    url: "/api/arenas",
+    data: { keyword },
   });
 };
 
-export const updateSpot = (spot) => {
-  return $.ajax({
-    method: "PATCH",
-    url: `/api/spots/${spot.id}`,
-    data: { spot },
-  });
-};
+// export const createSpot = (spot) => {
+//   return $.ajax({
+//     method: "POST",
+//     url: `/api/spots/${spot.id}`,
+//     data: { spot },
+//   });
+// };
 
-export const deleteSpot = (spotId) => {
-  return $.ajax({
-    method: "DELETE",
-    url: `/api/spots/${spotId}`,
-  });
-};
+// export const updateSpot = (spot) => {
+//   return $.ajax({
+//     method: "PATCH",
+//     url: `/api/spots/${spot.id}`,
+//     data: { spot },
+//   });
+// };
+
+// export const deleteSpot = (spotId) => {
+//   return $.ajax({
+//     method: "DELETE",
+//     url: `/api/spots/${spotId}`,
+//   });
+// };

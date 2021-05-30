@@ -1,14 +1,18 @@
-// import { connect } from 'react-redux';
-// import { updateFilter } from '../../actions/filter_actions';
+// import { connect } from "react-redux";
+// import Search from "./search";
+// import { updateFilter } from "../../actions/filter_actions";
+// import { fetchSpots } from "../../actions/spot_actions";
+// import { deleteKeyword } from "../../actions/keyword_actions";
 
-// const mapStateToProps = state => ({
+// const mSTP = (state) => ({
+//   spots: Object.values(state.entities.spots),
+//   keyword: state.ui.keyword,
 // });
 
-// const mapDispatchToProps = dispatch => ({
-//     updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
+// const mDTP = (dispatch) => ({
+//   fetchSpots: () => dispatch(fetchSpots()),
+//   deleteKeyword: () => dispatch(deleteKeyword()),
+//   updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
 // });
 
-// export default connect(
-//     mapStateToProps,
-//     mapDispatchToProps
-// )(Search);
+// export default connect(mSTP, mDTP)(Search);
