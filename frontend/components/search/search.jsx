@@ -13,8 +13,6 @@
 //     </div>
 //     <div className="right-half">
 //     {/* //   <FilterForm */}
-//     {/* //     minSeating={minSeating}
-//     //     maxSeating={maxSeating}
 //     //     updateFilter={updateFilter}
 //     //   /> */}
 //         <SpotsPage spots={spots} />
