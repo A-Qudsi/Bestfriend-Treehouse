@@ -21,25 +21,25 @@ export const spotsSearch = (keyword) => {
   });
 };
 
-// export const createSpot = (spot) => {
-//   return $.ajax({
-//     method: "POST",
-//     url: `/api/spots/${spot.id}`,
-//     data: { spot },
-//   });
-// };
+export const createSpot = (spot) => {
+  return $.ajax({
+    method: "POST",
+    url: `/api/spots/${spot.id}`,
+    data: { spot },
+  });
+};
 
-// export const updateSpot = (spot) => {
-//   return $.ajax({
-//     method: "PATCH",
-//     url: `/api/spots/${spot.id}`,
-//     data: { spot },
-//   });
-// };
+export const updateSpot = (spot) => {
+  return $.ajax({
+    method: "PATCH",
+    url: `/api/spots/${spot.id}`,
+    data: { spot },
+  });
+};
 
-// export const deleteSpot = (spotId) => {
-//   return $.ajax({
-//     method: "DELETE",
-//     url: `/api/spots/${spotId}`,
-//   });
-// };
+export const deleteSpot = (spotId) => {
+  return $.ajax({
+    method: "DELETE",
+    url: `/api/spots/${spotId}`,
+  });
+};
