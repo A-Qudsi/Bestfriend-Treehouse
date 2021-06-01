@@ -25,8 +25,8 @@ const removeSpot = (spotId) => {
   };
 };
 
-export const fetchSpots = () => (dispatch) => {
-  return SpotUtil.fetchSpots().then((spots) => dispatch(receiveSpots(spots)));
+export const fetchSpots = (filters) => (dispatch) => {
+  return SpotUtil.fetchSpots(filters).then((spots) => dispatch(receiveSpots(spots)));
   // errors => dispatch(receiveErrors(errors.responseJSON)))
 };
 

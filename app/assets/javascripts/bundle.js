@@ -111,7 +111,7 @@ var changeFilter = function changeFilter(filter, value) {
 var updateFilter = function updateFilter(filter, value) {
   return function (dispatch, getState) {
     dispatch(changeFilter(filter, value));
-    return Object(_spot_actions__WEBPACK_IMPORTED_MODULE_0__["fetchSpots"])(getState().ui.filters)(dispatch);
+    dispatch(Object(_spot_actions__WEBPACK_IMPORTED_MODULE_0__["fetchSpots"])(getState().ui.filters));
   };
 };
 
@@ -431,9 +431,9 @@ var removeSpot = function removeSpot(spotId) {
   };
 };
 
-var fetchSpots = function fetchSpots() {
+var fetchSpots = function fetchSpots(filters) {
   return function (dispatch) {
-    return _util_spots_util__WEBPACK_IMPORTED_MODULE_0__["fetchSpots"]().then(function (spots) {
+    return _util_spots_util__WEBPACK_IMPORTED_MODULE_0__["fetchSpots"](filters).then(function (spots) {
       return dispatch(receiveSpots(spots));
     }); // errors => dispatch(receiveErrors(errors.responseJSON)))
   };
@@ -3707,10 +3707,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _filter_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./filter_reducer */ "./frontend/reducers/filter_reducer.js");
 
 
+ // import keywordSearchReducer from "./keyword_search_reducer";
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   modal: _modal_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  filters: _filter_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  filters: _filter_reducer__WEBPACK_IMPORTED_MODULE_2__["default"] // keyword: keywordSearchReducer
+
 }));
 
 /***/ }),
@@ -4059,27 +4061,37 @@ var logout = function logout() {
 /*!*************************************!*\
   !*** ./frontend/util/spots_util.js ***!
   \*************************************/
-/*! exports provided: fetchSpots, fetchSpot, createSpot, updateSpot, deleteSpot */
+/*! exports provided: fetchSpots, fetchSpot, spotsSearch, createSpot, updateSpot, deleteSpot */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpots", function() { return fetchSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpot", function() { return fetchSpot; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "spotsSearch", function() { return spotsSearch; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createSpot", function() { return createSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSpot", function() { return updateSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteSpot", function() { return deleteSpot; });
-var fetchSpots = function fetchSpots(filter) {
+var fetchSpots = function fetchSpots(bounds) {
   return $.ajax({
     method: "GET",
     url: "/api/spots",
-    data: filter
+    data: bounds
   });
 };
 var fetchSpot = function fetchSpot(spotId) {
   return $.ajax({
     method: "GET",
     url: "/api/spots/".concat(spotId)
+  });
+};
+var spotsSearch = function spotsSearch(keyword) {
+  return $.ajax({
+    method: "GET",
+    url: "/api/arenas",
+    data: {
+      keyword: keyword
+    }
   });
 };
 var createSpot = function createSpot(spot) {
