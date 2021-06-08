@@ -1250,42 +1250,42 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "addInfantCounter",
-    value: function addInfantCounter(e) {
+    value: function addInfantCounter() {
       this.setState({
         infantCounter: this.state.infantCounter + 1
       });
     }
   }, {
     key: "addChildrenCounter",
-    value: function addChildrenCounter(e) {
+    value: function addChildrenCounter() {
       this.setState({
         childrenCounter: this.state.childrenCounter + 1
       });
     }
   }, {
     key: "addCounter",
-    value: function addCounter(e) {
+    value: function addCounter() {
       this.setState({
         counter: this.state.counter + 1
       });
     }
   }, {
     key: "removeInfantCounter",
-    value: function removeInfantCounter(e) {
+    value: function removeInfantCounter() {
       this.setState({
         infantCounter: this.state.infantCounter - 1
       });
     }
   }, {
     key: "removeChildrenCounter",
-    value: function removeChildrenCounter(e) {
+    value: function removeChildrenCounter() {
       this.setState({
         childrenCounter: this.state.childrenCounter - 1
       });
     }
   }, {
     key: "removeCounter",
-    value: function removeCounter(e) {
+    value: function removeCounter() {
       this.setState({
         counter: this.state.counter - 1
       });
@@ -2742,7 +2742,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var SpotBody = function SpotBody(_ref) {
   var spot = _ref.spot;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spotbodyrightside"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spotshowbody"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Entire house hosted by ", spot.host_id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, spot.maxGuests, " Guests")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "entirehome"

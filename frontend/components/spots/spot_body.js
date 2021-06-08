@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const SpotBody = ({ spot }) => {
-
     return (
-        <div>
+        <div className='spotbodyrightside'>
             <div className ='spotshowbody'>
                 <span>Entire house hosted by {spot.host_id}</span>
                 <p>{spot.maxGuests} Guests</p>

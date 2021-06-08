@@ -36,25 +36,25 @@ class Dropdown extends React.Component {
     this.setState({ clicked: !this.state.clicked });
   }
 
-  addInfantCounter(e) {
+  addInfantCounter() {
     this.setState({ infantCounter: this.state.infantCounter + 1 });
   }
 
-  addChildrenCounter(e) {
+  addChildrenCounter() {
     this.setState({ childrenCounter: this.state.childrenCounter + 1 });
   }
 
-  addCounter(e) {
+  addCounter() {
     this.setState({ counter: this.state.counter + 1 });
   }
 
-  removeInfantCounter(e) {
+  removeInfantCounter() {
     this.setState({ infantCounter: this.state.infantCounter - 1 });
   }
-  removeChildrenCounter(e) {
+  removeChildrenCounter() {
     this.setState({ childrenCounter: this.state.childrenCounter - 1 });
   }
-  removeCounter(e) {
+  removeCounter() {
     this.setState({ counter: this.state.counter - 1 });
   }
 
