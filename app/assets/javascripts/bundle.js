@@ -2741,7 +2741,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var SpotBody = function SpotBody(_ref) {
-  var spot = _ref.spot;
+  var spot = _ref.spot,
+      users = _ref.users;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spotbodyrightside"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2928,7 +2929,9 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       if (!this.props.spot) return null;
-      var spot = this.props.spot;
+      var _this$props = this.props,
+          spot = _this$props.spot,
+          users = _this$props.users;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showpagediv"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_header__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -2938,7 +2941,8 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spotsShowBodyContainer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_body__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        spot: spot
+        spot: spot,
+        users: users
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spotsShowRightSide"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reservations_reservation_form__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -2995,8 +2999,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
+  debugger;
   return {
     currentUser: state.entities.users[state.session.id],
+    users: state.entities.users,
     spot: state.entities.spots[ownProps.match.params.spotId],
     spotId: ownProps.match.params.spotId
   };
@@ -3739,6 +3745,9 @@ var usersReducer = function usersReducer() {
   Object.freeze(state);
 
   switch (action.type) {
+    case RECEIVE_SPOTS:
+      return action.spots;
+
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       return Object.assign({}, state, _defineProperty({}, action.currentUser.id, action.currentUser));
 
@@ -4090,7 +4099,7 @@ var fetchSpot = function fetchSpot(spotId) {
 var spotsSearch = function spotsSearch(keyword) {
   return $.ajax({
     method: "GET",
-    url: "/api/arenas",
+    url: "/api/spots",
     data: {
       keyword: keyword
     }

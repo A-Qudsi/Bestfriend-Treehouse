@@ -16,7 +16,7 @@ export const fetchSpot = (spotId) => {
 export const spotsSearch = (keyword) => {
   return $.ajax({
     method: "GET",
-    url: "/api/arenas",
+    url: "/api/spots",
     data: { keyword },
   });
 };

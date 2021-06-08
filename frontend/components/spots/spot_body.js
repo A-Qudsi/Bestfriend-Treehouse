@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-const SpotBody = ({ spot }) => {
+const SpotBody = ({ spot, users }) => {
     return (
         <div className='spotbodyrightside'>
             <div className ='spotshowbody'>

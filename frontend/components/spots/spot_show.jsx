@@ -29,14 +29,14 @@ class SpotShow extends React.Component {
 
   render() {
     if (!this.props.spot) return null;
-    const { spot } = this.props;
+    const { spot, users } = this.props;
 
     return (
       <div className="showpagediv">
         <SpotHeader spot={spot} />
         <Pictures spot={spot} />
         <div className="spotsShowBodyContainer">
-          <SpotBody spot={spot} />
+          <SpotBody spot={spot} users = {users} />
           <div className="spotsShowRightSide">
             <ReservationForm
               spot={spot}
