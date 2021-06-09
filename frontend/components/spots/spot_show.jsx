@@ -19,6 +19,7 @@ class SpotShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchSpots();
+    this.props.fetchUsers();
   }
 
   // totalCostPrice(number){
