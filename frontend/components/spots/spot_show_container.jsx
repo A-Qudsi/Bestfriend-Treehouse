@@ -4,13 +4,10 @@ import SpotShow from "./spot_show";
 import { createReservation } from "../../actions/reservation_actions";
 import { openModal } from "../../actions/modal_actions";
 import { createReview } from "../../actions/review_actions";
-import { fetchUsers } from "../../actions/users_action";
 
 const mSTP = (state, ownProps) => {
-  debugger
   return {
     currentUser: state.entities.users[state.session.id],
-    users: state.entities.users,
     spot: state.entities.spots[ownProps.match.params.spotId],
     spotId: ownProps.match.params.spotId,
   };
@@ -20,7 +17,6 @@ const mDTP = (dispatch) => ({
   openModal: (modal) => dispatch(openModal(modal)),
   createReview: (review) => dispatch(createReview(review)),
   fetchSpots: () => dispatch(fetchSpots()),
-  fetchUsers: () => dispatch(fetchUsers()),
   fetchSpot: (id) => dispatch(fetchSpot(id)),
   createReservation: (reservation) => dispatch(createReservation(reservation)),
 });

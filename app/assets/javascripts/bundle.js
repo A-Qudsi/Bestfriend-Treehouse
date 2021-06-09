@@ -469,38 +469,6 @@ var deleteSpot = function deleteSpot(spotId) {
 
 /***/ }),
 
-/***/ "./frontend/actions/users_action.js":
-/*!******************************************!*\
-  !*** ./frontend/actions/users_action.js ***!
-  \******************************************/
-/*! exports provided: RECEIVE_USERS, fetchUsers */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_USERS", function() { return RECEIVE_USERS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUsers", function() { return fetchUsers; });
-/* harmony import */ var _util_users_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/users_util */ "./frontend/util/users_util.js");
-
-var RECEIVE_USERS = "RECEIVE_USERS";
-
-var receiveUsers = function receiveUsers(users) {
-  return {
-    type: RECEIVE_USERS,
-    users: users
-  };
-};
-
-var fetchUsers = function fetchUsers() {
-  return function (dispatch) {
-    return _util_users_util__WEBPACK_IMPORTED_MODULE_0__["fetchUsers"]().then(function (users) {
-      return dispatch(receiveUsers(users));
-    });
-  };
-};
-
-/***/ }),
-
 /***/ "./frontend/components/app.jsx":
 /*!*************************************!*\
   !*** ./frontend/components/app.jsx ***!
@@ -2951,7 +2919,6 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchSpots();
-      this.props.fetchUsers();
     } // totalCostPrice(number){
     //     this.setState({
     //         costPrice: number
@@ -3024,8 +2991,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/reservation_actions */ "./frontend/actions/reservation_actions.js");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 /* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
-/* harmony import */ var _actions_users_action__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/users_action */ "./frontend/actions/users_action.js");
-
 
 
 
@@ -3034,10 +2999,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  debugger;
   return {
     currentUser: state.entities.users[state.session.id],
-    users: state.entities.users,
     spot: state.entities.spots[ownProps.match.params.spotId],
     spotId: ownProps.match.params.spotId
   };
@@ -3053,9 +3016,6 @@ var mDTP = function mDTP(dispatch) {
     },
     fetchSpots: function fetchSpots() {
       return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["fetchSpots"])());
-    },
-    fetchUsers: function fetchUsers() {
-      return dispatch(Object(_actions_users_action__WEBPACK_IMPORTED_MODULE_6__["fetchUsers"])());
     },
     fetchSpot: function fetchSpot(id) {
       return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["fetchSpot"])(id));
@@ -3773,9 +3733,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
-/* harmony import */ var _actions_users_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/users_action */ "./frontend/actions/users_action.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -3785,9 +3743,6 @@ var usersReducer = function usersReducer() {
   Object.freeze(state);
 
   switch (action.type) {
-    case _actions_users_action__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_USERS"]:
-      return action.users;
-
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       return Object.assign({}, state, _defineProperty({}, action.currentUser.id, action.currentUser));
 
@@ -4167,25 +4122,6 @@ var deleteSpot = function deleteSpot(spotId) {
   return $.ajax({
     method: "DELETE",
     url: "/api/spots/".concat(spotId)
-  });
-};
-
-/***/ }),
-
-/***/ "./frontend/util/users_util.js":
-/*!*************************************!*\
-  !*** ./frontend/util/users_util.js ***!
-  \*************************************/
-/*! exports provided: fetchUsers */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUsers", function() { return fetchUsers; });
-var fetchUsers = function fetchUsers() {
-  return $.ajax({
-    method: "GET",
-    url: "/api/users"
   });
 };
 
