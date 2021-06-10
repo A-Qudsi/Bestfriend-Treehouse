@@ -8,7 +8,7 @@
 //   };
 // };
 
-// export const deleteKeyword = (keyword) => {
+// export const deleteKeyword = () => {
 //   return {
 //     type: DELETE_KEYWORD,
 //   };
