@@ -16,7 +16,7 @@ class SpotsPage extends React.Component {
       <div className="Spots-div">
         <div className="leftside">
           <div className="Spotspage-header">
-            <h1 className="Spots-title">4+ stays</h1>
+            <h1 className="Spots-title">{this.props.spots.length} stays</h1>
             <p className="Spots-header">Stays in New York</p>
             <div className="Spots-button">
               <button>Cancellation Policy</button>

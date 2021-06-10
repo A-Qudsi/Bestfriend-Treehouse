@@ -3129,7 +3129,7 @@ var SpotsPage = /*#__PURE__*/function (_React$Component) {
         className: "Spotspage-header"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "Spots-title"
-      }, "4+ stays"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, this.props.spots.length, " stays"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "Spots-header"
       }, "Stays in New York"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Spots-button"
