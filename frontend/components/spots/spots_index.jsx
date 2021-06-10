@@ -29,13 +29,13 @@ class SpotsPage extends React.Component {
               Review COVID-19 travel restrictions before you book. Learn more
             </p>
           </div>
-            <div className="listings">
-              {this.props.spots.map((spot) => (
-                <div className="spots" key={spot.id}>
-                  <SpotsIndexItem spot={spot} />
-                </div>
-              ))}
-            </div>
+          <div className="listings">
+            {this.props.spots.map((spot) => (
+              <div className="spots" key={spot.id}>
+                <SpotsIndexItem spot={spot} />
+              </div>
+            ))}
+          </div>
         </div>
         <Map spots={this.props.spots} updateFilter={this.props.updateFilter} />
       </div>
