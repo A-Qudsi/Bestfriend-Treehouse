@@ -76,11 +76,13 @@ end
  
  Once logged in users are able to leave reviews to the spot listing of their choosing.
  
- 
+ ![Reviews](https://github.com/A-Qudsi/Bestfriend-Treehouse/blob/master/app/assets/images/Reviews.gif)
  
  ## Reservations
  
  Once found their ideal location, users are able to reserve a spot by specifying their time of stay and the number of guests. Users can see all the reservations they've made and cancel any reservations made prior.
+ 
+ ![Reservations](https://github.com/A-Qudsi/Bestfriend-Treehouse/blob/master/app/assets/images/Reservations.gif)
  
  # Future Features
  
