@@ -79,6 +79,6 @@ end
  
  # Future Features
  
- # Search
+ ## Search
  
- # User Profile
+ ## User Profile
