@@ -19,3 +19,5 @@ Users are able to login and signup via a modal. The users credentials is then au
 
 On the spots index page you'll find a listings of all spots that are located on the map. As you move the bounds of the map the spot locations will dynamically filter out and in the locations found within the bounds of the map.
 
+![Map Filter](https://adelqudsi.com/wp-content/uploads/2021/06/2021-06-22_14-01-40.gif)
+
