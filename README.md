@@ -21,3 +21,53 @@ On the spots index page you'll find a listings of all spots that are located on 
 
 ![Map Filter](https://github.com/A-Qudsi/Bestfriend-Treehouse/blob/master/app/assets/images/MapFilter.gif)
 
+```  
+addEventListener() {
+    google.maps.event.addListener(this.map, "idle", () => {
+      const { north, south, east, west } = this.map.getBounds().toJSON();
+      const bounds = {
+        northEast: { lat: north, lng: east },
+        southWest: { lat: south, lng: west },
+      };
+       
+      this.props.updateFilter('bounds', bounds);
+    });
+  }
+    
+ ```
+ 
+ With the use of a custom filter action the updated coordinates get sent to the backend where spots are then filtered and only show the updated spots confined within the maps bounds.
+ 
+ ```
+ export const changeFilter = (filter, value) => ({
+  type: UPDATE_FILTER,
+  filter,
+  value,
+});
+
+export const updateFilter = (filter, value) => (dispatch, getState) => {
+  dispatch(changeFilter(filter, value));
+  dispatch(fetchSpots(getState().ui.filters));
+};
+
+```
+```
+
+export const fetchSpots = (bounds) => {
+  return $.ajax({
+    method: "GET",
+    url: "/api/spots",
+    data: bounds
+  });
+};
+
+```
+```
+  
+def self.in_bounds(bounds)
+    Spot.where("latitude < ?", bounds[:northEast][:lat])
+        .where("latitude > ?", bounds[:southWest][:lat])
+        .where("longitude < ?", bounds[:northEast][:lng])
+        .where("longitude > ?", bounds[:southWest][:lng])
+end
+ ```
