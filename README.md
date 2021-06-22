@@ -14,3 +14,8 @@ Bestfriend Treehouse is built with Ruby on Rails and PostgreSQL on the backend a
 Users are able to login and signup via a modal. The users credentials is then authenticated through the backend and would relay the appropiate response to the front  where custom error messages display to guide the user. A demo user was implemented to bypass signing up should the User want to use to preview the site.
 
 ![User Authentication](https://adelqudsi.com/wp-content/uploads/2021/06/2021-06-22_13-23-55-1.gif)
+
+## Map Filter
+
+On the spots index page you'll find a listings of all spots that are located on the map. As you move the bounds of the map the spot locations will dynamically filter out and in the locations found within the bounds of the map.
+
