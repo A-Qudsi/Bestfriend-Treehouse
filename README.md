@@ -1,7 +1,7 @@
 ![Bestfriend Treehouse](https://bestfriend-treehouse-seeds.s3.amazonaws.com/f39e3999c24445afb5a328b6c5a2f040.png)
-# BestFriend TreeHouse
+# Bestfriend TreeHouse
 
-Bestfriend TreeHouse is a fullstack clone of AirBnB where users can explore, book and review listings.
+Bestfriend TreeHouse is a fullstack clone of AirBnB where users can explore, book and review listings. <a href='http://bestfriend-treehouse.herokuapp.com/#/'>Live Link</a>
 
 # Technologies
 
