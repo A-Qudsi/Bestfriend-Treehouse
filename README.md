@@ -74,11 +74,20 @@ end
  
  ## Reviews
  
+ Once logged in users are able to leave reviews to the spot listing of their choosing.
+ 
+ 
+ 
  ## Reservations
  
+ Once found their ideal location, users are able to reserve a spot by specifying their time of stay and the number of guests. Users can see all the reservations they've made and cancel any reservations made prior.
  
  # Future Features
  
  ## Search
  
- ## User Profile
+ A search bar will soon be fully functional, users are able to search different parameters such as location and other features like guest size and/or ammenities.
+ 
+ ## Seeding more spots
+ 
+ Currently there are only 4 available locations found in Manhattan, however more spots will be seeded for other parts of NYC and some areas in California.
