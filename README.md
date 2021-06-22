@@ -71,3 +71,14 @@ def self.in_bounds(bounds)
         .where("longitude > ?", bounds[:southWest][:lng])
 end
  ```
+ 
+ ## Reviews
+ 
+ ## Reservations
+ 
+ 
+ # Future Features
+ 
+ # Search
+ 
+ # User Profile
