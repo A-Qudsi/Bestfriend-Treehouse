@@ -5,7 +5,7 @@ Bestfriend TreeHouse is a fullstack clone of AirBnB where users can explore, boo
 
 # Technologies
 
-Bestfriend Treehouse is built with Ruby on Rails and PostgreSQL on the backend and utilizes JavaScript, React and Redux for the frontend state management. Syling is implemented with CSS and HTML5. Google Maps API is used to render maps on the application displaying all the spot locations.
+Bestfriend Treehouse is built with Ruby on Rails and PostgreSQL on the backend and utilizes JavaScript, React and Redux for the frontend state management. Styling is implemented with CSS and HTML5. Google Maps API is used to render maps on the application displaying all the spot locations.
 
 # Features
 
