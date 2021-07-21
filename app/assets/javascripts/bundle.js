@@ -2978,9 +2978,9 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         openModal: this.props.openModal,
         createReservation: this.props.createReservation // totalCostPrice= {this.totalCostPrice}
 
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "reviewsHeader"
-      }, "REVIEWS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reviewContainer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_reviews_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
         spot: spot
@@ -3077,7 +3077,7 @@ var Pictures = function Pictures(_ref) {
       key: "photo_".concat(idx + 1)
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: url,
-      className: "photo_".concat(idx + 1)
+      className: "img_".concat(idx + 1)
     }));
   });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

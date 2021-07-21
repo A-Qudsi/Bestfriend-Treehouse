@@ -10,7 +10,6 @@
     display: flex;
 }
 
-
 .Spots-header {
     font-size: 30px;
     font-weight: 600;
@@ -120,6 +119,7 @@
 .showpagediv {
     border-top: 1px solid #f7f7f7;
     padding: 20px 50px;
+    margin: 20px 50px;
 }
 
 .address {
@@ -147,10 +147,11 @@
 
 .photo_grid {
     display: grid;
-    grid-template-columns: 50% 25% 25%;
-    grid-gap: 8px;
+    grid-template-columns: 2fr repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
     padding: 10px 0px;
-    column-gap: 8px;
     border-radius: 15px;
 }
 
@@ -161,15 +162,27 @@
     border-radius: 10px 0px 0px 10px;
 }
 
-.photo_2, .photo_3, .photo_4, .photo_5 {
+.img_2, .img_3, .img_4, .img_5 {
     max-height: 195px;
 }
 
-.photo_3 {
+.photo_grid img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.img_1 {
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+}
+
+.img_3 {
     border-radius: 0px 10px 0px 0px;
 }
 
-.photo_5 {
+.img_5 {
     border-radius: 0px 0px 10px 0px;
 }
 
