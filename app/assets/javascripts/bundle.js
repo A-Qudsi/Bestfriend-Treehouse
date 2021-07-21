@@ -1987,8 +1987,7 @@ var ReviewsIndex = /*#__PURE__*/function (_React$Component) {
           className: "review-item"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           review: review,
-          currentUser: _this.props.currentUser,
-          spot: _this.props.spot
+          currentUser: _this.props.currentUser
         }));
       }));
     }
@@ -2056,15 +2055,11 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
           body = _this$props$review.body,
           rating = _this$props$review.rating,
           user_id = _this$props$review.user_id;
-      var _this$props = this.props,
-          spot = _this$props.spot,
-          currentUser = _this$props.currentUser;
-      var editButton = user_id === currentUser.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/reviews/".concat(review.id, "/edit")
-      }, "edit") : null;
+      var currentUser = this.props.currentUser;
+      var editDeleteButtons = user_id === currentUser.id ? "edit delete" : null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-index-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, editButton), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, rating, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, editDeleteButtons), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, rating, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas yellow fa-star"
       })));
     }

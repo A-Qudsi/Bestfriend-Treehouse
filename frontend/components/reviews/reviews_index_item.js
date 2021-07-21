@@ -8,16 +8,14 @@ class ReviewIndexItem extends React.Component {
 
   render() {
     const { body, rating, user_id } = this.props.review;
-    const { spot, currentUser } = this.props;
-    const editButton =
-      user_id === currentUser.id ? (
-        <Link to={`/reviews/${review.id}/edit`}>edit</Link>
-      ) : null;
+    const { currentUser } = this.props;
+
+    const editDeleteButtons =  user_id === currentUser.id ? ( "edit delete") : null;
 
     return (
       <div className="review-index-item">
         <div>{body}</div>
-        <div>{editButton}</div>
+        <div>{editDeleteButtons}</div>
         <div>
           {rating}
           <i className="fas yellow fa-star"></i>
