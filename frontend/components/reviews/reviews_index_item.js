@@ -14,17 +14,20 @@ class ReviewIndexItem extends React.Component {
   render() {
     const { body, rating, user_id } = this.props.review;
     const { currentUser } = this.props;
-    const editDeleteButtons =
+    
+    const editDeleteButtons = currentUser ? (
       user_id === currentUser.id ? (
         <div className="review-buttons">
           <button onClick={this.editReview} className="review-edit">
             Edit
-          </button><br />
+          </button>
+          <br />
           <button onClick={this.deleteReview} className="review-edit">
             Delete
           </button>
         </div>
-      ) : null;
+      ) : null
+    ) : null;
 
     return (
       <div className="review-index-item">

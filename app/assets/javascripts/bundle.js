@@ -2061,7 +2061,7 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
           rating = _this$props$review.rating,
           user_id = _this$props$review.user_id;
       var currentUser = this.props.currentUser;
-      var editDeleteButtons = user_id === currentUser.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      var editDeleteButtons = currentUser ? user_id === currentUser.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-buttons"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.editReview,
@@ -2069,7 +2069,7 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
       }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.deleteReview,
         className: "review-edit"
-      }, "Delete")) : null;
+      }, "Delete")) : null : null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-index-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, editDeleteButtons), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, rating, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
