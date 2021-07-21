@@ -1,5 +1,6 @@
 class Api::ReviewsController < ApplicationController 
     before_action :ensure_logged_in, only: [:create, :destroy, :update]
+    before_action :ensure_not_reviewed, only: [:create]
 
     def index 
         @reviews = Review.all
@@ -35,10 +36,10 @@ class Api::ReviewsController < ApplicationController
         end
     end
 
-
     private
     
     def review_params
         params.require(:review).permit(:body, :rating, :user_id, :spot_id)
     end
+
 end
