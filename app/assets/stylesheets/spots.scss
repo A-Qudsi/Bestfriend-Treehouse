@@ -200,13 +200,14 @@
 }
 
 .spotshowtext {
-    p {
-    font-size: 16px;
-    color: gray;
-    }
-    width:800px;
+    width:100%;
     padding: 20px 0px;
     border-bottom: 1px solid darkgrey;
+      p {
+      font-size: 16px;
+      color: gray;
+      }
+
 }
 
 .entirehome, .enhancedclean, .checkin, .cancelation {
@@ -223,6 +224,12 @@
     }
 }
 
+.spotbodyrightside {
+  width: 60%;
+}
+
+
+
 .sBody {
     font-size: 13px;
     color: gray;
@@ -230,12 +237,12 @@
 
 .spotsShowBodyContainer {
     display: flex;
-    width: 800px;
 }
 
 .spotsShowRightSide {
   margin-top: 50px;
   margin-left: 50px;
+  width: 40%;
 }
 
 .bookingcontainer {
@@ -248,7 +255,6 @@
 }
 
 .bookingHeader {
-    width: 400px;
     padding: 30px 30px 0px 30px;
     display: flex;
     justify-content: space-between;
@@ -1115,7 +1121,6 @@
   direction: rtl
 }
 .DateRangePickerInput__block {
-  width: 398px;
   display: flex;
   border: 1px solid #dbdbdb
 }
@@ -1197,6 +1202,7 @@
   display: inline-block
 }
 .DateRangePicker__block {
+  width: 100%;
   display: block
 }
 .DateRangePicker_picker {
