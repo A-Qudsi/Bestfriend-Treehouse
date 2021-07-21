@@ -4,6 +4,7 @@ import { fetchReviews, destroyReview } from "../../actions/review_actions";
 
 const mSTP = (state, ownProps) => {
   return {
+    currentUser: state.entities.users[state.session.id],
     spot: ownProps.spot,
     reviews: ownProps.spot.review_ids
       .map((review_id) => state.entities.reviews[review_id])

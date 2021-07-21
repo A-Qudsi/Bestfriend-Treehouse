@@ -23,6 +23,11 @@ const App = () => (
         path="/users/:userId/reservations"
         component={ReservationIndexContainer}
       />
+      <ProtectedRoute
+        exact
+        path="/reviews/:reviewId/edit"
+        component={EditReviewContainer}
+      />
     </Switch>
     <Footer />
   </Fragment>

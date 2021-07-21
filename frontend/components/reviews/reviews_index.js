@@ -15,7 +15,11 @@ class ReviewsIndex extends React.Component {
       <ul className="review-container">
         {this.props.reviews.map((review) => (
           <li key={review.id} className="review-item">
-            <ReviewIndexItem review={review} />
+            <ReviewIndexItem
+              review={review}
+              currentUser={this.props.currentUser}
+              spot={this.props.spot}
+            />
           </li>
         ))}
       </ul>
