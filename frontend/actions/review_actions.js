@@ -18,10 +18,11 @@ export const receiveReview = ({ review }) => {
   };
 };
 
-export const removeReview = (reviewId) => {
+export const removeReview = (review) => {
+  debugger
   return {
     type: REMOVE_REVIEW,
-    reviewId,
+    reviewId: review.review.id
   };
 };
 

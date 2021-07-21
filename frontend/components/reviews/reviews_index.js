@@ -18,6 +18,7 @@ class ReviewsIndex extends React.Component {
             <ReviewIndexItem
               review={review}
               currentUser={this.props.currentUser}
+              deleteReview={this.props.deleteReview}
             />
           </li>
         ))}

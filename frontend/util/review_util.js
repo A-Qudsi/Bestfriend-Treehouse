@@ -29,7 +29,7 @@ export const updateReview = (review) => {
   });
 };
 
-export const destroyReview = (reviewId) => {
+export const deleteReview = (reviewId) => {
   return $.ajax({
     method: "DELETE",
     url: `api/reviews/${reviewId}`,

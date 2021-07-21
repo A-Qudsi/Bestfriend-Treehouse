@@ -1,16 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 class ReviewIndexItem extends React.Component {
   constructor(props) {
     super(props);
+
+    this.deleteReview = this.deleteReview.bind(this);
+  }
+
+  deleteReview() {
+    this.props.deleteReview(this.props.review.id);
   }
 
   render() {
     const { body, rating, user_id } = this.props.review;
     const { currentUser } = this.props;
-
-    const editDeleteButtons =  user_id === currentUser.id ? ( "edit delete") : null;
+    const editDeleteButtons =
+      user_id === currentUser.id ? (
+        <div className="review-buttons">
+          <button onClick={this.editReview} className="review-edit">
+            Edit
+          </button><br />
+          <button onClick={this.deleteReview} className="review-edit">
+            Delete
+          </button>
+        </div>
+      ) : null;
 
     return (
       <div className="review-index-item">
