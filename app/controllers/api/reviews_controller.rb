@@ -1,6 +1,5 @@
 class Api::ReviewsController < ApplicationController 
     before_action :ensure_logged_in, only: [:create, :destroy, :update]
-    before_action :ensure_not_reviewed, only: [:create]
 
     def index 
         @reviews = Review.all
@@ -9,7 +8,7 @@ class Api::ReviewsController < ApplicationController
 
     def create
         @review = current_user.reviews.new(review_params)
-        if @review.save
+        if (@review.save && !current_user.reviews.exists?(spot_id: :spot_id))
             render :show
         else
             render json: @review.errors.full_messages, status: 422
@@ -41,5 +40,6 @@ class Api::ReviewsController < ApplicationController
     def review_params
         params.require(:review).permit(:body, :rating, :user_id, :spot_id)
     end
+
 
 end

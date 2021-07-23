@@ -1887,8 +1887,6 @@ var ReviewForm = function ReviewForm(props) {
     }
 
     setBody("");
-    setRating("");
-    console.log(rating);
   };
 
   var spot = props.spot;
@@ -1961,9 +1959,15 @@ var ReviewsIndex = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(ReviewsIndex);
 
   function ReviewsIndex(props) {
+    var _this;
+
     _classCallCheck(this, ReviewsIndex);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.state = {
+      reviews: props.reviews
+    };
+    return _this;
   }
 
   _createClass(ReviewsIndex, [{
@@ -1972,11 +1976,31 @@ var ReviewsIndex = /*#__PURE__*/function (_React$Component) {
       this.props.fetchReviews(this.props.spot.id);
     }
   }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      debugger;
+
+      if (prevProps.reviews != this.props.reviews) {
+        this.setState({
+          reviews: this.props.reviews
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      var reviews = this.state.reviews;
+      var total = 0;
+      Object.values(reviews).forEach(function (rev) {
+        return total += rev.rating;
+      });
+      var number = reviews.length;
+      var average = (total / number).toFixed(2);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "reviewsHeader"
+      }, "Reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.reviews.length), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, average), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "review-container"
       }, this.props.reviews.map(function (review) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -1984,10 +2008,10 @@ var ReviewsIndex = /*#__PURE__*/function (_React$Component) {
           className: "review-item"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           review: review,
-          currentUser: _this.props.currentUser,
-          deleteReview: _this.props.deleteReview
+          currentUser: _this2.props.currentUser,
+          deleteReview: _this2.props.deleteReview
         }));
-      }));
+      })));
     }
   }]);
 
@@ -2978,9 +3002,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         openModal: this.props.openModal,
         createReservation: this.props.createReservation // totalCostPrice= {this.totalCostPrice}
 
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "reviewsHeader"
-      }, "Reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reviewContainer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_reviews_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
         spot: spot

@@ -14,7 +14,6 @@ class ReviewIndexItem extends React.Component {
   render() {
     const { body, rating, user_id } = this.props.review;
     const { currentUser } = this.props;
-    
     const editDeleteButtons = currentUser ? (
       user_id === currentUser.id ? (
         <div className="review-buttons">

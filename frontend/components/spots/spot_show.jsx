@@ -48,7 +48,6 @@ class SpotShow extends React.Component {
             />
           </div>
         </div>
-        <p className='reviewsHeader'>Reviews</p>
         <div className="reviewContainer">
           <ReviewContainer spot={spot} />
         </div>
