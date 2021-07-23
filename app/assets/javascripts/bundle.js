@@ -268,7 +268,7 @@ var receiveReview = function receiveReview(_ref) {
   };
 };
 var removeReview = function removeReview(review) {
-  debugger;
+  
   return {
     type: REMOVE_REVIEW,
     reviewId: review.review.id

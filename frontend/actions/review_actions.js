@@ -19,7 +19,6 @@ export const receiveReview = ({ review }) => {
 };
 
 export const removeReview = (review) => {
-  debugger
   return {
     type: REMOVE_REVIEW,
     reviewId: review.review.id
