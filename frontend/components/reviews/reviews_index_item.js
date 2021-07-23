@@ -12,9 +12,30 @@ class ReviewIndexItem extends React.Component {
   }
 
   render() {
-    debugger
-    const { body, rating, user_id, created_at } = this.props.review;
+    debugger;
+    const { body, rating, user_id, created_at, user } = this.props.review;
     const { currentUser } = this.props;
+
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    const [year, month] = [
+      created_at.slice(0, 3),
+      months[created_at.slice(5, 7) - 1],
+    ];
+    
     const editDeleteButtons = currentUser ? (
       user_id === currentUser.id ? (
         <div className="review-buttons">
@@ -32,7 +53,7 @@ class ReviewIndexItem extends React.Component {
     return (
       <div className="review-index-item">
         <div className="review-profile">
-          <i classname="far fa-user-circle" ></i>{created_at}
+          <i className="far fa-user-circle"></i> {user.fname} {month}
         </div>
         <div>{body}</div>
         <div>{editDeleteButtons}</div>
