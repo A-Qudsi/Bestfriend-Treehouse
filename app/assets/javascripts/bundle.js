@@ -2002,11 +2002,13 @@ var ReviewsIndex = /*#__PURE__*/function (_React$Component) {
         average = "No reviews yet";
       }
 
+      var strReviews = reviews.length === 0 ? "" : reviews.length === 1 ? "review" : "reviews";
+      var sentenceReview = reviews.length ? " · " + reviews.length + " ".concat(strReviews) : "";
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "reviewsHeader"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas yellow fa-star"
-      }), " ", average, reviews.length ? " · " + reviews.length + " reviews" : ""), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }), " ", average, " ", sentenceReview), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "review-container"
       }, this.props.reviews.map(function (review) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -2095,7 +2097,7 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
           user = _this$props$review.user;
       var currentUser = this.props.currentUser;
       var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-      var _ref = [created_at.slice(0, 3), months[created_at.slice(5, 7) - 1]],
+      var _ref = [created_at.slice(0, 4), months[created_at.slice(5, 7) - 1]],
           year = _ref[0],
           month = _ref[1];
       var editDeleteButtons = currentUser ? user_id === currentUser.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2112,10 +2114,16 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-profile"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-user-circle"
-      }), " ", user.fname, " ", month), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, editDeleteButtons), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, rating, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far reviewProfilePic fa-user-circle"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "reviewNameDate"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "reviewUserName"
+      }, user.fname), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "reviewDates"
+      }, month, " ", year, " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, rating, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas yellow fa-star"
-      })));
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, editDeleteButtons));
     }
   }]);
 

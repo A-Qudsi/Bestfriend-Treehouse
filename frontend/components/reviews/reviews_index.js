@@ -33,11 +33,17 @@ class ReviewsIndex extends React.Component {
       average = "No reviews yet";
     }
 
+    let strReviews =
+      reviews.length === 0 ? "" : reviews.length === 1 ? "review" : "reviews";
+
+    let sentenceReview = reviews.length
+      ? " · " + reviews.length + ` ${strReviews}`
+      : "";
+
     return (
       <React.Fragment>
         <p className="reviewsHeader">
-          <i className="fas yellow fa-star"></i> {average}
-          {reviews.length ? " · " + reviews.length + " reviews" : ""}
+          <i className="fas yellow fa-star"></i> {average} {sentenceReview}
         </p>
         <ul className="review-container">
           {this.props.reviews.map((review) => (

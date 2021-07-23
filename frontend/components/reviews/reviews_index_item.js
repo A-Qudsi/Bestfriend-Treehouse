@@ -32,10 +32,10 @@ class ReviewIndexItem extends React.Component {
     ];
 
     const [year, month] = [
-      created_at.slice(0, 3),
+      created_at.slice(0, 4),
       months[created_at.slice(5, 7) - 1],
     ];
-    
+
     const editDeleteButtons = currentUser ? (
       user_id === currentUser.id ? (
         <div className="review-buttons">
@@ -53,14 +53,20 @@ class ReviewIndexItem extends React.Component {
     return (
       <div className="review-index-item">
         <div className="review-profile">
-          <i className="far fa-user-circle"></i> {user.fname} {month}
+          <i className="far reviewProfilePic fa-user-circle"></i>
+          <div className="reviewNameDate">
+            <p className="reviewUserName">{user.fname}</p>
+            <p className="reviewDates">
+              {month} {year}{" "}
+            </p>
+          </div>
+          <div>
+            {rating}
+            <i className="fas yellow fa-star"></i>
+          </div>
         </div>
         <div>{body}</div>
         <div>{editDeleteButtons}</div>
-        <div>
-          {rating}
-          <i className="fas yellow fa-star"></i>
-        </div>
       </div>
     );
   }

@@ -7,9 +7,8 @@ class Api::ReviewsController < ApplicationController
     end
 
     def create
-        @user = User.find(params[:review][:user_id])
         @review = current_user.reviews.new(review_params)
-        if (@review.save && !current_user.reviews.exists?(spot_id: :spot_id))
+        if (reviews_validations && @review.save)
             render :show
         else
             render json: @review.errors.full_messages, status: 422
@@ -42,5 +41,9 @@ class Api::ReviewsController < ApplicationController
         params.require(:review).permit(:body, :rating, :user_id, :spot_id)
     end
 
+    def reviews_validations
+        spot = {spot_id: review_params[:spot_id]}
+        return (current_user.reservations.exists?(spot) && !current_user.reviews.exists?(spot))
+    end
 
 end

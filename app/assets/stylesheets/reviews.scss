@@ -25,7 +25,7 @@ input[type="radio"] {
 .reviewsHeader {
     font-size: 19px;
     font-weight: 500;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .review-container {
@@ -34,16 +34,32 @@ input[type="radio"] {
     justify-content: flex-start;
     font-size: 15px;
 }
+.review-profile{
+    display: flex;
+    padding-bottom: 15px;
+}
+
+.reviewProfilePic {
+    font-size: 50px;
+}
+
+.reviewNameDate {
+    align-self: center;
+    margin-left: 15px;
+}
+
+.reviewUserName {
+    font-weight: 600;
+}
+
+.reviewDates {
+    font-size: 15px;
+    font-weight: 300;
+}
 
 .review-index-item{
-    display: flex;
-    justify-content: space-between;
     font-size: 16px;
-    padding: 20px;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    margin: 5px;
-    
+
      .yellow {
          font-size: 15px;
      }
