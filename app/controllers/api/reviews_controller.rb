@@ -7,6 +7,7 @@ class Api::ReviewsController < ApplicationController
     end
 
     def create
+        @user = User.find(params[:review][:user_id])
         @review = current_user.reviews.new(review_params)
         if (@review.save && !current_user.reviews.exists?(spot_id: :spot_id))
             render :show

@@ -12,7 +12,8 @@ class ReviewIndexItem extends React.Component {
   }
 
   render() {
-    const { body, rating, user_id } = this.props.review;
+    debugger
+    const { body, rating, user_id, created_at } = this.props.review;
     const { currentUser } = this.props;
     const editDeleteButtons = currentUser ? (
       user_id === currentUser.id ? (
@@ -30,6 +31,9 @@ class ReviewIndexItem extends React.Component {
 
     return (
       <div className="review-index-item">
+        <div className="review-profile">
+          <i classname="far fa-user-circle" ></i>{created_at}
+        </div>
         <div>{body}</div>
         <div>{editDeleteButtons}</div>
         <div>

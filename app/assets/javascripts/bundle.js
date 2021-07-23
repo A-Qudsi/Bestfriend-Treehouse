@@ -1994,12 +1994,19 @@ var ReviewsIndex = /*#__PURE__*/function (_React$Component) {
       reviews.forEach(function (rev) {
         return total += rev.rating;
       });
-      var average = (total / reviews.length).toFixed(2);
+      var average;
+
+      if (reviews.length) {
+        average = (total / reviews.length).toFixed(2);
+      } else {
+        average = "No reviews yet";
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "reviewsHeader"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas yellow fa-star"
-      }), " ", average, " \xB7 ", this.props.reviews.length, " reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }), " ", average, reviews.length ? " · " + reviews.length + " reviews" : ""), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "review-container"
       }, this.props.reviews.map(function (review) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -2079,10 +2086,12 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      debugger;
       var _this$props$review = this.props.review,
           body = _this$props$review.body,
           rating = _this$props$review.rating,
-          user_id = _this$props$review.user_id;
+          user_id = _this$props$review.user_id,
+          created_at = _this$props$review.created_at;
       var currentUser = this.props.currentUser;
       var editDeleteButtons = currentUser ? user_id === currentUser.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-buttons"
@@ -2095,7 +2104,11 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
       }, "Delete")) : null : null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-index-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, editDeleteButtons), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, rating, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "review-profile"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        classname: "far fa-user-circle"
+      }), created_at), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, editDeleteButtons), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, rating, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas yellow fa-star"
       })));
     }

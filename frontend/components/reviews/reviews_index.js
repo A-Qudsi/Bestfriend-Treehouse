@@ -25,12 +25,19 @@ class ReviewsIndex extends React.Component {
     const { reviews } = this.state;
     let total = 0;
     reviews.forEach((rev) => (total += rev.rating));
-    let average = (total / reviews.length).toFixed(2);
+
+    let average;
+    if (reviews.length) {
+      average = (total / reviews.length).toFixed(2);
+    } else {
+      average = "No reviews yet";
+    }
 
     return (
       <React.Fragment>
         <p className="reviewsHeader">
-          <i className="fas yellow fa-star"></i> {average} · {this.props.reviews.length} reviews
+          <i className="fas yellow fa-star"></i> {average}
+          {reviews.length ? " · " + reviews.length + " reviews" : ""}
         </p>
         <ul className="review-container">
           {this.props.reviews.map((review) => (
