@@ -1978,8 +1978,6 @@ var ReviewsIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
-      debugger;
-
       if (prevProps.reviews != this.props.reviews) {
         this.setState({
           reviews: this.props.reviews
@@ -1993,14 +1991,15 @@ var ReviewsIndex = /*#__PURE__*/function (_React$Component) {
 
       var reviews = this.state.reviews;
       var total = 0;
-      Object.values(reviews).forEach(function (rev) {
+      reviews.forEach(function (rev) {
         return total += rev.rating;
       });
-      var number = reviews.length;
-      var average = (total / number).toFixed(2);
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      var average = (total / reviews.length).toFixed(2);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "reviewsHeader"
-      }, "Reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.reviews.length), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, average), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas yellow fa-star"
+      }), " ", average, " \xB7 ", this.props.reviews.length, " reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "review-container"
       }, this.props.reviews.map(function (review) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {

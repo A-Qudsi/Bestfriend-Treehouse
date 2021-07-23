@@ -14,7 +14,6 @@ class ReviewsIndex extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    debugger;
     if (prevProps.reviews != this.props.reviews) {
       this.setState({
         reviews: this.props.reviews,
@@ -25,15 +24,14 @@ class ReviewsIndex extends React.Component {
   render() {
     const { reviews } = this.state;
     let total = 0;
-    Object.values(reviews).forEach((rev) => (total += rev.rating));
-    let number = reviews.length;
-    let average = (total / number).toFixed(2);
+    reviews.forEach((rev) => (total += rev.rating));
+    let average = (total / reviews.length).toFixed(2);
 
     return (
-      <div>
-        <p className="reviewsHeader">Reviews</p>
-        <span>{this.props.reviews.length}</span>
-        <span>{average}</span>
+      <React.Fragment>
+        <p className="reviewsHeader">
+          <i className="fas yellow fa-star"></i> {average} · {this.props.reviews.length} reviews
+        </p>
         <ul className="review-container">
           {this.props.reviews.map((review) => (
             <li key={review.id} className="review-item">
@@ -45,7 +43,7 @@ class ReviewsIndex extends React.Component {
             </li>
           ))}
         </ul>
-      </div>
+      </React.Fragment>
     );
   }
 }
