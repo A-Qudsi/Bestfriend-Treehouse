@@ -41,8 +41,7 @@ class ReviewIndexItem extends React.Component {
         <div className="review-buttons">
           <button onClick={this.editReview} className="review-edit">
             Edit
-          </button>
-          <br />
+          </button>{ }
           <button onClick={this.deleteReview} className="review-edit">
             Delete
           </button>
@@ -53,20 +52,24 @@ class ReviewIndexItem extends React.Component {
     return (
       <div className="review-index-item">
         <div className="review-profile">
-          <i className="far reviewProfilePic fa-user-circle"></i>
-          <div className="reviewNameDate">
-            <p className="reviewUserName">{user.fname}</p>
-            <p className="reviewDates">
-              {month} {year}{" "}
-            </p>
+          <div className='reviewUserInfo'>
+            <div>
+              <i className="far reviewProfilePic fa-user-circle"></i>
+            </div>
+            <div className="reviewNameDate">
+              <p className="reviewUserName">{user.fname}</p>
+              <p className="reviewDates">
+                {month} {year}{" "}
+              </p>
+            </div>
           </div>
-          <div>
+          <div className='reviewRating'>
             {rating}
             <i className="fas yellow fa-star"></i>
           </div>
         </div>
         <div>{body}</div>
-        <div>{editDeleteButtons}</div>
+        <div className='editDeleteButtons'>{editDeleteButtons}</div>
       </div>
     );
   }

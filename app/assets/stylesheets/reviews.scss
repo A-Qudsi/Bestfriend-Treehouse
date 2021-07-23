@@ -36,6 +36,7 @@ input[type="radio"] {
 }
 .review-profile{
     display: flex;
+    justify-content: space-between;
     padding-bottom: 15px;
 }
 
@@ -48,6 +49,10 @@ input[type="radio"] {
     margin-left: 15px;
 }
 
+.reviewUserInfo {
+    display: flex;
+}
+
 .reviewUserName {
     font-weight: 600;
 }
@@ -57,8 +62,23 @@ input[type="radio"] {
     font-weight: 300;
 }
 
+.reviewRating {
+    align-self: center;
+}
+
+.editDeleteButtons{
+    display:flex;
+    justify-content: flex-end;
+
+    button {
+        margin: 10px 0px 20px 5px;
+        font-size: 14px;
+        font-weight: 300;
+    }
+}
 .review-index-item{
     font-size: 16px;
+    padding: 10px;
 
      .yellow {
          font-size: 15px;
