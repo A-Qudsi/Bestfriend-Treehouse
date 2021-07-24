@@ -3011,22 +3011,14 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
   function SpotShow(props) {
     _classCallCheck(this, SpotShow);
 
-    return _super.call(this, props); // this.state({
-    //     costPrice: null
-    // })
-    // this.totalCostPrice = this.totalCostPrice.bind(this);
+    return _super.call(this, props);
   }
 
   _createClass(SpotShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchSpots();
-    } // totalCostPrice(number){
-    //     this.setState({
-    //         costPrice: number
-    //     })
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -3052,8 +3044,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         currentUser: this.props.currentUser,
         history: this.props.history,
         openModal: this.props.openModal,
-        createReservation: this.props.createReservation // totalCostPrice= {this.totalCostPrice}
-
+        createReservation: this.props.createReservation
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reviewContainer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_reviews_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
