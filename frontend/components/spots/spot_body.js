@@ -4,7 +4,7 @@ const SpotBody = ({ spot, users }) => {
     return (
         <div className='spotbodyrightside'>
             <div className ='spotshowbody'>
-                <span>Entire house hosted by James</span>
+                <span>Entire house hosted by {spot.user.fname}</span>
                 <p>{spot.maxGuests} Guests</p>
             </div>
             <div className='entirehome'>

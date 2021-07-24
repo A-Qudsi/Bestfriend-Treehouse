@@ -268,7 +268,6 @@ var receiveReview = function receiveReview(_ref) {
   };
 };
 var removeReview = function removeReview(review) {
-  
   return {
     type: REMOVE_REVIEW,
     reviewId: review.review.id
@@ -1889,8 +1888,9 @@ var ReviewForm = function ReviewForm(props) {
     setBody("");
   };
 
-  var spot = props.spot;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+  var spot = props.spot,
+      currentUser = props.currentUser;
+  var form = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: "reviewForm"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "reviewsFormDiv"
@@ -1910,6 +1910,28 @@ var ReviewForm = function ReviewForm(props) {
       return submitReview(e);
     }
   }, "Submit Review"));
+  var spotsReviewsUserId = new Set();
+  spot.reviews.forEach(function (ele) {
+    return spotsReviewsUserId.add(ele["user_id"]);
+  });
+  var usersReservationsSpotId = new Set();
+  currentUser.reservations.forEach(function (ele) {
+    return usersReservationsSpotId.add(ele["spot_id"]);
+  });
+
+  if (currentUser) {
+    if (spotsReviewsUserId.has(currentUser.id)) {
+      form = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        disabled: true
+      }, "you have alrady reviewed");
+    } else if (!usersReservationsSpotId.has(spot.id)) {
+      form = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        disabled: true
+      }, "you need to make a reservation first");
+    }
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, form);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ReviewForm);
@@ -2088,7 +2110,6 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
       var _this$props$review = this.props.review,
           body = _this$props$review.body,
           rating = _this$props$review.rating,
@@ -2828,7 +2849,7 @@ var SpotBody = function SpotBody(_ref) {
     className: "spotbodyrightside"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spotshowbody"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Entire house hosted by James"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, spot.maxGuests, " Guests")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Entire house hosted by ", spot.user.fname), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, spot.maxGuests, " Guests")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "entirehome"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "homeIcon"

@@ -8,11 +8,5 @@ end
             json.partial! 'api/reviews/review', review: review
         end
     end
-
-    json.users do
-        json.set! review.user.id do
-            json.extract! review.user, :id, :fname
-        end
-    end
 end
 

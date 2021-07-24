@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import StarRating from "./reviews_star_rating";
 
 const ReviewForm = (props) => {
@@ -28,9 +28,9 @@ const ReviewForm = (props) => {
     setBody("");
   };
 
-  const { spot } = props;
+  const { spot, currentUser } = props;
 
-  return (
+  let form = (
     <form className="reviewForm">
       <div className="reviewsFormDiv">
         <input
@@ -49,6 +49,24 @@ const ReviewForm = (props) => {
       </button>
     </form>
   );
+
+  let spotsReviewsUserId = new Set();
+  spot.reviews.forEach((ele) => spotsReviewsUserId.add(ele["user_id"]));
+
+  let usersReservationsSpotId = new Set();
+  currentUser.reservations.forEach((ele) =>
+    usersReservationsSpotId.add(ele["spot_id"])
+  );
+
+  if (currentUser) {
+    if (spotsReviewsUserId.has(currentUser.id)) {
+      form = <button disabled>you have alrady reviewed</button>;
+    } else if (!usersReservationsSpotId.has(spot.id)) {
+      form = <button disabled>you need to make a reservation first</button>;
+    }
+  }
+
+  return <React.Fragment>{form}</React.Fragment>;
 };
 
 export default ReviewForm;
