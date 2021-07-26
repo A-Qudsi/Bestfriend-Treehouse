@@ -16,12 +16,6 @@ class SpotShow extends React.Component {
     this.props.fetchSpots();
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.spot !== this.props.spot) {
-  //         this.props.fetchSpots();
-  //   }
-  // }
-
   render() {
     if (!this.props.spot) return null;
     const { spot, users } = this.props;

@@ -7,9 +7,10 @@ import {
 } from "../../actions/review_actions";
 import { createReview } from "../../actions/review_actions";
 import { openModal } from "../../actions/modal_actions";
+import { fetchSpot, fetchSpots } from "../../actions/spot_actions";
+
 
 const mSTP = (state, ownProps) => {
-    debugger
   return {
     currentUser: state.entities.users[state.session.id],
     spot: ownProps.spot,
@@ -22,6 +23,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => {
   return {
+    fetchSpots: () => dispatch(fetchSpots()),
     createReview: (review) => dispatch(createReview(review)),
     openModal: (modal) => dispatch(openModal(modal)),
     fetchReviews: (userId) => dispatch(fetchReviews(userId)),

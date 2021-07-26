@@ -26,6 +26,10 @@ const ReviewIndexItem = (props) => {
     months[created_at.slice(5, 7) - 1],
   ];
 
+  const handleDelete = () => {
+    props.deleteReview(props.review.id);
+  };
+
   const editDeleteButtons = currentUser ? (
     user_id === currentUser.id ? (
       <div className="review-buttons">
@@ -33,7 +37,7 @@ const ReviewIndexItem = (props) => {
           Edit
         </button>
         {}
-        <button onClick={() => props.deleteReview(props.review.id)} className="review-edit">
+        <button onClick={handleDelete} className="review-edit">
           Delete
         </button>
       </div>

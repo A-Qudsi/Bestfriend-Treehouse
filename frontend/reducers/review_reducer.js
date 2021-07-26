@@ -7,10 +7,9 @@ import {
 const reviewsReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state);
-  debugger
   switch (action.type) {
     case RECEIVE_REVIEWS:
-      return Object.assign({}, action.reviews);
+      return action.reviews;
     case RECEIVE_REVIEW:
       newState[action.review.id] = action.review;
       return newState;

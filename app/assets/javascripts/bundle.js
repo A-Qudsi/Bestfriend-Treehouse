@@ -1794,12 +1794,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reviews_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reviews_form */ "./frontend/components/reviews/reviews_form.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
+/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
+
 
 
 
 
 var mSTP = function mSTP(state, ownProps) {
-  debugger;
   return {
     currentUser: state.entities.users[state.session.id],
     spot: ownProps.spot,
@@ -1810,6 +1811,9 @@ var mSTP = function mSTP(state, ownProps) {
 
 var mDTP = function mDTP(dispatch) {
   return {
+    fetchSpots: function fetchSpots() {
+      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_3__["fetchSpots"])());
+    },
     updateReview: function updateReview(review) {
       return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_2__["updateReview"])(review));
     },
@@ -1871,6 +1875,11 @@ var ReviewForm = function ReviewForm(props) {
       rating = _useState4[0],
       setRating = _useState4[1];
 
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      active = _useState6[0],
+      setActive = _useState6[1];
+
   var bodyChangeHandler = function bodyChangeHandler(event) {
     setBody(event.currentTarget.value);
   };
@@ -1885,6 +1894,9 @@ var ReviewForm = function ReviewForm(props) {
       setRating(props.review.rating);
     }
   }, [props.formType]);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    props.fetchSpots();
+  }, [active]);
   var spot = props.spot,
       currentUser = props.currentUser;
   debugger;
@@ -1899,6 +1911,7 @@ var ReviewForm = function ReviewForm(props) {
         user_id: currentUser.id,
         spot_id: spot.id
       });
+      setActive(!active);
     } else {
       props.openModal("login");
     }
@@ -1908,12 +1921,12 @@ var ReviewForm = function ReviewForm(props) {
   };
 
   var editReview = function editReview(e) {
-    // e.preventDefault()
     props.updateReview({
       id: props.review.id,
       body: body,
       rating: rating
     });
+    setActive(!active);
     props.setEdit(false);
   };
 
@@ -2007,6 +2020,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
+
 
 
 
@@ -2014,7 +2029,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  debugger;
   return {
     currentUser: state.entities.users[state.session.id],
     spot: ownProps.spot,
@@ -2029,6 +2043,9 @@ var mSTP = function mSTP(state, ownProps) {
 
 var mDTP = function mDTP(dispatch) {
   return {
+    fetchSpots: function fetchSpots() {
+      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_4__["fetchSpots"])());
+    },
     createReview: function createReview(review) {
       return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_2__["createReview"])(review));
     },
@@ -2085,13 +2102,14 @@ var ReviewsIndex = function ReviewsIndex(props) {
 
   var strReviews = reviews.length === 0 ? "" : reviews.length === 1 ? "review" : "reviews";
   var sentenceReview = reviews.length ? " · " + reviews.length + " ".concat(strReviews) : "";
+  debugger;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "reviewsHeader"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas yellow fa-star"
   }), " ", average, " ", sentenceReview), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "review-container"
-  }, props.reviews.map(function (review) {
+  }, reviews.map(function (review) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       key: review.id,
       className: "review-item"
@@ -2100,7 +2118,8 @@ var ReviewsIndex = function ReviewsIndex(props) {
       review: review,
       currentUser: props.currentUser,
       deleteReview: props.deleteReview,
-      updateReview: props.updateReview
+      updateReview: props.updateReview,
+      fetchSpots: props.fetchSpots
     }));
   })));
 };
@@ -2147,7 +2166,20 @@ var mDTP = function mDTP(dispatch) {
     },
     updateReview: function updateReview(review) {
       return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_2__["updateReview"])(review));
-    }
+    },
+    fetchSpots: function (_fetchSpots) {
+      function fetchSpots() {
+        return _fetchSpots.apply(this, arguments);
+      }
+
+      fetchSpots.toString = function () {
+        return _fetchSpots.toString();
+      };
+
+      return fetchSpots;
+    }(function () {
+      return dispatch(fetchSpots());
+    })
   };
 };
 
@@ -2200,6 +2232,11 @@ var ReviewIndexItem = function ReviewIndexItem(props) {
   var _ref = [created_at.slice(0, 4), months[created_at.slice(5, 7) - 1]],
       year = _ref[0],
       month = _ref[1];
+
+  var handleDelete = function handleDelete() {
+    props.deleteReview(props.review.id);
+  };
+
   var editDeleteButtons = currentUser ? user_id === currentUser.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "review-buttons"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -2208,9 +2245,7 @@ var ReviewIndexItem = function ReviewIndexItem(props) {
     },
     className: "review-edit"
   }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: function onClick() {
-      return props.deleteReview(props.review.id);
-    },
+    onClick: handleDelete,
     className: "review-edit"
   }, "Delete")) : null : null;
   var reviewMsg = body;
@@ -3108,12 +3143,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchSpots();
-    } // componentDidUpdate(prevProps) {
-    //   if (prevProps.spot !== this.props.spot) {
-    //         this.props.fetchSpots();
-    //   }
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -3721,11 +3751,10 @@ var reviewsReducer = function reviewsReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
   var newState = Object.assign({}, state);
-  debugger;
 
   switch (action.type) {
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_REVIEWS"]:
-      return Object.assign({}, action.reviews);
+      return action.reviews;
 
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_REVIEW"]:
       newState[action.review.id] = action.review;

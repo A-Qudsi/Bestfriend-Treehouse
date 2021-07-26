@@ -25,13 +25,15 @@ const ReviewsIndex = (props) => {
     ? " · " + reviews.length + ` ${strReviews}`
     : "";
 
+  debugger
+
   return (
     <React.Fragment>
       <p className="reviewsHeader">
         <i className="fas yellow fa-star"></i> {average} {sentenceReview}
       </p>
       <ul className="review-container">
-        {props.reviews.map((review) => (
+        {reviews.map((review) => (
           <li key={review.id} className="review-item">
             <ReviewIndexItem
               spot={props.spot}
@@ -39,6 +41,7 @@ const ReviewsIndex = (props) => {
               currentUser={props.currentUser}
               deleteReview={props.deleteReview}
               updateReview={props.updateReview}
+              fetchSpots={props.fetchSpots}
             />
           </li>
         ))}

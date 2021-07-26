@@ -4,6 +4,7 @@ import StarRating from "./reviews_star_rating";
 const ReviewForm = (props) => {
   const [body, setBody] = useState("");
   const [rating, setRating] = useState("");
+  const [active, setActive] = useState(false);
 
   const bodyChangeHandler = (event) => {
     setBody(event.currentTarget.value);
@@ -20,6 +21,10 @@ const ReviewForm = (props) => {
     }
   }, [props.formType]);
 
+  useEffect(() => {
+    props.fetchSpots();
+  }, [active]);
+
   const { spot, currentUser } = props;
   debugger;
 
@@ -32,6 +37,7 @@ const ReviewForm = (props) => {
         user_id: currentUser.id,
         spot_id: spot.id,
       });
+      setActive(!active);
     } else {
       props.openModal("login");
     }
@@ -40,12 +46,12 @@ const ReviewForm = (props) => {
   };
 
   const editReview = (e) => {
-    // e.preventDefault()
     props.updateReview({
       id: props.review.id,
       body: body,
       rating: rating,
     });
+    setActive(!active);
     props.setEdit(false);
   };
 
