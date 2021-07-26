@@ -1856,11 +1856,6 @@ var ReviewForm = function ReviewForm(props) {
       rating = _useState4[0],
       setRating = _useState4[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState6 = _slicedToArray(_useState5, 2),
-      submitted = _useState6[0],
-      setSubmitted = _useState6[1];
-
   var bodyChangeHandler = function bodyChangeHandler(event) {
     setBody(event.currentTarget.value);
   };
@@ -1902,9 +1897,8 @@ var ReviewForm = function ReviewForm(props) {
     props.updateReview({
       id: props.review.id,
       body: body,
-      rating: 2
+      rating: rating
     });
-    setSubmitted(true);
   };
 
   if (props.formType === "create") {
@@ -1928,12 +1922,12 @@ var ReviewForm = function ReviewForm(props) {
         button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "submit-button disabled",
           disabled: true
-        }, "you have already reviewed", " ");
+        }, "You have already reviewed.");
       } else if (!usersReservationsSpotId.has(spot.id)) {
         button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "submit-button disabled",
           disabled: true
-        }, "you need to make a reservation first");
+        }, "You need to make a reservation first.");
       }
     }
 
@@ -1952,24 +1946,31 @@ var ReviewForm = function ReviewForm(props) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_star_rating__WEBPACK_IMPORTED_MODULE_1__["default"], {
       getRating: getRating
     })), button));
-  } else if (!submitted) {
+  } else {
     var buttonDiv = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "editDeleteButtons"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "button",
       onClick: editReview
-    }, "Submit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      type: "button"
-    }, "Cancel"));
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      type: "text",
+    }, "Submit"));
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "edit"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "editTextfield"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      className: "editinputfield",
       onChange: bodyChangeHandler,
       value: body,
       placeholder: "Add a comment",
-      required: true
-    })), buttonDiv);
-  } else {
-    return null;
+      autoFocus: true,
+      required: true,
+      rows: "4",
+      cols: "30"
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "reviewsRatingDiv"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_star_rating__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      getRating: getRating
+    })), buttonDiv));
   }
 };
 

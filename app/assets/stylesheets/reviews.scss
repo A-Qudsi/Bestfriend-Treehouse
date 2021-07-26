@@ -83,8 +83,24 @@ input[type="radio"] {
      .yellow {
          font-size: 15px;
      }
+     .gray { 
+         font-size: 15px;
+     }
 }
 
 .review-item {
     width: 50%;
+}
+
+.editinputfield {
+    width: 100%
+}
+
+.edit {
+    .yellow {
+        font-size: 20px;
+    }
+    .gray { 
+        font-size: 20px;
+    }
 }

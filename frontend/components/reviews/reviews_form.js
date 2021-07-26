@@ -4,7 +4,6 @@ import StarRating from "./reviews_star_rating";
 const ReviewForm = (props) => {
   const [body, setBody] = useState("");
   const [rating, setRating] = useState("");
-  const [submitted, setSubmitted] = useState(false)
 
   const bodyChangeHandler = (event) => {
     setBody(event.currentTarget.value);
@@ -45,9 +44,8 @@ const ReviewForm = (props) => {
     props.updateReview({
       id: props.review.id,
       body: body,
-      rating: 2,
+      rating: rating,
     });
-    setSubmitted(true)
   };
 
   if (props.formType === "create") {
@@ -70,13 +68,13 @@ const ReviewForm = (props) => {
       if (spotsReviewsUserId.has(currentUser.id)) {
         button = (
           <button className="submit-button disabled" disabled>
-            you have already reviewed{" "}
+            You have already reviewed.
           </button>
         );
       } else if (!usersReservationsSpotId.has(spot.id)) {
         button = (
           <button className="submit-button disabled" disabled>
-            you need to make a reservation first
+            You need to make a reservation first.
           </button>
         );
       }
@@ -101,32 +99,37 @@ const ReviewForm = (props) => {
         </form>
       </React.Fragment>
     );
-  } else if (!submitted) {
+  } else{
     let buttonDiv = (
       <div className="editDeleteButtons">
         <button type="button" onClick={editReview}>
           Submit
         </button>
-        <button type="button">Cancel</button>
       </div>
     );
 
     return (
       <React.Fragment>
-          <div>
-            <input
-              type="text"
+        <div className="edit">
+          <div className="editTextfield">
+            <textarea
+              className="editinputfield"
               onChange={bodyChangeHandler}
               value={body}
               placeholder="Add a comment"
+              autoFocus
               required
+              rows="4"
+              cols="30"
             />
           </div>
-        {buttonDiv}
+          <div className="reviewsRatingDiv">
+            <StarRating getRating={getRating} />
+          </div>
+          {buttonDiv}
+        </div>
       </React.Fragment>
     );
-  } else {
-    return null;
   }
 };
 
