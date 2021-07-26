@@ -1864,6 +1864,12 @@ var ReviewForm = function ReviewForm(props) {
     setRating(number);
   };
 
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    if (props.formType === "edit") {
+      setBody(props.review.body);
+      setRating(props.review.rating);
+    }
+  }, [props.formType]);
   var spot = props.spot,
       currentUser = props.currentUser;
   debugger;
@@ -1893,11 +1899,6 @@ var ReviewForm = function ReviewForm(props) {
       body: body,
       rating: 2
     });
-  };
-
-  var handleEnterEdit = function handleEnterEdit() {
-    setBody(props.review.body);
-    setRating(props.review.rating);
   };
 
   if (props.formType === "create") {
@@ -1944,32 +1945,21 @@ var ReviewForm = function ReviewForm(props) {
       getRating: getRating
     })), button));
   } else {
-    var buttonDiv = "";
-    buttonDiv = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "comment-form-btns-container",
-      className: "inline-comment-form-btns-container"
+    var buttonDiv = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "editDeleteButtons"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "button",
-      id: "comment-form-cancel-btn"
-    }, "Cancel"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      type: "button",
       onClick: editReview
-    }, "Submit"));
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "comment-form-container",
-      className: "inline-comment-form-container"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "comment-form-input-and-icon"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }, "Submit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      type: "button"
+    }, "Cancel"));
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       type: "text",
-      className: "inline-comment-form-input",
       onChange: bodyChangeHandler,
       value: body,
-      placeholder: "Add a public comment...",
+      placeholder: "Add a comment",
       required: true
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "comment-form-input-underline"
-    }))), buttonDiv);
+    })), buttonDiv);
   }
 };
 

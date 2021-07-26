@@ -13,6 +13,13 @@ const ReviewForm = (props) => {
     setRating(number);
   };
 
+  useEffect(() => {
+    if (props.formType === "edit") {
+      setBody(props.review.body);
+      setRating(props.review.rating);
+    }
+  }, [props.formType]);
+
   const { spot, currentUser } = props;
   debugger;
 
@@ -39,11 +46,6 @@ const ReviewForm = (props) => {
       body: body,
       rating: 2,
     });
-  };
-
-  const handleEnterEdit = () => {
-    setBody(props.review.body);
-    setRating(props.review.rating);
   };
 
   if (props.formType === "create") {
@@ -90,41 +92,28 @@ const ReviewForm = (props) => {
       </React.Fragment>
     );
   } else {
-    let buttonDiv = "";
-    buttonDiv = (
-      <div
-        id="comment-form-btns-container"
-        className="inline-comment-form-btns-container"
-      >
-        <button type="button" id="comment-form-cancel-btn">
-          Cancel
-        </button>
+    let buttonDiv = (
+      <div className="editDeleteButtons">
         <button type="button" onClick={editReview}>
           Submit
         </button>
+        <button type="button">Cancel</button>
       </div>
     );
 
     return (
-      <div
-        id="comment-form-container"
-        className="inline-comment-form-container"
-      >
-        <div id="comment-form-input-and-icon">
+      <React.Fragment>
           <div>
             <input
               type="text"
-              className="inline-comment-form-input"
               onChange={bodyChangeHandler}
               value={body}
-              placeholder="Add a public comment..."
+              placeholder="Add a comment"
               required
             />
-            <div id="comment-form-input-underline"></div>
           </div>
-        </div>
         {buttonDiv}
-      </div>
+      </React.Fragment>
     );
   }
 };
