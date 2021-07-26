@@ -4,6 +4,7 @@ import StarRating from "./reviews_star_rating";
 const ReviewForm = (props) => {
   const [body, setBody] = useState("");
   const [rating, setRating] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   const bodyChangeHandler = (event) => {
     setBody(event.currentTarget.value);
@@ -40,46 +41,46 @@ const ReviewForm = (props) => {
   };
 
   const editReview = (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     props.updateReview({
       id: props.review.id,
       body: body,
       rating: rating,
     });
+    props.getEditMode(false);
   };
 
-  if (props.formType === "create") {
+  let button = (
+    <button className="submit-button" onClick={(e) => submitReview(e)}>
+      Submit Review
+    </button>
+  );
 
-    let button = (
-      <button className="submit-button" onClick={(e) => submitReview(e)}>
-        Submit Review
-      </button>
-    );
+  let spotsReviewsUserId = new Set();
+  spot.reviews.forEach((ele) => spotsReviewsUserId.add(ele["user_id"]));
 
-    let spotsReviewsUserId = new Set();
-    spot.reviews.forEach((ele) => spotsReviewsUserId.add(ele["user_id"]));
+  let usersReservationsSpotId = new Set();
+  currentUser.reservations.forEach((ele) =>
+    usersReservationsSpotId.add(ele["spot_id"])
+  );
 
-    let usersReservationsSpotId = new Set();
-    currentUser.reservations.forEach((ele) =>
-      usersReservationsSpotId.add(ele["spot_id"])
-    );
-
-    if (currentUser) {
-      if (spotsReviewsUserId.has(currentUser.id)) {
-        button = (
-          <button className="submit-button disabled" disabled>
-            You have already reviewed.
-          </button>
-        );
-      } else if (!usersReservationsSpotId.has(spot.id)) {
-        button = (
-          <button className="submit-button disabled" disabled>
-            You need to make a reservation first.
-          </button>
-        );
-      }
+  if (currentUser) {
+    if (spotsReviewsUserId.has(currentUser.id)) {
+      button = (
+        <button className="submit-button disabled" disabled>
+          You have already reviewed.
+        </button>
+      );
+    } else if (!usersReservationsSpotId.has(spot.id)) {
+      button = (
+        <button className="submit-button disabled" disabled>
+          You need to make a reservation first.
+        </button>
+      );
     }
+  }
 
+  if (props.formType === "create") {
     return (
       <React.Fragment>
         <form className="reviewForm">
@@ -99,7 +100,7 @@ const ReviewForm = (props) => {
         </form>
       </React.Fragment>
     );
-  } else{
+  } else {
     let buttonDiv = (
       <div className="editDeleteButtons">
         <button type="button" onClick={editReview}>

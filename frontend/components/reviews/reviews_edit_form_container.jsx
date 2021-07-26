@@ -5,6 +5,8 @@ import { updateReview } from "../../actions/review_actions";
 const mSTP = (state, ownProps) => {
   debugger;
   return {
+    currentUser: state.entities.users[state.session.id],
+    spot: ownProps.spot,
     review: ownProps.review,
     formType: "edit",
   };
@@ -13,6 +15,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch) => {
   return {
     updateReview: (review) => dispatch(updateReview(review)),
+    fetchReviews: (userId) => dispatch(fetchReviews(userId)),
   };
 };
 

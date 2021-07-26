@@ -1801,6 +1801,8 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   debugger;
   return {
+    currentUser: state.entities.users[state.session.id],
+    spot: ownProps.spot,
     review: ownProps.review,
     formType: "edit"
   };
@@ -1810,7 +1812,20 @@ var mDTP = function mDTP(dispatch) {
   return {
     updateReview: function updateReview(review) {
       return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_2__["updateReview"])(review));
-    }
+    },
+    fetchReviews: function (_fetchReviews) {
+      function fetchReviews(_x) {
+        return _fetchReviews.apply(this, arguments);
+      }
+
+      fetchReviews.toString = function () {
+        return _fetchReviews.toString();
+      };
+
+      return fetchReviews;
+    }(function (userId) {
+      return dispatch(fetchReviews(userId));
+    })
   };
 };
 
@@ -1856,6 +1871,11 @@ var ReviewForm = function ReviewForm(props) {
       rating = _useState4[0],
       setRating = _useState4[1];
 
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      submitted = _useState6[0],
+      setSubmitted = _useState6[1];
+
   var bodyChangeHandler = function bodyChangeHandler(event) {
     setBody(event.currentTarget.value);
   };
@@ -1893,44 +1913,45 @@ var ReviewForm = function ReviewForm(props) {
   };
 
   var editReview = function editReview(e) {
-    e.preventDefault();
+    // e.preventDefault()
     props.updateReview({
       id: props.review.id,
       body: body,
       rating: rating
     });
+    props.getEditMode(false);
   };
 
-  if (props.formType === "create") {
-    var button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "submit-button",
-      onClick: function onClick(e) {
-        return submitReview(e);
-      }
-    }, "Submit Review");
-    var spotsReviewsUserId = new Set();
-    spot.reviews.forEach(function (ele) {
-      return spotsReviewsUserId.add(ele["user_id"]);
-    });
-    var usersReservationsSpotId = new Set();
-    currentUser.reservations.forEach(function (ele) {
-      return usersReservationsSpotId.add(ele["spot_id"]);
-    });
-
-    if (currentUser) {
-      if (spotsReviewsUserId.has(currentUser.id)) {
-        button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "submit-button disabled",
-          disabled: true
-        }, "You have already reviewed.");
-      } else if (!usersReservationsSpotId.has(spot.id)) {
-        button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "submit-button disabled",
-          disabled: true
-        }, "You need to make a reservation first.");
-      }
+  var button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "submit-button",
+    onClick: function onClick(e) {
+      return submitReview(e);
     }
+  }, "Submit Review");
+  var spotsReviewsUserId = new Set();
+  spot.reviews.forEach(function (ele) {
+    return spotsReviewsUserId.add(ele["user_id"]);
+  });
+  var usersReservationsSpotId = new Set();
+  currentUser.reservations.forEach(function (ele) {
+    return usersReservationsSpotId.add(ele["spot_id"]);
+  });
 
+  if (currentUser) {
+    if (spotsReviewsUserId.has(currentUser.id)) {
+      button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "submit-button disabled",
+        disabled: true
+      }, "You have already reviewed.");
+    } else if (!usersReservationsSpotId.has(spot.id)) {
+      button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "submit-button disabled",
+        disabled: true
+      }, "You need to make a reservation first.");
+    }
+  }
+
+  if (props.formType === "create") {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       className: "reviewForm"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2097,7 +2118,7 @@ var ReviewsIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
-      if (prevProps.reviews != this.props.reviews) {
+      if (prevProps.reviews !== this.props.reviews) {
         this.setState({
           reviews: this.props.reviews
         });
@@ -2135,6 +2156,7 @@ var ReviewsIndex = /*#__PURE__*/function (_React$Component) {
           key: review.id,
           className: "review-item"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          spot: _this2.props.spot,
           review: review,
           currentUser: _this2.props.currentUser,
           deleteReview: _this2.props.deleteReview,
@@ -2250,6 +2272,7 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
     };
     _this.deleteReview = _this.deleteReview.bind(_assertThisInitialized(_this));
     _this.editReview = _this.editReview.bind(_assertThisInitialized(_this));
+    _this.getEditMode = _this.getEditMode.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2266,6 +2289,13 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "getEditMode",
+    value: function getEditMode(value) {
+      this.setState({
+        edit: value
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props$review = this.props.review,
@@ -2274,7 +2304,9 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
           user_id = _this$props$review.user_id,
           created_at = _this$props$review.created_at,
           user = _this$props$review.user;
-      var currentUser = this.props.currentUser;
+      var _this$props = this.props,
+          currentUser = _this$props.currentUser,
+          spot = _this$props.spot;
       var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
       var _ref = [created_at.slice(0, 4), months[created_at.slice(5, 7) - 1]],
           year = _ref[0],
@@ -2292,7 +2324,10 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
 
       if (this.state.edit) {
         reviewMsg = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_edit_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          review: this.props.review
+          spot: spot,
+          currentUser: currentUser,
+          review: this.props.review,
+          getEditMode: this.getEditMode
         });
       }
 

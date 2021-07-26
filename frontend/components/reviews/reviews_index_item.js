@@ -11,6 +11,7 @@ class ReviewIndexItem extends React.Component {
 
     this.deleteReview = this.deleteReview.bind(this);
     this.editReview = this.editReview.bind(this);
+    this.getEditMode = this.getEditMode.bind(this);
   }
 
   deleteReview() {
@@ -21,9 +22,13 @@ class ReviewIndexItem extends React.Component {
     this.setState({ edit: true });
   }
 
+  getEditMode(value) {
+    this.setState({ edit: value });
+  }
+
   render() {
     const { body, rating, user_id, created_at, user } = this.props.review;
-    const { currentUser } = this.props;
+    const { currentUser, spot } = this.props;
 
     const months = [
       "January",
@@ -61,7 +66,14 @@ class ReviewIndexItem extends React.Component {
 
     let reviewMsg = body;
     if (this.state.edit) {
-      reviewMsg = <EditReviewFormContainer review={this.props.review} />;
+      reviewMsg = (
+        <EditReviewFormContainer
+          spot={spot}
+          currentUser={currentUser}
+          review={this.props.review}
+          getEditMode={this.getEditMode}
+        />
+      );
     }
 
     return (

@@ -14,7 +14,7 @@ class ReviewsIndex extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.reviews != this.props.reviews) {
+    if (prevProps.reviews !== this.props.reviews) {
       this.setState({
         reviews: this.props.reviews,
       });
@@ -39,7 +39,7 @@ class ReviewsIndex extends React.Component {
     let sentenceReview = reviews.length
       ? " · " + reviews.length + ` ${strReviews}`
       : "";
-    debugger
+    debugger;
     return (
       <React.Fragment>
         <p className="reviewsHeader">
@@ -49,6 +49,7 @@ class ReviewsIndex extends React.Component {
           {this.props.reviews.map((review) => (
             <li key={review.id} className="review-item">
               <ReviewIndexItem
+                spot={this.props.spot}
                 review={review}
                 currentUser={this.props.currentUser}
                 deleteReview={this.props.deleteReview}
