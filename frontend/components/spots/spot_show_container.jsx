@@ -3,7 +3,6 @@ import { fetchSpot, fetchSpots } from "../../actions/spot_actions";
 import SpotShow from "./spot_show";
 import { createReservation } from "../../actions/reservation_actions";
 import { openModal } from "../../actions/modal_actions";
-import { createReview } from "../../actions/review_actions";
 
 const mSTP = (state, ownProps) => {
   return {
@@ -15,7 +14,6 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => ({
   openModal: (modal) => dispatch(openModal(modal)),
-  createReview: (review) => dispatch(createReview(review)),
   fetchSpots: () => dispatch(fetchSpots()),
   fetchSpot: (id) => dispatch(fetchSpot(id)),
   createReservation: (reservation) => dispatch(createReservation(reservation)),

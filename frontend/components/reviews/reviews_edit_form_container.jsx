@@ -1,18 +1,20 @@
-// import ReviewEditForm from "./review_edit_form";
-// import { connect } from "react-redux";
-// import { updateReview } from "../../actions/review_actions";
+import ReviewForm from "./reviews_form";
+import { connect } from "react-redux";
+import { updateReview } from "../../actions/review_actions";
 
-// const mSTP = (state, ownProps) => {
-//   return {
-//     userId: state.session.id,
-//     review: state.session.spots.reviews[ownProps.reviewId],
-//   };
-// };
+const mSTP = (ownProps) => {
+  debugger;
+  return {
+    review: ownProps.review,
+    spot: ownProps.entities.spot,
+    formType: "edit",
+  };
+};
 
-// const mDTP = (dispatch) => {
-//   return {
-//     updateReview: (review) => dispatch(updateReview(review)),
-//   };
-// };
+const mDTP = (dispatch) => {
+  return {
+    updateReview: (review) => dispatch(updateReview(review)),
+  };
+};
 
-// export default connect(mSTP, mDTP)(ReviewEditForm);
+export default connect(mSTP, mDTP)(ReviewForm);

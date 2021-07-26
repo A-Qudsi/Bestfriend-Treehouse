@@ -2,7 +2,7 @@ import React from "react";
 import Pictures from "./spot_show_pictures";
 import ReservationForm from "../reservations/reservation_form";
 import SpotBody from "./spot_body";
-import ReviewForm from "../reviews/reviews_form";
+import ReviewFormContainer from "../reviews/reviews_form_container";
 import ReviewContainer from "../reviews/reviews_container";
 import SpotMap from "../map/spot_map";
 import SpotHeader from "./spot_header";
@@ -40,11 +40,9 @@ class SpotShow extends React.Component {
           <ReviewContainer spot={spot} />
         </div>
         <div>
-          <ReviewForm
+          <ReviewFormContainer
             spot={spot}
             currentUser={this.props.currentUser}
-            openModal={this.props.openModal}
-            createReview={this.props.createReview}
           />
         </div>
         <SpotMap spot={spot} />
