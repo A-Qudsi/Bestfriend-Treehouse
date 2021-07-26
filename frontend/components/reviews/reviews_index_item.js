@@ -6,7 +6,7 @@ class ReviewIndexItem extends React.Component {
     super(props);
 
     this.state = {
-      editMode: false,
+      edit: false,
     };
 
     this.deleteReview = this.deleteReview.bind(this);
@@ -18,7 +18,7 @@ class ReviewIndexItem extends React.Component {
   }
 
   editReview() {
-    this.setState({ editMode: true });
+    this.setState({ edit: true });
   }
 
   render() {
@@ -60,7 +60,7 @@ class ReviewIndexItem extends React.Component {
     ) : null;
 
     let reviewMsg = body;
-    if (this.state.editMode) {
+    if (this.state.edit) {
       reviewMsg = <EditReviewFormContainer review={this.props.review} />;
     }
 
@@ -84,7 +84,7 @@ class ReviewIndexItem extends React.Component {
           </div>
         </div>
         <div>{reviewMsg}</div>
-        {this.state.editMode ? null : (
+        {this.state.edit ? null : (
           <div className="editDeleteButtons">{editDeleteButtons}</div>
         )}
       </div>

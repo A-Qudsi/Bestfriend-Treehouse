@@ -2245,7 +2245,7 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      editMode: false
+      edit: false
     };
     _this.deleteReview = _this.deleteReview.bind(_assertThisInitialized(_this));
     _this.editReview = _this.editReview.bind(_assertThisInitialized(_this));
@@ -2261,7 +2261,7 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
     key: "editReview",
     value: function editReview() {
       this.setState({
-        editMode: true
+        edit: true
       });
     }
   }, {
@@ -2289,7 +2289,7 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
       }, "Delete")) : null : null;
       var reviewMsg = body;
 
-      if (this.state.editMode) {
+      if (this.state.edit) {
         reviewMsg = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_edit_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
           review: this.props.review
         });
@@ -2313,7 +2313,7 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
         className: "reviewRating"
       }, rating, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas yellow fa-star"
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, reviewMsg), this.state.editMode ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, reviewMsg), this.state.edit ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "editDeleteButtons"
       }, editDeleteButtons));
     }
