@@ -4,6 +4,7 @@ import StarRating from "./reviews_star_rating";
 const ReviewForm = (props) => {
   const [body, setBody] = useState("");
   const [rating, setRating] = useState("");
+  const [submitted, setSubmitted] = useState(false)
 
   const bodyChangeHandler = (event) => {
     setBody(event.currentTarget.value);
@@ -46,6 +47,7 @@ const ReviewForm = (props) => {
       body: body,
       rating: 2,
     });
+    setSubmitted(true)
   };
 
   if (props.formType === "create") {
@@ -66,9 +68,17 @@ const ReviewForm = (props) => {
 
     if (currentUser) {
       if (spotsReviewsUserId.has(currentUser.id)) {
-        button = <button disabled>you have already reviewed</button>;
+        button = (
+          <button className="submit-button disabled" disabled>
+            you have already reviewed{" "}
+          </button>
+        );
       } else if (!usersReservationsSpotId.has(spot.id)) {
-        button = <button disabled>you need to make a reservation first</button>;
+        button = (
+          <button className="submit-button disabled" disabled>
+            you need to make a reservation first
+          </button>
+        );
       }
     }
 
@@ -91,7 +101,7 @@ const ReviewForm = (props) => {
         </form>
       </React.Fragment>
     );
-  } else {
+  } else if (!submitted) {
     let buttonDiv = (
       <div className="editDeleteButtons">
         <button type="button" onClick={editReview}>
@@ -115,6 +125,8 @@ const ReviewForm = (props) => {
         {buttonDiv}
       </React.Fragment>
     );
+  } else {
+    return null;
   }
 };
 

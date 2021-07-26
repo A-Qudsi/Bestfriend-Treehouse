@@ -209,6 +209,11 @@ input[type=checkbox] {
 
 }
 
+.disabled {
+    cursor: not-allowed;
+    background-color:grey;
+}
+
 .l_link {
     display: flex;
     margin-bottom: 10px;

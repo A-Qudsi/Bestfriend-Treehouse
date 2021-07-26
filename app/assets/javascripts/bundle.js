@@ -1856,6 +1856,11 @@ var ReviewForm = function ReviewForm(props) {
       rating = _useState4[0],
       setRating = _useState4[1];
 
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      submitted = _useState6[0],
+      setSubmitted = _useState6[1];
+
   var bodyChangeHandler = function bodyChangeHandler(event) {
     setBody(event.currentTarget.value);
   };
@@ -1899,6 +1904,7 @@ var ReviewForm = function ReviewForm(props) {
       body: body,
       rating: 2
     });
+    setSubmitted(true);
   };
 
   if (props.formType === "create") {
@@ -1920,10 +1926,12 @@ var ReviewForm = function ReviewForm(props) {
     if (currentUser) {
       if (spotsReviewsUserId.has(currentUser.id)) {
         button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "submit-button disabled",
           disabled: true
-        }, "you have already reviewed");
+        }, "you have already reviewed", " ");
       } else if (!usersReservationsSpotId.has(spot.id)) {
         button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "submit-button disabled",
           disabled: true
         }, "you need to make a reservation first");
       }
@@ -1944,7 +1952,7 @@ var ReviewForm = function ReviewForm(props) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_star_rating__WEBPACK_IMPORTED_MODULE_1__["default"], {
       getRating: getRating
     })), button));
-  } else {
+  } else if (!submitted) {
     var buttonDiv = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "editDeleteButtons"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1960,6 +1968,8 @@ var ReviewForm = function ReviewForm(props) {
       placeholder: "Add a comment",
       required: true
     })), buttonDiv);
+  } else {
+    return null;
   }
 };
 
