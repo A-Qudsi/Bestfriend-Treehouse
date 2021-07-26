@@ -39,7 +39,7 @@ class ReviewsIndex extends React.Component {
     let sentenceReview = reviews.length
       ? " · " + reviews.length + ` ${strReviews}`
       : "";
-
+    debugger
     return (
       <React.Fragment>
         <p className="reviewsHeader">

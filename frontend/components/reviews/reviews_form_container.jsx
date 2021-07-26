@@ -9,6 +9,7 @@ import { createReview } from "../../actions/review_actions";
 import { openModal } from "../../actions/modal_actions";
 
 const mSTP = (state, ownProps) => {
+    debugger
   return {
     currentUser: state.entities.users[state.session.id],
     spot: ownProps.spot,

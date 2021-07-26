@@ -1,14 +1,24 @@
 import React from "react";
+import EditReviewFormContainer from "./reviews_edit_form_container";
 
 class ReviewIndexItem extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      editMode: false,
+    };
+
     this.deleteReview = this.deleteReview.bind(this);
+    this.editReview = this.editReview.bind(this);
   }
 
   deleteReview() {
     this.props.deleteReview(this.props.review.id);
+  }
+
+  editReview() {
+    this.setState({ editMode: true });
   }
 
   render() {
@@ -40,7 +50,8 @@ class ReviewIndexItem extends React.Component {
         <div className="review-buttons">
           <button onClick={this.editReview} className="review-edit">
             Edit
-          </button>{ }
+          </button>
+          {}
           <button onClick={this.deleteReview} className="review-edit">
             Delete
           </button>
@@ -48,10 +59,15 @@ class ReviewIndexItem extends React.Component {
       ) : null
     ) : null;
 
+    let reviewMsg = body;
+    if (this.state.editMode) {
+      reviewMsg = <EditReviewFormContainer review={this.props.review} />;
+    }
+
     return (
       <div className="review-index-item">
         <div className="review-profile">
-          <div className='reviewUserInfo'>
+          <div className="reviewUserInfo">
             <div>
               <i className="far reviewProfilePic fa-user-circle"></i>
             </div>
@@ -62,13 +78,15 @@ class ReviewIndexItem extends React.Component {
               </p>
             </div>
           </div>
-          <div className='reviewRating'>
+          <div className="reviewRating">
             {rating}
             <i className="fas yellow fa-star"></i>
           </div>
         </div>
-        <div>{body}</div>
-        <div className='editDeleteButtons'>{editDeleteButtons}</div>
+        <div>{reviewMsg}</div>
+        {this.state.editMode ? null : (
+          <div className="editDeleteButtons">{editDeleteButtons}</div>
+        )}
       </div>
     );
   }
