@@ -4,7 +4,6 @@ import StarRating from "./reviews_star_rating";
 const ReviewForm = (props) => {
   const [body, setBody] = useState("");
   const [rating, setRating] = useState("");
-  const [submitted, setSubmitted] = useState(false);
 
   const bodyChangeHandler = (event) => {
     setBody(event.currentTarget.value);
@@ -47,7 +46,7 @@ const ReviewForm = (props) => {
       body: body,
       rating: rating,
     });
-    props.getEditMode(false);
+    props.setEdit(false);
   };
 
   let button = (

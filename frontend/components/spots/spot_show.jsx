@@ -16,6 +16,12 @@ class SpotShow extends React.Component {
     this.props.fetchSpots();
   }
 
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.spot !== this.props.spot) {
+  //         this.props.fetchSpots();
+  //   }
+  // }
+
   render() {
     if (!this.props.spot) return null;
     const { spot, users } = this.props;
@@ -37,7 +43,10 @@ class SpotShow extends React.Component {
           </div>
         </div>
         <div className="reviewContainer">
-          <ReviewIndexContainer spot={spot} />
+          <ReviewIndexContainer
+            spot={spot}
+            currentUser={this.props.currentUser}
+          />
         </div>
         <div>
           <ReviewForm spot={spot} currentUser={this.props.currentUser} />

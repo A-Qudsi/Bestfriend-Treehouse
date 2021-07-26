@@ -1871,11 +1871,6 @@ var ReviewForm = function ReviewForm(props) {
       rating = _useState4[0],
       setRating = _useState4[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState6 = _slicedToArray(_useState5, 2),
-      submitted = _useState6[0],
-      setSubmitted = _useState6[1];
-
   var bodyChangeHandler = function bodyChangeHandler(event) {
     setBody(event.currentTarget.value);
   };
@@ -1919,7 +1914,7 @@ var ReviewForm = function ReviewForm(props) {
       body: body,
       rating: rating
     });
-    props.getEditMode(false);
+    props.setEdit(false);
   };
 
   var button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -2068,106 +2063,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _reviews_index_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reviews_index_item */ "./frontend/components/reviews/reviews_index_item.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
 
+var ReviewsIndex = function ReviewsIndex(props) {
+  var reviews = props.reviews;
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    props.fetchReviews(props.spot.id);
+  }, [reviews.length]);
+  var total = 0;
+  reviews.forEach(function (rev) {
+    return total += rev.rating;
+  });
+  var average;
 
-var ReviewsIndex = /*#__PURE__*/function (_React$Component) {
-  _inherits(ReviewsIndex, _React$Component);
-
-  var _super = _createSuper(ReviewsIndex);
-
-  function ReviewsIndex(props) {
-    var _this;
-
-    _classCallCheck(this, ReviewsIndex);
-
-    _this = _super.call(this, props);
-    _this.state = {
-      reviews: props.reviews
-    };
-    return _this;
+  if (reviews.length) {
+    average = (total / reviews.length).toFixed(2);
+  } else {
+    average = "No reviews yet";
   }
 
-  _createClass(ReviewsIndex, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchReviews(this.props.spot.id);
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps) {
-      if (prevProps.reviews !== this.props.reviews) {
-        this.setState({
-          reviews: this.props.reviews
-        });
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      var reviews = this.state.reviews;
-      var total = 0;
-      reviews.forEach(function (rev) {
-        return total += rev.rating;
-      });
-      var average;
-
-      if (reviews.length) {
-        average = (total / reviews.length).toFixed(2);
-      } else {
-        average = "No reviews yet";
-      }
-
-      var strReviews = reviews.length === 0 ? "" : reviews.length === 1 ? "review" : "reviews";
-      var sentenceReview = reviews.length ? " · " + reviews.length + " ".concat(strReviews) : "";
-      debugger;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "reviewsHeader"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas yellow fa-star"
-      }), " ", average, " ", sentenceReview), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "review-container"
-      }, this.props.reviews.map(function (review) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: review.id,
-          className: "review-item"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          spot: _this2.props.spot,
-          review: review,
-          currentUser: _this2.props.currentUser,
-          deleteReview: _this2.props.deleteReview,
-          updateReview: _this2.props.updateReview
-        }));
-      })));
-    }
-  }]);
-
-  return ReviewsIndex;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+  var strReviews = reviews.length === 0 ? "" : reviews.length === 1 ? "review" : "reviews";
+  var sentenceReview = reviews.length ? " · " + reviews.length + " ".concat(strReviews) : "";
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "reviewsHeader"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas yellow fa-star"
+  }), " ", average, " ", sentenceReview), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "review-container"
+  }, props.reviews.map(function (review) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      key: review.id,
+      className: "review-item"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      spot: props.spot,
+      review: review,
+      currentUser: props.currentUser,
+      deleteReview: props.deleteReview,
+      updateReview: props.updateReview
+    }));
+  })));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (ReviewsIndex);
 
@@ -2231,132 +2167,85 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _reviews_edit_form_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reviews_edit_form_container */ "./frontend/components/reviews/reviews_edit_form_container.jsx");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
-  _inherits(ReviewIndexItem, _React$Component);
+var ReviewIndexItem = function ReviewIndexItem(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      edit = _useState2[0],
+      setEdit = _useState2[1];
 
-  var _super = _createSuper(ReviewIndexItem);
+  var _props$review = props.review,
+      body = _props$review.body,
+      rating = _props$review.rating,
+      user_id = _props$review.user_id,
+      created_at = _props$review.created_at,
+      user = _props$review.user;
+  var currentUser = props.currentUser,
+      spot = props.spot;
+  var _ref = [created_at.slice(0, 4), months[created_at.slice(5, 7) - 1]],
+      year = _ref[0],
+      month = _ref[1];
+  var editDeleteButtons = currentUser ? user_id === currentUser.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "review-buttons"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: function onClick() {
+      return setEdit(true);
+    },
+    className: "review-edit"
+  }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: function onClick() {
+      return props.deleteReview(props.review.id);
+    },
+    className: "review-edit"
+  }, "Delete")) : null : null;
+  var reviewMsg = body;
 
-  function ReviewIndexItem(props) {
-    var _this;
-
-    _classCallCheck(this, ReviewIndexItem);
-
-    _this = _super.call(this, props);
-    _this.state = {
-      edit: false
-    };
-    _this.deleteReview = _this.deleteReview.bind(_assertThisInitialized(_this));
-    _this.editReview = _this.editReview.bind(_assertThisInitialized(_this));
-    _this.getEditMode = _this.getEditMode.bind(_assertThisInitialized(_this));
-    return _this;
+  if (edit) {
+    reviewMsg = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_edit_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      spot: spot,
+      currentUser: currentUser,
+      review: props.review,
+      setEdit: setEdit
+    });
   }
 
-  _createClass(ReviewIndexItem, [{
-    key: "deleteReview",
-    value: function deleteReview() {
-      this.props.deleteReview(this.props.review.id);
-    }
-  }, {
-    key: "editReview",
-    value: function editReview() {
-      this.setState({
-        edit: true
-      });
-    }
-  }, {
-    key: "getEditMode",
-    value: function getEditMode(value) {
-      this.setState({
-        edit: value
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props$review = this.props.review,
-          body = _this$props$review.body,
-          rating = _this$props$review.rating,
-          user_id = _this$props$review.user_id,
-          created_at = _this$props$review.created_at,
-          user = _this$props$review.user;
-      var _this$props = this.props,
-          currentUser = _this$props.currentUser,
-          spot = _this$props.spot;
-      var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-      var _ref = [created_at.slice(0, 4), months[created_at.slice(5, 7) - 1]],
-          year = _ref[0],
-          month = _ref[1];
-      var editDeleteButtons = currentUser ? user_id === currentUser.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "review-buttons"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.editReview,
-        className: "review-edit"
-      }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.deleteReview,
-        className: "review-edit"
-      }, "Delete")) : null : null;
-      var reviewMsg = body;
-
-      if (this.state.edit) {
-        reviewMsg = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_edit_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          spot: spot,
-          currentUser: currentUser,
-          review: this.props.review,
-          getEditMode: this.getEditMode
-        });
-      }
-
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "review-index-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "review-profile"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "reviewUserInfo"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far reviewProfilePic fa-user-circle"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "reviewNameDate"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "reviewUserName"
-      }, user.fname), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "reviewDates"
-      }, month, " ", year, " "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "reviewRating"
-      }, rating, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas yellow fa-star"
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, reviewMsg), this.state.edit ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "editDeleteButtons"
-      }, editDeleteButtons));
-    }
-  }]);
-
-  return ReviewIndexItem;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "review-index-item"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "review-profile"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "reviewUserInfo"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "far reviewProfilePic fa-user-circle"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "reviewNameDate"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "reviewUserName"
+  }, user.fname), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "reviewDates"
+  }, month, " ", year, " "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "reviewRating"
+  }, rating, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas yellow fa-star"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, reviewMsg), edit ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "editDeleteButtons"
+  }, editDeleteButtons));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (ReviewIndexItem);
 
@@ -3219,7 +3108,12 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchSpots();
-    }
+    } // componentDidUpdate(prevProps) {
+    //   if (prevProps.spot !== this.props.spot) {
+    //         this.props.fetchSpots();
+    //   }
+    // }
+
   }, {
     key: "render",
     value: function render() {
@@ -3249,7 +3143,8 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reviewContainer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_reviews_index_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        spot: spot
+        spot: spot,
+        currentUser: this.props.currentUser
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_reviews_form_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
         spot: spot,
         currentUser: this.props.currentUser
@@ -3307,7 +3202,20 @@ var mDTP = function mDTP(dispatch) {
     },
     createReservation: function createReservation(reservation) {
       return dispatch(Object(_actions_reservation_actions__WEBPACK_IMPORTED_MODULE_3__["createReservation"])(reservation));
-    }
+    },
+    fetchReviews: function (_fetchReviews) {
+      function fetchReviews(_x) {
+        return _fetchReviews.apply(this, arguments);
+      }
+
+      fetchReviews.toString = function () {
+        return _fetchReviews.toString();
+      };
+
+      return fetchReviews;
+    }(function (userId) {
+      return dispatch(fetchReviews(userId));
+    })
   };
 };
 

@@ -1,66 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReviewIndexItem from "./reviews_index_item";
 
-class ReviewsIndex extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      reviews: props.reviews,
-    };
+const ReviewsIndex = (props) => {
+  const { reviews } = props;
+
+  useEffect(() => {
+    props.fetchReviews(props.spot.id);
+  }, [reviews.length]);
+
+  let total = 0;
+  reviews.forEach((rev) => (total += rev.rating));
+
+  let average;
+  if (reviews.length) {
+    average = (total / reviews.length).toFixed(2);
+  } else {
+    average = "No reviews yet";
   }
 
-  componentDidMount() {
-    this.props.fetchReviews(this.props.spot.id);
-  }
+  let strReviews =
+    reviews.length === 0 ? "" : reviews.length === 1 ? "review" : "reviews";
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.reviews !== this.props.reviews) {
-      this.setState({
-        reviews: this.props.reviews,
-      });
-    }
-  }
+  let sentenceReview = reviews.length
+    ? " · " + reviews.length + ` ${strReviews}`
+    : "";
 
-  render() {
-    const { reviews } = this.state;
-    let total = 0;
-    reviews.forEach((rev) => (total += rev.rating));
-
-    let average;
-    if (reviews.length) {
-      average = (total / reviews.length).toFixed(2);
-    } else {
-      average = "No reviews yet";
-    }
-
-    let strReviews =
-      reviews.length === 0 ? "" : reviews.length === 1 ? "review" : "reviews";
-
-    let sentenceReview = reviews.length
-      ? " · " + reviews.length + ` ${strReviews}`
-      : "";
-    debugger;
-    return (
-      <React.Fragment>
-        <p className="reviewsHeader">
-          <i className="fas yellow fa-star"></i> {average} {sentenceReview}
-        </p>
-        <ul className="review-container">
-          {this.props.reviews.map((review) => (
-            <li key={review.id} className="review-item">
-              <ReviewIndexItem
-                spot={this.props.spot}
-                review={review}
-                currentUser={this.props.currentUser}
-                deleteReview={this.props.deleteReview}
-                updateReview={this.props.updateReview}
-              />
-            </li>
-          ))}
-        </ul>
-      </React.Fragment>
-    );
-  }
-}
+  return (
+    <React.Fragment>
+      <p className="reviewsHeader">
+        <i className="fas yellow fa-star"></i> {average} {sentenceReview}
+      </p>
+      <ul className="review-container">
+        {props.reviews.map((review) => (
+          <li key={review.id} className="review-item">
+            <ReviewIndexItem
+              spot={props.spot}
+              review={review}
+              currentUser={props.currentUser}
+              deleteReview={props.deleteReview}
+              updateReview={props.updateReview}
+            />
+          </li>
+        ))}
+      </ul>
+    </React.Fragment>
+  );
+};
 
 export default ReviewsIndex;
