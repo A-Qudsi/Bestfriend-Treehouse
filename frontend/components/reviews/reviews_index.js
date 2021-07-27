@@ -1,31 +1,36 @@
 import React, { useState, useEffect } from "react";
 import ReviewIndexItem from "./reviews_index_item";
 
-class ReviewsIndex extends React.Component {
-  constructor(props) {
-    super(props);
+const ReviewsIndex = props => {
+  // constructor(props) {
+  //   super(props);
 
-    this.state = ({
-      reviews: this.props.reviews
-    })
-  }
+  //   this.state = ({
+  //     reviews: this.props.reviews,
+  //     submitted: false
+  //   })
+  // }
 
-  // const [reviews, setReviews] = useState(props.reviews)
+  // const [reviews, setReviews] = useState(props.reviews);
 
-  componentDidMount() {
-    this.props.fetchReviews(this.props.spot.id);
-  }
+  useEffect(() => {
+    props.fetchReviews(props.spot.id);
+  },[])
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.reviews !== this.props.reviews) {
-      this.setState({
-        reviews: this.props.reviews,
-      });
-    }
-  }
+  // componentDidMount() {
+  //   this.props.fetchReviews(this.props.spot.id);
+  // }
 
-  render() {
-    const { reviews } = this.state;
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.reviews !== this.props.reviews) {
+  //     this.setState({
+  //       reviews: this.props.reviews,
+  //     });
+  //   }
+  // }
+
+  // render() {
+    const { reviews } = props;
     debugger;
 
     let total = 0;
@@ -45,7 +50,7 @@ class ReviewsIndex extends React.Component {
       ? " · " + reviews.length + ` ${strReviews}`
       : "";
 
-    debugger;
+    // debugger;
 
     return (
       <React.Fragment>
@@ -56,17 +61,18 @@ class ReviewsIndex extends React.Component {
           {reviews.map((review) => (
             <li key={review.id} className="review-item">
               <ReviewIndexItem
-                spot={this.props.spot}
+                spot={props.spot}
                 review={review}
-                currentUser={this.props.currentUser}
-                deleteReview={this.props.deleteReview}
+                currentUser={props.currentUser}
+                deleteReview={props.deleteReview}
+                fetchSpots={props.fetchSpots}
               />
             </li>
           ))}
         </ul>
       </React.Fragment>
     );
-  }
+  // }
 }
 
 export default ReviewsIndex;

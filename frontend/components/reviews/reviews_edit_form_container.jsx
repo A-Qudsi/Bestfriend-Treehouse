@@ -1,4 +1,4 @@
-import ReviewForm from "./reviews_form";
+import EditReviewForm from "./reviews_edit";
 import { connect } from "react-redux";
 import { updateReview, fetchReviews } from "../../actions/review_actions";
 import { fetchSpots } from "../../actions/spot_actions";
@@ -9,7 +9,6 @@ const mSTP = (state, ownProps) => {
     currentUser: state.entities.users[state.session.id],
     spot: ownProps.spot,
     review: ownProps.review,
-    formType: "edit",
   };
 };
 
@@ -21,4 +20,4 @@ const mDTP = (dispatch) => {
   };
 };
 
-export default connect(mSTP, mDTP)(ReviewForm);
+export default connect(mSTP, mDTP)(EditReviewForm);

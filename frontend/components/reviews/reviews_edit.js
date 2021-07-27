@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import StarRating from "./reviews_star_rating";
 
-const ReviewForm = (props) => {
-  const [body, setBody] = useState("");
-  const [rating, setRating] = useState("");
+const EditReviewForm = (props) => {
+  const [body, setBody] = useState(props.review.body);
+  const [rating, setRating] = useState(props.review.rating);
+  const [active, setActive] = useState(false)
 
   const bodyChangeHandler = (event) => {
     setBody(event.currentTarget.value);
@@ -15,20 +16,14 @@ const ReviewForm = (props) => {
 
   const { spot, currentUser } = props;
 
-  const submitReview = (e) => {
+  const editReview = (e) => {
     e.preventDefault();
-    if (currentUser) {
-      props.createReview({
-        body: body,
-        rating: rating,
-        user_id: currentUser.id,
-        spot_id: spot.id,
-      });
-    } else {
-      props.openModal("login");
-    }
-    setBody("");
-    setRating("");
+    props.updateReview({
+      id: props.review.id,
+      body: body,
+      rating: rating,
+    })
+    props.setEdit(false);
   };
 
   let button = (
@@ -61,25 +56,39 @@ const ReviewForm = (props) => {
     }
   }
 
+  let buttonDiv = (
+    <div className="editDeleteButtons">
+      <button type="button" onClick={editReview}>
+        Submit
+      </button>
+      <button type="button" onClick={() => props.setEdit(false)}>
+        Cancel
+      </button>
+    </div>
+  );
+
   return (
     <React.Fragment>
-      <form className="reviewForm">
-        <div className="reviewsFormDiv">
-          <input
-            className="reviewsBodyTextarea"
-            type="textarea"
-            value={body}
-            placeholder="Tell us about your stay"
+      <div className="edit">
+        <div className="editTextfield">
+          <textarea
+            className="editinputfield"
             onChange={bodyChangeHandler}
+            value={body}
+            placeholder="Add a comment"
+            autoFocus
+            required
+            rows="4"
+            cols="30"
           />
         </div>
         <div className="reviewsRatingDiv">
           <StarRating getRating={getRating} />
         </div>
-        {button}
-      </form>
+        {buttonDiv}
+      </div>
     </React.Fragment>
   );
 };
 
-export default ReviewForm;
+export default EditReviewForm;
