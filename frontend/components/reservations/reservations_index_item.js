@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class ReservationIndexItem extends React.Component {
   constructor(props) {
@@ -20,9 +21,11 @@ class ReservationIndexItem extends React.Component {
 
     return (
       <div className="reservation-index-item">
-        <div className="reservation-index-item-image">
-          <img src={spot.photoUrls[1]} />
-        </div>
+        <Link to={`/spots/${spot.id}`} key={spot.id}>
+          <div className="reservation-index-item-image">
+            <img src={spot.photoUrls[1]} />
+          </div>
+        </Link>
         <div className="reservation-index-item-info">
           <p className="Reservation-title">{spot.name}</p>
           <p>Reservation Confirmed</p>
