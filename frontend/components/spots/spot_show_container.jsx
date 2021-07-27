@@ -4,7 +4,6 @@ import SpotShow from "./spot_show";
 import { createReservation } from "../../actions/reservation_actions";
 import { openModal } from "../../actions/modal_actions";
 
-
 const mSTP = (state, ownProps) => {
   return {
     currentUser: state.entities.users[state.session.id],

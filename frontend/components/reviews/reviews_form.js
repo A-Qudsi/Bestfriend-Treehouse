@@ -23,6 +23,8 @@ const ReviewForm = (props) => {
 
   useEffect(() => {
     props.fetchSpots();
+    props.fetchReviews(props.spot.id);
+
   }, [active]);
 
   const { spot, currentUser } = props;
@@ -37,7 +39,6 @@ const ReviewForm = (props) => {
         user_id: currentUser.id,
         spot_id: spot.id,
       });
-      setActive(!active);
     } else {
       props.openModal("login");
     }
@@ -46,6 +47,7 @@ const ReviewForm = (props) => {
   };
 
   const editReview = (e) => {
+    e.preventDefault();
     props.updateReview({
       id: props.review.id,
       body: body,
@@ -110,6 +112,9 @@ const ReviewForm = (props) => {
       <div className="editDeleteButtons">
         <button type="button" onClick={editReview}>
           Submit
+        </button>
+        <button type="button" onClick={() => props.setEdit(false)}>
+          Cancel
         </button>
       </div>
     );

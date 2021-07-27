@@ -1,7 +1,7 @@
 import ReviewForm from "./reviews_form";
 import { connect } from "react-redux";
-import { updateReview } from "../../actions/review_actions";
-import { fetchSpot, fetchSpots } from "../../actions/spot_actions";
+import { updateReview, fetchReviews } from "../../actions/review_actions";
+import { fetchSpots } from "../../actions/spot_actions";
 
 
 const mSTP = (state, ownProps) => {
@@ -17,7 +17,7 @@ const mDTP = (dispatch) => {
   return {
     fetchSpots: () => dispatch(fetchSpots()),
     updateReview: (review) => dispatch(updateReview(review)),
-    fetchReviews: (userId) => dispatch(fetchReviews(userId)),
+    fetchReviews: (userId) => dispatch(fetchReviews(userId))
   };
 };
 

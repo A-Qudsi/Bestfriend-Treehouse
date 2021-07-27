@@ -26,9 +26,9 @@ const ReviewIndexItem = (props) => {
     months[created_at.slice(5, 7) - 1],
   ];
 
-  const handleDelete = () => {
-    props.deleteReview(props.review.id);
-  };
+const handleDelete = () => {
+  props.deleteReview(props.review.id).then(() => props.fetchSpots());
+}
 
   const editDeleteButtons = currentUser ? (
     user_id === currentUser.id ? (
