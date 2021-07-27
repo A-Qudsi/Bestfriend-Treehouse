@@ -2027,16 +2027,17 @@ var ReviewForm = function ReviewForm(props) {
       return submitReview(e);
     }
   }, "Submit Review");
-  var spotsReviewsUserId = new Set();
-  spot.reviews.forEach(function (ele) {
-    return spotsReviewsUserId.add(ele["user_id"]);
-  });
-  var usersReservationsSpotId = new Set();
-  currentUser.reservations.forEach(function (ele) {
-    return usersReservationsSpotId.add(ele["spot_id"]);
-  });
 
   if (currentUser) {
+    var spotsReviewsUserId = new Set();
+    spot.reviews.forEach(function (ele) {
+      return spotsReviewsUserId.add(ele["user_id"]);
+    });
+    var usersReservationsSpotId = new Set();
+    currentUser.reservations.forEach(function (ele) {
+      return usersReservationsSpotId.add(ele["spot_id"]);
+    });
+
     if (spotsReviewsUserId.has(currentUser.id)) {
       button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "submit-button disabled",

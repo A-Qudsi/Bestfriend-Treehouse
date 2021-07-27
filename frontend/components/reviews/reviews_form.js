@@ -37,15 +37,14 @@ const ReviewForm = (props) => {
     </button>
   );
 
-  let spotsReviewsUserId = new Set();
-  spot.reviews.forEach((ele) => spotsReviewsUserId.add(ele["user_id"]));
-
-  let usersReservationsSpotId = new Set();
-  currentUser.reservations.forEach((ele) =>
-    usersReservationsSpotId.add(ele["spot_id"])
-  );
-
   if (currentUser) {
+    let spotsReviewsUserId = new Set();
+    spot.reviews.forEach((ele) => spotsReviewsUserId.add(ele["user_id"]));
+
+    let usersReservationsSpotId = new Set();
+    currentUser.reservations.forEach((ele) =>
+      usersReservationsSpotId.add(ele["spot_id"])
+    );
     if (spotsReviewsUserId.has(currentUser.id)) {
       button = (
         <button className="submit-button disabled" disabled>
