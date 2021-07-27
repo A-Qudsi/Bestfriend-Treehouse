@@ -20,7 +20,6 @@ const ReviewIndexItem = (props) => {
   const [ edit, setEdit ] = useState(false);
   const { body, rating, user_id, created_at, user } = props.review;
   const { currentUser, spot } = props;
-  debugger
 
   const [year, month] = [
     created_at.slice(0, 4),

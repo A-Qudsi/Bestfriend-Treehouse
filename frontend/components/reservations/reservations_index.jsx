@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import React, { Fragment } from "react";
 import ReservationIndexItem from "./reservations_index_item.js";
 
 class ReservationsIndex extends React.Component {
@@ -12,12 +12,12 @@ class ReservationsIndex extends React.Component {
   }
 
   render() {
-    if (this.props.reservations.length === 0) 
+    if (this.props.reservations.length === 0)
       return (
         <div className="noReservations-container">
           <p className="noReservations">You have no reservations!</p>
         </div>
-      ) 
+      );
     return (
       <Fragment>
         <div className="reservationsHeader">

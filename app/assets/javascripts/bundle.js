@@ -2154,30 +2154,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ReviewsIndex = function ReviewsIndex(props) {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = ({
-  //     reviews: this.props.reviews,
-  //     submitted: false
-  //   })
-  // }
-  // const [reviews, setReviews] = useState(props.reviews);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     props.fetchReviews(props.spot.id);
-  }, []); // componentDidMount() {
-  //   this.props.fetchReviews(this.props.spot.id);
-  // }
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.reviews !== this.props.reviews) {
-  //     this.setState({
-  //       reviews: this.props.reviews,
-  //     });
-  //   }
-  // }
-  // render() {
-
+  }, []);
   var reviews = props.reviews;
-  debugger;
   var total = 0;
   reviews.forEach(function (rev) {
     return total += rev.rating;
@@ -2191,8 +2171,7 @@ var ReviewsIndex = function ReviewsIndex(props) {
   }
 
   var strReviews = reviews.length === 0 ? "" : reviews.length === 1 ? "review" : "reviews";
-  var sentenceReview = reviews.length ? " · " + reviews.length + " ".concat(strReviews) : ""; // debugger;
-
+  var sentenceReview = reviews.length ? " · " + reviews.length + " ".concat(strReviews) : "";
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "reviewsHeader"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -2320,7 +2299,6 @@ var ReviewIndexItem = function ReviewIndexItem(props) {
       user = _props$review.user;
   var currentUser = props.currentUser,
       spot = props.spot;
-  debugger;
   var _ref = [created_at.slice(0, 4), months[created_at.slice(5, 7) - 1]],
       year = _ref[0],
       month = _ref[1];
