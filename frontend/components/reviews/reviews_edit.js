@@ -4,7 +4,6 @@ import StarRating from "./reviews_star_rating";
 const EditReviewForm = (props) => {
   const [body, setBody] = useState(props.review.body);
   const [rating, setRating] = useState(props.review.rating);
-  const [active, setActive] = useState(false)
 
   const bodyChangeHandler = (event) => {
     setBody(event.currentTarget.value);
@@ -25,36 +24,6 @@ const EditReviewForm = (props) => {
     })
     props.setEdit(false);
   };
-
-  let button = (
-    <button className="submit-button" onClick={(e) => submitReview(e)}>
-      Submit Review
-    </button>
-  );
-
-  let spotsReviewsUserId = new Set();
-  spot.reviews.forEach((ele) => spotsReviewsUserId.add(ele["user_id"]));
-
-  let usersReservationsSpotId = new Set();
-  currentUser.reservations.forEach((ele) =>
-    usersReservationsSpotId.add(ele["spot_id"])
-  );
-
-  if (currentUser) {
-    if (spotsReviewsUserId.has(currentUser.id)) {
-      button = (
-        <button className="submit-button disabled" disabled>
-          You have already reviewed.
-        </button>
-      );
-    } else if (!usersReservationsSpotId.has(spot.id)) {
-      button = (
-        <button className="submit-button disabled" disabled>
-          You need to make a reservation first.
-        </button>
-      );
-    }
-  }
 
   let buttonDiv = (
     <div className="editDeleteButtons">

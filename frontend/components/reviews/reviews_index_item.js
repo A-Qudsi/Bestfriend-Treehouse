@@ -17,7 +17,7 @@ const months = [
 ];
 
 const ReviewIndexItem = (props) => {
-  const [ edit, setEdit ] = useState(false);
+  const [edit, setEdit] = useState(false);
   const { body, rating, user_id, created_at, user } = props.review;
   const { currentUser, spot } = props;
 
@@ -26,13 +26,13 @@ const ReviewIndexItem = (props) => {
     months[created_at.slice(5, 7) - 1],
   ];
 
-
   useEffect(() => {
-    props.fetchSpots()
-  }, [edit])
+    props.fetchSpots();
+  }, [edit]);
+  
   const handleDelete = () => {
-  props.deleteReview(props.review.id).then(() => props.fetchSpots());
-}
+    props.deleteReview(props.review.id).then(() => props.fetchSpots());
+  };
 
   const editDeleteButtons = currentUser ? (
     user_id === currentUser.id ? (

@@ -1825,11 +1825,6 @@ var EditReviewForm = function EditReviewForm(props) {
       rating = _useState4[0],
       setRating = _useState4[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState6 = _slicedToArray(_useState5, 2),
-      active = _useState6[0],
-      setActive = _useState6[1];
-
   var bodyChangeHandler = function bodyChangeHandler(event) {
     setBody(event.currentTarget.value);
   };
@@ -1850,35 +1845,6 @@ var EditReviewForm = function EditReviewForm(props) {
     });
     props.setEdit(false);
   };
-
-  var button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "submit-button",
-    onClick: function onClick(e) {
-      return submitReview(e);
-    }
-  }, "Submit Review");
-  var spotsReviewsUserId = new Set();
-  spot.reviews.forEach(function (ele) {
-    return spotsReviewsUserId.add(ele["user_id"]);
-  });
-  var usersReservationsSpotId = new Set();
-  currentUser.reservations.forEach(function (ele) {
-    return usersReservationsSpotId.add(ele["spot_id"]);
-  });
-
-  if (currentUser) {
-    if (spotsReviewsUserId.has(currentUser.id)) {
-      button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "submit-button disabled",
-        disabled: true
-      }, "You have already reviewed.");
-    } else if (!usersReservationsSpotId.has(spot.id)) {
-      button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "submit-button disabled",
-        disabled: true
-      }, "You need to make a reservation first.");
-    }
-  }
 
   var buttonDiv = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "editDeleteButtons"
@@ -2215,25 +2181,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  if (ownProps.spot.reviews) {
-    return {
-      currentUser: state.entities.users[state.session.id],
-      spot: ownProps.spot,
-      reviews: ownProps.spot.review_ids.map(function (review_id) {
-        return state.entities.reviews[review_id];
-      }).filter(function (review) {
-        return review;
-      })
-    };
-  } else {
-    return {
-      currentUser: state.entities.users[state.session.id],
-      // spot: ownProps.spot,
-      reviews: []
-    };
-  }
-
-  ;
+  return {
+    currentUser: state.entities.users[state.session.id],
+    spot: ownProps.spot,
+    reviews: ownProps.spot.review_ids.map(function (review_id) {
+      return state.entities.reviews[review_id];
+    }).filter(function (review) {
+      return review;
+    })
+  };
 };
 
 var mDTP = function mDTP(dispatch) {
