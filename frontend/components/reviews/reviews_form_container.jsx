@@ -7,7 +7,7 @@ import {
 } from "../../actions/review_actions";
 import { createReview } from "../../actions/review_actions";
 import { openModal } from "../../actions/modal_actions";
-import { fetchSpot, fetchSpots } from "../../actions/spot_actions";
+import { fetchSpots } from "../../actions/spot_actions";
 
 
 const mSTP = (state, ownProps) => {
@@ -17,7 +17,6 @@ const mSTP = (state, ownProps) => {
     reviews: ownProps.spot.review_ids
       .map((review_id) => state.entities.reviews[review_id])
       .filter((review) => review),
-    formType: "create",
   };
 };
 

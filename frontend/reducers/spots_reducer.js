@@ -4,7 +4,7 @@ import {
   REMOVE_SPOT,
 } from "../actions/spot_actions";
 
-import { RECEIVE_REVIEW } from "../actions/review_actions";
+import { RECEIVE_REVIEW, REMOVE_REVIEW } from "../actions/review_actions";
 
 const spotsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -20,8 +20,14 @@ const spotsReducer = (state = {}, action) => {
       delete newState[action.spotId];
       return newState;
     case RECEIVE_REVIEW:
-      newState[action.review.spot_id].review_ids.push(action.review.id);
+      if (!action.isUpdated) {
+        newState[action.review.spot_id].review_ids.push(action.review.id)
+      }
       return newState;
+    case REMOVE_REVIEW:
+      const spot = newState[action.review.spot_id]
+      spot.reviews = spot.reviews.filter(review => review.id !== action.review.id)
+      return newState
     default:
       return state;
   }

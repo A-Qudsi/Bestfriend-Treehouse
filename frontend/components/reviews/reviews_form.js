@@ -4,6 +4,7 @@ import StarRating from "./reviews_star_rating";
 const ReviewForm = (props) => {
   const [body, setBody] = useState("");
   const [rating, setRating] = useState("");
+  const [reviewerIds, setReviewerIds] = useState({});
 
   const bodyChangeHandler = (event) => {
     setBody(event.currentTarget.value);
@@ -14,6 +15,8 @@ const ReviewForm = (props) => {
   };
 
   const { spot, currentUser } = props;
+
+  const currentUserId = currentUser.id;
 
   const submitReview = (e) => {
     e.preventDefault();
@@ -29,6 +32,7 @@ const ReviewForm = (props) => {
     }
     setBody("");
     setRating("");
+    setReviewerIds( prevReviewerIds => ( {... prevReviewerIds, [currentUserId] : true }));
   };
 
   let button = (
@@ -38,14 +42,13 @@ const ReviewForm = (props) => {
   );
 
   if (currentUser) {
-    let spotsReviewsUserId = new Set();
-    spot.reviews.forEach((ele) => spotsReviewsUserId.add(ele["user_id"]));
 
     let usersReservationsSpotId = new Set();
     currentUser.reservations.forEach((ele) =>
       usersReservationsSpotId.add(ele["spot_id"])
     );
-    if (spotsReviewsUserId.has(currentUser.id)) {
+
+    if (currentUserId in reviewerIds) {
       button = (
         <button className="submit-button disabled" disabled>
           You have already reviewed.

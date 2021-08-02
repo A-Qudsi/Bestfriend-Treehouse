@@ -17,7 +17,7 @@ const mSTP = (state, ownProps) => {
   };
 };
 
-const mDTP = (dispatch) => {
+const mDTP = (dispatch) => {  
   return {
     fetchReviews: (userId) => dispatch(fetchReviews(userId)),
     deleteReview: (reviewId) => dispatch(deleteReview(reviewId)),

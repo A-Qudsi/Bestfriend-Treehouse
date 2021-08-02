@@ -44,7 +44,7 @@ const EditReviewForm = (props) => {
             className="editinputfield"
             onChange={bodyChangeHandler}
             value={body}
-            placeholder="Add a comment"
+            placeholder="Add a review"
             autoFocus
             required
             rows="4"

@@ -9,8 +9,10 @@ const reviewsReducer = (state = {}, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_REVIEWS:
+      debugger
       return action.reviews;
     case RECEIVE_REVIEW:
+      debugger
       newState[action.review.id] = action.review;
       return newState;
     case REMOVE_REVIEW:

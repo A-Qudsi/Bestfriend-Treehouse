@@ -11,17 +11,19 @@ export const receiveReviews = (reviews) => {
   };
 };
 
-export const receiveReview = ({ review }) => {
+export const receiveReview = ({ review }, isUpdated ) => {
   return {
     type: RECEIVE_REVIEW,
     review,
+    isUpdated
   };
 };
 
 export const removeReview = (review) => {
   return {
     type: REMOVE_REVIEW,
-    reviewId: review.review.id
+    reviewId: review.review.id,
+    review: review.review
   };
 };
 
@@ -42,7 +44,7 @@ export const createReview = (review) => (dispatch) =>
 
 export const updateReview = (review) => (dispatch) =>
   ReviewApiUtil.updateReview(review).then((review) =>
-    dispatch(receiveReview(review))
+    dispatch(receiveReview(review, true))
   );
 
 export const deleteReview = (reviewId) => (dispatch) =>
