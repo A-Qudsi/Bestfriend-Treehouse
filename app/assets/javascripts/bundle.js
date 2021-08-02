@@ -1987,6 +1987,15 @@ var ReviewForm = function ReviewForm(props) {
   var spot = props.spot,
       currentUser = props.currentUser;
   var currentUserId = currentUser.id;
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    if (currentUser) {
+      var spotsReviewsUserId = {};
+      spot.reviews.forEach(function (review) {
+        return spotsReviewsUserId[review["user_id"]] = true;
+      });
+      setReviewerIds(spotsReviewsUserId);
+    }
+  }, [spot.reviews]);
 
   var submitReview = function submitReview(e) {
     e.preventDefault();
