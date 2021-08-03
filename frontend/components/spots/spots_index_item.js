@@ -8,14 +8,8 @@ class SpotsIndexItem extends React.Component {
 
   render() {
     const spotId = this.props.spot.id;
-    const {
-      name,
-      description,
-      maxGuests,
-      price,
-      average_rating,
-      photoUrls,
-    } = this.props.spot;
+    const { name, description, maxGuests, price, average_rating, photoUrls } =
+      this.props.spot;
 
     return (
       <Link to={`/spots/${spotId}`} key={spotId}>

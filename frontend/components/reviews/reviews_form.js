@@ -17,13 +17,10 @@ const ReviewForm = (props) => {
   const { spot, currentUser } = props;
 
   const currentUserId = currentUser.id;
-
   useEffect(() => {
     if (currentUser) {
       let spotsReviewsUserId = {};
-      spot.reviews.forEach(
-        (review) => (spotsReviewsUserId[review["user_id"]] = true)
-      );
+      spot.reviews.forEach((ele) => spotsReviewsUserId[(ele["user_id"])] = true);
       setReviewerIds(spotsReviewsUserId);
     }
   }, [spot.reviews]);
@@ -42,10 +39,7 @@ const ReviewForm = (props) => {
     }
     setBody("");
     setRating("");
-    setReviewerIds((prevReviewerIds) => ({
-      ...prevReviewerIds,
-      [currentUserId]: true,
-    }));
+    setReviewerIds( prevReviewerIds => ( {... prevReviewerIds, [currentUserId] : true }));
   };
 
   let button = (
@@ -55,6 +49,7 @@ const ReviewForm = (props) => {
   );
 
   if (currentUser) {
+
     let usersReservationsSpotId = new Set();
     currentUser.reservations.forEach((ele) =>
       usersReservationsSpotId.add(ele["spot_id"])

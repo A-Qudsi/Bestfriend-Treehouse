@@ -1,6 +1,6 @@
 import React from "react";
 
-const BackgroundBody = ({history}) => {
+const BackgroundBody = ({ history }) => {
   return (
     <div className="homePage">
       <div className="treehouse_background">

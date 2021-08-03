@@ -20,8 +20,7 @@ class SpotMap extends React.Component {
   setMarker(spot) {
     const position = new google.maps.LatLng(spot.latitude, spot.longitude);
     const image = {
-      url:
-        "https://bestfriend-treehouse-seeds.s3.amazonaws.com/treehouselogoMapIcon.png",
+      url: "https://bestfriend-treehouse-seeds.s3.amazonaws.com/treehouselogoMapIcon.png",
     };
 
     new google.maps.Marker({

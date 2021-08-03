@@ -7,7 +7,7 @@ import Disclaimer from "./disclaimer";
 const Splash = (props) => {
   return (
     <Fragment>
-      <BackgroundBody history={props.history}/>
+      <BackgroundBody history={props.history} />
       <Cards />
       <Escapes />
       <Disclaimer />
