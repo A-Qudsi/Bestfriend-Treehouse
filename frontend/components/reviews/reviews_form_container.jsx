@@ -9,7 +9,6 @@ import { createReview } from "../../actions/review_actions";
 import { openModal } from "../../actions/modal_actions";
 import { fetchSpots } from "../../actions/spot_actions";
 
-
 const mSTP = (state, ownProps) => {
   return {
     currentUser: state.entities.users[state.session.id],

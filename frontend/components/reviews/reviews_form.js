@@ -16,14 +16,11 @@ const ReviewForm = (props) => {
 
   const { spot, currentUser } = props;
 
-  
-  
+  const currentUserId = currentUser.id;
   useEffect(() => {
     if (currentUser) {
       let spotsReviewsUserId = {};
-      spot.reviews.forEach(
-        (review) => (spotsReviewsUserId[review["user_id"]] = true)
-      );
+      spot.reviews.forEach((ele) => spotsReviewsUserId[(ele["user_id"])] = true);
       setReviewerIds(spotsReviewsUserId);
     }
   }, [spot.reviews]);

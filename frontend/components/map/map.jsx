@@ -17,8 +17,8 @@ class Map extends React.Component {
         northEast: { lat: north, lng: east },
         southWest: { lat: south, lng: west },
       };
-       
-      this.props.updateFilter('bounds', bounds);
+
+      this.props.updateFilter("bounds", bounds);
     });
   }
 
@@ -41,7 +41,6 @@ class Map extends React.Component {
   componentDidUpdate() {
     this.MarkerManager.updateMarkers(this.props.spots);
   }
-
 
   render() {
     return <div id="map" ref="map"></div>;

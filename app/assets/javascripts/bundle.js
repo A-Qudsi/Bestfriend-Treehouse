@@ -812,7 +812,7 @@ var Map = /*#__PURE__*/function (_React$Component) {
           }
         };
 
-        _this2.props.updateFilter('bounds', bounds);
+        _this2.props.updateFilter("bounds", bounds);
       });
     }
   }, {
@@ -1980,11 +1980,20 @@ var ReviewForm = function ReviewForm(props) {
 
   var spot = props.spot,
       currentUser = props.currentUser;
+<<<<<<< HEAD
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     if (currentUser) {
       var spotsReviewsUserId = {};
       spot.reviews.forEach(function (review) {
         return spotsReviewsUserId[review["user_id"]] = true;
+=======
+  var currentUserId = currentUser.id;
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    if (currentUser) {
+      var spotsReviewsUserId = {};
+      spot.reviews.forEach(function (ele) {
+        return spotsReviewsUserId[ele["user_id"]] = true;
+>>>>>>> ed87eab422940112e439c15c1a147ef6e4336cbb
       });
       setReviewerIds(spotsReviewsUserId);
     }
@@ -3044,7 +3053,7 @@ var SpotBody = function SpotBody(_ref) {
     className: "sTitle"
   }, "Enhanced Clean"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "sBody"
-  }, "This host committed to a rigorous cleaning protocol developed with leading health and hospitality experts. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, "This host committed to a rigorous cleaning protocol developed with leading health and hospitality experts.", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "learnmore"
   }, "Learn more")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "checkin"
