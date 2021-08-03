@@ -21,7 +21,7 @@ const EditReviewForm = (props) => {
       id: props.review.id,
       body: body,
       rating: rating,
-    })
+    });
     props.setEdit(false);
   };
 

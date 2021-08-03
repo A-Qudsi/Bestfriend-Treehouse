@@ -812,7 +812,7 @@ var Map = /*#__PURE__*/function (_React$Component) {
           }
         };
 
-        _this2.props.updateFilter('bounds', bounds);
+        _this2.props.updateFilter("bounds", bounds);
       });
     }
   }, {
@@ -3050,7 +3050,7 @@ var SpotBody = function SpotBody(_ref) {
     className: "sTitle"
   }, "Enhanced Clean"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "sBody"
-  }, "This host committed to a rigorous cleaning protocol developed with leading health and hospitality experts. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, "This host committed to a rigorous cleaning protocol developed with leading health and hospitality experts.", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "learnmore"
   }, "Learn more")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "checkin"
