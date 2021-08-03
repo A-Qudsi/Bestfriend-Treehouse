@@ -1980,20 +1980,12 @@ var ReviewForm = function ReviewForm(props) {
 
   var spot = props.spot,
       currentUser = props.currentUser;
-<<<<<<< HEAD
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    if (currentUser) {
-      var spotsReviewsUserId = {};
-      spot.reviews.forEach(function (review) {
-        return spotsReviewsUserId[review["user_id"]] = true;
-=======
   var currentUserId = currentUser.id;
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     if (currentUser) {
       var spotsReviewsUserId = {};
       spot.reviews.forEach(function (ele) {
         return spotsReviewsUserId[ele["user_id"]] = true;
->>>>>>> ed87eab422940112e439c15c1a147ef6e4336cbb
       });
       setReviewerIds(spotsReviewsUserId);
     }
@@ -2028,13 +2020,13 @@ var ReviewForm = function ReviewForm(props) {
   }, "Submit Review");
 
   if (currentUser) {
-    var currentUserId = currentUser.id;
+    var _currentUserId = currentUser.id;
     var usersReservationsSpotId = new Set();
     currentUser.reservations.forEach(function (ele) {
       return usersReservationsSpotId.add(ele["spot_id"]);
     });
 
-    if (currentUserId in reviewerIds) {
+    if (_currentUserId in reviewerIds) {
       button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "submit-button disabled",
         disabled: true
