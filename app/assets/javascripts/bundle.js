@@ -1939,12 +1939,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _reviews_star_rating__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reviews_star_rating */ "./frontend/components/reviews/reviews_star_rating.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -1986,7 +1980,15 @@ var ReviewForm = function ReviewForm(props) {
 
   var spot = props.spot,
       currentUser = props.currentUser;
-  var currentUserId = currentUser.id;
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    if (currentUser) {
+      var spotsReviewsUserId = {};
+      spot.reviews.forEach(function (review) {
+        return spotsReviewsUserId[review["user_id"]] = true;
+      });
+      setReviewerIds(spotsReviewsUserId);
+    }
+  }, [spot.reviews]);
 
   var submitReview = function submitReview(e) {
     e.preventDefault();
@@ -2003,10 +2005,10 @@ var ReviewForm = function ReviewForm(props) {
     }
 
     setBody("");
-    setRating("");
-    setReviewerIds(function (prevReviewerIds) {
-      return _objectSpread(_objectSpread({}, prevReviewerIds), {}, _defineProperty({}, currentUserId, true));
-    });
+    setRating(""); // setReviewerIds((prevReviewerIds) => ({
+    //   ...prevReviewerIds,
+    //   [currentUserId]: true,
+    // }));
   };
 
   var button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -2017,6 +2019,7 @@ var ReviewForm = function ReviewForm(props) {
   }, "Submit Review");
 
   if (currentUser) {
+    var currentUserId = currentUser.id;
     var usersReservationsSpotId = new Set();
     currentUser.reservations.forEach(function (ele) {
       return usersReservationsSpotId.add(ele["spot_id"]);
@@ -3795,11 +3798,9 @@ var reviewsReducer = function reviewsReducer() {
 
   switch (action.type) {
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_REVIEWS"]:
-      debugger;
       return action.reviews;
 
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_REVIEW"]:
-      debugger;
       newState[action.review.id] = action.review;
       return newState;
 
@@ -3961,8 +3962,8 @@ var spotsReducer = function spotsReducer() {
 
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_REVIEW"]:
       var spot = newState[action.review.spot_id];
-      spot.reviews = spot.reviews.filter(function (review) {
-        return review.id !== action.review.id;
+      spot.reviews = spot.review_ids.filter(function (review) {
+        return review !== action.review.id;
       });
       return newState;
 

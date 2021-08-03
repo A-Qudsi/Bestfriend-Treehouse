@@ -16,7 +16,17 @@ const ReviewForm = (props) => {
 
   const { spot, currentUser } = props;
 
-  const currentUserId = currentUser.id;
+  
+  
+  useEffect(() => {
+    if (currentUser) {
+      let spotsReviewsUserId = {};
+      spot.reviews.forEach(
+        (review) => (spotsReviewsUserId[review["user_id"]] = true)
+      );
+      setReviewerIds(spotsReviewsUserId);
+    }
+  }, [spot.reviews]);
 
   const submitReview = (e) => {
     e.preventDefault();
@@ -32,7 +42,12 @@ const ReviewForm = (props) => {
     }
     setBody("");
     setRating("");
-    setReviewerIds( prevReviewerIds => ( {... prevReviewerIds, [currentUserId] : true }));
+    
+    // setReviewerIds((prevReviewerIds) => ({
+    //   ...prevReviewerIds,
+    //   [currentUserId]: true,
+    // }));
+    
   };
 
   let button = (
@@ -42,12 +57,11 @@ const ReviewForm = (props) => {
   );
 
   if (currentUser) {
-
+    const currentUserId = currentUser.id;
     let usersReservationsSpotId = new Set();
     currentUser.reservations.forEach((ele) =>
       usersReservationsSpotId.add(ele["spot_id"])
     );
-
     if (currentUserId in reviewerIds) {
       button = (
         <button className="submit-button disabled" disabled>
