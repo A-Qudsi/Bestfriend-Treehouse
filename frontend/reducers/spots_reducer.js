@@ -21,15 +21,13 @@ const spotsReducer = (state = {}, action) => {
       return newState;
     case RECEIVE_REVIEW:
       if (!action.isUpdated) {
-        newState[action.review.spot_id].review_ids.push(action.review.id);
+        newState[action.review.spot_id].review_ids.push(action.review.id)
       }
       return newState;
     case REMOVE_REVIEW:
-      const spot = newState[action.review.spot_id];
-      spot.reviews = spot.reviews.filter(
-        (review) => review.id !== action.review.id
-      );
-      return newState;
+      const spot = newState[action.review.spot_id]
+      spot.reviews = spot.reviews.filter(review => review.id !== action.review.id)
+      return newState
     default:
       return state;
   }

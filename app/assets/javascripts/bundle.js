@@ -1990,8 +1990,8 @@ var ReviewForm = function ReviewForm(props) {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     if (currentUser) {
       var spotsReviewsUserId = {};
-      spot.reviews.forEach(function (review) {
-        return spotsReviewsUserId[review["user_id"]] = true;
+      spot.reviews.forEach(function (ele) {
+        return spotsReviewsUserId[ele["user_id"]] = true;
       });
       setReviewerIds(spotsReviewsUserId);
     }
