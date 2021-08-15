@@ -42,8 +42,7 @@ class Api::ReviewsController < ApplicationController
     end
 
     def reviews_validations
-        spot = {spot_id: review_params[:spot_id]}
+        spot = {spot_id: params[:spot_id]}
         return (current_user.reservations.exists?(spot) && !current_user.reviews.exists?(spot))
     end
-
 end
