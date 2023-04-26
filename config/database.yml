@@ -80,7 +80,7 @@ test:
 #
 production:
   <<: *default
-  # database: FairBNB_production
-  # username: FairBNB
-  # password: <%= ENV['FAIRBNB_DATABASE_PASSWORD'] %>
+  database: FairBNB_production
+  username: FairBNB
+  password: <%= ENV['FAIRBNB_DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
