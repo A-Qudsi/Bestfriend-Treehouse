@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="footer">
-      <span>© 2020 Bestfriend TreeHouse · Adel Qudsi · </span>
+      <span>© 2023 Bestfriend TreeHouse · Adel Qudsi · </span>
       <span>
         <a href="http://adelqudsi.com/" target="_blank">
           Portfolio ·{" "}
